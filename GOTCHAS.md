@@ -41,8 +41,9 @@ collected from client repos into those files.
   (What did work: reference paths `post-author:name`, `category:name`, and
   `"type":"Date"` renders ISO `YYYY-MM-DD`.)
 - Fix: reverted on staging the same day; never published. Validation file:
-  `docs/audit/2026-10-19-posts-cms-schema-validation.json`. D4 reopened.
-- Status: open
+  `docs/audit/2026-10-19-posts-cms-schema-validation.json`. Decision D4b:
+  the browser-built script stays in the Posts template.
+- Status: worked around (script kept)
 - Found by: claude
 
 

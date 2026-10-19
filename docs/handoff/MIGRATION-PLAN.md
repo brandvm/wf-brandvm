@@ -151,9 +151,10 @@ Progress (2026-10-19):
   recipe (list + socialshare, pinned 2.7.1, was the floating `@2` CDN tag).
   Same bytes as before; pages without `fs-list` markup (About, Contact,
   posts) no longer load List. Filters click-tested on staging by Asheem.
-- **3.4 tried, reverted (D4b open):** CMS-bound BlogPosting JSON-LD
+- **3.4 tried, reverted; script stays (D4b):** CMS-bound BlogPosting JSON-LD
   failed validation on 809 of 1,167 posts on staging (escaped text, empty
-  author/image); never published.
+  author/image); never published. Asheem chose to keep the browser-built
+  script in the Posts template for now.
 - **Kept in Webflow until Stage 4:** the Home hero-panels script (it
   reveals the LCP element inline; moving it into the async bundle would
   delay that) and the Work page Finsweet → IX2 restart hook (needs IX2).
@@ -167,7 +168,7 @@ tagged CSS section, then is deleted from Webflow **in the same batch**. In
 | Home › page footer | hero panel alignment (`[data-hero-panels]`) | `hero-panels.ts` |
 | About › page footer | Orbit gallery: 280 lines of JS + CSS, uses Webflow's `window.gsap` | `orbit.ts` + CSS §05; must move with Stage 4 GSAP |
 | Industries › head + footer | hero carousel random tilt + reduced-motion CSS | `industry-tilt.ts` + CSS §07 |
-| Posts template › footer | BlogPosting JSON-LD built in the browser | CMS-bound JSON-LD in the Posts template (D4), checked with `wf:seo` before the script is removed |
+| Posts template › footer | BlogPosting JSON-LD built in the browser | **Stays in Webflow** (D4b: CMS-bound failed validation; revisit later) |
 | Work › footer | Finsweet list hook that restarts IX2 | Goes away once IX2 moves to the repo (Stage 4) |
 | Site head | Finsweet Attributes CDN tag (`fs-list fs-socialshare fs-autovideo`) | Template `recipes/finsweet` (bundled, not a CDN tag); `fs-autovideo` is dropped (it fights `lazy-videos`; already noted in brandvm GOTCHAS) |
 | App-injected, every page | Flowbase tab-rotation script; used only by the About "Our Work" client tabs (`fb-tabs`, 15 s, progress bar) | `tab-rotation.ts` reading the same `fb-tabs-*` attributes, so the Designer markup stays; runs only where `[fb-tabs]` exists |
