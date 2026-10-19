@@ -127,8 +127,62 @@ mobile **41–56**, desktop **55–82** across the 10 key pages; mobile LCP
 7.8–22.5 s; most pages 10–16 MB; the Work page **~98 MB**; CLS > 0.25 on six
 page/mode pairs; TBT ≤ 233 ms.
 
+## Visual baselines and noise floor *measured*
+
+`pnpm wf:baseline save --live` on the 10 key pages at 1440, 820 and 390
+(`baselines/`, kept out of git), then two `compare --live` runs with
+nothing changed. The noise floor is the largest share of pixels that
+differed between untouched runs; a later batch counts as visible only
+above it.
+
+| Page | 1440 | 820 | 390 | Source of the noise |
+| --- | --- | --- | --- | --- |
+| `/` | 0.0% | 0.0% | 0.0% | — |
+| `/about` | 1.9% | 1.0% | 1.1% | Orbit gallery (scroll-driven), team cards |
+| `/contact` | 0.0% | 0.0% | 0.0% | — |
+| `/web-design` | 0.3% | 0.0% | 0.0% | services tabs |
+| `/branding` | 0.1% | 0.0% | 0.1% | services tabs |
+| `/our-work-portfolio` | 0.0% | 2.7% | 0.0% | project cards (Finsweet list render) |
+| `/insights` | 0.0% | 0.0% | 0.0% | — |
+| `/services` | 0.3%, height ±60 px | 0.0% | 0.0% | bottom of page (rows 9103–9162) |
+| case study | 0.2% | 2.6% | 1.1% | case-next scroll section |
+| post | 0.0% | 0.0% | 0.0% | — |
+
+## Read-only checks *measured* (2026-10-19, `--live`)
+
+Full output in `docs/audit/2026-10-19-*.txt`. These describe the site
+**before** any change; later batches are compared against them. Fixing
+them is not part of the parity work unless a decision says so.
+
+- **Accessibility** (`wf:a11y --all-widths`, 10 key pages × 3 widths):
+  38 serious/critical rule failures. Touch targets under 24 px (19:
+  phone-number links in the footer and contact sections, author links on
+  insight cards), links without discernible text (15: author links in
+  insight cards and the newsletter slider, the mobile menu button),
+  `aria-required-parent` (2, critical: CMS `listitem`s outside a `list`
+  in Case Next and the Insights header), colour contrast (2:
+  `.label-highlight.u-muted-50` text).
+- **Links** (`wf:links --external`, first 50 pages): no internal 404s.
+  92 links are empty or `#` (sub-service chips on service pages, "Read
+  More +", award badges, sort controls, Privacy/T&C on Insights pages).
+  External 4xx come from Facebook, X, LinkedIn, Indeed and similar
+  bot-blocking sites (probably fine in a browser). One dead domain:
+  `assetcomet.com` (linked from /branding/visual-identity).
+- **Published HTML** (`wf:html`, key pages): 60 Webflow Tab links without
+  `href` (Webflow's tab component; the template suggests button
+  elements). 42 class names that no stylesheet defines (naming-only
+  wrappers such as `s-services` and `sw-faqs`, the
+  `js-close-dropdown` script hook, HubSpot/reCAPTCHA classes). Console:
+  Cloudflare Turnstile CSP noise on the contact form.
+- **SEO** (`wf:seo`, first 500 sitemap URLs): 244 findings. **211 posts
+  have an empty `og:image`** (the Posts template binds `post-thubmnail`,
+  which is empty on those items); 30 static pages have no `og:image`;
+  3 posts have 2–4 `<h1>`. The rest are length notes (445 titles and
+  251 descriptions outside the suggested length).
+- **Heading outline** (`wf:outline`, Home; the script takes one path):
+  one H1; four section overlines are H4s directly under H1/H2 ("skipped a
+  level"): Selected Clients, Services, Industries, Common Questions.
+
 ## Not yet measured (Stage 0/1)
 
 - PageSpeed via the PSI API: the keyless quota ran out; needs a key.
-- Visual baselines / noise floor, outline, a11y, links, published-HTML and
-  SEO checks: Stage 1.

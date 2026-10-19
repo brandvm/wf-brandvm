@@ -1,0 +1,26 @@
+<script>
+(function () {
+  if (window.__bvFooterStarted) return;
+  window.__bvFooterStarted = true;
+  var VER = '1.1.1';
+  var PROD_JS = 'https://cdn.jsdelivr.net/gh/brandvm/brandvm@' + VER + '/dist/index.js';
+  function js(src, fallback) {
+    var s = document.createElement('script');
+    s.src = src;
+    if (fallback) s.onerror = fallback;
+    document.head.appendChild(s);
+  }
+  var C = window.BV;
+  if (!C) {
+    console.warn('[bv] Configuration Embed missing; loading production JS only.');
+    return js(PROD_JS);
+  }
+  var v = '?v=' + Date.now();
+  function staging() {
+    js(C.stag + 'index.js' + v, function () { js(PROD_JS); });
+  }
+  if (C.dev) js(C.devBase + 'index.js', staging);
+  else if (C.staging) staging();
+  else js(PROD_JS);
+})();
+</script>

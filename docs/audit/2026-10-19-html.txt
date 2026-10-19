@@ -1,0 +1,217 @@
+$ node .claude/skills/webflow-build/scripts/html.mjs --live
+
+/
+  link with no href: <a data-w-tab="Branding" class="service-tab-link w-inline-block w-tab-link w--current">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Web Design" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="SEO" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="UI/UX" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Consultation" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Digital Marketing" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Technology" class="industry-tab-link w-inline-block w-tab-link w--current">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Professional Services" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Healthcare" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Legal" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Real Estate" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Ecommerce" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Startups" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Education" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Nonprofit" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Food &amp; Beverages" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Entertainment" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Hospitality" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  class "js-close-dropdown" is defined in no stylesheet (on class="mega-menu-overlay js-close-dropdown"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "s-services" is defined in no stylesheet (on class="section s-services"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "heading-with-image" is defined in no stylesheet (on class="heading-with-image"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "is_web-design" is defined in no stylesheet (on class="service-tab-pane is_web-design w-tab-pane"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "s-project" is defined in no stylesheet (on class="section s-project"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "project-card-tag-item" is defined in no stylesheet (on class="project-card-tag-item w-dyn-item"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "max-width-content" is defined in no stylesheet (on class="max-width-content"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "section-heading-line-w" is defined in no stylesheet (on class="section-heading-line-w d2"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sh-line-block" is defined in no stylesheet (on class="sh-line-block u-font-accent u-accent-blue"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "u-lh-100" is defined in no stylesheet (on class="u-lh-100"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-faqs" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-faqs w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "faqs-cms-item" is defined in no stylesheet (on class="faqs-cms-item w-dyn-item"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "s-insights" is defined in no stylesheet (on class="section s-insights"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "hs-form-slot" is defined in no stylesheet (on class="hs-form-slot"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-g-footer" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-g-footer w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  (prototype not reachable at http://127.0.0.1:5966/: hook comparison skipped)
+
+/about
+  link with no href: <a data-w-tab="Tab 1" class="about-work-tab-link w-inline-block w-tab-link w--current">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Tab 2" class="about-work-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  class "js-close-dropdown" is defined in no stylesheet (on class="mega-menu-overlay js-close-dropdown"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-hero" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-hero w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "max-width-content" is defined in no stylesheet (on class="max-width-content"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "heading-with-image" is defined in no stylesheet (on class="heading-with-image"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "u-lh-100" is defined in no stylesheet (on class="u-lh-100"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-methodology" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-methodology w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "location-left" is defined in no stylesheet (on class="location-left"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "move-normal" is defined in no stylesheet (on class="location-card move-normal w-inline-block"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "location-card-description" is defined in no stylesheet (on class="location-card-description"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "section-heading-line-w" is defined in no stylesheet (on class="section-heading-line-w d2"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sh-line-block" is defined in no stylesheet (on class="sh-line-block u-font-accent u-accent-blue"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "about-work-w" is defined in no stylesheet (on class="about-work-w w-dyn-list"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-faqs" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-faqs w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "faqs-cms-item" is defined in no stylesheet (on class="faqs-cms-item w-dyn-item"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "hs-form-slot" is defined in no stylesheet (on class="hs-form-slot"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-g-footer" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-g-footer w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  (prototype not reachable at http://127.0.0.1:5966/about: hook comparison skipped)
+
+/contact
+  class "js-close-dropdown" is defined in no stylesheet (on class="mega-menu-overlay js-close-dropdown"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "hs-form-slot" is defined in no stylesheet (on class="hs-form-slot"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "hs-form-iframe" is defined in no stylesheet (on class="hs-form-iframe"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "grecaptcha-badge" is defined in no stylesheet (on class="grecaptcha-badge"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "grecaptcha-logo" is defined in no stylesheet (on class="grecaptcha-logo"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "grecaptcha-error" is defined in no stylesheet (on class="grecaptcha-error"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "g-recaptcha-response" is defined in no stylesheet (on class="g-recaptcha-response"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "s-contact-next" is defined in no stylesheet (on class="section s-contact-next"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "heading-with-image" is defined in no stylesheet (on class="heading-with-image"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-g-footer" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-g-footer w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  (prototype not reachable at http://127.0.0.1:5966/contact: hook comparison skipped)
+  console: console: requestStorageAccess: Permission denied.
+
+/web-design
+  link with no href: <a data-w-tab="Custom Web Design" class="service-tab-link w-inline-block w-tab-link w--current">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Redesign" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Responsive Web Design" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Accessible Web Design" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="eCommerce" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Small Business Websites" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="B2B" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="UX-Led" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Technology" class="industry-tab-link w-inline-block w-tab-link w--current">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Professional Services" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Healthcare" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Legal" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Real Estate" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Ecommerce" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Startups" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Education" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Nonprofit" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Food &amp; Beverages" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Entertainment" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Hospitality" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  class "js-close-dropdown" is defined in no stylesheet (on class="mega-menu-overlay js-close-dropdown"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "breadcrumb" is defined in no stylesheet (on class="breadcrumb"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "s-services" is defined in no stylesheet (on class="section s-services"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "heading-with-image" is defined in no stylesheet (on class="heading-with-image"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "is_web-design" is defined in no stylesheet (on class="service-tab-pane is_web-design w-tab-pane w--tab-active"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "services-dev-platform-w" is defined in no stylesheet (on class="services-dev-platform-w w-dyn-list"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "services-dev-platform-image" is defined in no stylesheet (on class="services-dev-platform-image"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "s-project" is defined in no stylesheet (on class="section s-project"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "project-card-tag-item" is defined in no stylesheet (on class="project-card-tag-item w-dyn-item"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "max-width-content" is defined in no stylesheet (on class="max-width-content"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "section-heading-line-w" is defined in no stylesheet (on class="section-heading-line-w d2"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sh-line-block" is defined in no stylesheet (on class="sh-line-block u-font-accent u-accent-blue"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "u-lh-100" is defined in no stylesheet (on class="u-lh-100"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "s-insights" is defined in no stylesheet (on class="section s-insights"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-faqs" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-faqs w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "faqs-cms-item" is defined in no stylesheet (on class="faqs-cms-item w-dyn-item"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "hs-form-slot" is defined in no stylesheet (on class="hs-form-slot"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-g-footer" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-g-footer w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  (prototype not reachable at http://127.0.0.1:5966/web-design: hook comparison skipped)
+
+/branding
+  link with no href: <a data-w-tab="Logo Design" class="service-tab-link w-inline-block w-tab-link w--current">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Visual Identity" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Brand Strategy" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Brand Research" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Graphic Design" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Brand Naming" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Rebranding" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Brand  Guidelines" class="service-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Technology" class="industry-tab-link w-inline-block w-tab-link w--current">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Professional Services" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Healthcare" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Legal" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Real Estate" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Ecommerce" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Startups" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Education" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Nonprofit" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Food &amp; Beverages" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Entertainment" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  link with no href: <a data-w-tab="Hospitality" class="industry-tab-link w-inline-block w-tab-link">  Rebuild it as a DOM element with tag button, or give it a link.
+  class "js-close-dropdown" is defined in no stylesheet (on class="mega-menu-overlay js-close-dropdown"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "breadcrumb" is defined in no stylesheet (on class="breadcrumb"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "s-services" is defined in no stylesheet (on class="section s-services"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "heading-with-image" is defined in no stylesheet (on class="heading-with-image"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "is_web-design" is defined in no stylesheet (on class="service-tab-pane is_web-design w-tab-pane w--tab-active"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "s-project" is defined in no stylesheet (on class="section s-project"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "project-card-tag-item" is defined in no stylesheet (on class="project-card-tag-item w-dyn-item"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "max-width-content" is defined in no stylesheet (on class="max-width-content"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "section-heading-line-w" is defined in no stylesheet (on class="section-heading-line-w d2"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sh-line-block" is defined in no stylesheet (on class="sh-line-block u-font-accent u-accent-blue"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "u-lh-100" is defined in no stylesheet (on class="u-lh-100"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "s-insights" is defined in no stylesheet (on class="section s-insights"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-faqs" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-faqs w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "faqs-cms-item" is defined in no stylesheet (on class="faqs-cms-item w-dyn-item"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "hs-form-slot" is defined in no stylesheet (on class="hs-form-slot"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-g-footer" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-g-footer w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  (prototype not reachable at http://127.0.0.1:5966/branding: hook comparison skipped)
+
+/our-work-portfolio
+  class "js-close-dropdown" is defined in no stylesheet (on class="mega-menu-overlay js-close-dropdown"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "filter-item" is defined in no stylesheet (on class="filter-item w-dyn-item"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "case-study-cms-w" is defined in no stylesheet (on class="case-study-cms-w w-dyn-list"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "hs-form-slot" is defined in no stylesheet (on class="hs-form-slot"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-g-footer" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-g-footer w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  (prototype not reachable at http://127.0.0.1:5966/our-work-portfolio: hook comparison skipped)
+  console: console: Connecting to 'data:,' violates the following Content Security Policy directive: "connect-src 'self' https://hagen.challenges.cloudflare.com https://br
+  console: console: Fetch API cannot load data:,. Refused to connect because it violates the document's Content Security Policy.
+
+/insights
+  class "js-close-dropdown" is defined in no stylesheet (on class="mega-menu-overlay js-close-dropdown"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "section-heading-line-w" is defined in no stylesheet (on class="section-heading-line-w d1"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sh-hero-line" is defined in no stylesheet (on class="sh-hero-line"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sh-line-block" is defined in no stylesheet (on class="sh-line-block"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "filter-item" is defined in no stylesheet (on class="filter-item w-dyn-item"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-featured-article" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-featured-article w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-insights-category" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-insights-category w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-g-footer" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-g-footer w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  (prototype not reachable at http://127.0.0.1:5966/insights: hook comparison skipped)
+
+/services
+  class "js-close-dropdown" is defined in no stylesheet (on class="mega-menu-overlay js-close-dropdown"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-hero" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-hero w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "max-width-content" is defined in no stylesheet (on class="max-width-content"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "s-service-hub-list" is defined in no stylesheet (on class="section s-service-hub-list"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "services-nav-icon" is defined in no stylesheet (on class="services-nav-icon"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "services-hub-nav-arrow-w" is defined in no stylesheet (on class="services-hub-nav-arrow-w"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "services-dev-platform-w" is defined in no stylesheet (on class="services-dev-platform-w w-dyn-list"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "services-dev-platform-image" is defined in no stylesheet (on class="services-dev-platform-image"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "section-heading-line-w" is defined in no stylesheet (on class="section-heading-line-w d2"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sh-line-block" is defined in no stylesheet (on class="sh-line-block u-font-accent u-accent-blue"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "u-lh-100" is defined in no stylesheet (on class="u-lh-100"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "s-insights" is defined in no stylesheet (on class="section s-insights"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-faqs" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-faqs w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "faqs-cms-item" is defined in no stylesheet (on class="faqs-cms-item w-dyn-item"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "hs-form-slot" is defined in no stylesheet (on class="hs-form-slot"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-g-footer" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-g-footer w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  (prototype not reachable at http://127.0.0.1:5966/services: hook comparison skipped)
+
+/case-studies/accounting-advisory-firm-website
+  class "js-close-dropdown" is defined in no stylesheet (on class="mega-menu-overlay js-close-dropdown"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "breadcrumb" is defined in no stylesheet (on class="breadcrumb"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "to-open" is defined in no stylesheet (on class="c-drop-toggle-label link-underline to-open"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "s-case-next" is defined in no stylesheet (on class="section s-case-next"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "heading-with-image" is defined in no stylesheet (on class="heading-with-image"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "hs-form-slot" is defined in no stylesheet (on class="hs-form-slot"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-g-footer" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-g-footer w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "project-card-tag-item" is defined in no stylesheet (on class="project-card-tag-item w-dyn-item"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  (prototype not reachable at http://127.0.0.1:5966/case-studies/accounting-advisory-firm-website: hook comparison skipped)
+
+/post/10-essential-marketing-metrics
+  class "js-close-dropdown" is defined in no stylesheet (on class="mega-menu-overlay js-close-dropdown"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-post-hero" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-post-hero w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "breadcrumb" is defined in no stylesheet (on class="breadcrumb"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "post-author-bio" is defined in no stylesheet (on class="post-author-bio"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-insights-category" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-insights-category w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "section-heading-line-w" is defined in no stylesheet (on class="section-heading-line-w d3"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sh-line-block" is defined in no stylesheet (on class="sh-line-block u-font-accent"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  class "sw-g-footer" is defined in no stylesheet (on class="w-layout-blockcontainer s-wrapper sw-g-footer w-container"): a conditional class typed with a typo, a renamed class, or a script hook that should be a data attribute.
+  (prototype not reachable at http://127.0.0.1:5966/post/10-essential-marketing-metrics: hook comparison skipped)
+
+html: 183 findings
+[ELIFECYCLE] Command failed with exit code 1.

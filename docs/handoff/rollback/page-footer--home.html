@@ -1,0 +1,36 @@
+<script>
+  (() => {
+    const hero = document.querySelector('[data-hero-panels]');
+    if (!hero) return;
+
+    // Measure each panel's offset within the hero, write CSS vars
+    function align() {
+      const heroRect = hero.getBoundingClientRect();
+      hero.style.setProperty('--hero-width', heroRect.width + 'px');
+      hero.querySelectorAll('.hero-panels__panel').forEach((panel) => {
+        const rect = panel.getBoundingClientRect();
+        panel.style.setProperty('--panorama-offset', `${-(rect.left - heroRect.left)}px`);
+      });
+    }
+
+    align();
+
+    let raf;
+    window.addEventListener(
+      'resize',
+      () => {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(align);
+      },
+      { passive: true },
+    );
+
+    // Re-measure after fonts load (catches layout shift)
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(align);
+    }
+
+    // Trigger the reveal
+    setTimeout(() => hero.setAttribute('data-state', 'revealed'), 0);
+  })();
+</script>

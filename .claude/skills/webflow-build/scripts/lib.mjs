@@ -43,6 +43,10 @@ export function loadConfig() {
   cfg.widths ??= [[1440, 900], [820, 1180], [390, 844]];
   cfg.prototypeUrl = cfg.prototypeUrl?.replace(/\/$/, '');
   cfg.stagingUrl = cfg.stagingUrl?.replace(/\/$/, '');
+  // --live means the custom domain once one is configured (webflow-audit
+  // runs every check with --live). Scripts that build URLs from stagingUrl
+  // then measure what visitors of the live site get.
+  if (process.argv.includes('--live') && cfg.liveUrl) cfg.stagingUrl = cfg.liveUrl.replace(/\/$/, '');
   return cfg;
 }
 

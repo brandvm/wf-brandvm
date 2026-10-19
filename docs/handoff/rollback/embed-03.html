@@ -1,0 +1,26 @@
+<script>
+  (function () {
+    var VER = '1.1.1';
+    var PROD_CSS = 'https://cdn.jsdelivr.net/gh/brandvm/brandvm@' + VER + '/dist/styles.css';
+    var STAG = 'https://brandvm.github.io/brandvm/';
+    var DEV = 'http://localhost:3000/';
+    var staging = /\.webflow\.io$/.test(location.hostname) || /\.canvas\.webflow\.com$/.test(location.hostname);
+    var flag = false;
+    if (staging) {
+      try {
+        var value = new URLSearchParams(location.search).get('bv-dev');
+        if (value !== null) {
+          flag = value === '1';
+          try {
+            localStorage.setItem('bv-dev', value);
+          } catch (e) {}
+        } else flag = localStorage.getItem('bv-dev') === '1';
+      } catch (e) {}
+    }
+    window.BV = { staging: staging, dev: flag, devBase: DEV, stag: STAG };
+    var base = document.getElementById('bv-css');
+    var dev = document.getElementById('bv-css-dev');
+    if (base) base.href = staging ? STAG + 'styles.css?v=' + Date.now() : PROD_CSS;
+    if (dev && !flag) dev.remove();
+  })();
+</script>

@@ -6,7 +6,7 @@ started, in progress, on staging, live, dropped (and why).
 | # | Request (your wording) | State | Stage | Date |
 | --- | --- | --- | --- | --- |
 | 1 | "make new repo brandvision in Github from wf-template" | done: `brandvm/wf-brandvm` (the name `brandvision` is taken by the Astro prototype; you chose `wf-brandvm`) | 0 | 2026-10-19 |
-| 2 | "stage 1 should be make a plan based on lessons and skills in wf-template to migrate current website code and behind the scenes as to follow wf-template" | in progress: `MIGRATION-PLAN.md`, waiting on your review | 1 | 2026-10-19 |
+| 2 | "stage 1 should be make a plan based on lessons and skills in wf-template to migrate current website code and behind the scenes as to follow wf-template" | plan approved 2026-10-19; Stage 1 done except the [Person] steps (Webflow backup, branch protection, Flowbase source) | 1 | 2026-10-19 |
 | 3 | "make new repo when used in website work as it is currently visually and functionally but still keeping it optimizable" | not started | 2 | |
 | 4 | "Save all pages HD screenshot of current state of website, CMS template pages can use only two screenshots" | done: 50 pages × desktop @2x + mobile @3x, `Brand Vision/screenshots/2026-10-19-live/` | 0 | 2026-10-19 |
 | 5 | "see which sections/elements/components/etc. are same or similar can be optimized by reducing the use of classes, component types, etc." (not a goal in itself) | analysis done (`AUDIT.md` › Similarity); waiting on your Figma review | 6 | 2026-10-19 |

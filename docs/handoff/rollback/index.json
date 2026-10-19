@@ -1,0 +1,138 @@
+{
+ "site": [
+  "site-head.html",
+  "site-footer.html"
+ ],
+ "pageHead": {
+  "page-head--home.html": [
+   "home"
+  ],
+  "page-head--industries.html": [
+   "industries"
+  ],
+  "page-head--insights.html": [
+   "insights"
+  ],
+  "page-head--us.html": [
+   "us"
+  ],
+  "page-head--web-design.html": [
+   "web-design"
+  ]
+ },
+ "pageFooter": {
+  "page-footer--about.html": [
+   "about"
+  ],
+  "page-footer--home.html": [
+   "home"
+  ],
+  "page-footer--industries.html": [
+   "industries"
+  ],
+  "page-footer--our-work-portfolio.html": [
+   "our-work-portfolio"
+  ],
+  "page-footer--post_10-ai-side-hustles-make-money-2025.html": [
+   "post_10-ai-side-hustles-make-money-2025",
+   "post_10-essential-marketing-metrics"
+  ]
+ },
+ "embeds": [
+  {
+   "file": "embed-01.html",
+   "class": "w-embed",
+   "bytes": 246,
+   "pages": 50,
+   "examples": [
+    "404",
+    "about",
+    "brand-vision-insights-terms",
+    "brand-vision-insights_author_arash-f",
+    "brand-vision-insights_author_arman-tale"
+   ]
+  },
+  {
+   "file": "embed-02.html",
+   "class": "w-embed",
+   "bytes": 184,
+   "pages": 50,
+   "examples": [
+    "404",
+    "about",
+    "brand-vision-insights-terms",
+    "brand-vision-insights_author_arash-f",
+    "brand-vision-insights_author_arman-tale"
+   ]
+  },
+  {
+   "file": "embed-03.html",
+   "class": "w-embed w-script",
+   "bytes": 1032,
+   "pages": 50,
+   "examples": [
+    "404",
+    "about",
+    "brand-vision-insights-terms",
+    "brand-vision-insights_author_arash-f",
+    "brand-vision-insights_author_arman-tale"
+   ]
+  },
+  {
+   "file": "embed-04.html",
+   "class": "hubspot-form w-embed w-script",
+   "bytes": 2578,
+   "pages": 35,
+   "examples": [
+    "about",
+    "branding",
+    "branding_brand-naming",
+    "branding_brand-research",
+    "case-studies_accounting-advisory-firm-website"
+   ]
+  },
+  {
+   "file": "embed-05.html",
+   "class": "w-embed",
+   "bytes": 1045,
+   "pages": 6,
+   "examples": [
+    "branding_brand-naming",
+    "branding_brand-research",
+    "industry_b2b-marketing",
+    "industry_b2c-marketing",
+    "web-design_shopify"
+   ]
+  },
+  {
+   "file": "embed-06.html",
+   "class": "hubspot-form w-embed w-script",
+   "bytes": 342,
+   "pages": 1,
+   "examples": [
+    "contact"
+   ]
+  },
+  {
+   "file": "embed-07.html",
+   "class": "w-embed",
+   "bytes": 455,
+   "pages": 1,
+   "examples": [
+    "our-work-portfolio"
+   ]
+  },
+  {
+   "file": "embed-08.html",
+   "class": "w-embed",
+   "bytes": 1049,
+   "pages": 4,
+   "examples": [
+    "seo-agency_ai-search-optimization",
+    "seo-agency_content-strategy",
+    "ui-ux-agency_interaction-design",
+    "ui-ux-agency_ux-audit"
+   ]
+  }
+ ]
+}

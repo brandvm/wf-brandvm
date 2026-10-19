@@ -1,0 +1,63 @@
+$ node .claude/skills/webflow-build/scripts/outline.mjs --live / /about /contact /web-design /branding /our-work-portfolio /insights /services /case-studies/accounting-advisory-firm-website /post/10-essential-marketing-metrics
+H1  Award-Winning Branding & Web Design Agency
+      H4  Selected Clients   << skipped a level
+  H2  Trusted by ‍Leading Brands
+      H4  Services   << skipped a level
+  H2  Brand Vision's Web Design & Branding Services
+    H3  Branding & Visual Design
+    H3  Web Design & Development
+    H3  Search Engine Optimization (SEO & GEO)
+    H3  User Experience ‍and User Interface (UX/UI)
+    H3  Consultation & Audits
+    H3  Digital Marketing Services
+      H4  Selected Work
+  H2  Branding & Web Design Work
+      H4  Industries   << skipped a level
+  H2  Industries We Collaborate With
+    H3  Technology, SaaS, and B2B Software
+    H3  B2B, Consulting, and Professional Services
+    H3  Health, Wellness, and Medical
+    H3  Law Firms and Legal Services
+    H3  Real Estate, Construction, and Property Development
+    H3  Ecommerce, Retail, and Direct-to-Consumer
+    H3  Startups and Emerging Companies
+    H3  Education, Schools, and Institutions
+    H3  Nonprofits and Mission-Driven Organizations
+    H3  Food, Beverage, and Restaurant
+    H3  Entertainment, Media, and Performing Arts
+    H3  Travel, Hospitality, and Tourism
+      H4  Our Record
+  H2  Why Choose Brand Vision
+      H4  Common Questions   << skipped a level
+  H2  Frequently Asked Questions
+    H3  Who is Brand Vision?
+    H3  Why work with Brand Vision?
+    H3  How long have you been in business?
+    H3  How big is your team?
+    H3  Is all the work done in-house?
+    H3  Where are you based, and can we work remote?
+    H3  Who are your clients, and where is the work?
+    H3  What size companies do you work with?
+    H3  Branding or the website first?
+    H3  Can you work with our existing website?
+    H3  Can you work with our in-house team?
+    H3  How much does a project cost?
+    H3  How long does a typical project take?
+    H3  Project basis or monthly retainer?
+    H3  How do we get an estimate for our project?
+    H3  What is your process?
+    H3  Who will actually work on our project?
+    H3  What do you need from us, and how much time?
+    H3  Do you use templates or build custom?
+    H3  Do we own the website and brand files?
+    H3  Can our team update the website ourselves?
+    H3  Will a redesign affect our search rankings?
+    H3  What happens after launch?
+    H3  What awards has Brand Vision won?
+  H2  Research & Findings
+    H3  Message Testing: Validating Brand Claims Before a Website or Campaign Investment
+    H3  Customer Segmentation Strategy: Choosing Where to Compete and Where to Stop Investing
+    H3  B2B Branding Strategy: Positioning, Proof and Buying-Committee Trust
+    H3  SEO Pricing Explained: Costs, Retainers and Project Fees
+      H4  Let’s Talk
+  H2  Contact Us

@@ -1,0 +1,14 @@
+<style>
+  .case-study-list > .case-study-item:nth-child(3n + 1) {
+    grid-column: 1 / -1;
+  }
+  .case-study-list > .case-study-item:nth-child(3n + 1) .case-study-media {
+    aspect-ratio: 1580 / 634 !important;
+  }
+  /* Styles apply to screens that are 768px wide OR LESS */
+  @media screen and (max-width: 768px) {
+    .case-study-list > .case-study-item:nth-child(3n + 1) .case-study-media {
+      aspect-ratio: 398 / 278 !important;
+    }
+  }
+</style>

@@ -1,0 +1,77 @@
+<div class="hs-form-slot" data-hs-form="7a162eb3-35f1-476d-8877-2d1bd30b0f28" data-hs-portal="22077182" data-hs-region="na1"></div>
+
+<script>
+  (function () {
+    var SRC = 'https://js.hsforms.net/forms/embed/v2.js';
+    var loading = null;
+    var n = 0;
+    function ensureJS() {
+      if (window.hbspt && window.hbspt.forms) return Promise.resolve();
+      if (loading) return loading;
+      loading = new Promise(function (resolve, reject) {
+        var ready = function () {
+          window.hbspt && window.hbspt.forms ? resolve() : setTimeout(ready, 40);
+        };
+        if (document.querySelector('script[src*="js.hsforms.net/forms/embed/v2.js"]')) return ready();
+        var s = document.createElement('script');
+        s.src = SRC;
+        s.defer = true;
+        s.onload = ready;
+        s.onerror = function () {
+          loading = null;
+          reject();
+        };
+        document.body.appendChild(s);
+      });
+      return loading;
+    }
+    function create(el) {
+      if (!el || el.dataset.hsInited) return;
+      el.dataset.hsInited = '1';
+      if (!el.id) el.id = 'hs-form-slot-t' + ++n;
+      ensureJS()
+        .then(function () {
+          window.hbspt.forms.create({
+            region: el.dataset.hsRegion || 'na1',
+            portalId: el.dataset.hsPortal,
+            formId: el.dataset.hsForm,
+            target: '#' + el.id,
+          });
+        })
+        .catch(function () {
+          delete el.dataset.hsInited;
+        });
+    }
+    function boot() {
+      var els = Array.prototype.slice.call(document.querySelectorAll('[data-hs-form]')).filter(function (el) {
+        return !el.dataset.hsInited;
+      });
+      if (!els.length) return;
+      els.forEach(function (el) {
+        if (el.dataset.hsLoad === 'idle') {
+          var run = function () {
+            create(el);
+          };
+          'requestIdleCallback' in window ? requestIdleCallback(run, { timeout: 4000 }) : setTimeout(run, 2500);
+        } else if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(
+            function (entries, obs) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  create(e.target);
+                  obs.unobserve(e.target);
+                }
+              });
+            },
+            { rootMargin: '600px 0px' },
+          );
+          io.observe(el);
+        } else {
+          create(el);
+        }
+      });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+    else boot();
+  })();
+</script>

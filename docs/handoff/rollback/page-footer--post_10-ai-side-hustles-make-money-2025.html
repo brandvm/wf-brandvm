@@ -1,0 +1,129 @@
+<script>
+  (function () {
+    'use strict';
+
+    function buildArticleSchema() {
+      if (!/^\/post\/[^/]+\/?$/.test(window.location.pathname)) return;
+
+      var header = document.querySelector('.post-header');
+      var heading = header && header.querySelector('h1');
+      var headline = clean(heading && heading.textContent);
+      if (!headline) return;
+
+      var origin = 'https://www.brandvm.com';
+      var pageUrl = origin + window.location.pathname.replace(/\/$/, '');
+      var schema = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        '@id': pageUrl + '#article',
+        mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+        url: pageUrl,
+        headline: headline,
+        publisher: {
+          '@type': 'Organization',
+          name: 'Brand Vision Insights',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/67e6e475f65ac4afd214cec2_Brand%20Vision%20Insights%20Logo.svg',
+          },
+        },
+        isPartOf: { '@id': origin + '/#website' },
+        inLanguage: document.documentElement.lang || 'en',
+      };
+
+      var description = document.querySelector('meta[name="description"]');
+      if (description && clean(description.content)) {
+        schema.description = clean(description.content);
+      }
+
+      var hero = header.querySelector('.post-header-visual-w img');
+      var ogImage = document.querySelector('meta[property="og:image"]');
+      var imageUrl = absoluteUrl(hero && hero.getAttribute('src')) || absoluteUrl(ogImage && ogImage.content);
+      if (imageUrl) schema.image = [imageUrl];
+
+      var section = clean((header.querySelector('.post-header-badge') || {}).textContent);
+      if (section) schema.articleSection = section;
+
+      var authorCard = document.querySelector('.post-author-info-w');
+      var authorName = authorCard && authorCard.querySelector('.post-author-name > :first-child');
+      var name = clean(authorName && authorName.textContent);
+      if (name) {
+        schema.author = { '@type': 'Person', name: name };
+        // Match only the named article author, never a different recommended-post author.
+        var profileUrls = [];
+        document.querySelectorAll('a[href*="/brand-vision-insights/author/"]').forEach(function (a) {
+          var label = clean(a.textContent).replace(/^\/?\s*By\s+/i, '');
+          var url = absoluteUrl(a.getAttribute('href'));
+          if (label === name && url && profileUrls.indexOf(url) < 0) profileUrls.push(url);
+        });
+        if (profileUrls.length === 1) {
+          schema.author.url = profileUrls[0];
+        } else {
+          var social = authorCard.querySelector('.post-author-main-right a[href]');
+          var socialUrl = absoluteUrl(social && social.getAttribute('href'));
+          if (socialUrl) schema.author.url = socialUrl;
+        }
+      }
+
+      header.querySelectorAll('.post-header-dates > div').forEach(function (row) {
+        var spans = row.querySelectorAll('span');
+        var label = clean(spans[0] && spans[0].textContent);
+        var value = isoDate(clean(spans[1] && spans[1].textContent));
+        if (!value) return;
+        if (/^Published on:/i.test(label)) schema.datePublished = value;
+        if (/^Updated on:/i.test(label)) schema.dateModified = value;
+      });
+      if (schema.dateModified && schema.datePublished && schema.dateModified < schema.datePublished) {
+        delete schema.dateModified;
+      }
+
+      var output = document.getElementById('bv-article-schema');
+      if (!output) {
+        output = document.createElement('script');
+        output.id = 'bv-article-schema';
+        output.type = 'application/ld+json';
+        document.head.appendChild(output);
+      }
+      output.textContent = JSON.stringify(schema).replace(/</g, '\\u003c');
+    }
+
+    function clean(value) {
+      return typeof value === 'string' ? value.replace(/\s+/g, ' ').trim() : '';
+    }
+
+    function absoluteUrl(value) {
+      value = clean(value);
+      if (!value || value.charAt(0) === '#' || /\{\{/.test(value)) return '';
+      try {
+        var url = new URL(value, 'https://www.brandvm.com');
+        if (url.protocol !== 'http:' && url.protocol !== 'https:') return '';
+        if (url.hostname === 'brandvm.webflow.io' || url.hostname === 'brandvm.com') {
+          url.protocol = 'https:';
+          url.hostname = 'www.brandvm.com';
+        }
+        return url.href;
+      } catch (_) {
+        return '';
+      }
+    }
+
+    function isoDate(value) {
+      var match = /^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})$/.exec(value);
+      if (!match) return '';
+      var months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+      var month = months.indexOf(match[1].slice(0, 3).toLowerCase());
+      var day = Number(match[2]);
+      var year = Number(match[3]);
+      if (month < 0 || year < 1000) return '';
+      var date = new Date(Date.UTC(year, month, day));
+      if (date.getUTCFullYear() !== year || date.getUTCMonth() !== month || date.getUTCDate() !== day) return '';
+      return String(year) + '-' + String(month + 1).padStart(2, '0') + '-' + String(day).padStart(2, '0');
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', buildArticleSchema, { once: true });
+    } else {
+      buildArticleSchema();
+    }
+  })();
+</script>

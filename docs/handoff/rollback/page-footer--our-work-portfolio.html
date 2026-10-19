@@ -1,0 +1,25 @@
+<script>
+window.FinsweetAttributes ||= [];
+window.FinsweetAttributes.push([
+  'list',
+  (listInstances) => {
+    listInstances.forEach((listInstance) => {
+      listInstance.addHook('afterRender', (items) => {
+        restartIx2();
+        return items;
+      });
+    });
+  },
+]);
+
+let ix2Timer;
+function restartIx2() {
+  clearTimeout(ix2Timer);
+  ix2Timer = setTimeout(() => {
+    const ix2 = window.Webflow && window.Webflow.require('ix2');
+    if (!ix2) return;
+    ix2.destroy();
+    ix2.init();
+  }, 50);
+}
+</script>

@@ -60,19 +60,18 @@ Companion documents in this folder:
 Nothing visible changes. Gate: you approve this plan and the decisions in
 `DECISIONS.md`.
 
-1. **Rollback point.** Tag `brandvm/brandvm` at the commit that matches live
-   (`v1.1.1`: live head/footer and the Embed still load **1.1.1**, while the
-   repo says 1.1.2 — see AUDIT › Drift). Write `ROLLBACK.md` with every piece
-   of custom code word for word: site head and footer, the code of each page,
-   and every Embed. **[Person]** Make a Webflow backup named
-   `2026-10-xx pre-wf-brandvm` and turn on branch protection for `master`.
-2. **Visual baselines and noise floor.** `pnpm wf:baseline save --live` on
+1. ~~**Rollback point.**~~ Done 2026-10-19: tag `v1.1.1` already exists and is
+   byte-identical to what jsDelivr serves live; `ROLLBACK.md` + `rollback/`
+   hold every piece of custom code word for word. **[Person]** still open:
+   Webflow backup `2026-10-19 pre-wf-brandvm`, branch protection, and
+   finding where the Flowbase script is installed.
+2. ~~**Visual baselines and noise floor.**~~ Done 2026-10-19 (AUDIT ›
+   noise floor). `pnpm wf:baseline save --live` on
    the key pages at three widths, then `compare` with nothing changed, to
    record the noise floor (video frames, the orbit, the logo marquees,
    counters). `pnpm wf:film --live` for the first second of load.
-3. **Read-only checks** (`wf:outline`, `wf:a11y`, `wf:links`, `wf:html`,
-   `wf:seo` with `--live`), saved in `AUDIT.md` so later batches have a
-   before.
+3. ~~**Read-only checks**~~ Done 2026-10-19 (`docs/audit/`, AUDIT ›
+   Read-only checks). `wf:film` (load-time) is run at the start of Stage 2.
 4. ~~Settle open decisions D1–D6~~ done 2026-10-19 (`DECISIONS.md`).
 
 ## Stage 2: Parity port (new plumbing, no visible change)

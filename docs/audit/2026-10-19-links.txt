@@ -1,0 +1,104 @@
+$ node .claude/skills/webflow-build/scripts/links.mjs --live --external
+50 pages crawled (stopped at --max 50), 121 external links checked
+  400  https://www.facebook.com/BrandVisionM  (external, linked from /)
+  403  https://x.com/brandvmofficial  (external, linked from /)
+  403  https://www.blogto.com/tech/2026/07/brand-vision-toronto-web-design-agency/  (external, linked from /)
+  403  https://apnews.com/press-release/marketersmedia/arman-tale-canada-6dfef867580f2e485b58462495f16707  (external, linked from /)
+  403  https://www.salesforce.com/resources/research-reports/state-of-marketing/  (external, linked from /post/10-essential-marketing-metrics)
+  400  https://www.linkedin.com/business/marketing/blog/b2b-institute/share-of-search-is-a-powerful-brand-metric  (external, linked from /post/10-essential-marketing-metrics)
+  403  https://directedira.com/  (external, linked from /web-development)
+  error: apiRequestContext.get: getaddrinfo ENOTFOUND www.assetcomet.com  https://www.assetcomet.com/  (external, linked from /branding/visual-identity)
+  403  https://ca.indeed.com/cmp/Brand-Vision-Marketing-1/jobs  (external, linked from /career)
+  empty or # link ""  on /, /about, /contact, /web-design, /branding, /our-work-portfolio, /insights, /services, /case-studies/accounting-advisory-firm-website, /post/10-essential-marketing-metrics, /web-development, /web-design/website-redesign, /web-design/webflow, /web-design/wordpress, /web-design/shopify, /web-design/woocommerce, /branding/visual-identity, /branding/brand-research, /branding/brand-strategy, /branding/brand-naming, /branding/logo-design, /branding/graphic-design, /seo-agency, /seo-agency/ai-search-optimization, /seo-agency/local-seo, /seo-agency/ecommerce-seo, /seo-agency/seo-audit, /seo-agency/enterprise-seo, /ui-ux-agency, /ui-ux-agency/interaction-design, /ui-ux-agency/ux-audit, /ui-ux-agency/ux-research, /marketing-agency, /ppc-agency, /marketing-consultation, /career, /faq, /industries, /real-estate-marketing, /industry/health-wellness-marketing, /industry/b2b-marketing, /industry/entertainment-marketing, /industry/not-for-profit-marketing, /industry/technology-marketing, /industry/startups-marketing, /industry/b2c-marketing, /industry/law-marketing, /industry/food-and-beverage-marketing, /industry/education-marketing, /industry/travel-hospitality-marketing
+  empty or # link "The Webby Awards"  on /, /web-design, /branding, /web-development, /web-design/website-redesign, /web-design/webflow, /web-design/wordpress, /web-design/shopify, /web-design/woocommerce, /branding/visual-identity, /branding/brand-research, /branding/brand-strategy, /branding/brand-naming, /branding/logo-design, /branding/graphic-design, /seo-agency, /seo-agency/ai-search-optimization, /seo-agency/local-seo, /seo-agency/ecommerce-seo, /seo-agency/seo-audit, /seo-agency/enterprise-seo, /ui-ux-agency, /ui-ux-agency/interaction-design, /ui-ux-agency/ux-audit, /ui-ux-agency/ux-research, /marketing-agency, /ppc-agency, /marketing-consultation, /real-estate-marketing, /industry/health-wellness-marketing, /industry/b2b-marketing, /industry/entertainment-marketing, /industry/not-for-profit-marketing, /industry/technology-marketing, /industry/startups-marketing, /industry/b2c-marketing, /industry/law-marketing, /industry/food-and-beverage-marketing, /industry/education-marketing, /industry/travel-hospitality-marketing
+  empty or # link "Awwwards Profile"  on /, /web-design, /branding, /web-development, /web-design/website-redesign, /web-design/webflow, /web-design/wordpress, /web-design/shopify, /web-design/woocommerce, /branding/visual-identity, /branding/brand-research, /branding/brand-strategy, /branding/brand-naming, /branding/logo-design, /branding/graphic-design, /seo-agency, /seo-agency/ai-search-optimization, /seo-agency/local-seo, /seo-agency/ecommerce-seo, /seo-agency/seo-audit, /seo-agency/enterprise-seo, /ui-ux-agency, /ui-ux-agency/interaction-design, /ui-ux-agency/ux-audit, /ui-ux-agency/ux-research, /marketing-agency, /ppc-agency, /marketing-consultation, /real-estate-marketing, /industry/health-wellness-marketing, /industry/b2b-marketing, /industry/entertainment-marketing, /industry/not-for-profit-marketing, /industry/technology-marketing, /industry/startups-marketing, /industry/b2c-marketing, /industry/law-marketing, /industry/food-and-beverage-marketing, /industry/education-marketing, /industry/travel-hospitality-marketing
+  empty or # link "RGD Link"  on /, /web-design, /branding, /web-development, /web-design/website-redesign, /web-design/webflow, /web-design/wordpress, /web-design/shopify, /web-design/woocommerce, /branding/visual-identity, /branding/brand-research, /branding/brand-strategy, /branding/brand-naming, /branding/logo-design, /branding/graphic-design, /seo-agency, /seo-agency/ai-search-optimization, /seo-agency/local-seo, /seo-agency/ecommerce-seo, /seo-agency/seo-audit, /seo-agency/enterprise-seo, /ui-ux-agency, /ui-ux-agency/interaction-design, /ui-ux-agency/ux-audit, /ui-ux-agency/ux-research, /marketing-agency, /ppc-agency, /marketing-consultation, /real-estate-marketing, /industry/health-wellness-marketing, /industry/b2b-marketing, /industry/entertainment-marketing, /industry/not-for-profit-marketing, /industry/technology-marketing, /industry/startups-marketing, /industry/b2c-marketing, /industry/law-marketing, /industry/food-and-beverage-marketing, /industry/education-marketing, /industry/travel-hospitality-marketing
+  empty or # link "Sort by"  on /our-work-portfolio, /insights
+  empty or # link "Newest First"  on /our-work-portfolio, /insights
+  empty or # link "Oldest First"  on /our-work-portfolio, /insights
+  empty or # link "Privacy Policy"  on /insights, /post/10-essential-marketing-metrics
+  empty or # link "T&C"  on /insights, /post/10-essential-marketing-metrics
+  empty or # link "Custom & Headless DevelopmentCustom webs"  on /web-development
+  empty or # link "Wix Studio Design & DevFlexible Wix Stud"  on /web-development
+  empty or # link "Squarespace Design & DevPolished Squares"  on /web-development
+  empty or # link "Redesign Audit"  on /web-design/website-redesign
+  empty or # link "UX Overhaul"  on /web-design/website-redesign
+  empty or # link "Replatforming"  on /web-design/website-redesign
+  empty or # link "SEO Migration"  on /web-design/website-redesign
+  empty or # link "Content Migration"  on /web-design/website-redesign
+  empty or # link "Webflow Design"  on /web-design/webflow
+  empty or # link "Webflow Dev"  on /web-design/webflow
+  empty or # link "Webflow SEO"  on /web-design/webflow
+  empty or # link "Webflow Migrations"  on /web-design/webflow
+  empty or # link "Webflow Maintenance"  on /web-design/webflow
+  empty or # link "WordPress Themes"  on /web-design/wordpress
+  empty or # link "WordPress Dev"  on /web-design/wordpress
+  empty or # link "Elementor Dev"  on /web-design/wordpress
+  empty or # link "Gutenberg Dev"  on /web-design/wordpress
+  empty or # link "WooCommerce Dev"  on /web-design/wordpress, /web-design/woocommerce
+  empty or # link "WordPress SEO"  on /web-design/wordpress
+  empty or # link "WordPress Care"  on /web-design/wordpress
+  empty or # link "Shopify Dev"  on /web-design/shopify
+  empty or # link "Shopify Design"  on /web-design/shopify
+  empty or # link "Shopify Plus"  on /web-design/shopify
+  empty or # link "Shopify Migrations"  on /web-design/shopify
+  empty or # link "Shopify Apps"  on /web-design/shopify
+  empty or # link "Shopify SEO"  on /web-design/shopify
+  empty or # link "WooCommerce Design"  on /web-design/woocommerce
+  empty or # link "WooCommerce Plugins"  on /web-design/woocommerce
+  empty or # link "WooCommerce Migrations"  on /web-design/woocommerce
+  empty or # link "WooCommerce Security"  on /web-design/woocommerce
+  empty or # link "WooCommerce Management"  on /web-design/woocommerce
+  empty or # link "WooCommerce SEO"  on /web-design/woocommerce
+  empty or # link "Visual Identity"  on /branding/visual-identity
+  empty or # link "Logo Development"  on /branding/visual-identity
+  empty or # link "Colour Palette"  on /branding/visual-identity
+  empty or # link "Typography"  on /branding/visual-identity
+  empty or # link "Iconography"  on /branding/visual-identity
+  empty or # link "Brand Collaterals"  on /branding/visual-identity
+  empty or # link "Brand Book"  on /branding/visual-identity
+  empty or # link "Brand Audits"  on /branding/brand-research
+  empty or # link "Market Research"  on /branding/brand-research
+  empty or # link "Competitor Research"  on /branding/brand-research
+  empty or # link "Audience Research"  on /branding/brand-research
+  empty or # link "Trend Research"  on /branding/brand-research
+  empty or # link "Positioning Research"  on /branding/brand-research
+  empty or # link "Perception Research"  on /branding/brand-research
+  empty or # link "Brand Positioning"  on /branding/brand-strategy
+  empty or # link "Brand Messaging"  on /branding/brand-strategy
+  empty or # link "Brand Architecture"  on /branding/brand-strategy
+  empty or # link "Brand Voice"  on /branding/brand-strategy
+  empty or # link "Brand Purpose"  on /branding/brand-strategy
+  empty or # link "Go-to-Market"  on /branding/brand-strategy
+  empty or # link "Corporate Naming"  on /branding/brand-naming
+  empty or # link "Product Naming"  on /branding/brand-naming
+  empty or # link "Tagline Writing"  on /branding/brand-naming
+  empty or # link "Brand Renaming"  on /branding/brand-naming
+  empty or # link "Name Research"  on /branding/brand-naming
+  empty or # link "Logo Design"  on /branding/logo-design
+  empty or # link "Logo Redesign"  on /branding/logo-design
+  empty or # link "Wordmark Logos"  on /branding/logo-design
+  empty or # link "Brand Marks"  on /branding/logo-design
+  empty or # link "Logo Guidelines"  on /branding/logo-design
+  empty or # link "Print Design"  on /branding/graphic-design
+  empty or # link "Packaging Design"  on /branding/graphic-design
+  empty or # link "Presentation Design"  on /branding/graphic-design
+  empty or # link "Social Graphics"  on /branding/graphic-design
+  empty or # link "Illustrations"  on /branding/graphic-design
+  empty or # link "Ad Creative"  on /branding/graphic-design
+  empty or # link "Read More +"  on /seo-agency, /seo-agency/ai-search-optimization, /seo-agency/local-seo, /seo-agency/ecommerce-seo, /seo-agency/seo-audit, /seo-agency/enterprise-seo
+  empty or # link "Micro-Interactions"  on /ui-ux-agency/interaction-design
+  empty or # link "Motion Design"  on /ui-ux-agency/interaction-design
+  empty or # link "Prototypes"  on /ui-ux-agency/interaction-design
+  empty or # link "Design Handoff"  on /ui-ux-agency/interaction-design
+  empty or # link "Accessibility Audit"  on /ui-ux-agency/ux-audit
+  empty or # link "Conversion Audit"  on /ui-ux-agency/ux-audit
+  empty or # link "UX Analytics"  on /ui-ux-agency/ux-audit
+  empty or # link "Heuristics"  on /ui-ux-agency/ux-audit
+  empty or # link "Benchmarks"  on /ui-ux-agency/ux-audit
+  empty or # link "Interview Research"  on /ui-ux-agency/ux-research
+  empty or # link "Usability Testing"  on /ui-ux-agency/ux-research
+  empty or # link "Personas"  on /ui-ux-agency/ux-research
+  empty or # link "Customer Journeys"  on /ui-ux-agency/ux-research
+  empty or # link "Surveys"  on /ui-ux-agency/ux-research
+[ELIFECYCLE] Command failed with exit code 1.

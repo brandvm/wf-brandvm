@@ -27,16 +27,34 @@ collected from client repos into those files.
 
 <!-- Add new entries here, newest first. -->
 
-### 2026-10-19 · `wf:perf --live` measured staging, not the live domain
+### 2026-10-19 · `wf:baseline compare` flagged every page as changed
 - Area: perf
 - Scope: template-candidate
-- Symptom: the `webflow-audit` skill says `pnpm wf:perf --live`, but
-  `perf.mjs` (template 0.6.0) chose its base URL from `--prototype` or
-  `stagingUrl` only, so `--live` was silently ignored.
-- Cause: `perf.mjs` never read `liveUrl`; the other scripts (`seo`,
-  `parity`, `install`) do.
-- Fix: `perf.mjs` uses `liveUrl` with `--live`, and exits if it is missing,
-  matching `seo.mjs`.
+- Symptom: with no change on the site, `compare` reported CHANGED on 27 of
+  30 page/width pairs at 0.0% pixels, e.g. "height 9982→9754".
+- Cause: it compared the saved PNG's height (the full page after
+  scrolling) with `scrollHeight` measured before scrolling. Pages that grow
+  as lazy content and scroll reveals load always differ.
+- Fix: compare the new screenshot's PNG height with the saved PNG's.
+  Afterwards only real pixel changes are flagged (noise floor in AUDIT.md).
+- Status: fixed in this repo; to upstream to wf-template
+- Found by: claude
+
+### 2026-10-19 · `wf:* --live` measured staging, not the live domain
+- Area: perf
+- Scope: template-candidate
+- Symptom: the `webflow-audit` skill runs every check with `--live`, but in
+  template 0.6.0 only `seo`, `parity` and `install` read `liveUrl`.
+  `perf`, `baseline`, `outline`, `a11y`, `links`, `html`, `film` and the
+  rest built URLs from `stagingUrl`. With `--live` they only stopped
+  swapping in the local bundle, so they checked `*.webflow.io`, not the
+  custom domain.
+- Cause: in `lib.mjs`, `--live` meant "the deployed bundle" (written
+  before sites had a custom domain), while the audit skill means "the live
+  domain".
+- Fix: `perf.mjs` uses `liveUrl` with `--live`; `lib.mjs` `loadConfig()`
+  points `stagingUrl` at `liveUrl` when `--live` is passed and `liveUrl`
+  is set, so every script follows.
 - Status: fixed in this repo; to upstream to wf-template
 - Found by: claude
 

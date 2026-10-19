@@ -1,0 +1,172 @@
+$ node .claude/skills/webflow-build/scripts/a11y.mjs --live --all-widths
+
+== /  1440×900  1 rules fail  (28 pass, 3 to check by hand)
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (2)
+           a[href="tel:+1(416)360-3434"]
+           a[href="tel:+1(888)832-2917"]
+
+== /  390×844  2 rules fail  (27 pass, 4 to check by hand)
+  serious  link-name: Links must have discernible text (1)
+           .g-nav-menu-button
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (6)
+           .insights-cms-item.w-dyn-item[role="listitem"]:nth-child(1) > article > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+           .insights-cms-item.w-dyn-item[role="listitem"]:nth-child(2) > article > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+           .insights-cms-item.w-dyn-item[role="listitem"]:nth-child(3) > article > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+
+== /about  1440×900  2 rules fail  (27 pass, 3 to check by hand)
+  serious  link-name: Links must have discernible text (12)
+           .who-row:nth-child(1) > .who-featured[data-flare-border=""] > .who-feature-main > .who-feature-row > .who-feature-links > .who-feature-link.w-inline-block[target="_blank"]:nth-child(1)
+           .who-row:nth-child(1) > .who-featured[data-flare-border=""] > .who-feature-main > .who-feature-row > .who-feature-links > .who-feature-link.w-inline-block[target="_blank"]:nth-child(2)
+           .who-row:nth-child(1) > .who-featured[data-flare-border=""] > .who-feature-main > .who-feature-row > .who-feature-links > .who-feature-link.w-inline-block[href="#"]:nth-child(3)
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (2)
+           a[href="tel:+1(416)360-3434"]
+           a[href="tel:+1(888)832-2917"]
+
+== /about  390×844  2 rules fail  (28 pass, 3 to check by hand)
+  serious  link-name: Links must have discernible text (13)
+           .g-nav-menu-button
+           .who-row:nth-child(1) > .who-featured[data-flare-border=""] > .who-feature-main > .who-feature-row > .who-feature-links > .who-feature-link.w-inline-block[target="_blank"]:nth-child(1)
+           .who-row:nth-child(1) > .who-featured[data-flare-border=""] > .who-feature-main > .who-feature-row > .who-feature-links > .who-feature-link.w-inline-block[target="_blank"]:nth-child(2)
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (2)
+           a[href="tel:+1(416)360-3434"]
+           a[href="tel:+1(888)832-2917"]
+
+== /contact  1440×900  2 rules fail  (29 pass, 2 to check by hand)
+  serious  link-name: Links must have discernible text (4)
+           .contact-location-card[data-flare-border=""]:nth-child(1) > .contact-location-main > .contact-location-icon-w[data-flare-border=""][target="_blank"]
+           .contact-location-card[data-flare-border=""]:nth-child(2) > .contact-location-main > .contact-location-icon-w[data-flare-border=""][target="_blank"]
+           .contact-location-card[data-flare-border=""]:nth-child(3) > .contact-location-main > .contact-location-icon-w[data-flare-border=""][target="_blank"]
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (3)
+           a[href="tel:+1(416)360-3434"]
+           a[href="tel:+1(312)741-0303"]
+           a[href="tel:+1(888)832-2917"]
+
+== /contact  390×844  2 rules fail  (28 pass, 1 to check by hand)
+  serious  link-name: Links must have discernible text (5)
+           .g-nav-menu-button
+           .contact-location-card[data-flare-border=""]:nth-child(1) > .contact-location-main > .contact-location-icon-w[data-flare-border=""][target="_blank"]
+           .contact-location-card[data-flare-border=""]:nth-child(2) > .contact-location-main > .contact-location-icon-w[data-flare-border=""][target="_blank"]
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (3)
+           a[href="tel:+1(416)360-3434"]
+           a[href="tel:+1(312)741-0303"]
+           a[href="tel:+1(888)832-2917"]
+
+== /web-design  1440×900  1 rules fail  (28 pass, 3 to check by hand)
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (2)
+           a[href="tel:+1(416)360-3434"]
+           a[href="tel:+1(888)832-2917"]
+
+== /web-design  390×844  2 rules fail  (27 pass, 4 to check by hand)
+  serious  link-name: Links must have discernible text (1)
+           .g-nav-menu-button
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (6)
+           .insights-cms-item.w-dyn-item[role="listitem"]:nth-child(1) > article > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+           .insights-cms-item.w-dyn-item[role="listitem"]:nth-child(2) > article > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+           .insights-cms-item.w-dyn-item[role="listitem"]:nth-child(3) > article > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+
+== /branding  1440×900  1 rules fail  (28 pass, 3 to check by hand)
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (2)
+           a[href="tel:+1(416)360-3434"]
+           a[href="tel:+1(888)832-2917"]
+
+== /branding  390×844  2 rules fail  (27 pass, 3 to check by hand)
+  serious  link-name: Links must have discernible text (1)
+           .g-nav-menu-button
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (6)
+           .insights-cms-item.w-dyn-item[role="listitem"]:nth-child(1) > article > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+           .insights-cms-item.w-dyn-item[role="listitem"]:nth-child(2) > article > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+           .insights-cms-item.w-dyn-item[role="listitem"]:nth-child(3) > article > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+
+== /our-work-portfolio  1440×900  2 rules fail  (30 pass, 3 to check by hand)
+  serious  link-name: Links must have discernible text (6)
+           .case-study-item.w-dyn-item[role="listitem"]:nth-child(1) > .case-study-card > figure > .project-overlay-link.w-inline-block
+           .case-study-item.w-dyn-item[role="listitem"]:nth-child(2) > .case-study-card > figure > .project-overlay-link.w-inline-block
+           .case-study-item.w-dyn-item[role="listitem"]:nth-child(3) > .case-study-card > figure > .project-overlay-link.w-inline-block
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (2)
+           a[href="tel:+1(416)360-3434"]
+           a[href="tel:+1(888)832-2917"]
+
+== /our-work-portfolio  390×844  2 rules fail  (30 pass, 3 to check by hand)
+  serious  link-name: Links must have discernible text (7)
+           .g-nav-menu-button
+           .case-study-item.w-dyn-item[role="listitem"]:nth-child(1) > .case-study-card > figure > .project-overlay-link.w-inline-block
+           .case-study-item.w-dyn-item[role="listitem"]:nth-child(2) > .case-study-card > figure > .project-overlay-link.w-inline-block
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (2)
+           a[href="tel:+1(416)360-3434"]
+           a[href="tel:+1(888)832-2917"]
+
+== /insights  1440×900  2 rules fail  (30 pass, 2 to check by hand)
+  serious  link-name: Links must have discernible text (36)
+           .insights-nav-brand-link
+           .is_vertical.insights-header-card.image-w > .insights-card-link.w-inline-block
+           .insights-header-cms.w-dyn-list:nth-child(2) > .insights-header-cms-list.w-dyn-items[role="list"] > .insights-header-cms-item.w-dyn-item[role="listitem"]:nth-child(1) > .insights-header-card.image-w > .insights-card-link.w-inline-block
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (22)
+           .is_vertical.insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+           .insights-header-cms.w-dyn-list:nth-child(2) > .insights-header-cms-list.w-dyn-items[role="list"] > .insights-header-cms-item.w-dyn-item[role="listitem"]:nth-child(1) > .insights-header-card.image-w > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+           .insights-header-cms-item.w-dyn-item[role="listitem"]:nth-child(2) > .insights-header-card.image-w > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+
+== /insights  390×844  2 rules fail  (31 pass, 2 to check by hand)
+  serious  link-name: Links must have discernible text (37)
+           .g-nav-menu-button
+           .insights-nav-brand-link
+           .is_vertical.insights-header-card.image-w > .insights-card-link.w-inline-block
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (30)
+           .is_vertical.insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+           .insights-header-cms.w-dyn-list:nth-child(2) > .insights-header-cms-list.w-dyn-items[role="list"] > .insights-header-cms-item.w-dyn-item[role="listitem"]:nth-child(1) > .insights-header-card.image-w > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+           .insights-header-cms-item.w-dyn-item[role="listitem"]:nth-child(2) > .insights-header-card.image-w > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+
+== /services  1440×900  1 rules fail  (27 pass, 3 to check by hand)
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (2)
+           a[href="tel:+1(416)360-3434"]
+           a[href="tel:+1(888)832-2917"]
+
+== /services  390×844  2 rules fail  (27 pass, 3 to check by hand)
+  serious  link-name: Links must have discernible text (1)
+           .g-nav-menu-button
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (6)
+           .insights-cms-item.w-dyn-item[role="listitem"]:nth-child(1) > article > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+           .insights-cms-item.w-dyn-item[role="listitem"]:nth-child(2) > article > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+           .insights-cms-item.w-dyn-item[role="listitem"]:nth-child(3) > article > .insights-card-info > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+
+== /case-studies/accounting-advisory-firm-website  1440×900  2 rules fail  (27 pass, 2 to check by hand)
+  critical aria-required-parent: Certain ARIA roles must be contained by particular parents (1)
+           .case-next > .case-next-item.w-dyn-item[role="listitem"]
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (2)
+           a[href="tel:+1(416)360-3434"]
+           a[href="tel:+1(888)832-2917"]
+
+== /case-studies/accounting-advisory-firm-website  390×844  3 rules fail  (26 pass, 1 to check by hand)
+  critical aria-required-parent: Certain ARIA roles must be contained by particular parents (1)
+           .case-next > .case-next-item.w-dyn-item[role="listitem"]
+  serious  link-name: Links must have discernible text (1)
+           .g-nav-menu-button
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (2)
+           a[href="tel:+1(416)360-3434"]
+           a[href="tel:+1(888)832-2917"]
+
+== /post/10-essential-marketing-metrics  1440×900  2 rules fail  (31 pass, 2 to check by hand)
+  serious  color-contrast: Elements must meet minimum color contrast ratio thresholds (9)
+           .u-muted-50.text-b-xs.u-med
+           .label-highlight.u-muted-50:nth-child(1) > span:nth-child(1)
+           .label-highlight.u-muted-50:nth-child(1) > span:nth-child(2)
+  serious  link-name: Links must have discernible text (13)
+           .insights-nav-brand-link
+           .post-author-main-right > .author-social-link.w-inline-block[href="#"]
+           a[fs-socialshare-element="facebook"]
+
+== /post/10-essential-marketing-metrics  390×844  3 rules fail  (30 pass, 1 to check by hand)
+  serious  color-contrast: Elements must meet minimum color contrast ratio thresholds (6)
+           .u-muted-50.text-b-xs.u-med
+           .label-highlight.u-muted-50:nth-child(1) > span:nth-child(1)
+           .label-highlight.u-muted-50:nth-child(1) > span:nth-child(2)
+  serious  link-name: Links must have discernible text (11)
+           .g-nav-menu-button
+           .insights-nav-brand-link
+           .post-author-main-right > .author-social-link.w-inline-block[href="#"]
+  serious  target-size: All touch targets must be 24px large, or leave sufficient space (8)
+           .swiper-slide.newsletter-slider.w-dyn-item:nth-child(1) > article > .insights-card-info.is_newsletter > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+           .swiper-slide.newsletter-slider.w-dyn-item:nth-child(2) > article > .insights-card-info.is_newsletter > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+           .swiper-slide.newsletter-slider.w-dyn-item:nth-child(3) > article > .insights-card-info.is_newsletter > .insights-card-misc > .is_author-link.u-primary.text-b-xs
+
+38 serious or critical rule failures
+[ELIFECYCLE] Command failed with exit code 1.
