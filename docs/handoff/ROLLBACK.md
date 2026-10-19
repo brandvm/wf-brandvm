@@ -97,6 +97,7 @@ tag and publish. Never move a pushed tag.
 | Date | What is live | Rollback to |
 | --- | --- | --- |
 | 2026-10-19 | `brandvm/brandvm@1.1.1`, all Webflow IX2/IX3 | — (this is the baseline) |
+| 2026-10-19 | **Batch 3.3c live, `1.3.0`:** Finsweet Attributes (list, socialshare 2.7.1) bundled; the CDN tag removed from site head | set RELEASE to `1.2.0` and put the Finsweet tag back in site head: `<script async type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js" fs-list fs-socialshare></script>` |
 | 2026-10-19 | **Batch 3.3a/b live, `1.2.0`:** HubSpot loader and tab rotation in the bundle; S \| Contact Embed reduced to the form `<div>` | set RELEASE to `1.1.0` and paste `embed-04.html` back into S \| Contact's Embed |
 | 2026-10-19 | **Batch 3.1 live:** six duplicate CSS Embeds removed (project-list on 5 CMS templates, case-study grid on Work) | paste `embed-05` (Branding, Industries, Web Design templates), `embed-08` (SEO, UI/UX templates), `embed-07` (Work) back as Embeds |
 | 2026-10-19 | **Batch 3.2 live, `1.1.0`:** About footer code (Orbit), About registered script (methodology, dead) and Industries head/footer code removed; now in `orbit.ts` / `industry-tilt.ts` | set RELEASE to `1.0.0` **and** paste `page-footer--about.html` (style + script part), `page-head--industries.html`, `page-footer--industries.html` back; re-apply the registered script `methodologypinnedscroll` 1.0.1 if wanted |

@@ -147,6 +147,10 @@ Progress (2026-10-19):
   Flowbase `fb-tabs` attributes). S | Contact's Embed is now the form `<div>`
   only. Open: the S | Contact CTA Embed scripts (variant code the API can't
   edit) and uninstalling the Flowbase app: MANUAL-TODO C and D.
+- **3.3c live (v1.3.0):** Finsweet Attributes bundled with the template
+  recipe (list + socialshare, pinned 2.7.1, was the floating `@2` CDN tag).
+  Same bytes as before; pages without `fs-list` markup (About, Contact,
+  posts) no longer load List. Filters click-tested on staging by Asheem.
 - **Kept in Webflow until Stage 4:** the Home hero-panels script (it
   reveals the LCP element inline; moving it into the async bundle would
   delay that) and the Work page Finsweet → IX2 restart hook (needs IX2).
