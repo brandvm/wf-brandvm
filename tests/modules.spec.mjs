@@ -101,35 +101,3 @@ test('video recipe: refused autoplay starts on the first tap, not before', async
   expect(await page.evaluate(() => window.__played)).toBe(1);
   expect(errors).toEqual([]);
 });
-
-// HubSpot's v2 embed: the form is built inside a same-origin about:blank
-// iframe, then HubSpot posts an onFormReady message to the page.
-test('HubSpot form iframe gets the site look, labels inside the fields', async ({ page }) => {
-  const form = `<form class="hs-form stacked">
-    <fieldset class="form-columns-2">
-      <div class="hs_firstname hs-form-field"><label for="fn"><span>First Name</span><span class="hs-form-required">*</span></label><div class="input"><input id="fn" class="hs-input" type="text" name="firstname" required placeholder=""></div></div>
-      <div class="hs_where hs-form-field"><label for="wh"><span>Where did you hear about us?</span></label><div class="input"><select id="wh" class="hs-input is-placeholder" name="where"><option disabled value="">Please Select</option><option value="Google">Google</option></select></div></div>
-    </fieldset>
-    <fieldset class="form-columns-1"><div class="hs_request hs-form-field"><label for="rq"><span>Tell us more about your project:</span><span class="hs-form-required">*</span></label><legend class="hs-field-desc">Share a bit about your company.</legend><div class="input"><textarea id="rq" class="hs-input" name="request" placeholder=""></textarea></div></div></fieldset>
-    <fieldset class="form-columns-1"><div class="hs_TICKET.subject hs-form-field"><div class="input"><input type="hidden" name="TICKET.subject"></div></div></fieldset>
-  </form>`;
-  const errors = await setup(page, `<div class="hs-form-slot"><iframe class="hs-form-iframe"></iframe></div>
-    <script>
-      const d = document.querySelector('iframe').contentDocument;
-      d.open(); d.write(${JSON.stringify(`<!doctype html><html><head></head><body>${form}</body></html>`)}); d.close();
-      setTimeout(() => window.postMessage({ type: 'hsFormCallback', eventName: 'onFormReady', id: 'x' }, '*'), 50);
-    </script>`, {
-    // Site modules start from Webflow's ready queue; run them right away.
-    init: () => { window.Webflow = { push: (fn) => fn() }; },
-  });
-  const frame = page.frameLocator('iframe.hs-form-iframe');
-  await expect(frame.locator('#fn')).toHaveAttribute('placeholder', 'First Name *');
-  await expect(frame.locator('label[for=fn]')).toHaveClass(/bv-sr/);
-  await expect(frame.locator('#wh option[value=""]')).toHaveText('Where did you hear about us?');
-  await expect(frame.locator('#rq')).toHaveAttribute('placeholder', 'Share a bit about your company.');
-  await expect(frame.locator('label[for=rq]')).not.toHaveClass(/bv-sr/);
-  await expect(frame.locator('fieldset').last()).toHaveClass(/bv-hidden/);
-  await expect(frame.locator('#fn')).toHaveCSS('border-radius', /px/);
-  expect(await frame.locator('style#bv-hs-style').count()).toBe(1);
-  expect(errors).toEqual([]);
-});

@@ -9,11 +9,6 @@
 // viewport (data-hs-load="idle": when the browser is idle instead).
 // [data-hs-inited] marks a slot as taken, so the old Embed script and this
 // module never create the same form twice.
-//
-// Every HubSpot form on the page, however it was created, gets the Brand
-// Vision look from hubspot-form-style.ts once HubSpot reports it ready.
-import { styleHubSpotForms } from './hubspot-form-style';
-
 const SRC = 'https://js.hsforms.net/forms/embed/v2.js';
 
 type HubSpotWindow = typeof window & {
@@ -61,22 +56,7 @@ function create(el: HTMLElement) {
     });
 }
 
-let listening = false;
-
-function listenForForms() {
-  if (listening) return;
-  listening = true;
-  window.addEventListener('message', (event) => {
-    const data = event.data;
-    if (data && data.type === 'hsFormCallback' && data.eventName === 'onFormReady') {
-      styleHubSpotForms();
-    }
-  });
-  styleHubSpotForms();
-}
-
 export function initHubSpotForms() {
-  listenForForms();
   const els = Array.from(document.querySelectorAll<HTMLElement>('[data-hs-form]')).filter((el) => !el.dataset.hsInited);
   if (!els.length) return;
   els.forEach((el) => {
