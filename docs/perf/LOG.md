@@ -105,3 +105,22 @@ What changed (measured):
   Next: 10+ runs per page, and a trace of what the hero reveal waits on
   (the IX3 reveal, the hero-panels page script, the stylesheet swap).
 - **Not changed:** page weight (Work still ~98 MB). Stages 4–5.
+
+## 2026-10-19 · Stage 3, batches 3.1 and 3.2 live (v1.1.0)
+
+3.1 removed six duplicate CSS Embeds (a few hundred bytes of inline CSS on
+CMS pages): not measured, below Lighthouse's noise. 3.2 moved the About
+Orbit (≈ 12 KB inline JS + CSS) and the Industries tilt into the bundle
+and dropped a dead registered script on About. Raw:
+`2026-10-19-stage3-batch32-live.json`.
+
+| Page | Mode | Score (range) | LCP | TBT | CLS | Transfer | vs Stage 2 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `/about` | mobile | 55 (54–56) | 18.3 s | 168 ms | 0.001 | 14.1 MB | 56 → 55, inside the range |
+| `/about` | desktop | 80 (79–82) | 2.4 s | 0 ms | 0.001 | 15.6 MB | 79 → 80, inside the range |
+| `/industries` | mobile | 59 (57–64) | 17.7 s | 186 ms | 0.017 | 4.6 MB | first measurement |
+| `/industries` | desktop | 70 (69–71) | 6.4 s | 34 ms | 0 | 6.6 MB | first measurement |
+
+No measurable change, as expected: these batches move code, they don't
+remove work. Industries desktop LCP (6.4 s) is the slowest desktop LCP
+measured so far; added to the Stage 5 list.

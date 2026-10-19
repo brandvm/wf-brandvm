@@ -14,7 +14,7 @@ Filled in by `pnpm new-project` on 2026-10-19.
 - Staging site: `https://brandvm.webflow.io`
 - Staging bundles: `https://brandvm.github.io/wf-brandvm/`
 - Production domain: `https://www.brandvm.com` (also `brandvm.com`)
-- Production release: `1.0.0` (RELEASE in Webflow head code since 2026-10-19; replaced `brandvm/brandvm@1.1.1`)
+- Production release: `1.1.0` (RELEASE in Webflow head code, 2026-10-19; 1.0.0 replaced `brandvm/brandvm@1.1.1` the same day)
 
 ## Who owns what
 

@@ -1,0 +1,164 @@
+{
+  "date": "2026-10-19T19:47:16.168Z",
+  "base": "https://www.brandvm.com",
+  "runs": 5,
+  "lighthouse": "lighthouse@12",
+  "pages": {
+    "/about": {
+      "mobile": {
+        "runs": 5,
+        "score": {
+          "median": 55,
+          "min": 54,
+          "max": 56
+        },
+        "lcp": {
+          "median": 18316,
+          "min": 13892,
+          "max": 19453
+        },
+        "fcp": {
+          "median": 5517,
+          "min": 4516,
+          "max": 7970
+        },
+        "tbt": {
+          "median": 168,
+          "min": 138,
+          "max": 189
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0,
+          "max": 0.001
+        },
+        "si": {
+          "median": 9146,
+          "min": 8750,
+          "max": 10039
+        },
+        "bytes": {
+          "median": 14396,
+          "min": 14394,
+          "max": 14541
+        }
+      },
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 80,
+          "min": 79,
+          "max": 82
+        },
+        "lcp": {
+          "median": 2368,
+          "min": 2292,
+          "max": 2415
+        },
+        "fcp": {
+          "median": 866,
+          "min": 839,
+          "max": 1247
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0.001,
+          "max": 0.001
+        },
+        "si": {
+          "median": 2294,
+          "min": 2244,
+          "max": 3099
+        },
+        "bytes": {
+          "median": 15980,
+          "min": 15930,
+          "max": 17517
+        }
+      }
+    },
+    "/industries": {
+      "mobile": {
+        "runs": 5,
+        "score": {
+          "median": 59,
+          "min": 57,
+          "max": 64
+        },
+        "lcp": {
+          "median": 17670,
+          "min": 9127,
+          "max": 20924
+        },
+        "fcp": {
+          "median": 3387,
+          "min": 2197,
+          "max": 3568
+        },
+        "tbt": {
+          "median": 186,
+          "min": 144,
+          "max": 232
+        },
+        "cls": {
+          "median": 0.017,
+          "min": 0.017,
+          "max": 0.017
+        },
+        "si": {
+          "median": 7385,
+          "min": 6541,
+          "max": 9678
+        },
+        "bytes": {
+          "median": 4711,
+          "min": 4711,
+          "max": 4718
+        }
+      },
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 70,
+          "min": 69,
+          "max": 71
+        },
+        "lcp": {
+          "median": 6428,
+          "min": 6280,
+          "max": 6599
+        },
+        "fcp": {
+          "median": 775,
+          "min": 743,
+          "max": 835
+        },
+        "tbt": {
+          "median": 34,
+          "min": 17,
+          "max": 70
+        },
+        "cls": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "si": {
+          "median": 2343,
+          "min": 2080,
+          "max": 2808
+        },
+        "bytes": {
+          "median": 6788,
+          "min": 6787,
+          "max": 6795
+        }
+      }
+    }
+  }
+}

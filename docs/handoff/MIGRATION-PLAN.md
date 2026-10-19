@@ -138,7 +138,7 @@ Progress (2026-10-19):
   Desktop/tablet identical; on phones the 4th project card now shows its
   title (by design: hidden on desktop/tablet, shown on phones; the Embeds
   had hidden it on phones too).
-- **3.2 in progress:** Orbit (About) and the Industries carousel tilt move
+- **3.2 live (v1.1.0):** Orbit (About) and the Industries carousel tilt move
   into `orbit.ts` / `industry-tilt.ts` (verbatim; Orbit CSS → §04). The
   About registered script `methodologypinnedscroll-1.0.1.js` is dead code
   (no `.methodology-track` on the page) and is removed, not ported.
