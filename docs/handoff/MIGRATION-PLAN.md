@@ -202,6 +202,9 @@ interactions, then replay them*, `lessons/js.md`):
      Services Tabs Menu. Built lazily one screen ahead, one
      `ScrollTrigger.refresh()` per build.
    - `ix-pointer.ts`: Project Link Hover and Project Cursor Move.
+   - **Home hero panels:** new code is ready in
+     `Brand Vision/Experimental/home-hero-preloader/` (Asheem, 2026-10-19).
+     Start from it in Stage 4 instead of porting the current page script.
    - `ix-load.ts`: Page Load | Home (Home + 9 location/US pages), as **CSS
      keyframes** gated on `html:not(.w-mod-ix3)`, so it starts at first paint
      instead of after IX3's gate (the main mobile LCP cost).
