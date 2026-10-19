@@ -151,6 +151,9 @@ Progress (2026-10-19):
   recipe (list + socialshare, pinned 2.7.1, was the floating `@2` CDN tag).
   Same bytes as before; pages without `fs-list` markup (About, Contact,
   posts) no longer load List. Filters click-tested on staging by Asheem.
+- **3.4 tried, reverted (D4b open):** CMS-bound BlogPosting JSON-LD
+  failed validation on 809 of 1,167 posts on staging (escaped text, empty
+  author/image); never published.
 - **Kept in Webflow until Stage 4:** the Home hero-panels script (it
   reveals the LCP element inline; moving it into the async bundle would
   delay that) and the Work page Finsweet → IX2 restart hook (needs IX2).

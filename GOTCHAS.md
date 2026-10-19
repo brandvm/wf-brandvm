@@ -27,6 +27,25 @@ collected from client repos into those files.
 
 <!-- Add new entries here, newest first. -->
 
+### 2026-10-19 · CMS-bound JSON-LD on Posts: entities and empty fields
+- Area: designer
+- Scope: template-candidate
+- Symptom: BlogPosting JSON-LD built from CMS tokens in the Posts
+  template head (`{{wf {&quot;path&quot;:…} }}`) parsed on every post, but
+  on 1,167 posts: 272 had HTML entities in text (`&amp;`, `&#39;` — "Nike
+  vs Adidas &amp; More"), 610 had `"author": {"name": ""}`, 538 had
+  `"image": [""]`, 44 an empty `articleSection`, 25 an empty
+  `dateModified`.
+- Cause: Webflow HTML-escapes PlainText tokens inside custom code, and a
+  static template can't omit a property whose field is empty on some items.
+  (What did work: reference paths `post-author:name`, `category:name`, and
+  `"type":"Date"` renders ISO `YYYY-MM-DD`.)
+- Fix: reverted on staging the same day; never published. Validation file:
+  `docs/audit/2026-10-19-posts-cms-schema-validation.json`. D4 reopened.
+- Status: open
+- Found by: claude
+
+
 ### 2026-10-19 · `play() … interrupted by pause()` on Home and Web Design
 - Area: js
 - Scope: project

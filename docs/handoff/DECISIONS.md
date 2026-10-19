@@ -33,7 +33,7 @@ One at a time, each with what it means. Logged when made.
 - What: the dead Lenis module and the Lenis CSS in site head code are
   removed in the parity release. No visible change.
 
-### 2026-10-19 · D4 · Article JSON-LD goes CMS-bound directly
+### 2026-10-19 · D4 · Article JSON-LD goes CMS-bound directly (**reopened**, see D4b)
 - Who: Asheem Shrestha
 - What: in Stage 3 the browser-built BlogPosting script is replaced by a
   CMS-bound JSON-LD block in the Posts template (a Designer change), not
@@ -52,4 +52,16 @@ One at a time, each with what it means. Logged when made.
 
 ## Open
 
-None.
+### D4b · Article JSON-LD after the CMS-bound attempt (2026-10-19)
+The CMS-bound version was built, validated on all 1,167 posts on staging,
+and reverted before publishing: Webflow HTML-escapes the text (272 posts
+would get `&amp;` / `&#39;` in headline or description) and empty CMS
+fields become empty properties (610 posts without an author, 538 without
+a thumbnail). The current browser-built script reads the rendered page,
+fixes the escaping and leaves empty fields out. Options:
+- (a) **Move the script into the repo** as `article-schema.ts`, output
+  unchanged (recommended now). Google renders JS and reads it; other
+  crawlers don't, the same as today.
+- (b) CMS-bound later, after a content pass fills author and thumbnail on
+  the 600-odd legacy posts; the `&amp;` escaping would remain.
+- (c) Leave the script in the Posts template as it is.
