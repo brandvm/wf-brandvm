@@ -27,7 +27,8 @@
     "wf:perf": "node .claude/skills/webflow-build/scripts/perf.mjs",
     "wf:seo": "node .claude/skills/webflow-build/scripts/seo.mjs",
     "wf:install": "node .claude/skills/webflow-build/scripts/install.mjs",
-    "wf:parity": "node .claude/skills/webflow-build/scripts/parity.mjs"
+    "wf:parity": "node .claude/skills/webflow-build/scripts/parity.mjs",
+    "finsweet": "node scripts/finsweet.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0",
@@ -36,5 +37,8 @@
     "esbuild": "^0.28.2",
     "swiper": "11.2.10",
     "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@finsweet/attributes": "2.7.1"
   }
 }

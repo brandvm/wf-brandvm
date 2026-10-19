@@ -4,9 +4,45 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@finsweet/attributes-accordion': '-'
+  '@finsweet/attributes-autovideo': '-'
+  '@finsweet/attributes-codehighlight': '-'
+  '@finsweet/attributes-combobox': '-'
+  '@finsweet/attributes-copyclip': '-'
+  '@finsweet/attributes-displayvalues': '-'
+  '@finsweet/attributes-favcustom': '-'
+  '@finsweet/attributes-formsubmit': '-'
+  '@finsweet/attributes-inject': '-'
+  '@finsweet/attributes-inputactive': '-'
+  '@finsweet/attributes-inputcounter': '-'
+  '@finsweet/attributes-list': '-'
+  '@finsweet/attributes-mirrorclick': '-'
+  '@finsweet/attributes-mirrorinput': '-'
+  '@finsweet/attributes-modal': '-'
+  '@finsweet/attributes-numbercount': '-'
+  '@finsweet/attributes-queryparam': '-'
+  '@finsweet/attributes-rangeslider': '-'
+  '@finsweet/attributes-readtime': '-'
+  '@finsweet/attributes-removequery': '-'
+  '@finsweet/attributes-safetriangles': '-'
+  '@finsweet/attributes-scrolldisable': '-'
+  '@finsweet/attributes-selectcustom': '-'
+  '@finsweet/attributes-sliderdots': '-'
+  '@finsweet/attributes-smartlightbox': '-'
+  '@finsweet/attributes-socialshare': '-'
+  '@finsweet/attributes-starrating': '-'
+  '@finsweet/attributes-toc': '-'
+  '@finsweet/attributes-utils': '-'
+  '@finsweet/attributes-videohls': '-'
+
 importers:
 
   .:
+    dependencies:
+      '@finsweet/attributes':
+        specifier: 2.7.1
+        version: 2.7.1
     devDependencies:
       '@playwright/test':
         specifier: 1.63.0
@@ -184,6 +220,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@finsweet/attributes@2.7.1':
+    resolution: {integrity: sha512-AlniV6g+jtpBp3cXQN0yEEmUerR1sEKUzHh6jS6rc5qAEyNkcp9F7J9MTjxY9pB+U1+qsuNnNIlHBSp1AJbUEg==}
 
   '@playwright/test@1.63.0':
     resolution: {integrity: sha512-oxMK4vllB9RK5NQ2l1pq1IfOf2AvnEuj/vYGDj0H2nMtmtZpKtCwt/l00GEO6xjGfpBNAvjovvYdCm50dRQkpQ==}
@@ -423,6 +462,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.28.2':
     optional: true
+
+  '@finsweet/attributes@2.7.1': {}
 
   '@playwright/test@1.63.0':
     dependencies:

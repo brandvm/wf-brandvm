@@ -6,6 +6,7 @@ import { initCounter } from './modules/counter';
 import { initDotMap } from './modules/dot-map';
 import { initDropdownClose } from './modules/dropdown-close';
 import { initEnvironmentSwitcher } from './modules/environment-switcher';
+import { initFinsweet } from './modules/finsweet';
 import { initFlareBorder } from './modules/flare-border';
 import { initHubSpotForms } from './modules/hubspot-form';
 import { initIndustryTilt } from './modules/industry-tilt';
@@ -57,6 +58,9 @@ function bootSite() {
   // Batch 3.3: replaces the Flowbase app script and the HubSpot Embed scripts.
   run('tab-rotation', initTabRotation);
   run('hubspot-form', initHubSpotForms);
+  // Batch 3.3c: Finsweet Attributes (list, socialshare), bundled and pinned,
+  // replacing the CDN tag in site head code. Last, per the recipe.
+  run('finsweet', initFinsweet);
 }
 
 if (document.readyState === 'loading') {
