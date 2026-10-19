@@ -73,7 +73,7 @@ Nothing visible changes. Gate: you approve this plan and the decisions in
 3. **Read-only checks** (`wf:outline`, `wf:a11y`, `wf:links`, `wf:html`,
    `wf:seo` with `--live`), saved in `AUDIT.md` so later batches have a
    before.
-4. **Settle open decisions** (D1–D6 in `DECISIONS.md`) one at a time.
+4. ~~Settle open decisions D1–D6~~ done 2026-10-19 (`DECISIONS.md`).
 
 ## Stage 2: Parity port (new plumbing, no visible change)
 
@@ -88,10 +88,10 @@ the template's `run()` manifest in `src/index.ts`:
 | `dot-map.ts` | canvas dot map (512 lines) | Port as is; lazy-init later (Stage 5) |
 | `dropdown-close.ts` | `.js-close-dropdown` closes a Webflow dropdown | Port as is |
 | `flare-border.ts` | `[data-flare-border]` in-view class | Port as is |
-| `lazy-videos.ts` | visibility-based video play, `data-bv-lazy-video` | Port; compare with the template's `recipes/video` |
+| `lazy-videos.ts` | visibility-based video play, `data-bv-lazy-video` | Port the v1.1.2 version (D2); `fs-autovideo` removed in the same publish |
 | `newsletter.ts` | Swiper sliders, Swiper loaded from a CDN at runtime | Port as is; bundle Swiper later (it is already a devDependency) |
 | `read-more.ts` | `[data-readmore]` toggles | Port as is |
-| `lenis.ts` | Lenis smooth scroll | **Dead on live:** no Lenis script loads, so it no-ops. Drop it, and the Lenis CSS in head code (D3) |
+| `lenis.ts` | Lenis smooth scroll | **Dead on live:** dropped with the Lenis CSS in head code (D3) |
 | `environment-switcher.ts` | Staging/Dev pill | Replace with the template's (same feature, `wfc-dev` flag) |
 
 The template's starter modules (`aria-roles`, `placeholders`,
@@ -142,7 +142,7 @@ tagged CSS section, then is deleted from Webflow **in the same batch**. In
 | Home › page footer | hero panel alignment (`[data-hero-panels]`) | `hero-panels.ts` |
 | About › page footer | Orbit gallery: 280 lines of JS + CSS, uses Webflow's `window.gsap` | `orbit.ts` + CSS §05; must move with Stage 4 GSAP |
 | Industries › head + footer | hero carousel random tilt + reduced-motion CSS | `industry-tilt.ts` + CSS §07 |
-| Posts template › footer | BlogPosting JSON-LD built in the browser | `article-schema.ts` (D4: better as a CMS-bound schema in Webflow) |
+| Posts template › footer | BlogPosting JSON-LD built in the browser | CMS-bound JSON-LD in the Posts template (D4), checked with `wf:seo` before the script is removed |
 | Work › footer | Finsweet list hook that restarts IX2 | Goes away once IX2 moves to the repo (Stage 4) |
 | Site head | Finsweet Attributes CDN tag (`fs-list fs-socialshare fs-autovideo`) | Template `recipes/finsweet` (bundled, not a CDN tag); `fs-autovideo` is dropped (it fights `lazy-videos`; already noted in brandvm GOTCHAS) |
 | Site head | Flowbase tab-rotation CDN script (every page) | `tab-rotation.ts`, loaded only where tabs rotate |
