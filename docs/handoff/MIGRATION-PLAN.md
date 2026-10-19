@@ -206,9 +206,11 @@ interactions, then replay them*, `lessons/js.md`):
      Services Tabs Menu. Built lazily one screen ahead, one
      `ScrollTrigger.refresh()` per build.
    - `ix-pointer.ts`: Project Link Hover and Project Cursor Move.
-   - **Home hero panels:** new code is ready in
-     `Brand Vision/Experimental/home-hero-preloader/` (Asheem, 2026-10-19).
-     Start from it in Stage 4 instead of porting the current page script.
+   - **Home hero panels — built, inert (2026-10-19):** `hero-intro.ts`
+     (from `Experimental/home-hero-preloader/improved/`, D7: no scroll lock,
+     GSAP bundled) + styles.css §03 gate with a 4s CSS failsafe; tested on
+     `tests/fixtures/home-hero.html`. Waits for the Webflow build and IX3
+     deletion on all 10 pages: MANUAL-TODO **E**.
    - `ix-load.ts`: Page Load | Home (Home + 9 location/US pages), as **CSS
      keyframes** gated on `html:not(.w-mod-ix3)`, so it starts at first paint
      instead of after IX3's gate (the main mobile LCP cost).

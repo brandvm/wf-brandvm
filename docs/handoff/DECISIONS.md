@@ -69,6 +69,15 @@ fixes the escaping and leaves empty fields out. Options:
   it is the one page script that remains in Webflow after Stage 3 by
   choice. Revisit with (a) or (b) later; nothing else depends on it.
 
+### 2026-10-19 · D7 · Home hero intro: no scroll lock, GSAP bundled
+- Who: Asheem Shrestha
+- What: the prototype's scroll lock is dropped (D1 stands): a scroll
+  attempt during the intro plays the rest at 3×. GSAP 3.15.0 (+CustomEase)
+  is bundled in wf-brandvm (~30 KB gzipped, every page) as the base for all
+  Stage 4 interactions; Webflow's GSAP goes away with IX2/IX3. The bundled
+  copy never installs as `window.gsap`, so Webflow's IX3 and the Orbit keep
+  their own until their cutover.
+
 ## Open
 
 None.

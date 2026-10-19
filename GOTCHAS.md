@@ -27,6 +27,21 @@ collected from client repos into those files.
 
 <!-- Add new entries here, newest first. -->
 
+### 2026-10-19 · Bundled GSAP and Webflow's `window.gsap` coexist
+- Area: js
+- Scope: template-candidate
+- Symptom: worry that importing `gsap` in the bundle replaces Webflow's
+  `window.gsap` (IX3, and page code that reads it) on pages where the
+  bundle runs first.
+- Cause: none: gsap-core installs into its private `_installScope` (an
+  object from the start), never onto `window`, when imported as a module.
+- Fix: verified on staging Home with the 3.15.0 bundle: `w-mod-ix3` still
+  runs, `window.gsap` is Webflow's. Modules use the imported `gsap`; code
+  that reads `window.gsap` keeps Webflow's until its own cutover.
+- Status: documented
+- Found by: claude
+
+
 ### 2026-10-19 · CMS-bound JSON-LD on Posts: entities and empty fields
 - Area: designer
 - Scope: template-candidate

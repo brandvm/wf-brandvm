@@ -38,3 +38,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 npm packages installed with `pnpm install` (Finsweet Attributes and the
 rest) are not copied into this repo; each carries its own licence in
 `node_modules/`.
+
+## GSAP (bundled in dist/index.js since the Stage 4 hero intro)
+
+GSAP 3.15.0 and its CustomEase plugin (`gsap` on npm), by GreenSock /
+Webflow, under the GSAP Standard "no charge" licence:
+<https://gsap.com/standard-license>. Not open source; free to use on
+websites, including commercial ones.

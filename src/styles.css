@@ -549,6 +549,73 @@ a {
   }
 }
 
+/* ---------- Home hero intro (Stage 4, hero-intro.ts) ---------- */
+/* repo-css: js-state — frame 0 of the intro, held from first paint.
+   html.w-mod-js comes from Webflow's head script, so without JS nothing is
+   hidden. hero-intro.ts adds .is-hero-running (GSAP takes over) and then
+   .is-hero-done (every rule here lets go). Inert until the Home markup has
+   [data-hero] (MANUAL-TODO "Home hero intro"). */
+html.w-mod-js:not(.is-hero-done) [data-hero] .hero-panels-layer-discrete {
+  clip-path: inset(0 0 0 100%);
+}
+html.w-mod-js:not(.is-hero-done) [data-hero] [data-scene-img] {
+  transform: scale(1.25);
+}
+html.w-mod-js:not(.is-hero-done) [data-hero] .hero-panels-fader,
+html.w-mod-js:not(.is-hero-done) [data-hero] [data-hero-reveal],
+html.w-mod-js:not(.is-hero-done) [data-hero] [data-hero-cta] > *,
+html.w-mod-js:not(.is-hero-done):has([data-hero]) [data-hero-nav] {
+  opacity: 0;
+}
+html.w-mod-js:not(.is-hero-done) [data-hero] [data-hero-line] > * {
+  transform: translateY(110%);
+}
+
+/* repo-css: designer-cant — clip-path: url() to the SVG windows. The paths
+   start empty (nothing shows) and the module draws them. */
+html.w-mod-js [data-hero] [data-rig="desktop"] .hero-window-scene {
+  clip-path: url(#hero-windows);
+}
+html.w-mod-js [data-hero] [data-rig="phone"] .hero-window-scene {
+  clip-path: url(#hero-windows-phone);
+}
+
+/* repo-css: designer-cant — overflow-clip-margin; the masks the headline
+   lines rise through */
+[data-hero-line] {
+  display: inline-block;
+  overflow: clip;
+  overflow-clip-margin: 0.12em;
+  padding-bottom: 0.04em;
+  vertical-align: top;
+}
+[data-hero-line] > * {
+  display: inline-block;
+}
+
+/* repo-css: designer-cant — @keyframes failsafe: if the bundle never runs,
+   show the final state after 4s (phone: the scene image, unclipped, is the
+   card; desktop: the panel images cover it). */
+@keyframes bv-hero-failsafe {
+  to { clip-path: none; transform: none; opacity: 1; }
+}
+@keyframes bv-hero-failsafe-hide {
+  to { opacity: 0; }
+}
+html.w-mod-js:not(.is-hero-running):not(.is-hero-done) [data-hero] .hero-panels-layer-discrete,
+html.w-mod-js:not(.is-hero-running):not(.is-hero-done) [data-hero] [data-rig="phone"] .hero-window-scene,
+html.w-mod-js:not(.is-hero-running):not(.is-hero-done) [data-hero] [data-rig="phone"] [data-scene-img],
+html.w-mod-js:not(.is-hero-running):not(.is-hero-done) [data-hero] .hero-panels-fader,
+html.w-mod-js:not(.is-hero-running):not(.is-hero-done) [data-hero] [data-hero-reveal],
+html.w-mod-js:not(.is-hero-running):not(.is-hero-done) [data-hero] [data-hero-cta] > *,
+html.w-mod-js:not(.is-hero-running):not(.is-hero-done) [data-hero] [data-hero-line] > *,
+html.w-mod-js:not(.is-hero-running):not(.is-hero-done):has([data-hero]) [data-hero-nav] {
+  animation: bv-hero-failsafe 0.01s linear 4s forwards;
+}
+html.w-mod-js:not(.is-hero-running):not(.is-hero-done) [data-hero] [data-rig="desktop"] [data-scene-img] {
+  animation: bv-hero-failsafe-hide 0.01s linear 4s forwards;
+}
+
 /* ============================================================
    04. COMPONENTS, SECTIONS & FORMS
    ============================================================ */

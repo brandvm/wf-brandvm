@@ -1,0 +1,39 @@
+<!-- Home hero intro: the static markup Webflow needs (MANUAL-TODO "E").
+     Paste each block into its own Embed, exactly as below. Embeds hold
+     markup only; all behaviour is in wf-brandvm (src/modules/hero-intro.ts).
+     The full target structure is tests/fixtures/home-hero.html. -->
+
+<!-- E1. Home › Page settings › Custom code › Head (preload the scene image) -->
+<link rel="preload" as="image" fetchpriority="high" media="(min-width: 768px)"
+    href="https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background.webp"
+    imagesrcset="https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-800.webp 800w, https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-1080.webp 1080w, https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-1600.webp 1600w, https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-2600.webp 2600w, https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background.webp 4000w"
+    imagesizes="100vw">
+  <link rel="preload" as="image" fetchpriority="high" media="(max-width: 767px)"
+    href="https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-1080.webp"
+    imagesrcset="https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-500.webp 500w, https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-800.webp 800w, https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-1080.webp 1080w, https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-1600.webp 1600w"
+    imagesizes="calc(100vw - 2em)">
+
+<!-- E2. Embed, FIRST child of the desktop grid (.hero-panels-grid inside [data-hero-panels]) -->
+<div class="hero-window-scene" aria-hidden="true">
+              <picture><source media="(max-width: 767px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><img src="https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background.webp"
+                srcset="https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-800.webp 800w, https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-1080.webp 1080w, https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-1600.webp 1600w, https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-2600.webp 2600w, https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background.webp 4000w"
+                sizes="100vw" loading="eager" fetchpriority="high" decoding="async" alt="" data-scene-img></picture>
+            </div>
+
+<!-- E3. Embed, ONLY child of .home-hero-center (replaces its Image) -->
+<div class="hero-panels-grid hero-panels-grid-phone" data-rig="phone">
+            <div class="hero-window-scene" aria-hidden="true">
+              <picture><source media="(min-width: 768px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><img src="https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-1080.webp"
+                srcset="https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-500.webp 500w, https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-800.webp 800w, https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-1080.webp 1080w, https://cdn.prod.website-files.com/68b9f0236581de795cba8ec2/6a7f2bc9565c5c8df632cd8c_Hero%20Background-p-1600.webp 1600w"
+                sizes="calc(100vw - 2em)" loading="eager" fetchpriority="high" decoding="async" alt="" data-scene-img></picture>
+            </div>
+            <div class="hero-panels-panel hero-panels-panel-phone"></div>
+            <div class="hero-panels-panel hero-panels-panel-phone"></div>
+            <div class="hero-panels-panel hero-panels-panel-phone"></div>
+          </div>
+
+<!-- E4. Embed, LAST child of the hero section (.s-home-hero) -->
+<svg class="hero-window-defs" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+        <clipPath id="hero-windows" clipPathUnits="userSpaceOnUse"><path d=""></path><path d=""></path><path d=""></path></clipPath>
+        <clipPath id="hero-windows-phone" clipPathUnits="userSpaceOnUse"><path d=""></path><path d=""></path><path d=""></path></clipPath>
+      </svg>

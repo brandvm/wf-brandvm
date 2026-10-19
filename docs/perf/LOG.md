@@ -168,3 +168,9 @@ What it shows (measured):
   from 3.3; it says the Stage 2 "regression" is the same coin flip.
 - Mobile TBT is up 30–90 ms on Home, About, Contact and Branding; small and
   within run-to-run variation seen before, watch in the next run.
+
+### 2026-10-19 · Work page re-measured (10 runs)
+
+Desktop **82 (81–88)**, LCP 1.9 s; mobile 54 (50–59), LCP 18.4 s; 100 MB.
+Back at Stage 2's 83: the 76 in the batch 3.3 run was noise, not Finsweet.
+Raw: `2026-10-19-work-10runs-live.json`.

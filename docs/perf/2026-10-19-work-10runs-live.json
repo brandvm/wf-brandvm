@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-19T21:40:30.475Z",
+  "base": "https://www.brandvm.com",
+  "runs": 10,
+  "lighthouse": "lighthouse@12",
+  "pages": {
+    "/our-work-portfolio": {
+      "mobile": {
+        "runs": 10,
+        "score": {
+          "median": 54,
+          "min": 50,
+          "max": 59
+        },
+        "lcp": {
+          "median": 18383.5,
+          "min": 8837,
+          "max": 20279
+        },
+        "fcp": {
+          "median": 4916,
+          "min": 3379,
+          "max": 7054
+        },
+        "tbt": {
+          "median": 148.5,
+          "min": 97,
+          "max": 316
+        },
+        "cls": {
+          "median": 0.004,
+          "min": 0,
+          "max": 0.004
+        },
+        "si": {
+          "median": 11064,
+          "min": 9809,
+          "max": 11514
+        },
+        "bytes": {
+          "median": 100148.5,
+          "min": 99983,
+          "max": 100339
+        }
+      },
+      "desktop": {
+        "runs": 10,
+        "score": {
+          "median": 82,
+          "min": 81,
+          "max": 88
+        },
+        "lcp": {
+          "median": 1934.5,
+          "min": 1081,
+          "max": 2073
+        },
+        "fcp": {
+          "median": 730.5,
+          "min": 675,
+          "max": 779
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0.003,
+          "min": 0.003,
+          "max": 0.004
+        },
+        "si": {
+          "median": 3669.5,
+          "min": 3523,
+          "max": 6821
+        },
+        "bytes": {
+          "median": 100210.5,
+          "min": 99824,
+          "max": 101912
+        }
+      }
+    }
+  }
+}

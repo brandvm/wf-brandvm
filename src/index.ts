@@ -8,6 +8,7 @@ import { initDropdownClose } from './modules/dropdown-close';
 import { initEnvironmentSwitcher } from './modules/environment-switcher';
 import { initFinsweet } from './modules/finsweet';
 import { initFlareBorder } from './modules/flare-border';
+import { initHeroIntro } from './modules/hero-intro';
 import { initHubSpotForms } from './modules/hubspot-form';
 import { initIndustryTilt } from './modules/industry-tilt';
 import { initNewsletter } from './modules/newsletter';
@@ -31,6 +32,9 @@ function run(name: string, init: () => void) {
 function boot() {
   // No pre-paint scroll lock on this site (D1), so nothing to release.
   run('environment-switcher', initEnvironmentSwitcher);
+  // Stage 4: the Home hero intro starts on DOM ready, not after webflow.js,
+  // so it can begin as soon as its images decode. Inert without [data-hero].
+  run('hero-intro', initHeroIntro);
   // Starter fixes for markup Webflow publishes (conventions.md §9–11). Both
   // act only on data-aria-role / data-placeholder, which the site doesn't
   // use yet. unique-form-ids stays off for parity: it would rename the

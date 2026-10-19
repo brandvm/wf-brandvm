@@ -50,6 +50,51 @@ again at each gate, so the steps are found early and not at the end:
 | B | G \| Components › Embeds 2 and 3 (Stage 2 cutover) | — | Replace with loader 2a / 2b | Done by Claude through the MCP (`code` setting) on 2026-10-19 | ☑ |
 | C | S \| Contact CTA component › Embed with class "Hubspot Form", **both variants** (base, and the variant used on /contact) | — | Delete the whole `<script>…</script>` part. Keep only the form `<div>`: base keeps `<div class="hs-form-slot" data-hs-form=…>`; the /contact variant becomes `<div class="hs-form-slot" data-hs-form="7a162eb3-35f1-476d-8877-2d1bd30b0f28" data-hs-portal="22077182" data-hs-region="na1"></div>` (also drop its `v2.js` tag and inline `hbspt.forms.create`). Then tell Claude to verify and publish | The Embed's code differs per variant ("containsBindings"); the API can't read or write it | ☑ done by Asheem (both variants render the slot on staging, checked 2026-10-19) |
 | D | Site settings › Apps (or the Flowbase account) | — | Uninstall / disable Flowbase "Auto Tab Rotation" booster. `tab-rotation.ts` takes over automatically (it stays off while Flowbase's script is on the page) | Installed by an app, not as site/page code; no API to remove it | ☐ |
+| E | Home hero (+ the 9 location pages with the same hero) | all | The Home hero intro build, section below | Designer markup, Embeds, page head code and an IX3 deletion; done together with a wf-brandvm release | ☐ |
+
+## E · Home hero intro cutover (Stage 4, one batch, staging first)
+
+The code is ready and inert: `src/modules/hero-intro.ts` + styles.css §03
+"Home hero intro" run only once the hero has `data-hero`. Target markup:
+`tests/fixtures/home-hero.html`; Embed snippets: `docs/handoff/home-hero/embeds.html`.
+
+**Scope: 10 pages.** `/`, `/chicago`, `/miami`, `/san-francisco`, `/us`,
+`/us-web-design`, `/locations/montreal`, `/locations/canada`,
+`/locations/los-angeles`, `/locations/dallas` all use the same
+`s-home-hero` and IX3 "Page Load | Home" (`i-fa832f3a`). Easiest: make the
+hero a component first (`S | Home Hero`), then do steps 1–7 once.
+
+1. **Hero section** `.s-home-hero`: attribute `data-hero` (no value).
+2. **Desktop grid** (`.hero-panels-grid` inside `[data-hero-panels]`):
+   attribute `data-rig="desktop"`. Delete the three hidden
+   `.hero-panels-layer-panorama` images. Add Embed **E2** as its first child.
+3. **Styles** (Designer): new class `hero-window-scene` → position absolute,
+   inset 0, z-index 0, overflow hidden, pointer-events none (the Embed's
+   `img` needs: absolute, inset 0, 100% × 100%, object-fit cover; give it
+   class `hero-window-scene-img` in the Embed if a descendant style is not
+   wanted). `.hero-panels-panel` → z-index 1. `.hero-panels-panel-center`
+   → border-left none. `.hero-panels-fader` → z-index 2, pointer-events none.
+4. **Headline** (h1 `.d1`): three line wrappers, each a Span with attribute
+   `data-hero-line` holding one inner Span: "Award-Winning ", "Branding &
+   Web " (accent classes), "Design Agency" (accent classes), with the two
+   Line Breaks between them. Today lines 2 and 3 share one outer span.
+5. **Attributes:** `data-hero-reveal` on both `.max-width` blocks in
+   `.home-hero-right`; `data-hero-cta` on both `.grouped-cta-w` in the hero;
+   `data-hero-nav` on the nav wrapper `.g-nav-w` (fine site-wide: the CSS
+   only reacts when the page also has `[data-hero]`).
+6. **Phone card** `.home-hero-center`: add combo class `hero-phone-card`
+   (position relative, background none); replace its Image with Embed
+   **E3**. Styles: `.hero-panels-grid.hero-panels-grid-phone` → absolute,
+   inset 0, column and row gap 0.5em; `.hero-panels-panel.hero-panels-panel-phone`
+   → radius `--_radius---12`.
+7. **SVG windows:** Embed **E4** as the last child of the hero section.
+8. **Home page head code:** E1 (scene preload). **Home page footer code:**
+   delete the hero-panels align script (it never worked: wrong selector).
+9. **Interactions:** delete IX3 "Page Load | Home" (`i-fa832f3a`).
+10. **Release:** Claude tags the wf-brandvm release that contains
+    hero-intro.ts and sets `RELEASE` in the head code; publish staging,
+    check all 10 pages at 1440 and 390 (first visit, returning visit,
+    reduced motion), then "publish".
 
 ## Stage 2 cutover (one batch, staging first)
 

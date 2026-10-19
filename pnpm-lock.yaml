@@ -56,6 +56,9 @@ importers:
       esbuild:
         specifier: ^0.28.2
         version: 0.28.2
+      gsap:
+        specifier: 3.15.0
+        version: 3.15.0
       swiper:
         specifier: 11.2.10
         version: 11.2.10
@@ -364,6 +367,9 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  gsap@3.15.0:
+    resolution: {integrity: sha512-dMW4CWBTUK1AEEDeZc1g4xpPGIrSf9fJF960qbTZmN/QwZIWY5wgliS6JWl9/25fpTGJrMRtSjGtOmPnfjZB+A==}
+
   playwright-core@1.63.0:
     resolution: {integrity: sha512-rYCsBF/M5HjUch52bbtVONEFjv6Xu8sm8h72dNlR5bzIE1fvC/bxgspzkjSfU+MweEMmPM8KJebG6nnyxo5mCg==}
     engines: {node: '>=20'}
@@ -565,6 +571,8 @@ snapshots:
       '@esbuild/win32-arm64': 0.28.2
       '@esbuild/win32-ia32': 0.28.2
       '@esbuild/win32-x64': 0.28.2
+
+  gsap@3.15.0: {}
 
   playwright-core@1.63.0: {}
 
