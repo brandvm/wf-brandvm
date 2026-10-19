@@ -7,11 +7,13 @@ import { initDotMap } from './modules/dot-map';
 import { initDropdownClose } from './modules/dropdown-close';
 import { initEnvironmentSwitcher } from './modules/environment-switcher';
 import { initFlareBorder } from './modules/flare-border';
+import { initHubSpotForms } from './modules/hubspot-form';
 import { initIndustryTilt } from './modules/industry-tilt';
 import { initNewsletter } from './modules/newsletter';
 import { initOrbit } from './modules/orbit';
 import { initPlaceholders } from './modules/placeholders';
 import { initReadMore } from './modules/read-more';
+import { initTabRotation } from './modules/tab-rotation';
 // Self-starting on DOM ready, independently of Webflow (brandvm v1.1.2).
 import './modules/lazy-videos';
 
@@ -52,6 +54,9 @@ function bootSite() {
   // Moved from Webflow page code (Stage 3, batch 3.2).
   run('orbit', initOrbit);
   run('industry-tilt', initIndustryTilt);
+  // Batch 3.3: replaces the Flowbase app script and the HubSpot Embed scripts.
+  run('tab-rotation', initTabRotation);
+  run('hubspot-form', initHubSpotForms);
 }
 
 if (document.readyState === 'loading') {
