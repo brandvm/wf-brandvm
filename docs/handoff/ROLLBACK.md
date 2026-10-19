@@ -13,9 +13,9 @@ Update the "Current state" section after every batch that goes live.
   (`index.js` sha1 `7c534d0b6e3d…`, `styles.css` `b002bc923d06…`).
   The tag stays forever (D6: the repo is archived, never deleted), so these
   URLs keep resolving.
-- **Webflow:** a site backup named `2026-10-19 pre-wf-brandvm`.
-  **[Person]** Make it in Site settings › Backups before the first
-  Webflow write. Not done yet.
+- **Webflow:** site backup `2026-10-19 pre-wf-brandvm`, made by Asheem
+  Shrestha on 2026-10-19 (Site settings › Backups), before any Webflow
+  write.
 - **Live publish:** 2026-10-19 15:26 UTC (`lastPublished` from the MCP).
   The custom code below was taken from that published HTML.
 
@@ -53,9 +53,11 @@ block can differ from the Designer field. Nothing else does.
 | Not custom code: added by an installed app/integration | `app-flowbase-head-script.html` Flowbase tab rotation | all |
 
 The Flowbase tab-rotation script is on every page but in neither the site
-nor any page custom code (the MCP's registered-scripts read returns nothing).
-It comes from an installed app or integration. Find it in Site settings ›
-Apps before Stage 3 replaces it.
+nor any page custom code (the MCP's registered-scripts read returns nothing),
+so it comes from an installed app or integration. It drives one element
+only: the "Our Work" client tabs on /about (`fb-tabs="true"`,
+`fb-tabs-speed="15000"`, `fb-tabs-progress="true"`,
+`fb-tabs-pauseable="false"`, 15-second auto-rotation with a progress bar).
 
 ## How to roll back
 
@@ -84,10 +86,11 @@ tag and publish. Never move a pushed tag.
 
 ## [Person] steps still open
 
-- [ ] Webflow backup `2026-10-19 pre-wf-brandvm`
-- [ ] Branch protection on `brandvm/wf-brandvm` `master` (and on
-  `brandvm/brandvm` until it is archived)
-- [ ] Find where the Flowbase script is installed (Site settings › Apps)
+- [x] Webflow backup `2026-10-19 pre-wf-brandvm` (2026-10-19)
+- [x] Branch protection on `master` in `brandvm/wf-brandvm` and
+  `brandvm/brandvm` (2026-10-19): no force pushes, no deletion. No PR or
+  status-check requirement, so pushes to `master` still deploy staging.
+- [ ] Find where the Flowbase script is installed (Site settings › Apps), so it can be removed when Stage 3 replaces it
 
 ## Current state
 

@@ -63,8 +63,8 @@ Nothing visible changes. Gate: you approve this plan and the decisions in
 1. ~~**Rollback point.**~~ Done 2026-10-19: tag `v1.1.1` already exists and is
    byte-identical to what jsDelivr serves live; `ROLLBACK.md` + `rollback/`
    hold every piece of custom code word for word. **[Person]** still open:
-   Webflow backup `2026-10-19 pre-wf-brandvm`, branch protection, and
-   finding where the Flowbase script is installed.
+   finding where the Flowbase script is installed. The Webflow backup
+   `2026-10-19 pre-wf-brandvm` and branch protection on both repos exist.
 2. ~~**Visual baselines and noise floor.**~~ Done 2026-10-19 (AUDIT ›
    noise floor). `pnpm wf:baseline save --live` on
    the key pages at three widths, then `compare` with nothing changed, to
@@ -144,7 +144,7 @@ tagged CSS section, then is deleted from Webflow **in the same batch**. In
 | Posts template › footer | BlogPosting JSON-LD built in the browser | CMS-bound JSON-LD in the Posts template (D4), checked with `wf:seo` before the script is removed |
 | Work › footer | Finsweet list hook that restarts IX2 | Goes away once IX2 moves to the repo (Stage 4) |
 | Site head | Finsweet Attributes CDN tag (`fs-list fs-socialshare fs-autovideo`) | Template `recipes/finsweet` (bundled, not a CDN tag); `fs-autovideo` is dropped (it fights `lazy-videos`; already noted in brandvm GOTCHAS) |
-| Site head | Flowbase tab-rotation CDN script (every page) | `tab-rotation.ts`, loaded only where tabs rotate |
+| App-injected, every page | Flowbase tab-rotation script; used only by the About "Our Work" client tabs (`fb-tabs`, 15 s, progress bar) | `tab-rotation.ts` reading the same `fb-tabs-*` attributes, so the Designer markup stays; runs only where `[fb-tabs]` exists |
 | Site head | `<style>` dev-support hiding + Lenis | CSS §08 / dropped with Lenis |
 | 10 CMS pages › Embed | `.project-list` hover CSS, **two near-identical copies** | One CSS rule in §05 |
 | Work › Embed | case-study grid `nth-child` CSS | CSS §05 (`designer-cant`) |

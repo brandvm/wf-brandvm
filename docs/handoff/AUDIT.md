@@ -35,7 +35,8 @@ count) or *read* (from code/settings). Nothing was written to Webflow.
 ### Scripts on every page (Home, in load order) *read*
 
 Ahrefs analytics · Finsweet Attributes 2 (CDN, module) · Flowbase
-tab-rotation 1.2.2 (CDN) · jQuery 3.5.1 · 3 Webflow chunks (`webflow.schunk`
+tab-rotation 1.2.2 (CDN, app-injected; used only by the About "Our Work"
+tabs) · jQuery 3.5.1 · 3 Webflow chunks (`webflow.schunk`
 ×2 + page chunk) · GSAP 3.15 + ScrollTrigger + SplitText + CustomEase +
 Observer (Webflow-hosted, for IX3) · GTM (head) · brandvm bundle (footer,
 dynamic). HubSpot `v2.js` via an inline Embed on 36 pages.
