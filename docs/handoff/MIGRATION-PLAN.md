@@ -155,6 +155,11 @@ Progress (2026-10-19):
   failed validation on 809 of 1,167 posts on staging (escaped text, empty
   author/image); never published. Asheem chose to keep the browser-built
   script in the Posts template for now.
+- **Contact form restyle (2026-10-19, staging):** the HubSpot form gets the
+  new contact-form design from the bundle (`hubspot-form-style.ts`,
+  injected into HubSpot's iframe); HubSpot fields and wording unchanged
+  (Asheem: "hubspot form is final"). New Webflow component
+  **C | HubSpot Form** (slot only) used in S | Contact and S | Contact CTA.
 - **Kept in Webflow until Stage 4:** the Home hero-panels script (it
   reveals the LCP element inline; moving it into the async bundle would
   delay that) and the Work page Finsweet → IX2 restart hook (needs IX2).
