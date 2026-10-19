@@ -7,7 +7,9 @@ import { initDotMap } from './modules/dot-map';
 import { initDropdownClose } from './modules/dropdown-close';
 import { initEnvironmentSwitcher } from './modules/environment-switcher';
 import { initFlareBorder } from './modules/flare-border';
+import { initIndustryTilt } from './modules/industry-tilt';
 import { initNewsletter } from './modules/newsletter';
+import { initOrbit } from './modules/orbit';
 import { initPlaceholders } from './modules/placeholders';
 import { initReadMore } from './modules/read-more';
 // Self-starting on DOM ready, independently of Webflow (brandvm v1.1.2).
@@ -47,6 +49,9 @@ function bootSite() {
   run('dot-map', initDotMap);
   run('read-more', initReadMore);
   run('dropdown-close', initDropdownClose);
+  // Moved from Webflow page code (Stage 3, batch 3.2).
+  run('orbit', initOrbit);
+  run('industry-tilt', initIndustryTilt);
 }
 
 if (document.readyState === 'loading') {

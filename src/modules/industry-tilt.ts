@@ -1,0 +1,42 @@
+// @ts-nocheck -- ported verbatim from the Industries page footer code
+// (Stage 3, batch 3.2). Gives each Industries hero carousel item a random
+// tilt after load; the reduced-motion CSS is in styles.css (Motion respect).
+export function initIndustryTilt() {
+  if (!document.querySelector('.industry-hero-carousel-list')) return;
+  (function () {
+    var MIN_DEG     = -20,    // smallest tilt
+        MAX_DEG     = 20,   // largest tilt
+        STAGGER_MS  = 120,   // gap between each item
+        START_DELAY = 0;  // wait after load
+
+    function rand(min, max) { return Math.random() * (max - min) + min; }
+
+    function run() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var lists = document.querySelectorAll('.industry-hero-carousel-list');
+      if (!lists.length) return;
+
+      // Generate ONE angle per position and reuse it across both duplicated
+      // lists — keeps the marquee loop seamless.
+      var angles = [];
+      lists[0].querySelectorAll('.industry-hero-carousel-item').forEach(function () {
+        angles.push((Math.random() < 0.5 ? -1 : 1) * rand(MIN_DEG, MAX_DEG));
+      });
+
+      lists.forEach(function (list) {
+        list.querySelectorAll('.industry-hero-carousel-item').forEach(function (item, i) {
+          var deg = angles[i % angles.length];
+          setTimeout(function () {
+            item.style.transform = 'rotate(' + deg.toFixed(2) + 'deg)';
+          }, i * STAGGER_MS);
+        });
+      });
+    }
+
+    function boot() { setTimeout(run, START_DELAY); }
+
+    if (document.readyState === 'complete') boot();
+    else window.addEventListener('load', boot);
+  })();
+}

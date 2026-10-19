@@ -132,6 +132,20 @@ PageSpeed after: expected flat (±noise). Logged anyway.
 
 ## Stage 3: Webflow custom code into the repo
 
+Progress (2026-10-19):
+- **3.1 live:** the six duplicate CSS Embeds (project-list ×5 CMS templates,
+  case-study grid on Work) removed; `styles.css` already had the rules.
+  Desktop/tablet identical; on phones the 4th project card now shows its
+  title (by design: hidden on desktop/tablet, shown on phones; the Embeds
+  had hidden it on phones too).
+- **3.2 in progress:** Orbit (About) and the Industries carousel tilt move
+  into `orbit.ts` / `industry-tilt.ts` (verbatim; Orbit CSS → §04). The
+  About registered script `methodologypinnedscroll-1.0.1.js` is dead code
+  (no `.methodology-track` on the page) and is removed, not ported.
+- **Kept in Webflow until Stage 4:** the Home hero-panels script (it
+  reveals the LCP element inline; moving it into the async bundle would
+  delay that) and the Work page Finsweet → IX2 restart hook (needs IX2).
+
 Every script or style that lives in Webflow today moves into a module or a
 tagged CSS section, then is deleted from Webflow **in the same batch**. In
 `AUDIT.md` › Custom code:
