@@ -124,3 +124,47 @@ and dropped a dead registered script on About. Raw:
 No measurable change, as expected: these batches move code, they don't
 remove work. Industries desktop LCP (6.4 s) is the slowest desktop LCP
 measured so far; added to the Stage 5 list.
+
+## 2026-10-19 · Stage 3, batch 3.3 live (v1.3.0)
+
+Flowbase tab rotation, the HubSpot loader and Finsweet Attributes moved
+into the bundle (3.3a–c). All ten pages, compared with the Stage 2 run.
+Raw: `2026-10-19-stage3-batch33-live.json`.
+
+| Page | Mode | Score Stage 2 → now (range) | LCP | TBT | Transfer |
+| --- | --- | --- | --- | --- | --- |
+| `/` | mobile | 56 → 57 (54–72) | 19.8 → 18.7 s | 145 → 190 ms | 9.7 MB |
+| `/` | desktop | 84 → 85 (83–86) | 2.0 → 2.0 s | 0 ms | 10.5 MB |
+| `/about` | mobile | 56 → 56 (54–66) | 18.1 → 11.4 s | 140 → 183 ms | 14.0 MB |
+| `/about` | desktop | 79 → 80 (77–85) | 2.4 → 2.4 s | 0 ms | 15.6 MB |
+| `/contact` | mobile | 52 → 51 (50–62) | 20.0 → 14.1 s | 203 → 291 ms | 2.9 MB |
+| `/contact` | desktop | 87 → 86 (82–92) | 1.8 → 1.8 s | 0 ms | 3.7 MB |
+| `/web-design` | mobile | 55 → 56 (52–86) | 20.9 → 18.8 s | 172 → 166 ms | 10.6 MB |
+| `/web-design` | desktop | 89 → 86 (83–91) | 1.6 → 1.8 s | 0 ms | 10.9 MB |
+| `/branding` | mobile | 56 → 57 (54–67) | 20.0 → 18.9 s | 158 → 185 ms | 9.7 MB |
+| `/branding` | desktop | 81 → 78 (77–80) | 2.6 → 2.7 s | 0 ms | 10.2 MB |
+| `/our-work-portfolio` | mobile | 55 → 56 (54–64) | 15.9 → 16.5 s | 149 → 150 ms | 97.9 MB |
+| `/our-work-portfolio` | desktop | 83 → **76** (74–83) | 1.9 → 2.4 s | 0 ms | 98.5 MB |
+| `/insights` | mobile | 56 → 56 (53–77) | 23.1 → 22.8 s | 169 → 196 ms | 3.1 MB |
+| `/insights` | desktop | 92 → 92 (89–92) | 1.2 → 1.3 s | 0 ms | 4.0 MB |
+| `/services` | mobile | 57 → 65 (56–68) | 18.4 → 7.3 s | 148 → 155 ms | 9.7 MB |
+| `/services` | desktop | 84 → 87 (84–89) | 2.2 → 2.1 s | 0 ms | 9.9 MB |
+| case study | mobile | 51 → 54 (41–58) | 16.4 → 16.6 s | 275 → 225 ms | 12.2 MB |
+| case study | desktop | 89 → 85 (80–89) | 1.7 → 1.8 s | 9 ms | 12.2 MB |
+| post | mobile | 53 → 57 (50–61) | 19.5 → 12.1 s | 236 → 214 ms | 2.6 MB |
+| post | desktop | 71 → 71 (68–72) | 4.4 → 4.3 s | 0 ms | 2.9 MB |
+
+What it shows (measured):
+
+- **Mostly inside the noise**, as expected for a batch that moves code.
+  CLS is unchanged everywhere.
+- **Work desktop 83 → 76**, below Stage 2's whole range (82–83); LCP 1.9 →
+  2.4 s. Work is the page Finsweet List runs on, so the bundled List is
+  the first suspect. To re-measure (10 runs) before blaming it: the range
+  still reaches 83.
+- **Mobile LCP medians moved to the fast mode on several pages** (Services
+  18.4 → 7.3 s, About 18.1 → 11.4 s, post 19.5 → 12.1 s, Contact 20.0 →
+  14.1 s). Mobile LCP is two-mode (see Stage 2), so this is not a gain
+  from 3.3; it says the Stage 2 "regression" is the same coin flip.
+- Mobile TBT is up 30–90 ms on Home, About, Contact and Branding; small and
+  within run-to-run variation seen before, watch in the next run.
