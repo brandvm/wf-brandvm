@@ -1,0 +1,43 @@
+{
+  "prototypeUrl": "http://127.0.0.1:5966",
+  "stagingUrl": "https://brandvm.webflow.io",
+  "repoDir": ".",
+  "bundlePattern": "brandvm\\.github\\.io/wf-brandvm/(index\\.js|styles\\.css)",
+  "widths": [
+    [
+      1440,
+      900
+    ],
+    [
+      820,
+      1180
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "pages": [
+    "/",
+    "/about",
+    "/contact",
+    "/web-design",
+    "/branding",
+    "/our-work-portfolio",
+    "/insights",
+    "/services",
+    "/case-studies/accounting-advisory-firm-website",
+    "/post/10-essential-marketing-metrics"
+  ],
+  "liveUrl": "https://www.brandvm.com",
+  "parity": {
+    "oldAssets": {
+      "brandvm\\.github\\.io/brandvm/styles\\.css(\\?|$)": "styles.css",
+      "cdn\\.jsdelivr\\.net/gh/brandvm/brandvm@[^/]+/dist/styles\\.css": "styles.css",
+      "cdn\\.jsdelivr\\.net/gh/brandvm/brandvm@[^/]+/dist/index\\.js": "index.js",
+      "brandvm\\.github\\.io/brandvm/index\\.js(\\?|$)": "index.js"
+    },
+    "ignore": "",
+    "settle": 3000
+  }
+}

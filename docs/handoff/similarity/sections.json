@@ -1,0 +1,1185 @@
+{
+ "sections": [
+  {
+   "section": "s-404",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    13,
+    13
+   ],
+   "classCount": 18,
+   "examplePages": [
+    "404"
+   ],
+   "dataAttrs": [
+    "data-wf--button-w--button-type"
+   ]
+  },
+  {
+   "section": "s-hero",
+   "pages": 3,
+   "uses": 3,
+   "variants": [],
+   "nodes": [
+    30,
+    43
+   ],
+   "classCount": 33,
+   "examplePages": [
+    "about",
+    "career",
+    "services"
+   ],
+   "dataAttrs": [
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--e-video--aspect-ratio"
+   ]
+  },
+  {
+   "section": "(unnamed)",
+   "pages": 8,
+   "uses": 9,
+   "variants": [],
+   "nodes": [
+    69,
+    372
+   ],
+   "classCount": 228,
+   "examplePages": [
+    "about",
+    "career",
+    "career",
+    "contact",
+    "insights",
+    "insights_branding"
+   ],
+   "dataAttrs": [
+    "data-count-end",
+    "data-delay",
+    "data-flare-border",
+    "data-gradient",
+    "data-gradient-text",
+    "data-gsap",
+    "data-hover",
+    "data-name",
+    "data-truncate",
+    "data-turnstile-sitekey",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-heading-with-image--style-heading-style-visual-only",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement",
+    "data-wf-component-id",
+    "data-wf-element-id",
+    "data-wf-page-id",
+    "data-wf-variant-state"
+   ]
+  },
+  {
+   "section": "s-orbit",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    79,
+    79
+   ],
+   "classCount": 27,
+   "examplePages": [
+    "about"
+   ],
+   "dataAttrs": [
+    "data-gradient",
+    "data-gradient-text",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-featured",
+   "pages": 7,
+   "uses": 7,
+   "variants": [],
+   "nodes": [
+    36,
+    49
+   ],
+   "classCount": 29,
+   "examplePages": [
+    "about",
+    "career",
+    "industry_b2b-marketing",
+    "industry_b2c-marketing",
+    "real-estate-marketing",
+    "seo-agency_ai-search-optimization"
+   ],
+   "dataAttrs": [
+    "data-flare-border",
+    "data-gradient",
+    "data-gradient-text",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-team",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    154,
+    154
+   ],
+   "classCount": 45,
+   "examplePages": [
+    "about"
+   ],
+   "dataAttrs": [
+    "data-flare-border",
+    "data-gradient",
+    "data-gradient-text",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-methodology",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    86,
+    86
+   ],
+   "classCount": 32,
+   "examplePages": [
+    "about"
+   ],
+   "dataAttrs": [
+    "data-gradient",
+    "data-gradient-text",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-location",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    84,
+    84
+   ],
+   "classCount": 53,
+   "examplePages": [
+    "about"
+   ],
+   "dataAttrs": [
+    "data-dotmap",
+    "data-flare-border",
+    "data-gradient",
+    "data-gradient-text",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading-with-image--style-heading-style-visual-only",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement",
+    "data-wf-component-id",
+    "data-wf-variant-state"
+   ]
+  },
+  {
+   "section": "s-social-proof",
+   "pages": 31,
+   "uses": 31,
+   "variants": [],
+   "nodes": [
+    143,
+    143
+   ],
+   "classCount": 67,
+   "examplePages": [
+    "about",
+    "branding",
+    "branding_brand-naming",
+    "branding_brand-research",
+    "chicago",
+    "home"
+   ],
+   "dataAttrs": [
+    "data-count-end",
+    "data-flare-border",
+    "data-gradient",
+    "data-gradient-text",
+    "data-gsap"
+   ]
+  },
+  {
+   "section": "s-about-work",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    97,
+    97
+   ],
+   "classCount": 55,
+   "examplePages": [
+    "about"
+   ],
+   "dataAttrs": [
+    "data-count-decimals",
+    "data-count-end",
+    "data-current",
+    "data-duration-in",
+    "data-duration-out",
+    "data-easing",
+    "data-flare-border",
+    "data-w-tab",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-faqs",
+   "pages": 32,
+   "uses": 32,
+   "variants": [
+    "w-variant-e7410e37-551d-f331-f236-5920746c21da"
+   ],
+   "nodes": [
+    25,
+    679
+   ],
+   "classCount": 46,
+   "examplePages": [
+    "about",
+    "branding",
+    "branding_brand-naming",
+    "branding_brand-research",
+    "chicago",
+    "home"
+   ],
+   "dataAttrs": [
+    "data-delay",
+    "data-gradient",
+    "data-gradient-text",
+    "data-gsap",
+    "data-hover",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement",
+    "data-wf--s-faqs--padding"
+   ]
+  },
+  {
+   "section": "s-contact-cta",
+   "pages": 37,
+   "uses": 37,
+   "variants": [],
+   "nodes": [
+    98,
+    128
+   ],
+   "classCount": 103,
+   "examplePages": [
+    "about",
+    "branding",
+    "branding_brand-naming",
+    "branding_brand-research",
+    "career",
+    "case-studies_accounting-advisory-firm-website"
+   ],
+   "dataAttrs": [
+    "data-gsap",
+    "data-hs-form",
+    "data-hs-portal",
+    "data-hs-region",
+    "data-name",
+    "data-turnstile-sitekey",
+    "data-w-generic-error",
+    "data-w-size-error",
+    "data-w-type-error",
+    "data-wait",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement",
+    "data-wf-element-id",
+    "data-wf-page-id"
+   ]
+  },
+  {
+   "section": "s-legal",
+   "pages": 2,
+   "uses": 2,
+   "variants": [],
+   "nodes": [
+    50,
+    159
+   ],
+   "classCount": 13,
+   "examplePages": [
+    "brand-vision-insights-terms",
+    "privacy-policy"
+   ],
+   "dataAttrs": []
+  },
+  {
+   "section": "s-insights-nav",
+   "pages": 8,
+   "uses": 8,
+   "variants": [],
+   "nodes": [
+    14,
+    14
+   ],
+   "classCount": 17,
+   "examplePages": [
+    "brand-vision-insights_author_arash-f",
+    "brand-vision-insights_author_arman-tale",
+    "insights-contact",
+    "insights",
+    "insights_branding",
+    "insights_featured"
+   ],
+   "dataAttrs": [
+    "data-wf--button-w--button-type"
+   ]
+  },
+  {
+   "section": "s-author",
+   "pages": 2,
+   "uses": 2,
+   "variants": [],
+   "nodes": [
+    276,
+    280
+   ],
+   "classCount": 56,
+   "examplePages": [
+    "brand-vision-insights_author_arash-f",
+    "brand-vision-insights_author_arman-tale"
+   ],
+   "dataAttrs": [
+    "data-gsap"
+   ]
+  },
+  {
+   "section": "s-insights-category",
+   "pages": 8,
+   "uses": 8,
+   "variants": [],
+   "nodes": [
+    58,
+    58
+   ],
+   "classCount": 22,
+   "examplePages": [
+    "brand-vision-insights_author_arash-f",
+    "brand-vision-insights_author_arman-tale",
+    "insights-contact",
+    "insights",
+    "insights_branding",
+    "insights_featured"
+   ],
+   "dataAttrs": [
+    "data-gsap"
+   ]
+  },
+  {
+   "section": "s-insights-cta",
+   "pages": 8,
+   "uses": 8,
+   "variants": [],
+   "nodes": [
+    152,
+    152
+   ],
+   "classCount": 61,
+   "examplePages": [
+    "brand-vision-insights_author_arash-f",
+    "brand-vision-insights_author_arman-tale",
+    "insights-contact",
+    "insights",
+    "insights_branding",
+    "insights_featured"
+   ],
+   "dataAttrs": [
+    "data-gradient",
+    "data-gradient-text",
+    "data-gsap",
+    "data-name",
+    "data-turnstile-sitekey",
+    "data-wait",
+    "data-wf-element-id",
+    "data-wf-page-id"
+   ]
+  },
+  {
+   "section": "s-page-header is_service",
+   "pages": 19,
+   "uses": 19,
+   "variants": [],
+   "nodes": [
+    37,
+    47
+   ],
+   "classCount": 37,
+   "examplePages": [
+    "branding",
+    "branding_brand-naming",
+    "branding_brand-research",
+    "industry_b2b-marketing",
+    "industry_b2c-marketing",
+    "marketing-agency"
+   ],
+   "dataAttrs": [
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size"
+   ]
+  },
+  {
+   "section": "s-partner",
+   "pages": 29,
+   "uses": 29,
+   "variants": [],
+   "nodes": [
+    68,
+    69
+   ],
+   "classCount": 36,
+   "examplePages": [
+    "branding",
+    "branding_brand-naming",
+    "branding_brand-research",
+    "chicago",
+    "home",
+    "industry_b2b-marketing"
+   ],
+   "dataAttrs": [
+    "data-flare-border",
+    "data-gradient",
+    "data-gradient-text",
+    "data-gsap",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-services",
+   "pages": 29,
+   "uses": 29,
+   "variants": [],
+   "nodes": [
+    110,
+    355
+   ],
+   "classCount": 118,
+   "examplePages": [
+    "branding",
+    "branding_brand-naming",
+    "branding_brand-research",
+    "chicago",
+    "home",
+    "industry_b2b-marketing"
+   ],
+   "dataAttrs": [
+    "data-current",
+    "data-duration-in",
+    "data-duration-out",
+    "data-easing",
+    "data-flare-border",
+    "data-gradient",
+    "data-gradient-text",
+    "data-gsap",
+    "data-readmore",
+    "data-w-tab",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-heading-with-image--style-heading-style-visual-only",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement",
+    "data-wf-component-id",
+    "data-wf-variant-state"
+   ]
+  },
+  {
+   "section": "s-process",
+   "pages": 16,
+   "uses": 16,
+   "variants": [],
+   "nodes": [
+    57,
+    75
+   ],
+   "classCount": 50,
+   "examplePages": [
+    "branding",
+    "branding_brand-naming",
+    "branding_brand-research",
+    "marketing-agency",
+    "marketing-consultation",
+    "ppc-agency"
+   ],
+   "dataAttrs": [
+    "data-flare-border",
+    "data-gradient",
+    "data-gradient-text",
+    "data-gsap",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-heading-with-image--style-heading-style-visual-only",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement",
+    "data-wf-component-id",
+    "data-wf-variant-state"
+   ]
+  },
+  {
+   "section": "s-project",
+   "pages": 29,
+   "uses": 29,
+   "variants": [],
+   "nodes": [
+    182,
+    213
+   ],
+   "classCount": 52,
+   "examplePages": [
+    "branding",
+    "branding_brand-naming",
+    "branding_brand-research",
+    "chicago",
+    "home",
+    "industry_b2b-marketing"
+   ],
+   "dataAttrs": [
+    "data-bv-lazy-video",
+    "data-gradient",
+    "data-gradient-text",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-industry",
+   "pages": 26,
+   "uses": 26,
+   "variants": [],
+   "nodes": [
+    304,
+    315
+   ],
+   "classCount": 47,
+   "examplePages": [
+    "branding",
+    "branding_brand-naming",
+    "branding_brand-research",
+    "chicago",
+    "home",
+    "locations_canada"
+   ],
+   "dataAttrs": [
+    "data-current",
+    "data-duration-in",
+    "data-duration-out",
+    "data-easing",
+    "data-flare-border",
+    "data-gradient",
+    "data-gradient-text",
+    "data-gsap",
+    "data-w-tab",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-insights",
+   "pages": 30,
+   "uses": 30,
+   "variants": [],
+   "nodes": [
+    79,
+    79
+   ],
+   "classCount": 44,
+   "examplePages": [
+    "branding",
+    "branding_brand-naming",
+    "branding_brand-research",
+    "chicago",
+    "home",
+    "industry_b2b-marketing"
+   ],
+   "dataAttrs": [
+    "data-gsap",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-join-cta",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    81,
+    81
+   ],
+   "classCount": 42,
+   "examplePages": [
+    "career"
+   ],
+   "dataAttrs": [
+    "data-flare-border",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-internships",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    73,
+    73
+   ],
+   "classCount": 37,
+   "examplePages": [
+    "career"
+   ],
+   "dataAttrs": [
+    "data-gradient",
+    "data-gradient-text",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-employee-review",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    19,
+    19
+   ],
+   "classCount": 21,
+   "examplePages": [
+    "career"
+   ],
+   "dataAttrs": [
+    "data-wf--c-heading--style-heading-style"
+   ]
+  },
+  {
+   "section": "s-case-hero",
+   "pages": 2,
+   "uses": 2,
+   "variants": [],
+   "nodes": [
+    82,
+    88
+   ],
+   "classCount": 47,
+   "examplePages": [
+    "case-studies_accounting-advisory-firm-website",
+    "case-studies_ai-data-center-branding-website"
+   ],
+   "dataAttrs": [
+    "data-wf--button-w--button-type"
+   ]
+  },
+  {
+   "section": "s-case-main",
+   "pages": 2,
+   "uses": 2,
+   "variants": [],
+   "nodes": [
+    208,
+    214
+   ],
+   "classCount": 41,
+   "examplePages": [
+    "case-studies_accounting-advisory-firm-website",
+    "case-studies_ai-data-center-branding-website"
+   ],
+   "dataAttrs": [
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-case-next",
+   "pages": 2,
+   "uses": 2,
+   "variants": [],
+   "nodes": [
+    2657,
+    2657
+   ],
+   "classCount": 40,
+   "examplePages": [
+    "case-studies_accounting-advisory-firm-website",
+    "case-studies_ai-data-center-branding-website"
+   ],
+   "dataAttrs": [
+    "data-gradient",
+    "data-gradient-text",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-home-hero",
+   "pages": 10,
+   "uses": 10,
+   "variants": [],
+   "nodes": [
+    44,
+    47
+   ],
+   "classCount": 41,
+   "examplePages": [
+    "chicago",
+    "home",
+    "locations_canada",
+    "locations_dallas",
+    "locations_los-angeles",
+    "locations_montreal"
+   ],
+   "dataAttrs": [
+    "data-hero-panels",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style"
+   ]
+  },
+  {
+   "section": "s-contact-next",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    54,
+    54
+   ],
+   "classCount": 38,
+   "examplePages": [
+    "contact"
+   ],
+   "dataAttrs": [
+    "data-gradient",
+    "data-gradient-text",
+    "data-gsap",
+    "data-wf--c-heading-with-image--style-heading-style-visual-only",
+    "data-wf--c-section-header--arrangement",
+    "data-wf-component-id",
+    "data-wf-variant-state"
+   ]
+  },
+  {
+   "section": "s-page-header",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    17,
+    17
+   ],
+   "classCount": 16,
+   "examplePages": [
+    "faq"
+   ],
+   "dataAttrs": [
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-faqs-main",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    1220,
+    1220
+   ],
+   "classCount": 47,
+   "examplePages": [
+    "faq"
+   ],
+   "dataAttrs": [
+    "data-delay",
+    "data-gsap",
+    "data-hover",
+    "data-wf--button-w--button-type"
+   ]
+  },
+  {
+   "section": "s-industry-hero",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    131,
+    131
+   ],
+   "classCount": 40,
+   "examplePages": [
+    "industries"
+   ],
+   "dataAttrs": [
+    "data-gsap",
+    "data-wf--c-heading-with-image--style-heading-style-visual-only",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement",
+    "data-wf-component-id",
+    "data-wf-variant-state"
+   ]
+  },
+  {
+   "section": "s-industry-list",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    184,
+    184
+   ],
+   "classCount": 26,
+   "examplePages": [
+    "industries"
+   ],
+   "dataAttrs": [
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size"
+   ]
+  },
+  {
+   "section": "s-contact-cta in-contact-page-2",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    176,
+    176
+   ],
+   "classCount": 105,
+   "examplePages": [
+    "insights-contact"
+   ],
+   "dataAttrs": [
+    "data-gsap",
+    "data-name",
+    "data-turnstile-sitekey",
+    "data-wait",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement",
+    "data-wf-element-id",
+    "data-wf-page-id"
+   ]
+  },
+  {
+   "section": "s-insights-header",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    79,
+    79
+   ],
+   "classCount": 40,
+   "examplePages": [
+    "insights"
+   ],
+   "dataAttrs": [
+    "data-truncate"
+   ]
+  },
+  {
+   "section": "s-featured-article",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    50,
+    50
+   ],
+   "classCount": 37,
+   "examplePages": [
+    "insights"
+   ],
+   "dataAttrs": [
+    "data-gsap",
+    "data-truncate",
+    "data-wf--button-w--button-type"
+   ]
+  },
+  {
+   "section": "s-category-hero",
+   "pages": 2,
+   "uses": 2,
+   "variants": [],
+   "nodes": [
+    36,
+    36
+   ],
+   "classCount": 38,
+   "examplePages": [
+    "insights_branding",
+    "insights_featured"
+   ],
+   "dataAttrs": [
+    "data-delay",
+    "data-gradient",
+    "data-gradient-text",
+    "data-hover",
+    "data-name",
+    "data-turnstile-sitekey",
+    "data-wf-element-id",
+    "data-wf-page-id"
+   ]
+  },
+  {
+   "section": "s-work-hero",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    15,
+    15
+   ],
+   "classCount": 17,
+   "examplePages": [
+    "our-work-portfolio"
+   ],
+   "dataAttrs": [
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-section-header--arrangement",
+    "data-wf--e-video--aspect-ratio"
+   ]
+  },
+  {
+   "section": "s-post-hero",
+   "pages": 2,
+   "uses": 2,
+   "variants": [],
+   "nodes": [
+    245,
+    295
+   ],
+   "classCount": 67,
+   "examplePages": [
+    "post_10-ai-side-hustles-make-money-2025",
+    "post_10-essential-marketing-metrics"
+   ],
+   "dataAttrs": [
+    "data-gsap",
+    "data-rt-align",
+    "data-rt-max-width",
+    "data-rt-type",
+    "data-truncate",
+    "data-wf--button-w--button-type"
+   ]
+  },
+  {
+   "section": "s-rm-intro",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    65,
+    65
+   ],
+   "classCount": 44,
+   "examplePages": [
+    "real-estate-marketing"
+   ],
+   "dataAttrs": [
+    "data-gradient",
+    "data-gradient-text",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading-with-image--style-heading-style-visual-only",
+    "data-wf--c-paragraph--style-test-size",
+    "data-wf--c-section-header--arrangement",
+    "data-wf-component-id",
+    "data-wf-variant-state"
+   ]
+  },
+  {
+   "section": "s-service-hub-list",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    674,
+    674
+   ],
+   "classCount": 80,
+   "examplePages": [
+    "services"
+   ],
+   "dataAttrs": [
+    "data-delay",
+    "data-flare-border",
+    "data-gradient",
+    "data-gradient-text",
+    "data-hover",
+    "data-wf--button-w--button-type",
+    "data-wf--c-heading--style-heading-style",
+    "data-wf--c-section-header--arrangement"
+   ]
+  },
+  {
+   "section": "s-sitemap-hero",
+   "pages": 1,
+   "uses": 1,
+   "variants": [],
+   "nodes": [
+    5,
+    5
+   ],
+   "classCount": 9,
+   "examplePages": [
+    "sitemap"
+   ],
+   "dataAttrs": []
+  }
+ ],
+ "similar": [
+  {
+   "a": "s-contact-cta",
+   "b": "s-contact-cta in-contact-page-2",
+   "jaccard": 0.39,
+   "shared": [
+    "_18",
+    "badges-carousel-cms",
+    "badges-carousel-cms-item",
+    "badges-carousel-cms-list",
+    "badges-carousel-image",
+    "badges-carousel-image-w",
+    "contact-badge-carousel",
+    "contact-cta-left",
+    "contact-cta-option",
+    "contact-cta-option-icon-w",
+    "contact-cta-option-item",
+    "contact-cta-option-link",
+    "contact-cta-option-links",
+    "contact-cta-right",
+    "contact-cta-social-proof",
+    "form-button",
+    "form-field",
+    "form-input",
+    "form-input-area",
+    "form-submission-area",
+    "g-recaptcha",
+    "g-recaptcha-disabled",
+    "g-recaptcha-error",
+    "g-recaptcha-invalid-key",
+    "is_bottom"
+   ]
+  },
+  {
+   "a": "s-faqs",
+   "b": "s-faqs-main",
+   "jaccard": 0.37,
+   "shared": [
+    "_20",
+    "faqs-accordion",
+    "faqs-accordion-content",
+    "faqs-accordion-icon-w",
+    "faqs-accordion-list",
+    "faqs-accordion-toggle",
+    "faqs-cms",
+    "faqs-cms-item",
+    "faqs-cms-list",
+    "rte",
+    "text-b-m",
+    "w-dropdown",
+    "w-dropdown-list",
+    "w-dropdown-toggle"
+   ]
+  },
+  {
+   "a": "s-industry-hero",
+   "b": "s-rm-intro",
+   "jaccard": 0.36,
+   "shared": [
+    "heading-image-mask",
+    "heading-image-spacer",
+    "heading-image-w",
+    "heading-line",
+    "heading-with-image",
+    "hi-shadow",
+    "is-2",
+    "is-3",
+    "is-4",
+    "is-5",
+    "u-accent-blue",
+    "u-hide-ml"
+   ]
+  }
+ ],
+ "commonClasses": [
+  "button-link",
+  "button-w",
+  "d5",
+  "grouped-cta-w",
+  "heading",
+  "icon",
+  "label-button",
+  "label-overline",
+  "max-width",
+  "overline-w",
+  "paragraph",
+  "s-bg-w",
+  "s-wrapper",
+  "section",
+  "section-header",
+  "section-header-block",
+  "section-header-main",
+  "section-header-title",
+  "section-header-top-info",
+  "text-b-xs",
+  "u-font-accent",
+  "u-med",
+  "u-muted-80",
+  "w-container",
+  "w-dyn-item",
+  "w-dyn-items",
+  "w-dyn-list",
+  "w-inline-block",
+  "w-layout-blockcontainer",
+  "w-richtext"
+ ]
+}

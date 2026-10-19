@@ -20,7 +20,8 @@ const LIGHTHOUSE = 'lighthouse@12';
 const cfg = loadConfig();
 const { pos, flags, values } = args();
 const runs = Math.max(1, Number(values.runs ?? 5));
-const base = flags.has('--prototype') ? cfg.prototypeUrl : cfg.stagingUrl;
+const base = flags.has('--prototype') ? cfg.prototypeUrl : flags.has('--live') ? cfg.liveUrl?.replace(/\/$/, '') : cfg.stagingUrl;
+if (!base) { console.error('--live needs "liveUrl" (the custom domain) in webflow-build.config.json.'); process.exit(1); }
 const modes = flags.has('--mobile') ? ['mobile'] : flags.has('--desktop') ? ['desktop'] : ['mobile', 'desktop'];
 const chrome = repoRequire(cfg)('@playwright/test').chromium.executablePath();
 if (!fs.existsSync(chrome)) { console.error('Chromium is not installed for Playwright: run `pnpm exec playwright install chromium`.'); process.exit(1); }

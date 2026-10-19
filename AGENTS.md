@@ -1,4 +1,4 @@
-# <CLIENT> — Webflow custom code
+# Brand Vision — Webflow custom code
 
 Agent instructions for this repository. Codex, Cursor and similar tools read
 this file directly; Claude Code reads it through `CLAUDE.md`. It is the single
@@ -6,15 +6,15 @@ source of agent rules — edit this file, never a copy of it.
 
 ## Project facts
 
-Fill these in when the repo is created from the template (`pnpm new-project`).
+Filled in by `pnpm new-project` on 2026-10-19.
 
-- Client / site: `<CLIENT>`
-- GitHub: `<ORG>/<REPO>`, default branch `master`
-- Webflow site ID: `<SITE_ID>`
-- Staging site: `https://<SLUG>.webflow.io`
-- Staging bundles: `https://<ORG>.github.io/<REPO>/`
-- Production domain: `<DOMAIN or "not attached yet">`
-- Production release: `<RELEASE in the head snippet, or "none yet">`
+- Client / site: `Brand Vision`
+- GitHub: `brandvm/wf-brandvm`, default branch `master`
+- Webflow site ID: `68b9f0236581de795cba8ec2`
+- Staging site: `https://brandvm.webflow.io`
+- Staging bundles: `https://brandvm.github.io/wf-brandvm/`
+- Production domain: `https://www.brandvm.com` (also `brandvm.com`)
+- Production release: `none yet` (live still runs `brandvm/brandvm@1.1.1` until the parity cutover)
 
 ## Who owns what
 

@@ -1,7 +1,7 @@
 {
-  "name": "wf-template",
+  "name": "wf-brandvm",
   "private": true,
-  "license": "MIT-0",
+  "license": "UNLICENSED",
   "type": "module",
   "packageManager": "pnpm@11.25.0",
   "scripts": {
@@ -11,7 +11,6 @@
     "test": "pnpm build && playwright test && node --test tests/new-project.check.mjs tests/update-skills.check.mjs",
     "new-project": "node scripts/new-project.mjs",
     "update-skills": "node scripts/update-skills.mjs",
-    "harvest": "node scripts/harvest.mjs",
     "phosphor": "node scripts/phosphor.mjs",
     "wf:compare": "node .claude/skills/webflow-build/scripts/compare.mjs",
     "wf:pass": "node .claude/skills/webflow-build/scripts/pass.mjs",
