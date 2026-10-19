@@ -48,6 +48,8 @@ again at each gate, so the steps are found early and not at the end:
 | --- | --- | --- | --- | --- | --- |
 | A | Site settings › Custom code (Stage 2 cutover, below) | — | Head and footer snippets | Done by Claude through the MCP on 2026-10-19 (go-ahead from Asheem); published HTML checked word for word against loader.html | ☑ |
 | B | G \| Components › Embeds 2 and 3 (Stage 2 cutover) | — | Replace with loader 2a / 2b | Done by Claude through the MCP (`code` setting) on 2026-10-19 | ☑ |
+| C | S \| Contact CTA component › Embed with class "Hubspot Form", **both variants** (base, and the variant used on /contact) | — | Delete the whole `<script>…</script>` part. Keep only the form `<div>`: base keeps `<div class="hs-form-slot" data-hs-form=…>`; the /contact variant becomes `<div class="hs-form-slot" data-hs-form="7a162eb3-35f1-476d-8877-2d1bd30b0f28" data-hs-portal="22077182" data-hs-region="na1"></div>` (also drop its `v2.js` tag and inline `hbspt.forms.create`). Then tell Claude to verify and publish | The Embed's code differs per variant ("containsBindings"); the API can't read or write it | ☐ |
+| D | Site settings › Apps (or the Flowbase account) | — | Uninstall / disable Flowbase "Auto Tab Rotation" booster. `tab-rotation.ts` takes over automatically (it stays off while Flowbase's script is on the page) | Installed by an app, not as site/page code; no API to remove it | ☐ |
 
 ## Stage 2 cutover (one batch, staging first)
 

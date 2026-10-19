@@ -97,6 +97,7 @@ tag and publish. Never move a pushed tag.
 | Date | What is live | Rollback to |
 | --- | --- | --- |
 | 2026-10-19 | `brandvm/brandvm@1.1.1`, all Webflow IX2/IX3 | — (this is the baseline) |
+| 2026-10-19 | **Batch 3.3a/b live, `1.2.0`:** HubSpot loader and tab rotation in the bundle; S \| Contact Embed reduced to the form `<div>` | set RELEASE to `1.1.0` and paste `embed-04.html` back into S \| Contact's Embed |
 | 2026-10-19 | **Batch 3.1 live:** six duplicate CSS Embeds removed (project-list on 5 CMS templates, case-study grid on Work) | paste `embed-05` (Branding, Industries, Web Design templates), `embed-08` (SEO, UI/UX templates), `embed-07` (Work) back as Embeds |
 | 2026-10-19 | **Batch 3.2 live, `1.1.0`:** About footer code (Orbit), About registered script (methodology, dead) and Industries head/footer code removed; now in `orbit.ts` / `industry-tilt.ts` | set RELEASE to `1.0.0` **and** paste `page-footer--about.html` (style + script part), `page-head--industries.html`, `page-footer--industries.html` back; re-apply the registered script `methodologypinnedscroll` 1.0.1 if wanted |
 | 2026-10-19 | **Live:** `brandvm/wf-brandvm@1.0.0` loader in head, footer and G \| Components Embeds; `fs-autovideo` and Lenis CSS removed (published by Claude after Asheem typed "publish") | the files in `rollback/` (site-head, site-footer, embed-02, embed-03), then publish |

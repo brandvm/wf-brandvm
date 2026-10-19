@@ -142,6 +142,11 @@ Progress (2026-10-19):
   into `orbit.ts` / `industry-tilt.ts` (verbatim; Orbit CSS → §04). The
   About registered script `methodologypinnedscroll-1.0.1.js` is dead code
   (no `.methodology-track` on the page) and is removed, not ported.
+- **3.3a/b live (v1.2.0):** `hubspot-form.ts` (the Contact CTA Embed's
+  lazy loader, ported) and `tab-rotation.ts` (own implementation of the
+  Flowbase `fb-tabs` attributes). S | Contact's Embed is now the form `<div>`
+  only. Open: the S | Contact CTA Embed scripts (variant code the API can't
+  edit) and uninstalling the Flowbase app: MANUAL-TODO C and D.
 - **Kept in Webflow until Stage 4:** the Home hero-panels script (it
   reveals the LCP element inline; moving it into the async bundle would
   delay that) and the Work page Finsweet → IX2 restart hook (needs IX2).
