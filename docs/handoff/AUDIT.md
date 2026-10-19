@@ -184,6 +184,24 @@ them is not part of the parity work unless a decision says so.
   one H1; four section overlines are H4s directly under H1/H2 ("skipped a
   level"): Selected Clients, Services, Industries, Common Questions.
 
+## Stage 2 parity *measured* (2026-10-19)
+
+`pnpm wf:parity --live` on the 10 key pages × 3 widths: live HTML rendered
+as published (brandvm@1.1.1) and with the old assets routed to this repo's
+`dist/` (the v1.1.2 port). Every element's computed style and box compared.
+
+- **30 of 30 page/width pairs: no real differences.** 28 pairs: 0
+  differences (1,133–4,005 elements each). About and Web Design @1440
+  reported the nav container's auto margin as 0 → 1.72 px. A re-run showed
+  the same 1.72 px on the *old* bundle with the nav at the same position
+  (left 42.86 px), so it is timing noise in the computed value, not a change.
+- Control (live vs live): noise on Contact @1440 (1), Web Design @390 (5)
+  and the case study @1440/@820 (200+, the scroll-driven Case Next section).
+- `dist/styles.css` is byte-identical to brandvm v1.1.2's.
+- Not covered by parity: the loader swap itself (checked on staging at the
+  cutover) and the 1.1.2 video controller replacing `fs-autovideo` (videos
+  are frozen in parity; checked by eye on staging).
+
 ## Not yet measured (Stage 0/1)
 
 - PageSpeed via the PSI API: the keyless quota ran out; needs a key.

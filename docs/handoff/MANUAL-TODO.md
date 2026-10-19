@@ -46,4 +46,34 @@ again at each gate, so the steps are found early and not at the end:
 
 | ID | Where (page › element or class) | Breakpoint | Set | Why the API can't | Done |
 | --- | --- | --- | --- | --- | --- |
-| A | | Desktop | | | ☐ |
+| A | Site settings › Custom code (Stage 2 cutover, below) | — | Head and footer snippets | The API replaces whole blocks; pasted by a person so nothing else in them changes | ☐ |
+| B | G \| Components › Embeds 2 and 3 (Stage 2 cutover) | — | Replace with loader 2a / 2b | Done in the Designer by a person (component edit, checked on the canvas) | ☐ |
+
+## Stage 2 cutover (one batch, staging first)
+
+Only after `v1.0.0` is tagged on a commit whose CI passed. Everything is
+pasted from `loader.html` with comments removed. `ROLLBACK.md` has the
+originals.
+
+1. **Site settings › Custom code › Head code.** Keep GTM, the meta tags,
+   Ahrefs, the dev-support `<style>` rules and the JSON-LD. Then:
+   - delete the `<!-- Asset Connection -->` jsDelivr preconnect line (the
+     head snippet warms the right origin itself);
+   - in the Finsweet tag, delete `fs-autovideo`, keeping `fs-list
+     fs-socialshare` (D2);
+   - in the `<style>`, delete the "Lenis Smooth Scrolling" rules (D3);
+   - paste **piece 1** (the `<script>` defining `window.WFC`) with
+     `var RELEASE = "1.0.0";`.
+2. **G | Components** (open the component). It holds three Embeds:
+   - Embed 1, GTM noscript: leave it;
+   - Embed 2, `<link id="bv-css" …>`: replace its contents with **2a**;
+   - Embed 3, the `bv` config script: replace its contents with **2b**.
+3. **Site settings › Custom code › Footer code:** replace the brandvm
+   footer loader (`__bvFooterStarted`, `VER = '1.1.1'`) with **piece 3**.
+4. **Publish to `brandvm.webflow.io` only.** Then Claude checks staging:
+   bundle from GitHub Pages, no console errors, Staging/Dev pill,
+   `wf:baseline compare` and `wf:film` against the live baselines.
+5. Check nothing else is pending in Webflow, then type **publish**.
+6. Claude checks the live domain: bundle from
+   `cdn.jsdelivr.net/gh/brandvm/wf-brandvm@1.0.0`, baselines, console,
+   and the PageSpeed log.

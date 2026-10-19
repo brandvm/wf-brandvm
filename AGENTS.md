@@ -67,6 +67,28 @@ Before writing any CSS, decide where it belongs.
    code before editing anything. "Make the heading bigger on mobile" is a
    Designer breakpoint style, not a media query here.
 
+### Pre-existing exceptions (brandvm.com)
+
+`src/styles.css` is brandvm/brandvm v1.1.2's stylesheet ported rule for rule
+(D1, D2). It predates this policy, and some of its sections break the rules
+above. Each is tagged and marked "pre-existing":
+
+- §01 Token Hub sets the fluid root `font-size` (ideal and max 1680px).
+- It reads and redefines Webflow variables by name (`--_colors---…`,
+  `--_color-token---…`, `--_typography---font-family--heading-serif`), and
+  uses `!important` in places. Check them whenever a variable is renamed.
+- Element resets, `.w-*` clearfix removals and the `select` restyles are
+  `override-webflow`.
+
+These govern no new rules. Question them in Stage 6 (MIGRATION-PLAN), and
+don't remove them without the user: the parity release must stay
+byte-identical in CSS.
+
+The wf-template foundation (§01 scaling, §02 resets, §03 neutralizers, the
+`is-loading` scroll lock, Phosphor icons) is **not** in this repo's CSS or
+loader (D1). Do not add it back from the template; a later batch may bring
+a piece back, measured.
+
 ## Read before changing integration
 
 - `README.md` — commands, daily flow, release, handoff.

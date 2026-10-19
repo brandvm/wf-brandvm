@@ -1,4 +1,4 @@
-export {};
+import type Swiper from 'swiper';
 
 declare global {
   interface Window {
@@ -16,6 +16,18 @@ declare global {
       // Set before script execution, including when a fallback URL is used.
       source?: string;
     };
-    Webflow?: { env?: (mode: string) => boolean };
+    // Webflow's queue before webflow.js runs, its API after.
+    Webflow?: { push(callback: () => void): unknown; env?(mode: string): boolean };
+    // Supplied by Webflow's own scripts; not bundled.
+    jQuery?: JQueryStatic;
+    // Loaded at runtime from jsDelivr by the newsletter slider module.
+    Swiper?: typeof Swiper;
+    DotMap?: {
+      init: (svg: SVGSVGElement, options?: Partial<import('./modules/dot-map').DotMapOptions>) => unknown;
+      boot(): void;
+      parseDots(path: string): unknown[];
+    };
+    __brandvmBooted?: boolean;
+    __bvLazyVideosStarted?: boolean;
   }
 }

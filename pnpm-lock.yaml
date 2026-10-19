@@ -11,12 +11,18 @@ importers:
       '@playwright/test':
         specifier: 1.63.0
         version: 1.63.0
+      '@types/jquery':
+        specifier: 3.5.32
+        version: 3.5.32
       axe-core:
         specifier: 4.10.3
         version: 4.10.3
       esbuild:
         specifier: ^0.28.2
         version: 0.28.2
+      swiper:
+        specifier: 11.2.10
+        version: 11.2.10
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
@@ -184,6 +190,12 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
+  '@types/jquery@3.5.32':
+    resolution: {integrity: sha512-b9Xbf4CkMqS02YH8zACqN1xzdxc3cO735Qe5AbSUFmyOiaWAbcpqh9Wna+Uk0vgACvoQHpWDg2rGdHkYPLmCiQ==}
+
+  '@types/sizzle@2.3.10':
+    resolution: {integrity: sha512-TC0dmN0K8YcWEAEfiPi5gJP14eJe30TTGjkvek3iM/1NdHHsdCA/Td6GvNndMOo/iSnIsZ4HuuhrYPDAmbxzww==}
+
   '@typescript/typescript-aix-ppc64@7.0.2':
     resolution: {integrity: sha512-MTKKkWB7p/0E9xi1d1tHtZ5PiLkGEMIq88pK2CubZjOsLtYTLqhgIgi6zepFa+9GHZ6h05NMCkQxGKiPXMxXtQ==}
     engines: {node: '>=16.20.0'}
@@ -323,6 +335,10 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
+  swiper@11.2.10:
+    resolution: {integrity: sha512-RMeVUUjTQH+6N3ckimK93oxz6Sn5la4aDlgPzB+rBrG/smPdCTicXyhxa+woIpopz+jewEloiEE3lKo1h9w2YQ==}
+    engines: {node: '>= 4.7.0'}
+
   typescript@7.0.2:
     resolution: {integrity: sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==}
     engines: {node: '>=16.20.0'}
@@ -411,6 +427,12 @@ snapshots:
   '@playwright/test@1.63.0':
     dependencies:
       playwright: 1.63.0
+
+  '@types/jquery@3.5.32':
+    dependencies:
+      '@types/sizzle': 2.3.10
+
+  '@types/sizzle@2.3.10': {}
 
   '@typescript/typescript-aix-ppc64@7.0.2':
     optional: true
@@ -508,6 +530,8 @@ snapshots:
   playwright@1.63.0:
     dependencies:
       playwright-core: 1.63.0
+
+  swiper@11.2.10: {}
 
   typescript@7.0.2:
     optionalDependencies:

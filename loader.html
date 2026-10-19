@@ -31,8 +31,9 @@ published.
 1) Head code — Site settings → Custom code → Head code.
 
    Only things that must exist before the bundle does: the shared
-   config (window.WFC), meta tags the browser reads at parse time,
-   connection warming, and the pre-paint scroll lock.
+   config (window.WFC) and connection warming. brandvm.com keeps its
+   own theme-color meta in site head code, and has no pre-paint
+   scroll lock (D1).
 
    RELEASE is null until the first tag exists. While it is null, a
    page served from a custom domain uses the STAGING bundle and logs a
@@ -43,8 +44,6 @@ published.
    Site custom code is ignored by the Designer canvas, which is what
    we want here — no scroll lock, no preloader while designing.
 ------------------------------------------------------------ -->
-<meta name="theme-color" content="#000000" />
-
 <script>
   (function () {
     var RELEASE = null; // the release tag, e.g. "1.0.0" — the only version string
@@ -85,14 +84,8 @@ published.
       release: RELEASE, prod: prod,
     };
 
-    // Paired with the html.is-loading rules in src/styles.css. The bundle
-    // removes this when it boots; the timeout is the safety net so a 404
-    // on the bundle never leaves a permanently scroll-locked page. A plain
-    // timeout, not one started on `load` — a slow image would otherwise
-    // keep the page locked far past 3 s.
-    var root = document.documentElement;
-    root.classList.add("is-loading");
-    setTimeout(function () { root.classList.remove("is-loading"); }, 3000);
+    // No pre-paint scroll lock on brandvm.com (decision D1): the live site
+    // never had one, and the parity release changes nothing visitors see.
   })();
 </script>
 

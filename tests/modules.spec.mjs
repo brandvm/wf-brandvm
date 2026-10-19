@@ -59,7 +59,10 @@ const radio = (label, checked = '') => `<div class="w-dyn-item"><label class="w-
   <input type="radio" name="Category" id="radio" value="Radio" ${checked}>
   <span class="w-form-label" for="radio">${label}</span></label></div>`;
 
-test('duplicate CMS radio ids become unique and labels follow', async ({ page }) => {
+// unique-form-ids is not in the brandvm.com bundle during the parity port: it
+// would rename the duplicate id="radio" filters on /insights. Re-enable this
+// test with the module (a later, measured batch; MIGRATION-PLAN › Stage 5).
+test.skip('duplicate CMS radio ids become unique and labels follow', async ({ page }) => {
   const errors = await setup(page, `<form>${radio('All', 'checked')}${radio('Experiential')}${radio('Media Relations')}${radio('All')}</form>
     <input id="solo" type="text"><label for="solo">Solo</label>`);
   const ids = await page.$$eval('input[type=radio]', (els) => els.map((e) => e.id));

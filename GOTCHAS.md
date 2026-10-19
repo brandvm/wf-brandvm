@@ -78,3 +78,57 @@ collected from client repos into those files.
 - Fix: decision D2 in `docs/handoff/DECISIONS.md`.
 - Status: open
 - Found by: claude
+
+## Carried over from brandvm/brandvm
+
+Entries from the old repo's `GOTCHAS.md` that still apply to this site,
+copied on 2026-10-19 when its code moved here (Stage 2). The old repo keeps
+the full history.
+
+### 2026-09-15 · Nav and Home hero stay hidden when IX3 does not start
+- Area: css
+- Scope: template-candidate
+- Symptom: CTA groups and hero text authored hidden for an IX3 entrance can
+  stay invisible if IX3 never initialises.
+- Cause: the hidden start state lives in Webflow; nothing reveals it when
+  `html` has `w-mod-js` but never gets `w-mod-ix3`.
+- Fix: a visibility-only fallback in `styles.css` (§04, "Keep navigation
+  CTAs and Home hero content visible") matching
+  `html.w-mod-js:not(.w-mod-ix3)`. Revisit in Stage 4: once IX3 is gone,
+  `w-mod-ix3` never appears, so this rule then applies permanently.
+- Status: carried over (brandvm 204150e, v1.1.2)
+- Found by: codex
+
+### 2026-09-15 · Finsweet `fs-autovideo` must go when the bundle controls video
+- Area: loader
+- Scope: project
+- Symptom: two video controllers compete for the same `<video>` elements.
+- Cause: `lazy-videos.ts` self-starts, while the Finsweet tag in site head
+  still carries `fs-autovideo`.
+- Fix: remove `fs-autovideo` in the same publish as the release that ships
+  `lazy-videos.ts` (Stage 2 cutover, MANUAL-TODO).
+- Status: open until the Stage 2 cutover
+- Found by: codex
+
+### 2026-09-11 · Custom-code preview frames keep their own dev flag
+- Area: loader
+- Scope: template-candidate
+- Symptom: the dev flag on the Designer URL or the staging site does not
+  put the custom-code preview into dev mode.
+- Cause: previews run on `*.canvas.webflow.com`, a separate origin with its
+  own URL and localStorage (the template loader treats it as staging).
+- Fix: set `?wfc-dev=1` on the frame's own URL, or use published staging.
+- Status: documented
+- Found by: codex
+
+### 2026-09-11 · Insights menu rules duplicated in a Webflow Embed
+- Area: designer
+- Scope: project
+- Symptom: rules hiding `.mega-menu-insights-item` existed in a page Embed
+  as well as in `styles.css`.
+- Cause: site CSS was added in Webflow outside the bundle.
+- Fix: the 2026-10-19 Embed inventory (`docs/handoff/rollback/`) finds no
+  Embed with these rules on the 50 captured pages, so the copy in
+  `styles.css` §04 is the only one.
+- Status: fixed (verified 2026-10-19)
+- Found by: codex

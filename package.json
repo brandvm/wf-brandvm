@@ -31,8 +31,10 @@
   },
   "devDependencies": {
     "@playwright/test": "1.63.0",
+    "@types/jquery": "3.5.32",
     "axe-core": "4.10.3",
     "esbuild": "^0.28.2",
+    "swiper": "11.2.10",
     "typescript": "^7.0.2"
   }
 }
