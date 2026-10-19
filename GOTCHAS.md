@@ -27,6 +27,23 @@ collected from client repos into those files.
 
 <!-- Add new entries here, newest first. -->
 
+### 2026-10-19 · Repo interactions next to live IX2: `!important` and a 0fr grid's padding
+- Area: css
+- Scope: template-candidate
+- Symptom: (1) IX2 keeps writing inline `display`, `height`, `opacity`,
+  `transform` on the nav while it runs, so plain repo CSS loses. (2) A
+  dropdown animated with `grid-template-rows: 0fr → 1fr` stopped at 41px
+  instead of 0.
+- Cause: (1) inline styles beat any selector. (2) a grid item's padding
+  sets its minimum size, so a 0fr track still holds the padding.
+- Fix: (1) flag-gated rules (`html.wfc-ix`, staging only) use
+  `!important`; they drop it at the cutover, once IX2 is deleted. (2) the
+  closed state also sets the item's vertical padding to 0, transitioned
+  with the rows, so the Designer padding returns when open.
+- Status: documented
+- Found by: claude
+
+
 ### 2026-10-19 · Bundled GSAP and Webflow's `window.gsap` coexist
 - Area: js
 - Scope: template-candidate

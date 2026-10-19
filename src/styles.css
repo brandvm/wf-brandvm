@@ -549,6 +549,94 @@ a {
   }
 }
 
+/* ---------- G | Nav dropdowns and mobile menu (Stage 4, nav.ts) ---------- */
+/* repo-css: js-state — open/closed motion keyed on Webflow's .w--open
+   (dropdowns) and nav.ts's .is-open (mobile menu), IX2's timing and curve.
+   Staging-only behind html.wfc-ix (?wfc-ix=repo). The !important beats the
+   inline styles IX2 still writes while it runs (GOTCHAS 2026-10-19); drop it
+   at the cutover, when IX2 is deleted. */
+html.wfc-ix {
+  --bv-nav-ease: cubic-bezier(0.64, 0.05, 0, 1);
+}
+html.wfc-ix .g-nav-drop-list {
+  display: block !important;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0s linear 0.4s;
+}
+html.wfc-ix .g-nav-drop-list.w--open {
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+html.wfc-ix .g-nav-drop-content-w {
+  display: grid;
+  grid-template-rows: 0fr;
+  height: auto !important;
+  transition: grid-template-rows 0.4s var(--bv-nav-ease);
+}
+html.wfc-ix .g-nav-drop-list.w--open .g-nav-drop-content-w {
+  grid-template-rows: 1fr;
+}
+html.wfc-ix .g-nav-drop-content-w > * {
+  min-height: 0;
+  transition: padding 0.4s var(--bv-nav-ease);
+}
+/* A 0fr row still keeps the content's padding: collapse it while closed;
+   open, the Designer's padding applies again. */
+html.wfc-ix .g-nav-drop-list:not(.w--open) .g-nav-drop-content-w > * {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+html.wfc-ix .g-n-d-content-w {
+  opacity: 0 !important;
+  transition: opacity 0.4s var(--bv-nav-ease);
+}
+html.wfc-ix .g-nav-drop-list.w--open .g-n-d-content-w {
+  opacity: 1 !important;
+  transition-delay: 0.24s;
+}
+html.wfc-ix .mega-menu-overlay {
+  display: block !important;
+  opacity: 0 !important;
+  transition: opacity 0.4s var(--bv-nav-ease);
+}
+html.wfc-ix .g-nav-drop-list.w--open .mega-menu-overlay {
+  opacity: 1 !important;
+}
+html.wfc-ix .g-nav-drop .icon-drop {
+  transform: none !important;
+  transition: transform 0.4s var(--bv-nav-ease);
+}
+html.wfc-ix .g-nav-drop-toggle.w--open .icon-drop {
+  transform: rotate(180deg) !important;
+}
+@media screen and (max-width: 991px) {
+  html.wfc-ix .g-nav-menu {
+    display: flex !important;
+    visibility: hidden;
+    transform: none !important;
+    transition: transform 1.2s var(--bv-nav-ease), visibility 0s linear 1.2s;
+  }
+  html.wfc-ix .g-nav-menu.is-open {
+    visibility: visible;
+    transform: translateX(-101%) !important;
+    transition: transform 1.2s var(--bv-nav-ease), visibility 0s linear 0s;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.wfc-ix .g-nav-drop-list,
+  html.wfc-ix .g-nav-drop-content-w,
+  html.wfc-ix .g-nav-drop-content-w > *,
+  html.wfc-ix .g-n-d-content-w,
+  html.wfc-ix .mega-menu-overlay,
+  html.wfc-ix .g-nav-drop .icon-drop,
+  html.wfc-ix .g-nav-menu {
+    transition-duration: 1ms !important;
+    transition-delay: 0s !important;
+  }
+}
+
 /* ---------- Home hero intro (Stage 4, hero-intro.ts) ---------- */
 /* repo-css: js-state — frame 0 of the intro, held from first paint.
    html.w-mod-js comes from Webflow's head script, so without JS nothing is

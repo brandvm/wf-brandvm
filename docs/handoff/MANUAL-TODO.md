@@ -51,6 +51,20 @@ again at each gate, so the steps are found early and not at the end:
 | C | S \| Contact CTA component › Embed with class "Hubspot Form", **both variants** (base, and the variant used on /contact) | — | Delete the whole `<script>…</script>` part. Keep only the form `<div>`: base keeps `<div class="hs-form-slot" data-hs-form=…>`; the /contact variant becomes `<div class="hs-form-slot" data-hs-form="7a162eb3-35f1-476d-8877-2d1bd30b0f28" data-hs-portal="22077182" data-hs-region="na1"></div>` (also drop its `v2.js` tag and inline `hbspt.forms.create`). Then tell Claude to verify and publish | The Embed's code differs per variant ("containsBindings"); the API can't read or write it | ☑ done by Asheem (both variants render the slot on staging, checked 2026-10-19) |
 | D | Site settings › Apps (or the Flowbase account) | — | Uninstall / disable Flowbase "Auto Tab Rotation" booster. `tab-rotation.ts` takes over automatically (it stays off while Flowbase's script is on the page) | Installed by an app, not as site/page code; no API to remove it | ☐ |
 | E | Home hero (+ the 9 location pages with the same hero) | all | The Home hero intro build, section below | Designer markup, Embeds, page head code and an IX3 deletion; done together with a wf-brandvm release | ☐ |
+| F | Interactions panel › IX2 "G Nav \| …" (8 action lists) | all | Delete them, after Asheem has tried staging with `?wfc-ix=repo` | IX2 deletion has no API | ☐ |
+
+## F · Nav cutover (Stage 4)
+
+1. **Try it first:** open any page on `brandvm.webflow.io` with
+   `?wfc-ix=repo` (remembered in that browser; `?wfc-ix=off` to go back).
+   Desktop: Services / About / Resources mega menus. Phone/tablet: the menu
+   button, the dropdowns inside, the close button, Escape.
+2. **Claude:** remove the flag check from `nav.ts` and the `!important`s
+   and the `html.wfc-ix` prefix from styles.css §03 "G | Nav", release.
+3. **Webflow:** delete IX2 action lists "G Nav | Drop Open", "Drop Open 2",
+   "Drop Open 3", "Drop Close", "Menu Open", "Menu Close", "Menu Close 2",
+   "Menu Close 3" and their 12 events, in the same publish as the release.
+4. Publish staging, check by eye at 1440, 991, 390; then "publish".
 
 ## E · Home hero intro cutover (Stage 4, one batch, staging first)
 

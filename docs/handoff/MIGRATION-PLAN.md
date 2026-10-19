@@ -214,6 +214,11 @@ interactions, then replay them*, `lessons/js.md`):
    - `ix-load.ts`: Page Load | Home (Home + 9 location/US pages), as **CSS
      keyframes** gated on `html:not(.w-mod-ix3)`, so it starts at first paint
      instead of after IX3's gate (the main mobile LCP cost).
+   - **Nav — built, on staging behind `?wfc-ix=repo` (2026-10-19):**
+     `nav.ts` + `ix-flag.ts` + styles.css §03 "G | Nav". Dropdowns are CSS
+     on Webflow's `.w--open`; the mobile menu adds aria-expanded, Escape
+     and focus. Compared frame by frame with IX2 at 1440 and 390: same end
+     states, same timing. Cutover: MANUAL-TODO **F**.
    - `nav.ts`, `accordion.ts`, `dropdown.ts`: the IX2 nav, FAQ, filter and
      C-drop behaviour, written as plain JS + CSS state classes with ARIA
      (`aria-expanded`), not as animations of inline styles. One nav module

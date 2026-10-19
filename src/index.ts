@@ -11,6 +11,7 @@ import { initFlareBorder } from './modules/flare-border';
 import { initHeroIntro } from './modules/hero-intro';
 import { initHubSpotForms } from './modules/hubspot-form';
 import { initIndustryTilt } from './modules/industry-tilt';
+import { initNav } from './modules/nav';
 import { initNewsletter } from './modules/newsletter';
 import { initOrbit } from './modules/orbit';
 import { initPlaceholders } from './modules/placeholders';
@@ -35,6 +36,8 @@ function boot() {
   // Stage 4: the Home hero intro starts on DOM ready, not after webflow.js,
   // so it can begin as soon as its images decode. Inert without [data-hero].
   run('hero-intro', initHeroIntro);
+  // Stage 4: nav dropdowns and mobile menu, staging-only behind ?wfc-ix=repo.
+  run('nav', initNav);
   // Starter fixes for markup Webflow publishes (conventions.md §9–11). Both
   // act only on data-aria-role / data-placeholder, which the site doesn't
   // use yet. unique-form-ids stays off for parity: it would rename the
