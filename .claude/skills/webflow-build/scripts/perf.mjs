@@ -20,6 +20,7 @@ const LIGHTHOUSE = 'lighthouse@12';
 const cfg = loadConfig();
 const { pos, flags, values } = args();
 const runs = Math.max(1, Number(values.runs ?? 5));
+const BEACONS = ['*google-analytics.com/*collect*', '*analytics.google.com/*collect*', '*/ccm/collect*', '*doubleclick.net/*', '*google.com/rmkt/collect*', '*googleadservices.com/*', '*analytics.twitter.com/*', '*t.co/i/adsct*', '*track.hubspot.com/*', ...(cfg.perf?.blockUrls ?? [])];
 const base = flags.has('--prototype') ? cfg.prototypeUrl : flags.has('--live') ? cfg.liveUrl?.replace(/\/$/, '') : cfg.stagingUrl;
 if (!base) { console.error('--live needs "liveUrl" (the custom domain) in webflow-build.config.json.'); process.exit(1); }
 const modes = flags.has('--mobile') ? ['mobile'] : flags.has('--desktop') ? ['desktop'] : ['mobile', 'desktop'];
@@ -40,6 +41,10 @@ const median = (a) => { const s = [...a].sort((x, y) => x - y); const m = s.leng
 async function once(url, mode) {
   const a = ['--yes', LIGHTHOUSE, url, '--output=json', '--output-path=stdout', '--quiet', '--only-categories=performance', '--chrome-flags=--headless=new --no-sandbox'];
   if (mode === 'desktop') a.push('--preset=desktop');
+  // Don't send analytics from test runs: block only the data beacons. The
+  // tag scripts still load, so the page does the same work as for a visitor.
+  // Extra patterns: "perf": { "blockUrls": [...] } in the config.
+  for (const u of BEACONS) a.push(`--blocked-url-patterns=${u}`);
   const { stdout } = await run('npx', a, { env: { ...process.env, CHROME_PATH: chrome }, maxBuffer: 64 * 1024 * 1024 });
   const lhr = JSON.parse(stdout);
   if (lhr.runtimeError) throw new Error(lhr.runtimeError.message);

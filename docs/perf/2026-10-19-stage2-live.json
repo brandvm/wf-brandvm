@@ -1,0 +1,788 @@
+{
+  "date": "2026-10-19T18:50:49.452Z",
+  "base": "https://www.brandvm.com",
+  "runs": 5,
+  "lighthouse": "lighthouse@12",
+  "pages": {
+    "/": {
+      "mobile": {
+        "runs": 5,
+        "score": {
+          "median": 56,
+          "min": 55,
+          "max": 57
+        },
+        "lcp": {
+          "median": 19839,
+          "min": 18109,
+          "max": 20604
+        },
+        "fcp": {
+          "median": 5143,
+          "min": 4626,
+          "max": 7186
+        },
+        "tbt": {
+          "median": 145,
+          "min": 125,
+          "max": 180
+        },
+        "cls": {
+          "median": 0.005,
+          "min": 0,
+          "max": 0.005
+        },
+        "si": {
+          "median": 8448,
+          "min": 8008,
+          "max": 8865
+        },
+        "bytes": {
+          "median": 9967,
+          "min": 9958,
+          "max": 10021
+        }
+      },
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 84,
+          "min": 81,
+          "max": 92
+        },
+        "lcp": {
+          "median": 2031,
+          "min": 1335,
+          "max": 2193
+        },
+        "fcp": {
+          "median": 1197,
+          "min": 812,
+          "max": 1297
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0.003,
+          "min": 0.003,
+          "max": 0.006
+        },
+        "si": {
+          "median": 2151,
+          "min": 2008,
+          "max": 2171
+        },
+        "bytes": {
+          "median": 10763,
+          "min": 10674,
+          "max": 10838
+        }
+      }
+    },
+    "/about": {
+      "mobile": {
+        "runs": 5,
+        "score": {
+          "median": 56,
+          "min": 54,
+          "max": 65
+        },
+        "lcp": {
+          "median": 18067,
+          "min": 9781,
+          "max": 18675
+        },
+        "fcp": {
+          "median": 5155,
+          "min": 2534,
+          "max": 8034
+        },
+        "tbt": {
+          "median": 140,
+          "min": 106,
+          "max": 189
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0,
+          "max": 0.001
+        },
+        "si": {
+          "median": 9041,
+          "min": 6176,
+          "max": 9419
+        },
+        "bytes": {
+          "median": 14420,
+          "min": 14122,
+          "max": 14502
+        }
+      },
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 79,
+          "min": 77,
+          "max": 81
+        },
+        "lcp": {
+          "median": 2373,
+          "min": 2316,
+          "max": 2572
+        },
+        "fcp": {
+          "median": 855,
+          "min": 812,
+          "max": 891
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0.001,
+          "max": 0.001
+        },
+        "si": {
+          "median": 2738,
+          "min": 2447,
+          "max": 7297
+        },
+        "bytes": {
+          "median": 15991,
+          "min": 14588,
+          "max": 17668
+        }
+      }
+    },
+    "/contact": {
+      "mobile": {
+        "runs": 5,
+        "score": {
+          "median": 52,
+          "min": 42,
+          "max": 52
+        },
+        "lcp": {
+          "median": 20007,
+          "min": 9813,
+          "max": 21196
+        },
+        "fcp": {
+          "median": 10440,
+          "min": 4401,
+          "max": 11415
+        },
+        "tbt": {
+          "median": 203,
+          "min": 198,
+          "max": 243
+        },
+        "cls": {
+          "median": 0.032,
+          "min": 0.032,
+          "max": 0.276
+        },
+        "si": {
+          "median": 10440,
+          "min": 8004,
+          "max": 11415
+        },
+        "bytes": {
+          "median": 3011,
+          "min": 3010,
+          "max": 3194
+        }
+      },
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 87,
+          "min": 82,
+          "max": 88
+        },
+        "lcp": {
+          "median": 1800,
+          "min": 1575,
+          "max": 2061
+        },
+        "fcp": {
+          "median": 937,
+          "min": 683,
+          "max": 1324
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0.013,
+          "min": 0.013,
+          "max": 0.013
+        },
+        "si": {
+          "median": 2294,
+          "min": 2003,
+          "max": 2598
+        },
+        "bytes": {
+          "median": 3747,
+          "min": 3746,
+          "max": 3750
+        }
+      }
+    },
+    "/web-design": {
+      "mobile": {
+        "runs": 5,
+        "score": {
+          "median": 55,
+          "min": 54,
+          "max": 64
+        },
+        "lcp": {
+          "median": 20899,
+          "min": 5896,
+          "max": 22912
+        },
+        "fcp": {
+          "median": 5122,
+          "min": 3243,
+          "max": 7298
+        },
+        "tbt": {
+          "median": 172,
+          "min": 132,
+          "max": 204
+        },
+        "cls": {
+          "median": 0.006,
+          "min": 0,
+          "max": 0.006
+        },
+        "si": {
+          "median": 8769,
+          "min": 7544,
+          "max": 9544
+        },
+        "bytes": {
+          "median": 10895,
+          "min": 10855,
+          "max": 10902
+        }
+      },
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 89,
+          "min": 83,
+          "max": 92
+        },
+        "lcp": {
+          "median": 1599,
+          "min": 1360,
+          "max": 2061
+        },
+        "fcp": {
+          "median": 894,
+          "min": 785,
+          "max": 1298
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0.008,
+          "min": 0.008,
+          "max": 0.014
+        },
+        "si": {
+          "median": 2246,
+          "min": 1563,
+          "max": 2480
+        },
+        "bytes": {
+          "median": 11037,
+          "min": 11013,
+          "max": 11163
+        }
+      }
+    },
+    "/branding": {
+      "mobile": {
+        "runs": 5,
+        "score": {
+          "median": 56,
+          "min": 55,
+          "max": 61
+        },
+        "lcp": {
+          "median": 19985,
+          "min": 9766,
+          "max": 20791
+        },
+        "fcp": {
+          "median": 4705,
+          "min": 2857,
+          "max": 7030
+        },
+        "tbt": {
+          "median": 158,
+          "min": 140,
+          "max": 175
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0,
+          "max": 0.001
+        },
+        "si": {
+          "median": 8183,
+          "min": 7496,
+          "max": 8898
+        },
+        "bytes": {
+          "median": 9885,
+          "min": 9805,
+          "max": 9958
+        }
+      },
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 81,
+          "min": 77,
+          "max": 81
+        },
+        "lcp": {
+          "median": 2649,
+          "min": 2562,
+          "max": 2701
+        },
+        "fcp": {
+          "median": 785,
+          "min": 751,
+          "max": 825
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0.025,
+          "min": 0.025,
+          "max": 0.026
+        },
+        "si": {
+          "median": 2240,
+          "min": 2142,
+          "max": 2932
+        },
+        "bytes": {
+          "median": 10487,
+          "min": 10352,
+          "max": 10520
+        }
+      }
+    },
+    "/our-work-portfolio": {
+      "mobile": {
+        "runs": 5,
+        "score": {
+          "median": 55,
+          "min": 54,
+          "max": 63
+        },
+        "lcp": {
+          "median": 15950,
+          "min": 8773,
+          "max": 19185
+        },
+        "fcp": {
+          "median": 4208,
+          "min": 2115,
+          "max": 7045
+        },
+        "tbt": {
+          "median": 149,
+          "min": 105,
+          "max": 260
+        },
+        "cls": {
+          "median": 0.004,
+          "min": 0,
+          "max": 0.004
+        },
+        "si": {
+          "median": 11584,
+          "min": 10370,
+          "max": 20149
+        },
+        "bytes": {
+          "median": 100270,
+          "min": 100192,
+          "max": 102303
+        }
+      },
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 83,
+          "min": 82,
+          "max": 83
+        },
+        "lcp": {
+          "median": 1892,
+          "min": 1863,
+          "max": 1927
+        },
+        "fcp": {
+          "median": 738,
+          "min": 709,
+          "max": 785
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0.003,
+          "min": 0.003,
+          "max": 0.004
+        },
+        "si": {
+          "median": 3597,
+          "min": 3494,
+          "max": 3776
+        },
+        "bytes": {
+          "median": 100268,
+          "min": 100172,
+          "max": 102161
+        }
+      }
+    },
+    "/insights": {
+      "mobile": {
+        "runs": 5,
+        "score": {
+          "median": 56,
+          "min": 54,
+          "max": 65
+        },
+        "lcp": {
+          "median": 23115,
+          "min": 4731,
+          "max": 23952
+        },
+        "fcp": {
+          "median": 4589,
+          "min": 3372,
+          "max": 5188
+        },
+        "tbt": {
+          "median": 169,
+          "min": 146,
+          "max": 213
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0,
+          "max": 0.001
+        },
+        "si": {
+          "median": 8988,
+          "min": 7396,
+          "max": 9632
+        },
+        "bytes": {
+          "median": 3229,
+          "min": 3229,
+          "max": 3230
+        }
+      },
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 92,
+          "min": 87,
+          "max": 92
+        },
+        "lcp": {
+          "median": 1208,
+          "min": 1157,
+          "max": 1579
+        },
+        "fcp": {
+          "median": 767,
+          "min": 703,
+          "max": 1228
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0,
+          "max": 0.001
+        },
+        "si": {
+          "median": 2235,
+          "min": 2201,
+          "max": 2518
+        },
+        "bytes": {
+          "median": 4105,
+          "min": 4105,
+          "max": 4115
+        }
+      }
+    },
+    "/services": {
+      "mobile": {
+        "runs": 5,
+        "score": {
+          "median": 57,
+          "min": 56,
+          "max": 60
+        },
+        "lcp": {
+          "median": 18448,
+          "min": 9236,
+          "max": 18593
+        },
+        "fcp": {
+          "median": 4734,
+          "min": 4530,
+          "max": 5193
+        },
+        "tbt": {
+          "median": 148,
+          "min": 132,
+          "max": 190
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0,
+          "max": 0.001
+        },
+        "si": {
+          "median": 7755,
+          "min": 5904,
+          "max": 7861
+        },
+        "bytes": {
+          "median": 9935,
+          "min": 9867,
+          "max": 9955
+        }
+      },
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 84,
+          "min": 83,
+          "max": 86
+        },
+        "lcp": {
+          "median": 2200,
+          "min": 1996,
+          "max": 2265
+        },
+        "fcp": {
+          "median": 928,
+          "min": 804,
+          "max": 1229
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "si": {
+          "median": 2006,
+          "min": 1877,
+          "max": 2021
+        },
+        "bytes": {
+          "median": 10088,
+          "min": 9629,
+          "max": 10103
+        }
+      }
+    },
+    "/case-studies/accounting-advisory-firm-website": {
+      "mobile": {
+        "runs": 5,
+        "score": {
+          "median": 51,
+          "min": 38,
+          "max": 52
+        },
+        "lcp": {
+          "median": 16352,
+          "min": 9696,
+          "max": 22365
+        },
+        "fcp": {
+          "median": 5182,
+          "min": 4756,
+          "max": 7490
+        },
+        "tbt": {
+          "median": 275,
+          "min": 234,
+          "max": 958
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0,
+          "max": 0.001
+        },
+        "si": {
+          "median": 8819,
+          "min": 6666,
+          "max": 13640
+        },
+        "bytes": {
+          "median": 12451,
+          "min": 12437,
+          "max": 12571
+        }
+      },
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 89,
+          "min": 68,
+          "max": 90
+        },
+        "lcp": {
+          "median": 1678,
+          "min": 1474,
+          "max": 2041
+        },
+        "fcp": {
+          "median": 777,
+          "min": 761,
+          "max": 814
+        },
+        "tbt": {
+          "median": 9,
+          "min": 7,
+          "max": 368
+        },
+        "cls": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "si": {
+          "median": 2370,
+          "min": 1608,
+          "max": 2599
+        },
+        "bytes": {
+          "median": 12493,
+          "min": 12492,
+          "max": 12537
+        }
+      }
+    },
+    "/post/10-essential-marketing-metrics": {
+      "mobile": {
+        "runs": 5,
+        "score": {
+          "median": 53,
+          "min": 51,
+          "max": 63
+        },
+        "lcp": {
+          "median": 19472,
+          "min": 12290,
+          "max": 20641
+        },
+        "fcp": {
+          "median": 4721,
+          "min": 2336,
+          "max": 7225
+        },
+        "tbt": {
+          "median": 236,
+          "min": 186,
+          "max": 270
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0,
+          "max": 0.001
+        },
+        "si": {
+          "median": 7865,
+          "min": 6960,
+          "max": 8956
+        },
+        "bytes": {
+          "median": 2717,
+          "min": 2717,
+          "max": 2717
+        }
+      },
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 71,
+          "min": 69,
+          "max": 71
+        },
+        "lcp": {
+          "median": 4395,
+          "min": 4275,
+          "max": 4529
+        },
+        "fcp": {
+          "median": 824,
+          "min": 764,
+          "max": 1145
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "si": {
+          "median": 3024,
+          "min": 2406,
+          "max": 3393
+        },
+        "bytes": {
+          "median": 2953,
+          "min": 2953,
+          "max": 2953
+        }
+      }
+    }
+  }
+}

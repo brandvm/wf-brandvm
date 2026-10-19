@@ -27,6 +27,22 @@ collected from client repos into those files.
 
 <!-- Add new entries here, newest first. -->
 
+### 2026-10-19 · `play() … interrupted by pause()` on Home and Web Design
+- Area: js
+- Scope: project
+- Symptom: uncaught `play()` rejections in the console on Home and Web
+  Design, intermittently, before and after the Stage 2 cutover.
+- Cause: the `.s-bg-video` elements carry Webflow's `autoplay` attribute,
+  and the visibility controller (`lazy-videos.ts`) pauses them when they
+  leave the viewport, so the browser's own autoplay `play()` is cut short.
+  The controller's own `play()` calls already ignore `AbortError`.
+- Fix: none yet (not a regression; no visible effect). Stage 5: drop
+  `autoplay` from those videos in the Designer and let the controller
+  start them.
+- Status: open
+- Found by: claude
+
+
 ### 2026-10-19 · `wf:baseline compare` flagged every page as changed
 - Area: perf
 - Scope: template-candidate

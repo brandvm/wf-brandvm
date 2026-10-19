@@ -74,7 +74,7 @@ Nothing visible changes. Gate: you approve this plan and the decisions in
    Read-only checks). `wf:film` (load-time) is run at the start of Stage 2.
 4. ~~Settle open decisions D1–D6~~ done 2026-10-19 (`DECISIONS.md`).
 
-## Stage 2: Parity port (new plumbing, no visible change)
+## Stage 2: Parity port (new plumbing, no visible change) — live 2026-10-19 (v1.0.0)
 
 Port `brandvm/brandvm` into this repo **as it is**. No rewrites in this stage.
 

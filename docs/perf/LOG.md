@@ -51,3 +51,57 @@ What stands out (measured):
 - **CLS above 0.25** on Home, Contact, Work and Insights (desktop) and on
   About, Contact and Branding (mobile).
 - TBT is low (≤ 233 ms); main-thread JS is not the bottleneck today.
+
+## 2026-10-19 · After Stage 2: loader v1.0.0 live
+
+`brandvm/wf-brandvm@1.0.0` (parity port of brandvm v1.1.2 + template
+loader), all Webflow IX2/IX3 still on. Raw: `2026-10-19-stage2-live.json`.
+From this run on, analytics beacons (GA/Ads/X/HubSpot collect calls) are
+blocked in Lighthouse; the tag scripts still load. Beacons fire after load,
+so the effect on these numbers is small, but the comparison with the
+baseline is not perfectly like-for-like.
+
+| Page | Mode | Score before → after (range) | LCP | TBT | CLS | Transfer |
+| --- | --- | --- | --- | --- | --- | --- |
+| `/` | mobile | 54 → **56** (55–57) | 7.8 → 19.8 s | 162 → 145 ms | 0.005 → 0.005 | 10.0 → 9.7 MB |
+| `/` | desktop | 68 → **84** (81–92) | 2.0 → 2.0 s | 0 → 0 ms | 0.313 → 0.003 | 11.0 → 10.5 MB |
+| `/about` | mobile | 41 → **56** (54–65) | 18.2 → 18.1 s | 155 → 140 ms | 0.488 → 0.001 | 14.4 → 14.1 MB |
+| `/about` | desktop | 76 → **79** (77–81) | 2.7 → 2.4 s | 0 → 0 ms | 0.001 → 0.001 | 15.9 → 15.6 MB |
+| `/contact` | mobile | 41 → **52** (42–52) | 15.7 → 20.0 s | 233 → 203 ms | 0.276 → 0.032 | 3.1 → 2.9 MB |
+| `/contact` | desktop | 61 → **87** (82–88) | 2.3 → 1.8 s | 0 → 0 ms | 0.409 → 0.013 | 4.0 → 3.7 MB |
+| `/web-design` | mobile | 53 → **55** (54–64) | 22.4 → 20.9 s | 167 → 172 ms | 0.006 → 0.006 | 11.0 → 10.6 MB |
+| `/web-design` | desktop | 82 → **89** (83–92) | 1.9 → 1.6 s | 0 → 0 ms | 0.008 → 0.008 | 11.2 → 10.8 MB |
+| `/branding` | mobile | 49 → **56** (55–61) | 10.1 → 20.0 s | 169 → 158 ms | 0.49 → 0.001 | 9.9 → 9.7 MB |
+| `/branding` | desktop | 78 → **81** (77–81) | 3.0 → 2.6 s | 0 → 0 ms | 0.025 → 0.025 | 10.3 → 10.2 MB |
+| `/our-work-portfolio` | mobile | 54 → **55** (54–63) | 20.8 → 15.9 s | 164 → 149 ms | 0.004 → 0.004 | 98.1 → 97.9 MB |
+| `/our-work-portfolio` | desktop | 55 → **83** (82–83) | 2.3 → 1.9 s | 0 → 0 ms | 0.729 → 0.003 | 98.3 → 97.9 MB |
+| `/insights` | mobile | 56 → **56** (54–65) | 22.5 → 23.1 s | 136 → 169 ms | 0.001 → 0.001 | 3.1 → 3.2 MB |
+| `/insights` | desktop | 79 → **92** (87–92) | 1.2 → 1.2 s | 0 → 0 ms | 0.328 → 0.001 | 3.9 → 4.0 MB |
+| `/services` | mobile | 56 → **57** (56–60) | 20.0 → 18.4 s | 137 → 148 ms | 0.001 → 0.001 | 10.0 → 9.7 MB |
+| `/services` | desktop | 75 → **84** (83–86) | 2.6 → 2.2 s | 0 → 0 ms | 0 → 0 | 9.9 → 9.9 MB |
+| case study | mobile | 52 → **51** (38–52) | 18.6 → 16.4 s | 218 → 275 ms | 0 → 0.001 | 12.7 → 12.2 MB |
+| case study | desktop | 78 → **89** (68–90) | 2.2 → 1.7 s | 8 → 9 ms | 0.106 → 0 | 12.2 → 12.2 MB |
+| post | mobile | 55 → **53** (51–63) | 14.9 → 19.5 s | 166 → 236 ms | 0.162 → 0.001 | 2.7 → 2.7 MB |
+| post | desktop | 71 → **71** (69–71) | 4.5 → 4.4 s | 0 → 0 ms | 0.043 → 0 | 2.9 → 2.9 MB |
+
+What changed (measured):
+
+- **Layout shift gone.** The old config Embed swapped the stylesheet
+  `href` directly, so pages re-rendered unstyled for a moment; the template
+  loader swaps without a gap. Desktop CLS 0.31–0.73 → ≤ 0.013 (Home,
+  Contact, Work, Insights); mobile About/Branding/Contact 0.28–0.49 → ≤ 0.03.
+- **Desktop scores up** on 9 of 10 pages (largest: Work 55 → 83, Contact
+  61 → 87, Home 68 → 84; the post is flat at 71). Mobile scores up on 7
+  pages (About 41 → 56, Contact 41 → 52), down 1–2 on the case study and
+  the post; score ranges are much tighter.
+- **Mobile LCP: worse median on 4 pages, open.** Home 7.8 → 19.8 s,
+  Branding 10.1 → 20.0 s, Contact 15.7 → 20.0 s, post 14.9 → 19.5 s;
+  better on Work, Services and the case study. The LCP element is the same
+  (Home: the hero image) and the time is almost all *render delay*: the
+  element waits to be shown (IX3's page-load reveal). Mobile LCP was
+  already two-mode in the baseline (Home 5.1–20.9 s); two single runs
+  right after gave 7.8 s and 19.9 s. So the median moved from the fast mode
+  to the slow one; whether the new loader causes that is **not yet shown**.
+  Next: 10+ runs per page, and a trace of what the hero reveal waits on
+  (the IX3 reveal, the hero-panels page script, the stylesheet swap).
+- **Not changed:** page weight (Work still ~98 MB). Stages 4–5.
