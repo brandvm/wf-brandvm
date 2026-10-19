@@ -97,3 +97,4 @@ tag and publish. Never move a pushed tag.
 | Date | What is live | Rollback to |
 | --- | --- | --- |
 | 2026-10-19 | `brandvm/brandvm@1.1.1`, all Webflow IX2/IX3 | — (this is the baseline) |
+| 2026-10-19 (staging only) | `brandvm/wf-brandvm@1.0.0` loader in head, footer and G \| Components Embeds; `fs-autovideo` and Lenis CSS removed; published to brandvm.webflow.io only | the files in `rollback/` (site-head, site-footer, embed-02, embed-03) |

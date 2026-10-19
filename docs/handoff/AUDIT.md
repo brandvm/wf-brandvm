@@ -202,6 +202,26 @@ as published (brandvm@1.1.1) and with the old assets routed to this repo's
   cutover) and the 1.1.2 video controller replacing `fs-autovideo` (videos
   are frozen in parity; checked by eye on staging).
 
+## Stage 2 on staging *measured* (2026-10-19)
+
+Loader written into Webflow (head piece 1, footer piece 3, G | Components
+Embeds 2a/2b; `fs-autovideo` and Lenis CSS removed; schema kept) and
+published to brandvm.webflow.io only.
+
+- Published HTML contains head, footer, 2a and 2b **word for word** as
+  generated from `loader.html` (`RELEASE = "1.0.0"`); both JSON-LD blocks
+  parse, same as live.
+- Runtime, 7 pages × 1440/390, staging vs live: same module state on every
+  page (`__brandvmBooted`, flare-border count, sliders, Finsweet list, root
+  font size, IX3). Staging requests 2 bundle files instead of 3. The live
+  `play() … interrupted by pause()` errors (Home, Web Design: `fs-autovideo`
+  fighting the old code) are gone on staging. Video play state is identical.
+- Visual, 10 pages × 3 widths vs fresh live baselines (live republished
+  18:19 UTC): 27 same; About @1440 1.9% and case study @390 1.2% sit at the
+  morning noise floor; About @390 was 932 px shorter because the HubSpot
+  form iframe had not loaded when shot. Re-checked 3×: it renders at
+  932 px on staging every time, as on live.
+
 ## Not yet measured (Stage 0/1)
 
 - PageSpeed via the PSI API: the keyless quota ran out; needs a key.

@@ -46,8 +46,8 @@ again at each gate, so the steps are found early and not at the end:
 
 | ID | Where (page › element or class) | Breakpoint | Set | Why the API can't | Done |
 | --- | --- | --- | --- | --- | --- |
-| A | Site settings › Custom code (Stage 2 cutover, below) | — | Head and footer snippets | The API replaces whole blocks; pasted by a person so nothing else in them changes | ☐ |
-| B | G \| Components › Embeds 2 and 3 (Stage 2 cutover) | — | Replace with loader 2a / 2b | Done in the Designer by a person (component edit, checked on the canvas) | ☐ |
+| A | Site settings › Custom code (Stage 2 cutover, below) | — | Head and footer snippets | Done by Claude through the MCP on 2026-10-19 (go-ahead from Asheem); published HTML checked word for word against loader.html | ☑ |
+| B | G \| Components › Embeds 2 and 3 (Stage 2 cutover) | — | Replace with loader 2a / 2b | Done by Claude through the MCP (`code` setting) on 2026-10-19 | ☑ |
 
 ## Stage 2 cutover (one batch, staging first)
 
