@@ -27,6 +27,24 @@ collected from client repos into those files.
 
 <!-- Add new entries here, newest first. -->
 
+### 2026-10-20 · CMS item updates must resend every required field
+- Area: mcp
+- Scope: template-candidate
+- Symptom: `update_collection_items` setting only an image field returned
+  400 "Request is malformed: Missing fields" for Case Studies and Posts,
+  but worked for Authors, Industries and Tabs in the same batch.
+- Cause: the API validates required fields even on a partial update.
+  Case Studies requires `tagline`, `meta-title`, `meta-description`; Posts
+  needs `name` and `slug` sent explicitly. One failing item fails the
+  whole collection action.
+- Fix: read the item first and resend every required field unchanged with
+  the field being changed; test on one item before the batch. Also: don't
+  use `compress_assets` when a rollback is wanted — it replaces the file in
+  place. Upload new assets and repoint the field instead
+  (`docs/audit/2026-10-20-cms-images.md`).
+- Status: documented
+- Found by: claude
+
 ### 2026-10-20 · The MCP can't prove a CMS field is unused
 - Area: mcp
 - Scope: template-candidate
@@ -45,6 +63,26 @@ collected from client repos into those files.
   in reverse (are the referenced items the ones shown?). Method and
   results: `docs/audit/2026-10-20-cms-field-usage.md`.
 - Status: documented
+- Found by: claude
+
+
+### 2026-10-20 · Reserving space for an async form: when to let go
+- Area: js, perf
+- Scope: template-candidate
+- Symptom: Contact mobile CLS 0.276 from the HubSpot form pushing the
+  page down. Reserving its height fixed it in most runs, but: releasing on
+  `:empty` made it 0.355; releasing on HubSpot's `onFormReady` gave 0.467
+  in 1 of 10 live runs; and with HubSpot blocked (ad blockers), releasing
+  the empty space shifted the page by ~0.28 every time.
+- Cause: HubSpot inserts its wrapper before the fields render, and
+  `onFormReady` can fire before they reach their final height. A blocked
+  form never fills the space, so any release is a shift.
+- Fix: `hubspot-form.ts` keeps the reservation until a ResizeObserver
+  sees the rendered form at least as tall as it (or on submit); if the
+  script fails or nothing renders in 8s, the space stays and shows contact
+  details (`.hs-form-fallback`). Contact mobile: CLS 0 in all runs, form
+  loading or blocked.
+- Status: fixed (1.4.5)
 - Found by: claude
 
 

@@ -774,9 +774,11 @@ html[data-wf-domain] .c-drop.is-open .c-drop-toggle-label.to-close {
    layout), ~620px above, so the form, its errors and the thank-you message
    size themselves once it is ready. Re-measure
    if the form's fields change. Released by hubspot-form.ts adding
-   .is-ready in HubSpot's onFormReady (or after 8s), not by :empty:
-   HubSpot inserts its wrapper before the fields render, and an :empty
-   release made the shift worse (0.276 → 0.355). */
+   .is-ready once the rendered form is as tall as this (or on submit, or
+   after 8s). Not :empty (HubSpot inserts its wrapper before the fields,
+   0.276 → 0.355) and not onFormReady (it can fire before the fields have
+   their final height: 0.467 on live 1.4.4). If the form never comes,
+   the space stays and holds .hs-form-fallback (contact details). */
 html[data-wf-domain] .hs-form-slot:not(.is-ready) {
   min-height: 620px;
 }
@@ -784,6 +786,28 @@ html[data-wf-domain] .hs-form-slot:not(.is-ready) {
   html[data-wf-domain] .hs-form-slot:not(.is-ready) {
     min-height: 920px;
   }
+}
+/* The message hubspot-form.ts shows in the reserved space when the form
+   can't load (blocked or failed), so the space never has to close. */
+.hs-form-fallback {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+  min-height: inherit;
+  padding: 2em;
+  border: 1px dashed currentColor;
+  border-radius: 0.75em;
+  text-align: center;
+}
+.hs-form-fallback p {
+  margin: 0;
+}
+.hs-form-fallback-title {
+  font-weight: 600;
+}
+.hs-form-fallback a {
+  text-decoration: underline;
 }
 
 /* ---------- Home hero intro (Stage 4, hero-intro.ts) ---------- */
