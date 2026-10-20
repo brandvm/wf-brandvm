@@ -45,7 +45,7 @@ collected from client repos into those files.
   passed because the stylesheet answered instantly; the test now delays it
   1 s and requires first paint after it. Also: Chrome reports a `<body>`
   stylesheet as `renderBlockingStatus: "non-blocking"`; test paint timing.
-- Status: fixed (loader, this commit); on live after the next publish
+- Status: fixed (loader, this commit); on live after the next publish; upstreamed wf-template 4545bee (0.8.0, branch harvest-perf-loader-2026-10-20)
 - Found by: claude
 
 ### 2026-10-20 · Image loading, fonts and preloads through the MCP (Home 95 work)
@@ -67,7 +67,7 @@ collected from client repos into those files.
   `imagesrcset`/`imagesizes` must match the `<img>` exactly, or the image
   downloads twice. Lazy images within the browser's lazy margin (~1–2
   screens) still load before first paint, so their size still matters.
-- Status: documented
+- Status: documented; upstreamed wf-template 4545bee (0.8.0, branch harvest-perf-loader-2026-10-20)
 - Found by: claude
 
 <!-- Add new entries here, newest first. -->
@@ -107,7 +107,7 @@ collected from client repos into those files.
   values are absent from the item's own live page; check reference fields
   in reverse (are the referenced items the ones shown?). Method and
   results: `docs/audit/2026-10-20-cms-field-usage.md`.
-- Status: documented
+- Status: documented; upstreamed wf-template 4545bee (0.8.0, branch harvest-perf-loader-2026-10-20)
 - Found by: claude
 
 
@@ -127,7 +127,7 @@ collected from client repos into those files.
   script fails or nothing renders in 8s, the space stays and shows contact
   details (`.hs-form-fallback`). Contact mobile: CLS 0 in all runs, form
   loading or blocked.
-- Status: fixed (1.4.5)
+- Status: fixed (1.4.5); upstreamed wf-template 4545bee (0.8.0, branch harvest-perf-loader-2026-10-20)
 - Found by: claude
 
 
@@ -150,7 +150,7 @@ collected from client repos into those files.
   changes (debounced) and on window load. Regression test in
   `tests/ix3.spec.mjs` (fails on the old module). Released as 1.4.1;
   1.4.0 never reached production.
-- Status: fixed
+- Status: fixed; upstreamed wf-template 4545bee (0.8.0, branch harvest-perf-loader-2026-10-20)
 - Found by: claude
 
 
@@ -171,7 +171,7 @@ collected from client repos into those files.
   order) and registers them on the bundled core. Never import `gsap/…`
   elsewhere. Test: `tests/ix3.spec.mjs` "gsap isolation" (fails without
   the fix).
-- Status: fixed (not yet released; 1.3.0 has no GSAP in the bundle)
+- Status: fixed (not yet released; 1.3.0 has no GSAP in the bundle); upstreamed wf-template 4545bee (0.8.0, branch harvest-perf-loader-2026-10-20)
 - Found by: claude
 
 
@@ -191,7 +191,7 @@ collected from client repos into those files.
   needs correcting upstream. (2) `ix3-bridge.ts` waits for load plus 3
   frames with an unchanged interaction count. Both checked on 7 staging
   page/width pairs: 0 differences.
-- Status: fixed in this repo; lesson to correct in wf-template
+- Status: fixed in this repo; lesson to correct in wf-template; upstreamed wf-template 4545bee (0.8.0, branch harvest-perf-loader-2026-10-20)
 - Found by: claude
 
 
@@ -208,7 +208,7 @@ collected from client repos into those files.
   a missing duration (`scripts/ix3-spec.mjs`), and cross-check odd cases
   with `get_interaction`. An interaction whose actions are all hidden still
   makes IX3 load and gate the page: delete it.
-- Status: documented
+- Status: documented; upstreamed wf-template 4545bee (0.8.0, branch harvest-perf-loader-2026-10-20)
 - Found by: claude
 
 
@@ -226,7 +226,7 @@ collected from client repos into those files.
   closed state also sets the item's vertical padding to 0, transitioned
   with the rows, so the Designer padding returns when open.
 - Status: (1) obsolete since IX2 was deleted (1.4.2 dropped the
-  `!important`s); (2) still applies
+  `!important`s); (2) still applies; upstreamed wf-template 4545bee (0.8.0, branch harvest-perf-loader-2026-10-20)
 - Found by: claude
 
 
@@ -291,7 +291,7 @@ collected from client repos into those files.
   as lazy content and scroll reveals load always differ.
 - Fix: compare the new screenshot's PNG height with the saved PNG's.
   Afterwards only real pixel changes are flagged (noise floor in AUDIT.md).
-- Status: fixed in this repo; to upstream to wf-template
+- Status: fixed in this repo; to upstream to wf-template; upstreamed wf-template 4545bee (0.8.0, branch harvest-perf-loader-2026-10-20)
 - Found by: claude
 
 ### 2026-10-19 · `wf:* --live` measured staging, not the live domain
