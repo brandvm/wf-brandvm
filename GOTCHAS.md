@@ -27,6 +27,23 @@ collected from client repos into those files.
 
 <!-- Add new entries here, newest first. -->
 
+### 2026-10-20 · Published IX3 drops hidden actions and default durations
+- Area: js
+- Scope: template-candidate
+- Symptom: "Page Load | Home" published an empty timeline although the
+  Designer shows three hero-panel actions; several published steps had no
+  `duration`.
+- Cause: actions marked hidden in the Designer are left out of the
+  published chunk, and a step at the default duration is published without
+  it (the MCP's `get_interaction` shows 0.5 for the same step).
+- Fix: decode from the published chunks (what visitors run), read 0.5s for
+  a missing duration (`scripts/ix3-spec.mjs`), and cross-check odd cases
+  with `get_interaction`. An interaction whose actions are all hidden still
+  makes IX3 load and gate the page: delete it.
+- Status: documented
+- Found by: claude
+
+
 ### 2026-10-19 · Repo interactions next to live IX2: `!important` and a 0fr grid's padding
 - Area: css
 - Scope: template-candidate

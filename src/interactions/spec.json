@@ -1,0 +1,1754 @@
+{
+  "source": "https://brandvm.webflow.io published webflow.*.js chunks (scripts/ix3-spec.mjs)",
+  "chunks": [
+    {
+      "file": "webflow.b86f1ead.b5cb8f1093d78731.js",
+      "pages": 78
+    },
+    {
+      "file": "webflow.3eff193a.c5dd90f08702a2f2.js",
+      "pages": 71
+    },
+    {
+      "file": "webflow.8e0c63f0.0d6289ce1dc6f25b.js",
+      "pages": 10
+    },
+    {
+      "file": "webflow.1086f7d9.f999269dc0e77f55.js",
+      "pages": 1
+    },
+    {
+      "file": "webflow.bc5574a3.e3337bcc02736cd7.js",
+      "pages": 1
+    },
+    {
+      "file": "webflow.2f3e101b.13a9cb270c26cb2c.js",
+      "pages": 1
+    }
+  ],
+  "interactions": [
+    {
+      "id": "i-068fbd43",
+      "name": "Section Header Image",
+      "module": "ix-scroll",
+      "scope": "component",
+      "componentId": "7c18a0bc-b9f7-afae-806c-93175a49b2f1",
+      "loadsOn": "component",
+      "usedOn": [
+        "/",
+        "/about",
+        "/branding",
+        "/career",
+        "/chicago",
+        "/contact",
+        "/industries",
+        "/industry/b2b-marketing",
+        "/industry/b2c-marketing",
+        "/industry/education-marketing",
+        "/industry/entertainment-marketing",
+        "/industry/food-and-beverage-marketing",
+        "/industry/health-wellness-marketing",
+        "/industry/law-marketing",
+        "/industry/not-for-profit-marketing",
+        "/industry/startups-marketing",
+        "/industry/technology-marketing",
+        "/industry/travel-hospitality-marketing",
+        "/locations/canada",
+        "/locations/dallas",
+        "/locations/los-angeles",
+        "/locations/montreal",
+        "/marketing-agency",
+        "/marketing-consultation",
+        "/miami",
+        "/ppc-agency",
+        "/real-estate-marketing",
+        "/san-francisco",
+        "/seo-agency",
+        "/ui-ux-agency",
+        "/us",
+        "/us-web-design",
+        "/web-design",
+        "/web-development"
+      ],
+      "triggers": [
+        {
+          "type": "wf:scroll",
+          "target": {
+            "selector": ".heading-image-mask",
+            "within": false
+          },
+          "clamp": false,
+          "start": "top bottom",
+          "end": "top 30%",
+          "scrub": 0.8,
+          "actions": "play none none none"
+        }
+      ],
+      "timelines": [
+        {
+          "id": "t-4875b768",
+          "actions": [
+            {
+              "id": "ta-fa55157a",
+              "targets": [
+                {
+                  "selector": ":trigger",
+                  "within": false
+                }
+              ],
+              "type": "fromTo",
+              "duration": 1,
+              "ease": "power4.inOut",
+              "props": {
+                "width": [
+                  "0em",
+                  "1.5em"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-258e7f03",
+      "name": "Scroll | Section All",
+      "module": "ix-scroll",
+      "scope": "site",
+      "loadsOn": "site",
+      "usedOn": [
+        "/",
+        "/about",
+        "/brand-vision-insights-terms",
+        "/brand-vision-insights/author/arash-f",
+        "/brand-vision-insights/author/arman-tale",
+        "/brand-vision-insights/author/asheem-shrestha",
+        "/brand-vision-insights/author/dana-nemirovsky",
+        "/brand-vision-insights/author/hamoun-ani",
+        "/brand-vision-insights/author/kajal-asgari",
+        "/brand-vision-insights/author/saina-n",
+        "/brand-vision-insights/author/victoria-sweeney",
+        "/brand-vision-insights/author/yasmin-fouladvand",
+        "/branding",
+        "/branding/brand-naming",
+        "/branding/brand-research",
+        "/branding/brand-strategy",
+        "/branding/graphic-design",
+        "/branding/logo-design",
+        "/branding/rebranding",
+        "/branding/visual-identity",
+        "/career",
+        "/case-studies/accounting-advisory-firm-website",
+        "/case-studies/ai-data-center-branding-website",
+        "/case-studies/apparel-brand-branding-storefront",
+        "/case-studies/asset-management-branding-website",
+        "/case-studies/autonomous-mobility-platform",
+        "/case-studies/bee-conservation-storefront",
+        "/case-studies/boutique-hotel-branding-website",
+        "/case-studies/childrens-apparel-brand-storefront",
+        "/case-studies/coffee-branding-packaging-design",
+        "/case-studies/commercial-liquidation-seo",
+        "/case-studies/commercial-liquidation-website",
+        "/case-studies/commercial-maintenance-website",
+        "/case-studies/community-crisis-support-branding-website",
+        "/case-studies/construction-service-firm-branding-website",
+        "/case-studies/consultation-company-website",
+        "/case-studies/consumer-software-company",
+        "/case-studies/consumer-software-company-seo",
+        "/case-studies/contact-center-software-website",
+        "/case-studies/corporate-law-firm-branding-website",
+        "/case-studies/creative-content-agency-website",
+        "/case-studies/creative-content-agency-website-seo",
+        "/case-studies/custom-aluminum-solutions-seo",
+        "/case-studies/custom-home-builder-branding-website",
+        "/case-studies/digital-pharmacy-branding-website",
+        "/case-studies/digital-pharmacy-platform-website",
+        "/case-studies/electric-scooter-branding-storefront",
+        "/case-studies/employee-benefits-platform-website",
+        "/case-studies/enterprise-ordering-platform",
+        "/case-studies/entertainment-escape-room-website",
+        "/case-studies/entertainment-talent-group-website",
+        "/case-studies/environmental-engineering-website",
+        "/case-studies/event-entertainment-website",
+        "/case-studies/forest-hill-diamond",
+        "/case-studies/general-contractor-website",
+        "/case-studies/healthcare-diagnostics-branding-website",
+        "/case-studies/healthcare-executive-search-website",
+        "/case-studies/homeschool-education-branding-website",
+        "/case-studies/hostel-booking-branding-website",
+        "/case-studies/indigenous-community-website",
+        "/case-studies/industrial-manufacturing-website",
+        "/case-studies/institutional-financial-services-website",
+        "/case-studies/landscaping-services-website",
+        "/case-studies/law-firm-website",
+        "/case-studies/law-firm-website-seo",
+        "/case-studies/leaside-blvd",
+        "/case-studies/live-music-events-branding",
+        "/case-studies/luxury-fashion-branding",
+        "/case-studies/luxury-real-estate-development-branding",
+        "/case-studies/luxury-spa-branding",
+        "/case-studies/machine-vision-technology-website",
+        "/case-studies/mechanical-construction-company-website",
+        "/case-studies/medical-ai-health-branding-website",
+        "/case-studies/medical-clinic-website",
+        "/case-studies/merchandise-manufacturer-branding-website",
+        "/case-studies/moving-company-website",
+        "/case-studies/municipal-association-website",
+        "/case-studies/nexus",
+        "/case-studies/nonprofit-career-empowerment-branding-website",
+        "/case-studies/nonprofit-digital-strategy",
+        "/case-studies/pr-agency-website",
+        "/case-studies/pr-agency-website-seo",
+        "/case-studies/pre-construction-branding",
+        "/case-studies/real-estate-investment-branding-website",
+        "/case-studies/retail-marketing-conference-website-2023",
+        "/case-studies/retail-marketing-conference-website-2024",
+        "/case-studies/roofing-contractor-website",
+        "/case-studies/self-directed-platform-branding-website",
+        "/case-studies/self-directed-platform-branding-website-seo",
+        "/case-studies/structural-engineering-firm-website",
+        "/case-studies/sustainable-materials-innovation-website",
+        "/case-studies/telehealth-technology-website",
+        "/case-studies/the-pisces-residences",
+        "/case-studies/themis-law-firm",
+        "/case-studies/transportation-dispatch-branding-website",
+        "/case-studies/travel-planner-branding-website",
+        "/case-studies/visual-effects-studio-website",
+        "/case-studies/xr-simulation-website",
+        "/case-studies/youth-wellness-awareness-campaign",
+        "/chicago",
+        "/contact",
+        "/faq",
+        "/industries",
+        "/industry/b2b-marketing",
+        "/industry/b2c-marketing",
+        "/industry/education-marketing",
+        "/industry/entertainment-marketing",
+        "/industry/food-and-beverage-marketing",
+        "/industry/health-wellness-marketing",
+        "/industry/law-marketing",
+        "/industry/not-for-profit-marketing",
+        "/industry/startups-marketing",
+        "/industry/technology-marketing",
+        "/industry/travel-hospitality-marketing",
+        "/insights",
+        "/insights-contact",
+        "/insights/branding",
+        "/insights/featured",
+        "/insights/marketing-agency",
+        "/insights/our-work-portfolio",
+        "/insights/seo-agency",
+        "/insights/social-media",
+        "/insights/web-design",
+        "/locations/canada",
+        "/locations/dallas",
+        "/locations/los-angeles",
+        "/locations/montreal",
+        "/marketing-agency",
+        "/marketing-consultation",
+        "/miami",
+        "/our-work-portfolio",
+        "/post/10-ai-side-hustles-make-money-2025",
+        "/post/10-essential-marketing-metrics",
+        "/post/10-famous-brand-competitors",
+        "/ppc-agency",
+        "/privacy-policy",
+        "/real-estate-marketing",
+        "/san-francisco",
+        "/seo-agency",
+        "/seo-agency/ai-search-optimization",
+        "/seo-agency/content-strategy",
+        "/seo-agency/ecommerce-seo",
+        "/seo-agency/enterprise-seo",
+        "/seo-agency/link-building",
+        "/seo-agency/local-seo",
+        "/seo-agency/seo-audit",
+        "/seo-agency/technical-seo",
+        "/services",
+        "/sitemap",
+        "/ui-ux-agency",
+        "/ui-ux-agency/interaction-design",
+        "/ui-ux-agency/ux-audit",
+        "/ui-ux-agency/ux-research",
+        "/us",
+        "/us-web-design",
+        "/web-design",
+        "/web-design/shopify",
+        "/web-design/webflow",
+        "/web-design/website-redesign",
+        "/web-design/woocommerce",
+        "/web-design/wordpress",
+        "/web-development"
+      ],
+      "triggers": [
+        {
+          "type": "wf:scroll",
+          "target": {
+            "selector": "[data-gsap=\"animate-wrapper\"]",
+            "within": false
+          },
+          "clamp": false,
+          "start": "top bottom",
+          "end": "bottom top",
+          "scrub": null,
+          "actions": "play none none none"
+        }
+      ],
+      "offAt": [
+        "(min-width: 480px) and (max-width: 767px)",
+        "(max-width: 479px)"
+      ],
+      "timelines": [
+        {
+          "id": "t-7a093ed4",
+          "actions": [
+            {
+              "id": "ta-7fc11dae",
+              "targets": [
+                {
+                  "selector": ":trigger",
+                  "within": false
+                }
+              ],
+              "type": "fromTo",
+              "duration": 1.2,
+              "ease": {
+                "custom": "M0,160 C102.4,152 0,0 160,0"
+              },
+              "props": {
+                "opacity": [
+                  0,
+                  1
+                ],
+                "y": [
+                  "1rem",
+                  "0em"
+                ],
+                "scale": [
+                  0.98,
+                  1
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-568fa951",
+      "name": "Process | Scroll",
+      "module": "ix-scroll",
+      "scope": "site",
+      "loadsOn": "site",
+      "usedOn": [
+        "/branding",
+        "/branding/brand-naming",
+        "/branding/brand-research",
+        "/branding/brand-strategy",
+        "/branding/graphic-design",
+        "/branding/logo-design",
+        "/branding/rebranding",
+        "/branding/visual-identity",
+        "/marketing-agency",
+        "/marketing-consultation",
+        "/ppc-agency",
+        "/seo-agency",
+        "/seo-agency/ai-search-optimization",
+        "/seo-agency/content-strategy",
+        "/seo-agency/ecommerce-seo",
+        "/seo-agency/enterprise-seo",
+        "/seo-agency/link-building",
+        "/seo-agency/local-seo",
+        "/seo-agency/seo-audit",
+        "/seo-agency/technical-seo",
+        "/ui-ux-agency",
+        "/ui-ux-agency/interaction-design",
+        "/ui-ux-agency/ux-audit",
+        "/ui-ux-agency/ux-research",
+        "/web-design",
+        "/web-design/shopify",
+        "/web-design/webflow",
+        "/web-design/website-redesign",
+        "/web-design/woocommerce",
+        "/web-design/wordpress",
+        "/web-development"
+      ],
+      "triggers": [
+        {
+          "type": "wf:scroll",
+          "target": {
+            "selector": ".process-scroll",
+            "within": false
+          },
+          "clamp": true,
+          "start": "top bottom",
+          "end": "bottom 50%",
+          "scrub": 0.8,
+          "actions": "play none none none"
+        }
+      ],
+      "timelines": [
+        {
+          "id": "t-3e7d6963",
+          "actions": [
+            {
+              "id": "ta-aeb5dc72",
+              "targets": [
+                {
+                  "selector": ".process-step",
+                  "within": true
+                }
+              ],
+              "type": "from",
+              "duration": 0.5,
+              "stagger": {
+                "amount": 0.24
+              },
+              "ease": {
+                "custom": "M0,160 C100,152 0,0 160,0"
+              },
+              "props": {
+                "opacity": [
+                  0,
+                  null
+                ],
+                "scale": [
+                  0.95,
+                  null
+                ]
+              }
+            },
+            {
+              "id": "ta-4f6c19a8",
+              "targets": [
+                {
+                  "selector": ".process-step-line-inner",
+                  "within": true
+                }
+              ],
+              "type": "from",
+              "duration": 0.5,
+              "position": 0.735,
+              "ease": {
+                "custom": "M0,160 C100,152 0,0 160,0"
+              },
+              "props": {
+                "width": [
+                  "0%",
+                  null
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-56b2e49c",
+      "name": "Who We Are Scroll",
+      "module": "ix-scroll",
+      "scope": "pages",
+      "loadsOn": [
+        "/about"
+      ],
+      "usedOn": [
+        "/about"
+      ],
+      "triggers": [
+        {
+          "type": "wf:scroll",
+          "target": {
+            "selector": ".who-main",
+            "within": false
+          },
+          "clamp": true,
+          "start": "top 90%",
+          "end": "50% 50%",
+          "scrub": 0.8,
+          "actions": "play none none none"
+        }
+      ],
+      "offAt": [
+        "(min-width: 768px) and (max-width: 991px)",
+        "(min-width: 480px) and (max-width: 767px)",
+        "(max-width: 479px)"
+      ],
+      "timelines": [
+        {
+          "id": "t-c7618d88",
+          "actions": [
+            {
+              "id": "ta-4b92ee55",
+              "targets": [
+                {
+                  "selector": ".who-block > *",
+                  "within": true
+                }
+              ],
+              "type": "fromTo",
+              "duration": 1.1328674798102383,
+              "position": 0,
+              "ease": "none",
+              "props": {}
+            },
+            {
+              "id": "ta-b7e57fbd",
+              "targets": [
+                {
+                  "selector": ".who-block.is-left > *",
+                  "within": true
+                }
+              ],
+              "type": "from",
+              "duration": 1.0146234717848055,
+              "position": 0,
+              "stagger": {
+                "each": 0.12214757408712562
+              },
+              "ease": "none",
+              "props": {
+                "opacity": [
+                  0,
+                  null
+                ],
+                "x": [
+                  "-5em",
+                  null
+                ],
+                "rotationY": [
+                  "-6deg",
+                  null
+                ],
+                "rotation": [
+                  "-6deg",
+                  null
+                ]
+              }
+            },
+            {
+              "id": "ta-222d5682",
+              "targets": [
+                {
+                  "selector": ".who-block.is-right > *",
+                  "within": true
+                }
+              ],
+              "type": "from",
+              "duration": 0.8975400254583098,
+              "position": 0,
+              "stagger": {
+                "each": 0.12
+              },
+              "ease": "none",
+              "props": {
+                "opacity": [
+                  0,
+                  null
+                ],
+                "x": [
+                  "5em",
+                  null
+                ],
+                "rotationY": [
+                  "6deg",
+                  null
+                ],
+                "rotation": [
+                  "6deg",
+                  null
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-59a7ff74",
+      "name": "Career | Join Visual",
+      "module": "ix-scroll",
+      "scope": "pages",
+      "loadsOn": [
+        "/career"
+      ],
+      "usedOn": [
+        "/career"
+      ],
+      "triggers": [
+        {
+          "type": "wf:scroll",
+          "target": {
+            "selector": ".join-cta-visuals",
+            "within": false
+          },
+          "clamp": true,
+          "start": "top 80%",
+          "end": "bottom 50%",
+          "scrub": 0.8,
+          "actions": "play none none none"
+        }
+      ],
+      "timelines": [
+        {
+          "id": "t-13a021c7",
+          "actions": [
+            {
+              "id": "ta-b02d9c62",
+              "targets": [
+                {
+                  "selector": ".join-cta-visual",
+                  "within": true
+                }
+              ],
+              "type": "from",
+              "duration": 1,
+              "position": 0,
+              "stagger": {
+                "amount": 0.8,
+                "grid": "auto"
+              },
+              "ease": {
+                "custom": "M0,160 C100,152 0,0 160,0"
+              },
+              "props": {
+                "opacity": [
+                  0,
+                  null
+                ],
+                "scale": [
+                  0.5,
+                  null
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-6bcd2f36",
+      "name": "Project Link Hover",
+      "module": "ix-pointer",
+      "scope": "site",
+      "loadsOn": "site",
+      "usedOn": [
+        "/",
+        "/branding",
+        "/branding/brand-naming",
+        "/branding/brand-research",
+        "/branding/brand-strategy",
+        "/branding/graphic-design",
+        "/branding/logo-design",
+        "/branding/rebranding",
+        "/branding/visual-identity",
+        "/chicago",
+        "/industry/b2b-marketing",
+        "/industry/b2c-marketing",
+        "/industry/education-marketing",
+        "/industry/entertainment-marketing",
+        "/industry/food-and-beverage-marketing",
+        "/industry/health-wellness-marketing",
+        "/industry/law-marketing",
+        "/industry/not-for-profit-marketing",
+        "/industry/startups-marketing",
+        "/industry/technology-marketing",
+        "/industry/travel-hospitality-marketing",
+        "/locations/canada",
+        "/locations/dallas",
+        "/locations/los-angeles",
+        "/locations/montreal",
+        "/marketing-agency",
+        "/marketing-consultation",
+        "/miami",
+        "/our-work-portfolio",
+        "/ppc-agency",
+        "/real-estate-marketing",
+        "/san-francisco",
+        "/seo-agency",
+        "/seo-agency/ai-search-optimization",
+        "/seo-agency/content-strategy",
+        "/seo-agency/ecommerce-seo",
+        "/seo-agency/enterprise-seo",
+        "/seo-agency/link-building",
+        "/seo-agency/local-seo",
+        "/seo-agency/seo-audit",
+        "/seo-agency/technical-seo",
+        "/ui-ux-agency",
+        "/ui-ux-agency/interaction-design",
+        "/ui-ux-agency/ux-audit",
+        "/ui-ux-agency/ux-research",
+        "/us",
+        "/us-web-design",
+        "/web-design",
+        "/web-design/shopify",
+        "/web-design/webflow",
+        "/web-design/website-redesign",
+        "/web-design/woocommerce",
+        "/web-design/wordpress",
+        "/web-development"
+      ],
+      "triggers": [
+        {
+          "type": "wf:hover",
+          "target": {
+            "selector": ".project-overlay-link",
+            "within": false
+          },
+          "control": "play"
+        },
+        {
+          "type": "wf:hover",
+          "target": {
+            "selector": ".project-overlay-link",
+            "within": false
+          },
+          "control": "reverse",
+          "speed": 3,
+          "plugin": {
+            "type": "mouseleave",
+            "hover": "each"
+          }
+        }
+      ],
+      "timelines": [
+        {
+          "id": "t-bfc0cbf6",
+          "actions": [
+            {
+              "id": "ta-e299daa6",
+              "targets": [
+                {
+                  "selector": ".project-link-cursor",
+                  "within": false
+                }
+              ],
+              "type": "fromTo",
+              "duration": 0.4,
+              "ease": {
+                "custom": "M0,160 C100,152 0,0 160,0"
+              },
+              "props": {
+                "scale": [
+                  0,
+                  1
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-746dfbf2",
+      "name": "Scroll Services Tabs Menu",
+      "module": "ix-scroll",
+      "scope": "site",
+      "loadsOn": "site",
+      "usedOn": [
+        "/",
+        "/branding",
+        "/branding/brand-naming",
+        "/branding/brand-research",
+        "/branding/brand-strategy",
+        "/branding/graphic-design",
+        "/branding/logo-design",
+        "/branding/rebranding",
+        "/branding/visual-identity",
+        "/chicago",
+        "/industry/b2b-marketing",
+        "/industry/b2c-marketing",
+        "/industry/education-marketing",
+        "/industry/entertainment-marketing",
+        "/industry/food-and-beverage-marketing",
+        "/industry/health-wellness-marketing",
+        "/industry/law-marketing",
+        "/industry/not-for-profit-marketing",
+        "/industry/startups-marketing",
+        "/industry/technology-marketing",
+        "/industry/travel-hospitality-marketing",
+        "/locations/canada",
+        "/locations/dallas",
+        "/locations/los-angeles",
+        "/locations/montreal",
+        "/marketing-agency",
+        "/marketing-consultation",
+        "/miami",
+        "/ppc-agency",
+        "/real-estate-marketing",
+        "/san-francisco",
+        "/ui-ux-agency",
+        "/ui-ux-agency/interaction-design",
+        "/ui-ux-agency/ux-audit",
+        "/ui-ux-agency/ux-research",
+        "/us",
+        "/us-web-design",
+        "/web-design",
+        "/web-design/shopify",
+        "/web-design/webflow",
+        "/web-design/website-redesign",
+        "/web-design/woocommerce",
+        "/web-design/wordpress",
+        "/web-development"
+      ],
+      "triggers": [
+        {
+          "type": "wf:scroll",
+          "target": {
+            "selector": ".service-tabs-menu",
+            "within": false
+          },
+          "clamp": true,
+          "start": "bottom bottom",
+          "end": "bottom 94%",
+          "scrub": null,
+          "actions": "play none none none"
+        }
+      ],
+      "timelines": [
+        {
+          "id": "t-11db5ec9",
+          "actions": [
+            {
+              "id": "ta-c6130829",
+              "targets": [
+                {
+                  "selector": ":trigger",
+                  "within": false
+                }
+              ],
+              "type": "from",
+              "duration": 1.4,
+              "position": 0,
+              "ease": {
+                "custom": "M0,160 C100,152 0,0 160,0"
+              },
+              "props": {
+                "opacity": [
+                  0,
+                  1
+                ],
+                "height": [
+                  "0%",
+                  null
+                ],
+                "y": [
+                  "-2em",
+                  "0em"
+                ]
+              }
+            },
+            {
+              "id": "ta-7e96a15d",
+              "targets": [
+                {
+                  "selector": ".service-tab-link",
+                  "within": true
+                }
+              ],
+              "type": "from",
+              "duration": 0.5,
+              "position": 0.5,
+              "stagger": {
+                "amount": 0.24
+              },
+              "ease": {
+                "custom": "M0,160 C100,152 0,0 160,0"
+              },
+              "props": {
+                "opacity": [
+                  0,
+                  null
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-76d04031",
+      "name": "Scroll Case Next",
+      "module": "ix-scroll",
+      "scope": "pages",
+      "loadsOn": [
+        "/case-studies/accounting-advisory-firm-website",
+        "/case-studies/ai-data-center-branding-website",
+        "/case-studies/apparel-brand-branding-storefront",
+        "/case-studies/asset-management-branding-website",
+        "/case-studies/autonomous-mobility-platform",
+        "/case-studies/bee-conservation-storefront",
+        "/case-studies/boutique-hotel-branding-website",
+        "/case-studies/childrens-apparel-brand-storefront",
+        "/case-studies/coffee-branding-packaging-design",
+        "/case-studies/commercial-liquidation-seo",
+        "/case-studies/commercial-liquidation-website",
+        "/case-studies/commercial-maintenance-website",
+        "/case-studies/community-crisis-support-branding-website",
+        "/case-studies/construction-service-firm-branding-website",
+        "/case-studies/consultation-company-website",
+        "/case-studies/consumer-software-company",
+        "/case-studies/consumer-software-company-seo",
+        "/case-studies/contact-center-software-website",
+        "/case-studies/corporate-law-firm-branding-website",
+        "/case-studies/creative-content-agency-website",
+        "/case-studies/creative-content-agency-website-seo",
+        "/case-studies/custom-aluminum-solutions-seo",
+        "/case-studies/custom-home-builder-branding-website",
+        "/case-studies/digital-pharmacy-branding-website",
+        "/case-studies/digital-pharmacy-platform-website",
+        "/case-studies/electric-scooter-branding-storefront",
+        "/case-studies/employee-benefits-platform-website",
+        "/case-studies/enterprise-ordering-platform",
+        "/case-studies/entertainment-escape-room-website",
+        "/case-studies/entertainment-talent-group-website",
+        "/case-studies/environmental-engineering-website",
+        "/case-studies/event-entertainment-website",
+        "/case-studies/forest-hill-diamond",
+        "/case-studies/general-contractor-website",
+        "/case-studies/healthcare-diagnostics-branding-website",
+        "/case-studies/healthcare-executive-search-website",
+        "/case-studies/homeschool-education-branding-website",
+        "/case-studies/hostel-booking-branding-website",
+        "/case-studies/indigenous-community-website",
+        "/case-studies/industrial-manufacturing-website",
+        "/case-studies/institutional-financial-services-website",
+        "/case-studies/landscaping-services-website",
+        "/case-studies/law-firm-website",
+        "/case-studies/law-firm-website-seo",
+        "/case-studies/leaside-blvd",
+        "/case-studies/live-music-events-branding",
+        "/case-studies/luxury-fashion-branding",
+        "/case-studies/luxury-real-estate-development-branding",
+        "/case-studies/luxury-spa-branding",
+        "/case-studies/machine-vision-technology-website",
+        "/case-studies/mechanical-construction-company-website",
+        "/case-studies/medical-ai-health-branding-website",
+        "/case-studies/medical-clinic-website",
+        "/case-studies/merchandise-manufacturer-branding-website",
+        "/case-studies/moving-company-website",
+        "/case-studies/municipal-association-website",
+        "/case-studies/nexus",
+        "/case-studies/nonprofit-career-empowerment-branding-website",
+        "/case-studies/nonprofit-digital-strategy",
+        "/case-studies/pr-agency-website",
+        "/case-studies/pr-agency-website-seo",
+        "/case-studies/pre-construction-branding",
+        "/case-studies/real-estate-investment-branding-website",
+        "/case-studies/retail-marketing-conference-website-2023",
+        "/case-studies/retail-marketing-conference-website-2024",
+        "/case-studies/roofing-contractor-website",
+        "/case-studies/self-directed-platform-branding-website",
+        "/case-studies/self-directed-platform-branding-website-seo",
+        "/case-studies/structural-engineering-firm-website",
+        "/case-studies/sustainable-materials-innovation-website",
+        "/case-studies/telehealth-technology-website",
+        "/case-studies/the-pisces-residences",
+        "/case-studies/themis-law-firm",
+        "/case-studies/transportation-dispatch-branding-website",
+        "/case-studies/travel-planner-branding-website",
+        "/case-studies/visual-effects-studio-website",
+        "/case-studies/xr-simulation-website",
+        "/case-studies/youth-wellness-awareness-campaign"
+      ],
+      "usedOn": [
+        "/case-studies/accounting-advisory-firm-website",
+        "/case-studies/ai-data-center-branding-website",
+        "/case-studies/apparel-brand-branding-storefront",
+        "/case-studies/asset-management-branding-website",
+        "/case-studies/autonomous-mobility-platform",
+        "/case-studies/bee-conservation-storefront",
+        "/case-studies/boutique-hotel-branding-website",
+        "/case-studies/childrens-apparel-brand-storefront",
+        "/case-studies/coffee-branding-packaging-design",
+        "/case-studies/commercial-liquidation-seo",
+        "/case-studies/commercial-liquidation-website",
+        "/case-studies/commercial-maintenance-website",
+        "/case-studies/community-crisis-support-branding-website",
+        "/case-studies/construction-service-firm-branding-website",
+        "/case-studies/consultation-company-website",
+        "/case-studies/consumer-software-company",
+        "/case-studies/consumer-software-company-seo",
+        "/case-studies/contact-center-software-website",
+        "/case-studies/corporate-law-firm-branding-website",
+        "/case-studies/creative-content-agency-website",
+        "/case-studies/creative-content-agency-website-seo",
+        "/case-studies/custom-aluminum-solutions-seo",
+        "/case-studies/custom-home-builder-branding-website",
+        "/case-studies/digital-pharmacy-branding-website",
+        "/case-studies/digital-pharmacy-platform-website",
+        "/case-studies/electric-scooter-branding-storefront",
+        "/case-studies/employee-benefits-platform-website",
+        "/case-studies/enterprise-ordering-platform",
+        "/case-studies/entertainment-escape-room-website",
+        "/case-studies/entertainment-talent-group-website",
+        "/case-studies/environmental-engineering-website",
+        "/case-studies/event-entertainment-website",
+        "/case-studies/forest-hill-diamond",
+        "/case-studies/general-contractor-website",
+        "/case-studies/healthcare-diagnostics-branding-website",
+        "/case-studies/healthcare-executive-search-website",
+        "/case-studies/homeschool-education-branding-website",
+        "/case-studies/hostel-booking-branding-website",
+        "/case-studies/indigenous-community-website",
+        "/case-studies/industrial-manufacturing-website",
+        "/case-studies/institutional-financial-services-website",
+        "/case-studies/landscaping-services-website",
+        "/case-studies/law-firm-website",
+        "/case-studies/law-firm-website-seo",
+        "/case-studies/leaside-blvd",
+        "/case-studies/live-music-events-branding",
+        "/case-studies/luxury-fashion-branding",
+        "/case-studies/luxury-real-estate-development-branding",
+        "/case-studies/luxury-spa-branding",
+        "/case-studies/machine-vision-technology-website",
+        "/case-studies/mechanical-construction-company-website",
+        "/case-studies/medical-ai-health-branding-website",
+        "/case-studies/medical-clinic-website",
+        "/case-studies/merchandise-manufacturer-branding-website",
+        "/case-studies/moving-company-website",
+        "/case-studies/municipal-association-website",
+        "/case-studies/nexus",
+        "/case-studies/nonprofit-career-empowerment-branding-website",
+        "/case-studies/nonprofit-digital-strategy",
+        "/case-studies/pr-agency-website",
+        "/case-studies/pr-agency-website-seo",
+        "/case-studies/pre-construction-branding",
+        "/case-studies/real-estate-investment-branding-website",
+        "/case-studies/retail-marketing-conference-website-2023",
+        "/case-studies/retail-marketing-conference-website-2024",
+        "/case-studies/roofing-contractor-website",
+        "/case-studies/self-directed-platform-branding-website",
+        "/case-studies/self-directed-platform-branding-website-seo",
+        "/case-studies/structural-engineering-firm-website",
+        "/case-studies/sustainable-materials-innovation-website",
+        "/case-studies/telehealth-technology-website",
+        "/case-studies/the-pisces-residences",
+        "/case-studies/themis-law-firm",
+        "/case-studies/transportation-dispatch-branding-website",
+        "/case-studies/travel-planner-branding-website",
+        "/case-studies/visual-effects-studio-website",
+        "/case-studies/xr-simulation-website",
+        "/case-studies/youth-wellness-awareness-campaign"
+      ],
+      "triggers": [
+        {
+          "type": "wf:scroll",
+          "target": {
+            "selector": ".case-next-main.u-grid-2",
+            "within": false
+          },
+          "clamp": true,
+          "start": "top bottom",
+          "end": "bottom bottom",
+          "scrub": 0.8,
+          "actions": "play none none none"
+        }
+      ],
+      "timelines": [
+        {
+          "id": "t-b069bc32",
+          "actions": [
+            {
+              "id": "ta-7a3c5534",
+              "targets": [
+                {
+                  "selector": ".case-next-right",
+                  "within": true
+                }
+              ],
+              "type": "from",
+              "duration": 1,
+              "position": 0,
+              "ease": "none",
+              "props": {
+                "scale": [
+                  0.5,
+                  null
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-7a4acb26",
+      "name": "Project | Cursor Move",
+      "module": "ix-pointer",
+      "scope": "site",
+      "loadsOn": "site",
+      "triggers": [
+        {
+          "type": "wf:mouse-move",
+          "target": {
+            "selector": ":viewport",
+            "within": false
+          },
+          "plugin": {
+            "restingState": {
+              "x": 50,
+              "y": 50
+            },
+            "smoothness": 240
+          }
+        }
+      ],
+      "offAt": [
+        "(min-width: 768px) and (max-width: 991px)",
+        "(min-width: 480px) and (max-width: 767px)",
+        "(max-width: 479px)"
+      ],
+      "timelines": [
+        {
+          "id": "t-436aaee9",
+          "role": "mouseX",
+          "actions": [
+            {
+              "id": "ta-aa74b07d",
+              "targets": [
+                {
+                  "selector": ".project-link-cursor",
+                  "within": false
+                }
+              ],
+              "type": "fromTo",
+              "duration": 1,
+              "position": 0,
+              "ease": "none",
+              "props": {
+                "x": [
+                  "-50vw",
+                  "50vw"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t-b22ac9e9",
+          "role": "mouseY",
+          "actions": [
+            {
+              "id": "ta-94f471a9",
+              "targets": [
+                {
+                  "selector": ".project-link-cursor",
+                  "within": false
+                }
+              ],
+              "type": "fromTo",
+              "duration": 1,
+              "position": 0,
+              "ease": "none",
+              "props": {
+                "y": [
+                  "-50vh",
+                  "50vh"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t-379c3e8f",
+          "role": "interval",
+          "actions": []
+        }
+      ]
+    },
+    {
+      "id": "i-87ce1b77",
+      "name": "RM Visual Scroll",
+      "module": "ix-scroll",
+      "scope": "pages",
+      "loadsOn": [
+        "/real-estate-marketing"
+      ],
+      "usedOn": [
+        "/real-estate-marketing"
+      ],
+      "triggers": [
+        {
+          "type": "wf:scroll",
+          "target": {
+            "selector": ".section.s-rm-intro",
+            "within": false
+          },
+          "clamp": true,
+          "start": "top bottom",
+          "end": "bottom top",
+          "scrub": 0.8,
+          "actions": "play none none none"
+        }
+      ],
+      "timelines": [
+        {
+          "id": "t-e686c8b3",
+          "actions": [
+            {
+              "id": "ta-145dfe84",
+              "targets": [
+                {
+                  "selector": ".rm-intro-visual-col.edge",
+                  "within": true
+                }
+              ],
+              "type": "to",
+              "duration": 1,
+              "position": 0,
+              "ease": "none",
+              "props": {
+                "y": [
+                  null,
+                  "-22.5em"
+                ]
+              }
+            },
+            {
+              "id": "ta-f97c9653",
+              "targets": [
+                {
+                  "selector": ".rm-intro-visual-col.side",
+                  "within": true
+                }
+              ],
+              "type": "to",
+              "duration": 1,
+              "position": 0,
+              "ease": "none",
+              "props": {
+                "y": [
+                  null,
+                  "-11.25em"
+                ]
+              }
+            },
+            {
+              "id": "ta-3036a1a5",
+              "targets": [
+                {
+                  "selector": ".rm-intro-visual-col.center",
+                  "within": true
+                }
+              ],
+              "type": "to",
+              "duration": 1,
+              "position": 0,
+              "ease": "none",
+              "props": {
+                "y": [
+                  null,
+                  "-5em"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-89ad4574",
+      "name": "Scroll | Section Header",
+      "module": "ix-scroll",
+      "scope": "site",
+      "loadsOn": "site",
+      "usedOn": [
+        "/",
+        "/about",
+        "/brand-vision-insights/author/arash-f",
+        "/brand-vision-insights/author/arman-tale",
+        "/brand-vision-insights/author/asheem-shrestha",
+        "/brand-vision-insights/author/dana-nemirovsky",
+        "/brand-vision-insights/author/hamoun-ani",
+        "/brand-vision-insights/author/kajal-asgari",
+        "/brand-vision-insights/author/saina-n",
+        "/brand-vision-insights/author/victoria-sweeney",
+        "/brand-vision-insights/author/yasmin-fouladvand",
+        "/branding",
+        "/branding/brand-naming",
+        "/branding/brand-research",
+        "/branding/brand-strategy",
+        "/branding/graphic-design",
+        "/branding/logo-design",
+        "/branding/rebranding",
+        "/branding/visual-identity",
+        "/career",
+        "/case-studies/accounting-advisory-firm-website",
+        "/case-studies/ai-data-center-branding-website",
+        "/case-studies/apparel-brand-branding-storefront",
+        "/case-studies/asset-management-branding-website",
+        "/case-studies/autonomous-mobility-platform",
+        "/case-studies/bee-conservation-storefront",
+        "/case-studies/boutique-hotel-branding-website",
+        "/case-studies/childrens-apparel-brand-storefront",
+        "/case-studies/coffee-branding-packaging-design",
+        "/case-studies/commercial-liquidation-seo",
+        "/case-studies/commercial-liquidation-website",
+        "/case-studies/commercial-maintenance-website",
+        "/case-studies/community-crisis-support-branding-website",
+        "/case-studies/construction-service-firm-branding-website",
+        "/case-studies/consultation-company-website",
+        "/case-studies/consumer-software-company",
+        "/case-studies/consumer-software-company-seo",
+        "/case-studies/contact-center-software-website",
+        "/case-studies/corporate-law-firm-branding-website",
+        "/case-studies/creative-content-agency-website",
+        "/case-studies/creative-content-agency-website-seo",
+        "/case-studies/custom-aluminum-solutions-seo",
+        "/case-studies/custom-home-builder-branding-website",
+        "/case-studies/digital-pharmacy-branding-website",
+        "/case-studies/digital-pharmacy-platform-website",
+        "/case-studies/electric-scooter-branding-storefront",
+        "/case-studies/employee-benefits-platform-website",
+        "/case-studies/enterprise-ordering-platform",
+        "/case-studies/entertainment-escape-room-website",
+        "/case-studies/entertainment-talent-group-website",
+        "/case-studies/environmental-engineering-website",
+        "/case-studies/event-entertainment-website",
+        "/case-studies/forest-hill-diamond",
+        "/case-studies/general-contractor-website",
+        "/case-studies/healthcare-diagnostics-branding-website",
+        "/case-studies/healthcare-executive-search-website",
+        "/case-studies/homeschool-education-branding-website",
+        "/case-studies/hostel-booking-branding-website",
+        "/case-studies/indigenous-community-website",
+        "/case-studies/industrial-manufacturing-website",
+        "/case-studies/institutional-financial-services-website",
+        "/case-studies/landscaping-services-website",
+        "/case-studies/law-firm-website",
+        "/case-studies/law-firm-website-seo",
+        "/case-studies/leaside-blvd",
+        "/case-studies/live-music-events-branding",
+        "/case-studies/luxury-fashion-branding",
+        "/case-studies/luxury-real-estate-development-branding",
+        "/case-studies/luxury-spa-branding",
+        "/case-studies/machine-vision-technology-website",
+        "/case-studies/mechanical-construction-company-website",
+        "/case-studies/medical-ai-health-branding-website",
+        "/case-studies/medical-clinic-website",
+        "/case-studies/merchandise-manufacturer-branding-website",
+        "/case-studies/moving-company-website",
+        "/case-studies/municipal-association-website",
+        "/case-studies/nexus",
+        "/case-studies/nonprofit-career-empowerment-branding-website",
+        "/case-studies/nonprofit-digital-strategy",
+        "/case-studies/pr-agency-website",
+        "/case-studies/pr-agency-website-seo",
+        "/case-studies/pre-construction-branding",
+        "/case-studies/real-estate-investment-branding-website",
+        "/case-studies/retail-marketing-conference-website-2023",
+        "/case-studies/retail-marketing-conference-website-2024",
+        "/case-studies/roofing-contractor-website",
+        "/case-studies/self-directed-platform-branding-website",
+        "/case-studies/self-directed-platform-branding-website-seo",
+        "/case-studies/structural-engineering-firm-website",
+        "/case-studies/sustainable-materials-innovation-website",
+        "/case-studies/telehealth-technology-website",
+        "/case-studies/the-pisces-residences",
+        "/case-studies/themis-law-firm",
+        "/case-studies/transportation-dispatch-branding-website",
+        "/case-studies/travel-planner-branding-website",
+        "/case-studies/visual-effects-studio-website",
+        "/case-studies/xr-simulation-website",
+        "/case-studies/youth-wellness-awareness-campaign",
+        "/chicago",
+        "/contact",
+        "/faq",
+        "/industries",
+        "/industry/b2b-marketing",
+        "/industry/b2c-marketing",
+        "/industry/education-marketing",
+        "/industry/entertainment-marketing",
+        "/industry/food-and-beverage-marketing",
+        "/industry/health-wellness-marketing",
+        "/industry/law-marketing",
+        "/industry/not-for-profit-marketing",
+        "/industry/startups-marketing",
+        "/industry/technology-marketing",
+        "/industry/travel-hospitality-marketing",
+        "/insights",
+        "/insights-contact",
+        "/insights/branding",
+        "/insights/featured",
+        "/insights/marketing-agency",
+        "/insights/our-work-portfolio",
+        "/insights/seo-agency",
+        "/insights/social-media",
+        "/insights/web-design",
+        "/locations/canada",
+        "/locations/dallas",
+        "/locations/los-angeles",
+        "/locations/montreal",
+        "/marketing-agency",
+        "/marketing-consultation",
+        "/miami",
+        "/our-work-portfolio",
+        "/post/10-ai-side-hustles-make-money-2025",
+        "/post/10-essential-marketing-metrics",
+        "/post/10-famous-brand-competitors",
+        "/ppc-agency",
+        "/real-estate-marketing",
+        "/san-francisco",
+        "/seo-agency",
+        "/seo-agency/ai-search-optimization",
+        "/seo-agency/content-strategy",
+        "/seo-agency/ecommerce-seo",
+        "/seo-agency/enterprise-seo",
+        "/seo-agency/link-building",
+        "/seo-agency/local-seo",
+        "/seo-agency/seo-audit",
+        "/seo-agency/technical-seo",
+        "/services",
+        "/ui-ux-agency",
+        "/ui-ux-agency/interaction-design",
+        "/ui-ux-agency/ux-audit",
+        "/ui-ux-agency/ux-research",
+        "/us",
+        "/us-web-design",
+        "/web-design",
+        "/web-design/shopify",
+        "/web-design/webflow",
+        "/web-design/website-redesign",
+        "/web-design/woocommerce",
+        "/web-design/wordpress",
+        "/web-development"
+      ],
+      "triggers": [
+        {
+          "type": "wf:scroll",
+          "target": {
+            "selector": ".section-header",
+            "within": false
+          },
+          "clamp": false,
+          "start": "top bottom",
+          "end": "top 30%",
+          "scrub": null,
+          "actions": "play none none none"
+        }
+      ],
+      "offAt": [
+        "(min-width: 480px) and (max-width: 767px)",
+        "(max-width: 479px)"
+      ],
+      "timelines": [
+        {
+          "id": "t-41a3431f",
+          "actions": [
+            {
+              "id": "ta-bcdfbb1f",
+              "targets": [
+                {
+                  "selector": ".sh-exp-image-w",
+                  "within": true
+                }
+              ],
+              "type": "from",
+              "duration": 0.735,
+              "ease": "power1.inOut",
+              "props": {
+                "width": [
+                  "0rem",
+                  null
+                ]
+              }
+            },
+            {
+              "id": "ta-3ac22570",
+              "targets": [
+                {
+                  "selector": ".section-header-top-info",
+                  "within": true
+                },
+                {
+                  "selector": ".sh-line",
+                  "within": true
+                },
+                {
+                  "selector": ".text-b",
+                  "within": true
+                },
+                {
+                  "selector": ".grouped-cta-w",
+                  "within": true
+                },
+                {
+                  "selector": ".text-b-m",
+                  "within": true
+                }
+              ],
+              "type": "fromTo",
+              "duration": 0.735,
+              "stagger": {
+                "each": 0.064
+              },
+              "ease": "power1.inOut",
+              "props": {
+                "opacity": [
+                  0,
+                  1
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-a2f3343f",
+      "name": "Scroll Team Cards",
+      "module": "ix-scroll",
+      "scope": "pages",
+      "loadsOn": [
+        "/about"
+      ],
+      "usedOn": [
+        "/about"
+      ],
+      "triggers": [
+        {
+          "type": "wf:scroll",
+          "target": {
+            "selector": ".team-scroll-w",
+            "within": false
+          },
+          "clamp": true,
+          "start": "top 40%",
+          "end": "bottom top",
+          "scrub": 0.8,
+          "actions": "play none none none"
+        }
+      ],
+      "timelines": [
+        {
+          "id": "t-1986be4f",
+          "actions": [
+            {
+              "id": "ta-58cca4ae",
+              "targets": [
+                {
+                  "selector": ".team-scroll-track",
+                  "within": true
+                }
+              ],
+              "type": "fromTo",
+              "duration": 1,
+              "position": 0,
+              "ease": "none",
+              "props": {
+                "x": [
+                  "0%",
+                  "-70%"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-ba5fa9bd",
+      "name": "Scroll - About Method",
+      "module": "ix-scroll",
+      "scope": "pages",
+      "loadsOn": [
+        "/about"
+      ],
+      "usedOn": [
+        "/about"
+      ],
+      "triggers": [
+        {
+          "type": "wf:scroll",
+          "target": {
+            "selector": ".method-main.u-grid-2-1",
+            "within": false
+          },
+          "clamp": true,
+          "start": "top 80%",
+          "end": "top top",
+          "scrub": 0.8,
+          "actions": "play none none none"
+        }
+      ],
+      "offAt": [
+        "(min-width: 480px) and (max-width: 767px)",
+        "(max-width: 479px)"
+      ],
+      "timelines": [
+        {
+          "id": "t-bd89098f",
+          "actions": [
+            {
+              "id": "ta-630552e0",
+              "targets": [
+                {
+                  "selector": ".method-step-progress-inner",
+                  "within": true
+                }
+              ],
+              "type": "fromTo",
+              "duration": 1,
+              "position": 0,
+              "ease": "none",
+              "props": {
+                "height": [
+                  "0%",
+                  "100%"
+                ]
+              }
+            },
+            {
+              "id": "ta-697ac95a",
+              "targets": [
+                {
+                  "selector": ".method-step-media-image",
+                  "within": true
+                }
+              ],
+              "type": "fromTo",
+              "duration": 0.5,
+              "position": 0.5,
+              "ease": "none",
+              "props": {
+                "height": [
+                  "100%",
+                  "0%"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-f0bb438b",
+      "name": "Process Scroll | Mobile",
+      "module": "ix-scroll",
+      "scope": "site",
+      "loadsOn": "site",
+      "usedOn": [
+        "/branding",
+        "/branding/brand-naming",
+        "/branding/brand-research",
+        "/branding/brand-strategy",
+        "/branding/graphic-design",
+        "/branding/logo-design",
+        "/branding/rebranding",
+        "/branding/visual-identity",
+        "/marketing-agency",
+        "/marketing-consultation",
+        "/ppc-agency",
+        "/seo-agency",
+        "/seo-agency/ai-search-optimization",
+        "/seo-agency/content-strategy",
+        "/seo-agency/ecommerce-seo",
+        "/seo-agency/enterprise-seo",
+        "/seo-agency/link-building",
+        "/seo-agency/local-seo",
+        "/seo-agency/seo-audit",
+        "/seo-agency/technical-seo",
+        "/ui-ux-agency",
+        "/ui-ux-agency/interaction-design",
+        "/ui-ux-agency/ux-audit",
+        "/ui-ux-agency/ux-research",
+        "/web-design",
+        "/web-design/shopify",
+        "/web-design/webflow",
+        "/web-design/website-redesign",
+        "/web-design/woocommerce",
+        "/web-design/wordpress",
+        "/web-development"
+      ],
+      "triggers": [
+        {
+          "type": "wf:scroll",
+          "target": {
+            "selector": ".process-scroll",
+            "within": false
+          },
+          "clamp": true,
+          "start": "top 50%",
+          "end": "bottom bottom",
+          "scrub": 0.8,
+          "actions": "play none none none"
+        }
+      ],
+      "offAt": [
+        "(min-width: 992px)"
+      ],
+      "timelines": [
+        {
+          "id": "t-281ec1b9",
+          "actions": [
+            {
+              "id": "ta-dfd10782",
+              "targets": [
+                {
+                  "selector": ".process-track",
+                  "within": true
+                }
+              ],
+              "type": "to",
+              "duration": 0.5,
+              "ease": "none",
+              "props": {
+                "x": [
+                  null,
+                  "-100%"
+                ]
+              }
+            },
+            {
+              "id": "ta-72621626",
+              "targets": [
+                {
+                  "selector": ".process-step-line",
+                  "within": true
+                }
+              ],
+              "type": "fromTo",
+              "duration": 0.5,
+              "ease": "none",
+              "props": {
+                "x": [
+                  "0%",
+                  "95%"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-fa832f3a",
+      "name": "Page Load | Home",
+      "module": "ix-load",
+      "scope": "pages",
+      "loadsOn": [
+        "/",
+        "/chicago",
+        "/locations/canada",
+        "/locations/dallas",
+        "/locations/los-angeles",
+        "/locations/montreal",
+        "/miami",
+        "/san-francisco",
+        "/us",
+        "/us-web-design"
+      ],
+      "triggers": [
+        {
+          "type": "wf:load"
+        }
+      ],
+      "timelines": [
+        {
+          "id": "t-bf008e8e",
+          "actions": []
+        }
+      ]
+    }
+  ]
+}

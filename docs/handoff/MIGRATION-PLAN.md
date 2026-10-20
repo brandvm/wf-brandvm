@@ -231,9 +231,27 @@ interactions, then replay them*, `lessons/js.md`):
      aria-expanded. Checked on real staging pages with IX2 running, flag on
      vs off: same closed/open heights and icon angles on /, /faq,
      /services, /insights, /case-studies/nexus. Cutover: MANUAL-TODO **G**.
-   - **Next (resume here):** the IX3 families — `ix-scroll.ts`,
-     `ix-pointer.ts`, `ix-load.ts` (step 1: decode the IX3 timelines from
-     each page type's `webflow.*.js` chunk into `src/interactions/spec.json`).
+   - **IX3 decoded (2026-10-20):** `pnpm ix3:spec` (scripts/ix3-spec.mjs)
+     reads all 162 sitemap pages on staging, decodes the 6 page chunks
+     that carry IX3 and writes `src/interactions/spec.json`: 15
+     interactions, each with its trigger, targets, eases (named), the
+     breakpoints where it is off, the pages that load it and the pages
+     whose HTML has its trigger. Checked against the MCP
+     (`get_interaction`): same ids and values; an omitted duration is the
+     default 0.5s. Findings: no SplitText anywhere (GSAP + ScrollTrigger +
+     CustomEase are enough); **"Page Load | Home" publishes empty** (its 3
+     hero-panel actions are hidden in the Designer), so it only makes IX3
+     gate those 10 pages: delete it with the Home hero cutover (E), no
+     `ix-load.ts` needed. "Project | Cursor Move" has a third, empty
+     `interval` timeline (ignore).
+   - **Next (resume here):** `ix-scroll.ts` (12 scroll interactions) and
+     `ix-pointer.ts` (Project Link Hover + Cursor Move) replaying
+     `spec.json`, behind `?wfc-ix=repo`, staying off while Webflow's
+     `window.gsap` runs IX3 on the page (or forcing IX3's targets via the
+     flag, as the IX2 families did). Pages to check first: `/` (header,
+     section all, tabs menu, project hover), `/branding` (process),
+     `/about` (who, team, method), `/career`, `/real-estate-marketing`,
+     one case study (case next).
    - `nav.ts`, `c-drop.ts` (+ CSS for the dropdowns): the IX2 nav, FAQ, filter and
      C-drop behaviour, written as plain JS + CSS state classes with ARIA
      (`aria-expanded`), not as animations of inline styles. One nav module
