@@ -271,3 +271,68 @@ What it shows (measured):
   staging; they load 300 px ahead and play while visible.
 - To re-measure after 1.4.3 is live: all desktop pages (transfer should
   drop ~5–8 MB), Branding desktop LCP, Contact mobile CLS.
+
+### 2026-10-20 · After 1.4.3 (nav images + videos)
+
+1.4.3 holds the closed nav mega-menu panels out of layout until the visitor
+heads for the nav, and stops two testimonial videos from autoplay-downloading
+at load. Compared with the Stage 4 run. Live HTML said `RELEASE = "1.4.3"`
+before the run. `pnpm wf:perf --live --runs 5`: all ten pages desktop, plus
+mobile for Contact and Branding (the other mobile pages weren't re-run). Raw:
+`2026-10-20-after-1.4.3-live.json`. PageSpeed Insights: not run.
+
+| Page | Mode | Score Stage 4 → now (range) | LCP | TBT | CLS | Transfer |
+| --- | --- | --- | --- | --- | --- | --- |
+| `/` | desktop | 82 → 88 (59–89) | 2.0 → 2.0 s | 0 → 0 ms | 0.003 → 0.003 | 15.4 → **3.8 MB** |
+| `/about` | desktop | 83 → 81 (62–87) | 2.2 → 2.2 s | 0 → 0 ms | 0.001 → 0.001 | 20.7 → **9.0 MB** |
+| `/contact` | mobile | 52 → 46 (44–53) | 7.8 → 8.2 s | 267 → 218 ms | 0.275 → **0.276** | 3.1 → 3.1 MB |
+| `/contact` | desktop | 84 → 90 (65–94) | 1.9 → 1.5 s | 0 → 0 ms | 0.013 → 0.013 | 8.4 → **3.5 MB** |
+| `/web-design` | desktop | 85 → 87 (59–96) | 1.8 → 2.0 s | 0 → 0 ms | 0.015 → 0.015 | 15.7 → **4.2 MB** |
+| `/branding` | mobile | 62 → 70 (63–71) | 9.4 → 9.0 s | 176 → 131 ms | 0 → 0.001 | 9.7 → **2.9 MB** |
+| `/branding` | desktop | 70 → **85** (60–86) | 6.7 → **2.6 s** | 4 → 0 ms | 0.025 → 0.025 | 15.1 → **3.5 MB** |
+| `/our-work-portfolio` | desktop | 74 → 86 (67–87) | 2.9 → 1.7 s | 0 → 0 ms | 0.004 → 0.003 | 102.8 → 100.0 MB |
+| `/insights` | desktop | 92 → 94 (93–97) | 1.4 → 1.3 s | 0 → 0 ms | 0.001 → 0.001 | 8.9 → **3.9 MB** |
+| `/services` | desktop | 78 → 90 (65–93) | 3.1 → 1.9 s | 0 → 0 ms | 0 → 0 | 14.8 → **3.1 MB** |
+| case study | desktop | 80 → 94 (58–98) | 2.8 → 1.6 s | 0 → 0 ms | 0 → 0 | 17.2 → **12.4 MB** |
+| post | desktop | 73 → 85 (68–89) | 5.2 → 2.4 s | 0 → 0 ms | 0.001 → 0.001 | 7.8 → **2.8 MB** |
+
+Case study: `/case-studies/accounting-advisory-firm-website`; post:
+`/post/10-essential-marketing-metrics`. Transfer in MB = KB / 1000, as in
+Stage 4.
+
+What it shows (measured):
+
+- **Desktop transfer is down ~5 MB on every page except the portfolio, and
+  ~11.6 MB on pages with testimonial videos.** Pages with no `<video>` in the
+  live HTML (Contact, Insights, case study, post) dropped 4.8–5.0 MB: that's
+  the nav images. Pages with videos (`/` 4, About 3, Web Design 4, Branding 4,
+  Services 2) dropped 11.5–11.7 MB: nav images plus ~6.6 MB of video.
+  Branding mobile dropped 6.8 MB (videos only; mobile never loaded the nav
+  images). Desktop is now about the same as mobile, or lighter.
+- **Portfolio desktop only dropped 2.8 MB (range 99.5–102.1 MB).** It is
+  still ~100 MB, almost all images in the grid, so the nav saving is lost in
+  the noise there. Image sizes (Stage 5) are the fix.
+- **Branding desktop is back: 70 → 85, LCP 6.7 → 2.6 s (2.3–4.6 s)**, near
+  the 2.7 s of 3.3. The Stage 4 regression was bandwidth taken by the nav
+  images and videos, not the hero reveal.
+- **Desktop scores are up on 8 of 10 pages** (About 83 → 81 and Web Design
+  85 → 87 are within range). The post went 73 → 85, LCP 5.2 → 2.4 s.
+- **The desktop ranges are wide at the bottom** (low end 58–68 on most pages).
+  Each page had one slow run (LCP about 3.5–5 s, FCP 2–4 s), likely a
+  cold CDN or connection. The medians and the upper ends are steady.
+- **Contact mobile CLS is still 0.276 (0.275–0.276): not fixed by 1.4.3.**
+  Lighthouse `layout-shifts` names `div.contact-cta-left.is_bottom` (the
+  phone/email block) for three shifts (0.189 + 0.051 + 0.036). Lighthouse
+  gives no root cause. A layout-shift observer at 412 × 823 shows the block
+  at y = 640 (in view) at about 0.5 s, then pushed out of view (final
+  y = 1572). That happens when the HubSpot form fills `.contact-cta-right`
+  (now 1096 px tall). The `.hs-form-slot` is empty in the HTML and has no
+  reserved height. `src/modules/hubspot-form.ts` loads v2.js when the slot
+  is within 600 px, which is right away on Contact. On mobile the form sits
+  above `.is_bottom`, so everything below it jumps. Fix: reserve the form's
+  height (a `min-height` on `.hubspot-form` / `.hs-form-slot` for the
+  Contact form at mobile widths, ~1000 px). A smaller ±150 px flicker of
+  the badge carousel (`.contact-badge-carousel`) also happens just before.
+  The cause may be the same, but that's not confirmed.
+- Branding mobile LCP is still 9.0 s (8.9–9.3 s). That's unchanged, and
+  wasn't in scope for 1.4.3.

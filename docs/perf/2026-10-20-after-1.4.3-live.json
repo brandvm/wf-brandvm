@@ -1,0 +1,488 @@
+{
+  "release": "1.4.3",
+  "base": "https://www.brandvm.com",
+  "runs": 5,
+  "lighthouse": "lighthouse@12",
+  "dates": {
+    "desktop": "2026-10-20T15:30:49.118Z",
+    "mobile": "2026-10-20T15:43:46.654Z"
+  },
+  "pages": {
+    "/": {
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 88,
+          "min": 59,
+          "max": 89
+        },
+        "lcp": {
+          "median": 1957,
+          "min": 1888,
+          "max": 4316
+        },
+        "fcp": {
+          "median": 1092,
+          "min": 1058,
+          "max": 3557
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 1
+        },
+        "cls": {
+          "median": 0.003,
+          "min": 0,
+          "max": 0.006
+        },
+        "si": {
+          "median": 1313,
+          "min": 1213,
+          "max": 4513
+        },
+        "bytes": {
+          "median": 3810,
+          "min": 3809,
+          "max": 3811
+        }
+      }
+    },
+    "/about": {
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 81,
+          "min": 62,
+          "max": 87
+        },
+        "lcp": {
+          "median": 2175,
+          "min": 1998,
+          "max": 3834
+        },
+        "fcp": {
+          "median": 1127,
+          "min": 1059,
+          "max": 2718
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 4
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0,
+          "max": 0.001
+        },
+        "si": {
+          "median": 2373,
+          "min": 1570,
+          "max": 3631
+        },
+        "bytes": {
+          "median": 9023,
+          "min": 9006,
+          "max": 10843
+        }
+      }
+    },
+    "/contact": {
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 90,
+          "min": 65,
+          "max": 94
+        },
+        "lcp": {
+          "median": 1528,
+          "min": 1132,
+          "max": 4792
+        },
+        "fcp": {
+          "median": 729,
+          "min": 557,
+          "max": 2248
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0.013,
+          "min": 0.013,
+          "max": 0.014
+        },
+        "si": {
+          "median": 2225,
+          "min": 1824,
+          "max": 3226
+        },
+        "bytes": {
+          "median": 3457,
+          "min": 3431,
+          "max": 3468
+        }
+      },
+      "mobile": {
+        "runs": 5,
+        "score": {
+          "median": 46,
+          "min": 44,
+          "max": 53
+        },
+        "lcp": {
+          "median": 8198,
+          "min": 7087,
+          "max": 8714
+        },
+        "fcp": {
+          "median": 3814,
+          "min": 1774,
+          "max": 4111
+        },
+        "tbt": {
+          "median": 218,
+          "min": 209,
+          "max": 259
+        },
+        "cls": {
+          "median": 0.276,
+          "min": 0.275,
+          "max": 0.276
+        },
+        "si": {
+          "median": 5810,
+          "min": 5615,
+          "max": 6063
+        },
+        "bytes": {
+          "median": 3116,
+          "min": 3100,
+          "max": 3127
+        }
+      }
+    },
+    "/web-design": {
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 87,
+          "min": 59,
+          "max": 96
+        },
+        "lcp": {
+          "median": 2041,
+          "min": 1202,
+          "max": 4781
+        },
+        "fcp": {
+          "median": 1157,
+          "min": 710,
+          "max": 3729
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0.015,
+          "min": 0,
+          "max": 0.015
+        },
+        "si": {
+          "median": 1313,
+          "min": 1098,
+          "max": 3883
+        },
+        "bytes": {
+          "median": 4151,
+          "min": 4151,
+          "max": 4153
+        }
+      }
+    },
+    "/branding": {
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 85,
+          "min": 60,
+          "max": 86
+        },
+        "lcp": {
+          "median": 2598,
+          "min": 2343,
+          "max": 4563
+        },
+        "fcp": {
+          "median": 691,
+          "min": 671,
+          "max": 3158
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0.025,
+          "min": 0.025,
+          "max": 0.026
+        },
+        "si": {
+          "median": 1386,
+          "min": 1305,
+          "max": 3695
+        },
+        "bytes": {
+          "median": 3520,
+          "min": 3519,
+          "max": 3520
+        }
+      },
+      "mobile": {
+        "runs": 5,
+        "score": {
+          "median": 70,
+          "min": 63,
+          "max": 71
+        },
+        "lcp": {
+          "median": 9033,
+          "min": 8858,
+          "max": 9337
+        },
+        "fcp": {
+          "median": 1945,
+          "min": 1923,
+          "max": 4103
+        },
+        "tbt": {
+          "median": 131,
+          "min": 124,
+          "max": 147
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0,
+          "max": 0.001
+        },
+        "si": {
+          "median": 4295,
+          "min": 4203,
+          "max": 4642
+        },
+        "bytes": {
+          "median": 2918,
+          "min": 2918,
+          "max": 2920
+        }
+      }
+    },
+    "/our-work-portfolio": {
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 86,
+          "min": 67,
+          "max": 87
+        },
+        "lcp": {
+          "median": 1735,
+          "min": 1547,
+          "max": 2937
+        },
+        "fcp": {
+          "median": 613,
+          "min": 583,
+          "max": 2173
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 11
+        },
+        "cls": {
+          "median": 0.003,
+          "min": 0.003,
+          "max": 0.003
+        },
+        "si": {
+          "median": 3009,
+          "min": 2954,
+          "max": 3989
+        },
+        "bytes": {
+          "median": 100042,
+          "min": 99461,
+          "max": 102084
+        }
+      }
+    },
+    "/insights": {
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 94,
+          "min": 93,
+          "max": 97
+        },
+        "lcp": {
+          "median": 1345,
+          "min": 990,
+          "max": 1370
+        },
+        "fcp": {
+          "median": 953,
+          "min": 577,
+          "max": 1126
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0.001,
+          "max": 0.001
+        },
+        "si": {
+          "median": 1411,
+          "min": 1336,
+          "max": 1596
+        },
+        "bytes": {
+          "median": 3943,
+          "min": 3943,
+          "max": 3944
+        }
+      }
+    },
+    "/services": {
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 90,
+          "min": 65,
+          "max": 93
+        },
+        "lcp": {
+          "median": 1945,
+          "min": 1737,
+          "max": 3563
+        },
+        "fcp": {
+          "median": 689,
+          "min": 608,
+          "max": 2609
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "si": {
+          "median": 1056,
+          "min": 970,
+          "max": 2959
+        },
+        "bytes": {
+          "median": 3139,
+          "min": 3138,
+          "max": 3140
+        }
+      }
+    },
+    "/case-studies/accounting-advisory-firm-website": {
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 94,
+          "min": 58,
+          "max": 98
+        },
+        "lcp": {
+          "median": 1586,
+          "min": 967,
+          "max": 4957
+        },
+        "fcp": {
+          "median": 639,
+          "min": 611,
+          "max": 4064
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "si": {
+          "median": 1057,
+          "min": 942,
+          "max": 4269
+        },
+        "bytes": {
+          "median": 12408,
+          "min": 12407,
+          "max": 12440
+        }
+      }
+    },
+    "/post/10-essential-marketing-metrics": {
+      "desktop": {
+        "runs": 5,
+        "score": {
+          "median": 85,
+          "min": 68,
+          "max": 89
+        },
+        "lcp": {
+          "median": 2400,
+          "min": 2080,
+          "max": 3364
+        },
+        "fcp": {
+          "median": 587,
+          "min": 561,
+          "max": 2026
+        },
+        "tbt": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0,
+          "max": 0.004
+        },
+        "si": {
+          "median": 1593,
+          "min": 1403,
+          "max": 2713
+        },
+        "bytes": {
+          "median": 2824,
+          "min": 2824,
+          "max": 2826
+        }
+      }
+    }
+  }
+}
