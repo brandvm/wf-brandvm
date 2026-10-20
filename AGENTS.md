@@ -15,6 +15,7 @@ Filled in by `pnpm new-project` on 2026-10-19.
 - Staging bundles: `https://brandvm.github.io/wf-brandvm/`
 - Production domain: `https://www.brandvm.com` (also `brandvm.com`)
 - Production release: `1.3.0` (RELEASE in Webflow head code, 2026-10-19; 1.0.0 replaced `brandvm/brandvm@1.1.1` the same day)
+- Staging head code: `RELEASE = "1.4.1"` (2026-10-20, staging published; production not yet, MANUAL-TODO I). `v1.4.0` is tagged but was never used: it misses the case-next fix
 
 ## Who owns what
 
