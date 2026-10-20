@@ -416,3 +416,41 @@ page and is left out) and desktop ×5:
 - Desktop: 96, 96, 99, 96 and one slow run (68). FCP 0.7–0.9 s, LCP
   0.9–1.3 s, CLS 0.003.
 - CLS regression from loader 14b7638 is gone (0.17 / 0.31 → 0.01 / 0.003).
+
+## 2026-10-20 evening · All ten pages after the site-wide changes
+
+Live www.brandvm.com (1.4.6, deferred GTM, subset fonts on cdn.prod, the
+head-stylesheet loader). Local Lighthouse 12, 3 runs per page and mode
+(Home: the runs above). Median, with the three runs.
+
+| Page | Desktop median (runs) | Mobile median (runs) | Mobile LCP |
+| --- | --- | --- | --- |
+| `/` | 96 (68–99, 5 runs) | 93 (66–94, 9 runs) | 2.5–3.0 s |
+| `/about` | 95 (95, 95, 96) | 73 (56, 73, 75) | 5.5–5.7 s |
+| `/contact` | 95 (91, 95, 95) | 72 (57, 72, 82) | 4.2–4.9 s |
+| `/web-design` | 97 (96, 97, 98) | 73 (61, 73, 85) | 3.6–5.2 s |
+| `/branding` | 91 (91, 91, 92) | 76 (68, 76, 76) | 4.7–5.2 s |
+| `/our-work-portfolio` | 92 (91, 92, 93) | 74 (65, 74, 76) | 3.8–5.0 s |
+| `/insights` | 97 (92, 97, 99) | 60 (59, 60, 89) | 3.5–15.1 s |
+| `/services` | 97 (96, 97, 97) | 75 (67, 75, 78) | 4.8–4.9 s |
+| case study | 97 (90, 97, 97) | 81 (72, 81, 86) | 3.9–5.4 s |
+| post | 88 (88, 88, 88) | 71 (60, 71, 73) | 10.1–10.4 s |
+
+What holds mobile back, from the traces (one median run per page):
+
+- Hero images set to `loading="lazy"`: Web Design and Branding (phone
+  hero `.bg_is-mobile`), Services, the case-study and post templates.
+  Web Design, Branding and Contact also show ~1 s of LCP render delay.
+- Hero videos downloaded before first paint on phones: About (~4.0 MB),
+  Our Work (~4.2 MB, the "About us" video).
+- Big images near the top: `SEO.webp` 755 KB and a 329 KB card (Services,
+  Web Design), `Related Service Background.png` 219 KB, About team PNGs
+  (206 KB), case-study CMS images (~10 MB before first paint, one PNG
+  3.8 MB), post article screenshots (140–260 KB each at medium priority).
+- Insights: the Finsweet list fetches 1.3 MB of pages before first paint
+  and the header cards paint 2.1 s late.
+- Contact: HubSpot form + reCAPTCHA (~200 KB, TBT 110–130 ms) at load.
+- Case study: index.js 9.6 s of main-thread time in one run (to profile).
+
+Plan and order: the optimization report ("Plan for the other pages") and
+the Figma changelog page.
