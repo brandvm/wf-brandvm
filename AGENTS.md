@@ -14,7 +14,7 @@ Filled in by `pnpm new-project` on 2026-10-19.
 - Staging site: `https://brandvm.webflow.io`
 - Staging bundles: `https://brandvm.github.io/wf-brandvm/`
 - Production domain: `https://www.brandvm.com` (also `brandvm.com`)
-- Production release: `1.4.1` (RELEASE in Webflow head code, published 2026-10-20 with every IX2/IX3 interaction deleted and Webflow GSAP off; 1.3.0 on 2026-10-19 before that)
+- Production release: `1.4.3` (RELEASE in Webflow head code, 2026-10-20 15:29 UTC; 1.4.1 at 14:53 shipped Stage 4 with every IX2/IX3 interaction deleted and Webflow GSAP off, 1.4.2 the cleanup, 1.4.3 the nav-image fix)
 
 ## Who owns what
 

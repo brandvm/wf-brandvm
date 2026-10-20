@@ -279,8 +279,15 @@ interactions, then replay them*, `lessons/js.md`):
      click propagation (analytics click listeners see them again); project
      hover is delegated. Work page Finsweet → IX2 hook deleted (J). Checked
      against live 1.4.1: 0 scroll differences, identical click end states.
-   - **Next (resume here):** Stage 4 PageSpeed row (`docs/perf/LOG.md`);
-     Home hero intro (E); Stage 5 batches.
+   - **1.4.3 (live 15:29 UTC):** closed nav panels not laid out until the
+     visitor heads for the nav (their 43 lazy images were ~5 MB per desktop
+     view, found by the Stage 4 PageSpeed run); "S | Why Choose" testimonial
+     videos changed in the Designer from `autoplay` to `data-bv-lazy-video`
+     (they downloaded ~3.5 MB at load on 59 pages). Home at load, first 5 s:
+     ~7 MB video + ~7 MB images (HAR, 1.4.1) → 0 MB video + 0.6 MB images.
+   - **Next (resume here):** re-measure PageSpeed after 1.4.3 (Branding
+     desktop LCP, Contact mobile CLS); Home hero intro (E); Stage 5 batches
+     (oversized CMS images, e.g. Food & Beverage 1.29 MB; Work page 98 MB).
    - `nav.ts`, `c-drop.ts` (+ CSS for the dropdowns): the IX2 nav, FAQ, filter and
      C-drop behaviour, written as plain JS + CSS state classes with ARIA
      (`aria-expanded`), not as animations of inline styles. One nav module
