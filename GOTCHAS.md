@@ -27,6 +27,50 @@ collected from client repos into those files.
 
 <!-- Add new entries here, newest first. -->
 
+### 2026-10-20 · The MCP can't prove a CMS field is unused
+- Area: mcp
+- Scope: template-candidate
+- Symptom: a field-usage audit from Designer settings alone listed FAQ
+  reference fields, multi-reference list sources and service-template
+  fields as unused, though the live pages use them.
+- Cause: `get_settings` returns conditional visibility as just
+  `"conditional"`, an "equals current item" filter as an empty filter, a
+  multi-reference list source as the target collection only; bindings
+  inside component definitions aren't returned, and children of a
+  component's slots have no element id. Six parallel scanners also hit
+  429s (shared with any other session on the site).
+- Fix: count a field unused only if no binding, list filter/sort,
+  component prop, page setting or custom-code token reads it **and** its
+  values are absent from the item's own live page; check reference fields
+  in reverse (are the referenced items the ones shown?). Method and
+  results: `docs/audit/2026-10-20-cms-field-usage.md`.
+- Status: documented
+- Found by: claude
+
+
+### 2026-10-20 · Lazy ScrollTrigger builds: hidden and re-rendered trigger elements
+- Area: js
+- Scope: template-candidate
+- Symptom: on published staging (IX3 gone), the case-study "next project"
+  card stayed at its from-state (scale 0.5) at the bottom of the page; live
+  IX3 scrubbed it to 1. An earlier run built all 78 triggers with
+  start = end = 0.
+- Cause: the template has 78 `.case-next-main` blocks (a CMS list) and
+  shows one; (1) a hidden element's 0×0 rect counted as "near the
+  viewport", so it was built while hidden and measured as 0/0; (2) Finsweet
+  List re-renders the list after start-up, so the IntersectionObserver kept
+  watching detached nodes and never fired for the visible one. IX3 avoided
+  both with a body ResizeObserver and by resolving targets again.
+- Fix: `ix-scroll.ts` builds at once only elements with a layout box near
+  the viewport, re-queries each selector on every scan (WeakSet of seen
+  nodes), and re-scans + `ScrollTrigger.refresh()` when the body height
+  changes (debounced) and on window load. Regression test in
+  `tests/ix3.spec.mjs` (fails on the old module). Released as 1.4.1;
+  1.4.0 never reached production.
+- Status: fixed
+- Found by: claude
+
+
 ### 2026-10-20 · Bundled GSAP plugins register themselves on Webflow's `window.gsap`
 - Area: js
 - Scope: template-candidate

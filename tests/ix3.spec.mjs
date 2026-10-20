@@ -94,3 +94,23 @@ test('ix-pointer: hover scales the cursor in and out; it follows the pointer', a
     .toBeLessThan(-650);
   expect(errors).toEqual([]);
 });
+
+test('ix-scroll: a trigger re-rendered after start (Finsweet List) and far down still animates', async ({ page }) => {
+  const errors = await open(page, 'https://brandvm.webflow.io/', readyQueue);
+  // Replace the section header node, as a list re-render does, and push it
+  // three screens further down.
+  await page.evaluate(() => {
+    const old = document.querySelector('#sh');
+    const spacer = document.createElement('div');
+    spacer.style.height = '300vh';
+    const copy = old.cloneNode(true);
+    copy.querySelectorAll('*').forEach((el) => el.removeAttribute('style'));
+    old.replaceWith(spacer, copy);
+  });
+  await page.waitForTimeout(600);
+  await page.locator('#sh').scrollIntoViewIfNeeded();
+  await expect(page.locator('#sh .text-b')).toHaveCSS('opacity', '1', { timeout: 4000 });
+  // Built (not just untouched): GSAP wrote its end state inline.
+  await expect(page.locator('#sh .text-b')).toHaveAttribute('style', /opacity/);
+  expect(errors).toEqual([]);
+});
