@@ -31,8 +31,7 @@
 // paint, keyed on html.w-mod-js, with a 4s CSS failsafe if this bundle
 // never runs. html.is-hero-running hands control to GSAP; is-hero-done
 // releases every gate rule.
-import { gsap } from 'gsap';
-import { CustomEase } from 'gsap/CustomEase';
+import { gsap, CustomEase } from '../lib/gsap';
 
 const SEEN_KEY = 'bv-hero-intro-seen';
 const IMAGE_BUDGET_MS = 1200;

@@ -244,14 +244,23 @@ interactions, then replay them*, `lessons/js.md`):
      gate those 10 pages: delete it with the Home hero cutover (E), no
      `ix-load.ts` needed. "Project | Cursor Move" has a third, empty
      `interval` timeline (ignore).
-   - **Next (resume here):** `ix-scroll.ts` (12 scroll interactions) and
-     `ix-pointer.ts` (Project Link Hover + Cursor Move) replaying
-     `spec.json`, behind `?wfc-ix=repo`, staying off while Webflow's
-     `window.gsap` runs IX3 on the page (or forcing IX3's targets via the
-     flag, as the IX2 families did). Pages to check first: `/` (header,
-     section all, tabs menu, project hover), `/branding` (process),
-     `/about` (who, team, method), `/career`, `/real-estate-marketing`,
-     one case study (case next).
+   - **IX3 scroll + pointer — built, on staging behind `?wfc-ix=repo`
+     (2026-10-20):** `ix-scroll.ts` (12) and `ix-pointer.ts` (2) replay
+     `src/interactions/runtime.json` through `src/interactions/replay.ts`
+     with bundled GSAP + ScrollTrigger + CustomEase from `src/lib/gsap.ts`.
+     While the flag is on, `ix3-bridge.ts` takes each interaction over
+     from Webflow's running IX3 (`getInstance().remove(ids)`, which clears
+     its inline styles and triggers and leaves orbit's alone) once IX3 has
+     finished loading. Compared with IX3 on staging, flag on vs off, every
+     700px with settle time: 0 differences in opacity, transform, width,
+     height on `/`, `/branding` (1440 and 390), `/about`, `/career`,
+     `/real-estate-marketing`, `/case-studies/nexus`; cursor hover/follow
+     identical at rest, hovered, moved and left. Bundle 239 → 289 KB
+     (ScrollTrigger); Webflow's 5 GSAP files go at the last IX3 deletion.
+     Cutover: MANUAL-TODO **H** (with `orbit.ts` onto the bundled GSAP).
+   - **Next (resume here):** the cutovers, in order F (nav), G (dropdowns),
+     H (IX3), then E (hero, removes the last IX3 interaction, so Webflow
+     stops loading GSAP and the `w-mod-ix3` gate). PageSpeed after each.
    - `nav.ts`, `c-drop.ts` (+ CSS for the dropdowns): the IX2 nav, FAQ, filter and
      C-drop behaviour, written as plain JS + CSS state classes with ARIA
      (`aria-expanded`), not as animations of inline styles. One nav module

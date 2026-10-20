@@ -53,6 +53,7 @@ again at each gate, so the steps are found early and not at the end:
 | E | Home hero (+ the 9 location pages with the same hero) | all | The Home hero intro build, section below | Designer markup, Embeds, page head code and an IX3 deletion; done together with a wf-brandvm release | ☐ |
 | F | Interactions panel › IX2 "G Nav \| …" (8 action lists) | all | Delete them, after Asheem has tried staging with `?wfc-ix=repo` | IX2 deletion has no API | ☐ |
 | G | Interactions panel › IX2 "FAQs Accordion", "S HUB", "Filter Drop", "C Drop Click" (8 action lists) | all | Delete them, after trying staging with `?wfc-ix=repo` (section below) | IX2 deletion has no API | ☐ |
+| H | Interactions panel › IX3: the 14 scroll and pointer interactions (all but "Page Load \| Home", which goes with E) | all | Delete them, after trying staging with `?wfc-ix=repo` (section below) | Can be done by Claude through the MCP (`delete_interaction`) after a go-ahead; listed here so it happens in the same publish as the release | ☐ |
 
 ## F · Nav cutover (Stage 4)
 
@@ -83,6 +84,29 @@ again at each gate, so the steps are found early and not at the end:
    Close" and their 22 events (e, e-2, e-5…e-24), in the same publish as
    the release.
 4. Publish staging, check by eye at 1440, 991, 390; then publish.
+
+## H · IX3 scroll and pointer cutover (Stage 4)
+
+1. **Try it first** on `brandvm.webflow.io` with `?wfc-ix=repo`, scrolling
+   slowly and fast, at 1440, 991 and 390: `/` (section headers, the
+   section fades, services tabs menu, project hover cursor), `/branding`
+   (process; on a phone the sideways process track), `/about` (who we are,
+   team cards, method), `/career`, `/real-estate-marketing`, any case study
+   (next-project card). Also with reduced motion on (System Settings ›
+   Accessibility): fades are skipped, scroll-linked motion stays.
+2. **Claude, same release:** in `ix-scroll.ts` / `ix-pointer.ts` drop the
+   flag check and call `build` directly instead of `takeOverFromIx3`
+   (waiting for IX3 would show content before its start state once IX3 is
+   gone); switch `orbit.ts` from `window.gsap` / `window.ScrollTrigger` to
+   `src/lib/gsap.ts` (Webflow stops loading its GSAP once no IX3
+   interaction is left; E's hero intro deletes the last one).
+3. **Webflow (or Claude through the MCP after a go-ahead):** delete the 14
+   IX3 interactions listed in `src/interactions/spec.json` except
+   `i-fa832f3a`, in the same publish as the release. Re-run
+   `pnpm ix3:spec` afterwards: it should find only "Page Load | Home"
+   until E.
+4. Publish staging, compare by eye (IX3 also wrote start styles inline, so
+   a blocked-IX3 check is only approximate); then publish.
 
 ## E · Home hero intro cutover (Stage 4, one batch, staging first)
 

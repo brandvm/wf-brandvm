@@ -253,12 +253,27 @@ const spec = [...interactions.values()].sort((a, b) => a.id.localeCompare(b.id))
   };
 });
 
+// The bundle's copy: only what the ix-*.ts modules read (no page lists),
+// with each interaction's "on" breakpoints as one media query.
+const runtime = spec.filter((x) => x.timelines.some((t) => t.actions.length)).map((x) => {
+  const on = Object.values(BREAKPOINTS).filter((q) => !(x.offAt ?? []).includes(q));
+  return {
+    id: x.id,
+    name: x.name,
+    module: x.module,
+    ...(x.offAt && { media: on.join(', ') }),
+    triggers: x.triggers,
+    timelines: x.timelines.filter((t) => t.actions.length),
+  };
+});
+fs.writeFileSync(path.join(path.dirname(out), 'runtime.json'), JSON.stringify(runtime) + '\n');
+
 const missing = spec.filter((x) => !NAMES[x.id]).map((x) => x.id);
 if (missing.length) console.warn(`ix3-spec: new interactions without a name: ${missing.join(', ')}`);
 fs.mkdirSync(path.dirname(out), { recursive: true });
 fs.writeFileSync(out, JSON.stringify({
   source: `${site} published webflow.*.js chunks (scripts/ix3-spec.mjs)`,
-  chunks: ix3Chunks.sort((a, b) => b.pages - a.pages),
+  chunks: ix3Chunks.sort((a, b) => b.pages - a.pages || a.file.localeCompare(b.file)),
   interactions: spec,
 }, null, 2) + '\n');
-console.log(`ix3-spec: ${spec.length} interactions → ${path.relative(root, out)}`);
+console.log(`ix3-spec: ${spec.length} interactions → ${path.relative(root, out)} (+ runtime.json, ${runtime.length} with actions)`);

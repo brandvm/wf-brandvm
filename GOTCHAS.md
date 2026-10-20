@@ -27,6 +27,47 @@ collected from client repos into those files.
 
 <!-- Add new entries here, newest first. -->
 
+### 2026-10-20 · Bundled GSAP plugins register themselves on Webflow's `window.gsap`
+- Area: js
+- Scope: template-candidate
+- Symptom: with the bundle running after Webflow's GSAP, the bundled
+  ScrollTrigger's triggers showed up in `window.ScrollTrigger.getAll()`,
+  and a stub `window.gsap` received 5 `registerPlugin` calls.
+- Cause: GSAP's ESM plugin files (ScrollTrigger, Observer, CustomEase) end
+  with `_getGSAP() && gsap.registerPlugin(Plugin)`, and `_getGSAP()` falls
+  back to `window.gsap`. Importing them registers the bundled plugin on
+  Webflow's core and replaces `window.ScrollTrigger` under IX3 and
+  `orbit.ts`, flag or no flag. (The earlier entry about `window.gsap` is
+  true for gsap-core only.)
+- Fix: one entry point, `src/lib/gsap.ts`, that hides `window.gsap` while
+  the plugins evaluate (`gsap-hide` → plugins → `gsap-restore`, ES module
+  order) and registers them on the bundled core. Never import `gsap/…`
+  elsewhere. Test: `tests/ix3.spec.mjs` "gsap isolation" (fails without
+  the fix).
+- Status: fixed (not yet released; 1.3.0 has no GSAP in the bundle)
+- Found by: claude
+
+
+### 2026-10-20 · IX3 replay rules from its runtime, and a remove() race
+- Area: js
+- Scope: template-candidate
+- Symptom: (1) the phone Process track ran at twice IX3's offset and its
+  line started late. (2) On some loads IX3's triggers were still there
+  after `remove()`, so both animated.
+- Cause: (1) lessons/js.md says "no position = append"; IX3's
+  `buildTweensForAction` uses `timing.position ?? 0`: every action without
+  a position starts at 0. It also skips an action with no properties (no
+  spacer), adds `force3D: true`, and uses 0.5s and GSAP's default ease when
+  none is given. (2) IX3 loads interactions around `window.load` and binds
+  them over a few frames; a `remove()` in between is undone.
+- Fix: (1) `src/interactions/replay.ts` follows the runtime; lessons/js.md
+  needs correcting upstream. (2) `ix3-bridge.ts` waits for load plus 3
+  frames with an unchanged interaction count. Both checked on 7 staging
+  page/width pairs: 0 differences.
+- Status: fixed in this repo; lesson to correct in wf-template
+- Found by: claude
+
+
 ### 2026-10-20 · Published IX3 drops hidden actions and default durations
 - Area: js
 - Scope: template-candidate
