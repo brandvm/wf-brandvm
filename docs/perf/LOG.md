@@ -390,3 +390,17 @@ logos, case-study images), and on live the tags' blocking time. Open:
 MANUAL-TODO K (hero panel sizes) and L (HubSpot ads pixel).
 
 Raw reports: scratchpad only (not committed).
+
+### Live after 1.4.6 (published 2026-10-20 ~18:30 UTC)
+
+Home, 5 runs each, first mobile run (cold) left out:
+
+| | Before (live 1.4.5) | After (live 1.4.6) |
+| --- | --- | --- |
+| Mobile score | 60–63 | 78–82 (FCP 3.3 s, LCP 3.5 s, TBT 160–260 ms) |
+| Desktop score | 85–87 | **95–96** (FCP 0.8–1.0 s, LCP 1.2–1.4 s, TBT 0) |
+
+Live mobile is ~12 points under staging. The bytes before first paint are
+about the same; the differences are the tags' blocking time (staging fires
+none) and one more origin in the critical path (the jsDelivr stylesheet
+swap on top of GitHub Pages, plus the font host).
