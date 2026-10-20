@@ -78,6 +78,14 @@ published.
       if (cors) warm.crossOrigin = "";
       document.head.appendChild(warm);
     });
+    // The canvas Embed (2a) links the staging stylesheet on every domain, and
+    // it blocks rendering until it arrives, so warm GitHub Pages as well.
+    if (origin !== new URL(STAG).origin) {
+      var stag = document.createElement("link");
+      stag.rel = "preconnect";
+      stag.href = new URL(STAG).origin;
+      document.head.appendChild(stag);
+    }
     // Shared config — the Embed, the footer loader and the bundle read this.
     window.WFC = {
       staging: staging, dev: flag, devBase: DEV, stag: STAG,

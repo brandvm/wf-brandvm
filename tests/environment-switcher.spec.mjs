@@ -211,10 +211,16 @@ test('the Designer custom-code preview counts as staging', async ({ page }) => {
   expect(requests).toContain(local + 'index.js');
 });
 
-for (const [url, origin] of [['https://example.webflow.io/', new URL(stage).origin], ['https://client.example/', 'https://cdn.jsdelivr.net']])
+// Plus GitHub Pages wherever the bundle comes from elsewhere: the canvas
+// Embed (2a) links the staging stylesheet on every domain, render-blocking.
+for (const [url, origin, extra] of [
+  ['https://example.webflow.io/', new URL(stage).origin, 0],
+  ['https://client.example/', 'https://cdn.jsdelivr.net', 1],
+])
   test(`head code preconnects to the bundle's origin (${new URL(url).hostname})`, async ({ page }) => {
     await setup(page, { url });
-    await expect(page.locator('link[rel=preconnect]')).toHaveCount(2);
-    for (const href of await page.locator('link[rel=preconnect]').evaluateAll(links => links.map(link => link.href)))
-      expect(new URL(href).origin).toBe(origin);
+    const hrefs = await page.locator('link[rel=preconnect]').evaluateAll(links => links.map(link => link.href));
+    expect(hrefs.filter(href => new URL(href).origin === origin)).toHaveLength(2);
+    expect(hrefs.filter(href => new URL(href).origin === new URL(stage).origin && origin !== new URL(stage).origin)).toHaveLength(extra);
+    expect(hrefs).toHaveLength(2 + extra);
   });
