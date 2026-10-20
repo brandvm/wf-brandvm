@@ -25,6 +25,28 @@ collected from client repos into those files.
 
 ## This project
 
+### 2026-10-20 · Image loading, fonts and preloads through the MCP (Home 95 work)
+- Area: perf, mcp
+- Scope: template-candidate
+- Symptom: (1) the MCP's element settings expose no "Load: eager/lazy"
+  option for images. (2) After `replace_font_file`, the published CSS
+  loads the font from `webflow-files-prod.global.ssl.fastly.net`, a new
+  connection, not `cdn.prod.website-files.com`. (3) Preloading that font
+  dropped Home mobile from 93 to 82 (FCP 2.2 → 3.3 s). (4) A `sizes` custom
+  attribute fails with "internal error".
+- Cause: (1) `loading` works as a custom attribute: it replaces Webflow's
+  own (one `loading="lazy"` in the published HTML). (2) That is where the
+  font API stores files. (3) Lighthouse's simulated FCP counts every
+  request that starts before the observed paint. A preloaded 90 KB font
+  always starts first, so it always counts. (4) `sizes` is reserved.
+- Fix: `set_attributes` `loading=lazy`; a `preconnect` (crossorigin) to
+  the font host, no font preload; `sizes` only in the Designer. A preload's
+  `imagesrcset`/`imagesizes` must match the `<img>` exactly, or the image
+  downloads twice. Lazy images within the browser's lazy margin (~1–2
+  screens) still load before first paint, so their size still matters.
+- Status: documented
+- Found by: claude
+
 <!-- Add new entries here, newest first. -->
 
 ### 2026-10-20 · CMS item updates must resend every required field

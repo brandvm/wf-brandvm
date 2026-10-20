@@ -336,3 +336,57 @@ What it shows (measured):
   The cause may be the same, but that's not confirmed.
 - Branding mobile LCP is still 9.0 s (8.9–9.3 s). That's unchanged, and
   wasn't in scope for 1.4.3.
+
+## 2026-10-20 · Home toward 95 (staging, not yet live)
+
+Lighthouse 12 CLI, default simulated throttling, Home only. Live =
+www.brandvm.com on 1.4.5; staging = brandvm.webflow.io after the changes
+below. The first run after each staging publish is a cold cache (55–65)
+and is left out of the medians. Staging fires no GTM tags (hostname
+triggers), so its TBT is ~0; live TBT is 150–290 ms from GA4, Ads and
+HubSpot. Expect live to land a few points under staging.
+
+| | Live before (median) | Staging after (median of 4–5) |
+| --- | --- | --- |
+| Mobile score | 60–63 | **93** (93, 93, 93, 76) |
+| Mobile FCP / LCP | 4.2 s / 7.2–8.4 s | 2.2 s / 2.8 s |
+| Desktop score | 85–87 | **94** (93–94) |
+| Desktop FCP / LCP | 1.1–1.2 s / 2.1–2.2 s | 1.0 s / 1.5 s |
+
+What each suspect cost, measured on live with Lighthouse request blocking
+(mobile score, 2 runs): baseline 60/63; no tags (GTM, HubSpot, X, Ahrefs)
+66/66, TBT → 0; no eager award badges 67/85; no Inter font 82/82; no
+repo bundle 62/63. The HubSpot ads pixel alone: TBT 210–270 → 80 ms.
+
+Changes (all in Webflow except the Finsweet module):
+
+- Award badge carousel images (component C | Badge Carousel, two images)
+  and the three desktop-only hero panel images: `loading="lazy"` (custom
+  attribute). The panels are hidden below 768 px, so phones no longer
+  download them.
+- Home head code: hero preloads with `fetchpriority="high"`, one per
+  breakpoint (phone hero card ≤ 767 px, right panel ≥ 768 px), and a
+  preconnect to the font host.
+- Fonts: Inter (345 → 89 KB), Inter Italic (379 → 98 KB) and Instrument
+  Serif (TTF 35 → 25 KB WOFF2) replaced with Latin subsets (U+0000–017F,
+  punctuation, arrows, €, ™, ≤ ≥; default OpenType features + tnum, case;
+  both variable axes kept). Screenshots of 5 pages × 2 widths: text
+  renders the same. Originals: `docs/handoff/rollback/fonts-2026-10-20/`.
+- Service cards (Branding, UI/UX): 4000 px JPGs (320 / 136 KB, no srcset)
+  → 1600 px WebP (85 / 32 KB).
+- `finsweet.ts`: attributes start when their elements are within two
+  screens, or on first input. On Home, the list nest fetched 7 case-study
+  pages (343 KB) at load.
+- Site head (loader piece 1): preconnect to GitHub Pages, whose stylesheet
+  (Embed 2a) blocks rendering on every domain.
+
+Tried and reverted: preloading the Inter file (mobile 93 → 82, FCP
+3.3 s; see GOTCHAS); a custom `sizes` on the hero panels (rejected).
+
+Still in the way of 95 (mobile FCP 2.2 s is the limit): the document
+itself (76 KB compressed, 2,870 elements), the render-blocking GitHub
+Pages stylesheet, lazy images within the browser's lazy margin (client
+logos, case-study images), and on live the tags' blocking time. Open:
+MANUAL-TODO K (hero panel sizes) and L (HubSpot ads pixel).
+
+Raw reports: scratchpad only (not committed).
