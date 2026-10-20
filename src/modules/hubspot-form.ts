@@ -49,11 +49,16 @@ function create(el: HTMLElement) {
         portalId: el.dataset.hsPortal || '',
         formId: el.dataset.hsForm || '',
         target: '#' + el.id,
-      });
+        // Releases the space styles.css reserves for the slot until the form
+        // has rendered (Contact mobile CLS).
+        onFormReady: () => el.classList.add('is-ready'),
+      } as unknown as Record<string, string>);
     })
     .catch(() => {
       delete el.dataset.hsInited;
     });
+  // If HubSpot never reports ready (blocked, offline), don't hold the space.
+  setTimeout(() => el.classList.add('is-ready'), 8000);
 }
 
 export function initHubSpotForms() {

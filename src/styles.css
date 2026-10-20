@@ -765,6 +765,27 @@ html[data-wf-domain] .c-drop.is-open .c-drop-toggle-label.to-close {
   }
 }
 
+/* ---------- HubSpot form slot (hubspot-form.ts) ---------- */
+/* repo-css: js-state — the slot is published empty and hubspot-form.ts
+   loads the form into it on approach, so everything below it jumped when
+   the form arrived (Contact mobile CLS 0.276, PageSpeed 2026-10-20).
+   Reserve the rendered height of the one form used site-wide (7a162eb3,
+   measured 2026-10-20): ~920px up to 500px wide (HubSpot's single-column
+   layout), ~620px above, so the form, its errors and the thank-you message
+   size themselves once it is ready. Re-measure
+   if the form's fields change. Released by hubspot-form.ts adding
+   .is-ready in HubSpot's onFormReady (or after 8s), not by :empty:
+   HubSpot inserts its wrapper before the fields render, and an :empty
+   release made the shift worse (0.276 → 0.355). */
+html[data-wf-domain] .hs-form-slot:not(.is-ready) {
+  min-height: 620px;
+}
+@media screen and (max-width: 500px) {
+  html[data-wf-domain] .hs-form-slot:not(.is-ready) {
+    min-height: 920px;
+  }
+}
+
 /* ---------- Home hero intro (Stage 4, hero-intro.ts) ---------- */
 /* repo-css: js-state — frame 0 of the intro, held from first paint.
    html.w-mod-js comes from Webflow's head script, so without JS nothing is
