@@ -404,3 +404,15 @@ Live mobile is ~12 points under staging. The bytes before first paint are
 about the same; the differences are the tags' blocking time (staging fires
 none) and one more origin in the critical path (the jsDelivr stylesheet
 swap on top of GitHub Pages, plus the font host).
+
+### Live after the font upload, deferred GTM and the head-stylesheet loader (2026-10-20, evening)
+
+Home, Lighthouse 12 mobile ×9 (first run of the batch caught the old cached
+page and is left out) and desktop ×5:
+
+- Mobile: 94, 92, 94, 94, 93, 93 and three slow runs (66, 76, 67). Typical:
+  FCP 2.0–2.3 s, LCP 2.7–3.0 s, TBT 0–10 ms, CLS 0.01. The slow runs have
+  normal server times (17–46 ms); one had TBT 230 ms (GTM inside the trace).
+- Desktop: 96, 96, 99, 96 and one slow run (68). FCP 0.7–0.9 s, LCP
+  0.9–1.3 s, CLS 0.003.
+- CLS regression from loader 14b7638 is gone (0.17 / 0.31 → 0.01 / 0.003).
