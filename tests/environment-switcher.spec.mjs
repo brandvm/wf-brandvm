@@ -26,6 +26,7 @@ const release = `https://cdn.jsdelivr.net/gh/${org}/${repo}@1.0.0/dist/`;
 async function setup(page, {
   url = 'https://example.webflow.io/',
   unavailable = () => false,
+  delay = () => 0,
   blockedStorage = false,
   editor = false,
   design = false,
@@ -46,10 +47,12 @@ async function setup(page, {
     ${links}${scripts[1]}<h1>Example client website</h1>
     <script>window.Webflow={env:mode=>mode==='editor'?${editor}:mode==='design'?${design}:false};</script>
     ${scripts[2]}</body></html>`;
-  await page.route('**/*', route => {
+  await page.route('**/*', async route => {
     const request = route.request();
     if (request.isNavigationRequest()) return route.fulfill({ contentType: 'text/html', body: html });
     if (unavailable(request.url())) return route.abort();
+    const wait = delay(request.url());
+    if (wait) await new Promise(resolve => setTimeout(resolve, wait));
     const style = new URL(request.url()).pathname.endsWith('.css');
     return route.fulfill({ contentType: style ? 'text/css' : 'text/javascript', body: style ? css : js });
   });
@@ -211,16 +214,26 @@ test('the Designer custom-code preview counts as staging', async ({ page }) => {
   expect(requests).toContain(local + 'index.js');
 });
 
-// Plus GitHub Pages wherever the bundle comes from elsewhere: the canvas
-// Embed (2a) links the staging stylesheet on every domain, render-blocking.
-for (const [url, origin, extra] of [
-  ['https://example.webflow.io/', new URL(stage).origin, 0],
-  ['https://client.example/', 'https://cdn.jsdelivr.net', 1],
-])
+for (const [url, origin] of [['https://example.webflow.io/', new URL(stage).origin], ['https://client.example/', 'https://cdn.jsdelivr.net']])
   test(`head code preconnects to the bundle's origin (${new URL(url).hostname})`, async ({ page }) => {
     await setup(page, { url });
-    const hrefs = await page.locator('link[rel=preconnect]').evaluateAll(links => links.map(link => link.href));
-    expect(hrefs.filter(href => new URL(href).origin === origin)).toHaveLength(2);
-    expect(hrefs.filter(href => new URL(href).origin === new URL(stage).origin && origin !== new URL(stage).origin)).toHaveLength(extra);
-    expect(hrefs).toHaveLength(2 + extra);
+    await expect(page.locator('link[rel=preconnect]')).toHaveCount(2);
+    for (const href of await page.locator('link[rel=preconnect]').evaluateAll(links => links.map(link => link.href)))
+      expect(new URL(href).origin).toBe(origin);
   });
+
+test('on a release domain, first paint waits only for the pinned stylesheet', async ({ page }) => {
+  const requests = [];
+  // GitHub Pages answers after 3 s: if the 2a sheet still blocked rendering,
+  // nothing would paint before it.
+  await setup(page, { url: 'https://client.example/', requests, delay: url => url.startsWith(stage) ? 3000 : 0 });
+  const paint = await page.evaluate(() => performance.getEntriesByName('first-contentful-paint')[0]?.startTime);
+  expect(paint).toBeLessThan(2000);
+  await expect(page.locator('link[rel=stylesheet]')).toHaveCount(1);
+  await expect(page.locator('#wfc-css')).toHaveAttribute('href', release + 'styles.css');
+  // The pinned sheet still holds the content after it (2b waits for it), so
+  // it has arrived by first paint: no unstyled frame.
+  const loaded = await page.evaluate(href => performance.getEntriesByName(href)[0]?.responseEnd, release + 'styles.css');
+  expect(loaded).toBeLessThanOrEqual(paint);
+  expect(requests.filter(request => request.startsWith(release + 'styles.css'))).toHaveLength(1);
+});
