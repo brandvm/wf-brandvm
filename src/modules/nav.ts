@@ -15,7 +15,7 @@
 // button, Escape to close, focus to the close button on open and back to
 // the menu button on close.
 //
-// Staging only, behind ?wfc-ix=repo (ix-flag.ts), until the cutover.
+// On everywhere since the IX2 deletion (2026-10-20, ix-flag.ts).
 import { repoInteractions } from './ix-flag';
 
 const MOBILE = '(max-width: 991px)';

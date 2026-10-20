@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
 // Stage 4 IX3 replay: src/lib/gsap.ts isolation, ix3-bridge.ts takeover,
-// ix-scroll.ts / ix-pointer.ts, staging-only behind ?wfc-ix=repo.
+// ix-scroll.ts / ix-pointer.ts, on everywhere since IX3 was deleted.
 const js = readFileSync(new URL('../dist/index.js', import.meta.url), 'utf8');
 const css = readFileSync(new URL('../dist/styles.css', import.meta.url), 'utf8');
 const runtime = JSON.parse(readFileSync(new URL('../src/interactions/runtime.json', import.meta.url), 'utf8'));
@@ -38,17 +38,18 @@ test('gsap isolation: the bundle never registers plugins on Webflow\'s window.gs
     window.__registered = [];
     window.gsap = { version: 'webflow', registerPlugin: (...p) => window.__registered.push(...p.map((x) => x && x.name)) };
   </script>`;
-  const errors = await open(page, 'https://brandvm.webflow.io/?wfc-ix=repo', stub + readyQueue);
+  const errors = await open(page, 'https://brandvm.webflow.io/', stub + readyQueue);
   expect(await page.evaluate(() => window.__registered)).toEqual([]);
   expect(await page.evaluate(() => window.gsap.version)).toBe('webflow');
   expect(await page.evaluate(() => typeof window.ScrollTrigger)).toBe('undefined');
   expect(errors).toEqual([]);
 });
 
-test('ix3 replay: off on the live domain', async ({ page }) => {
-  const errors = await open(page, 'https://www.brandvm.com/?wfc-ix=repo', readyQueue);
-  await expect(page.locator('.text-b')).toHaveCSS('opacity', '1');
-  await expect(page.locator('.project-link-cursor')).not.toHaveAttribute('style', /scale|matrix/);
+test('ix3 replay: on on the live domain, no flag needed', async ({ page }) => {
+  const errors = await open(page, 'https://www.brandvm.com/', readyQueue);
+  await expect(page.locator('.text-b')).toHaveCSS('opacity', '0');
+  await page.locator('#sh').scrollIntoViewIfNeeded();
+  await expect(page.locator('.text-b')).toHaveCSS('opacity', '1', { timeout: 4000 });
   expect(errors).toEqual([]);
 });
 
@@ -60,7 +61,7 @@ test('ix3 bridge: removes only its ids from a running IX3, then builds', async (
     const instance = { interactions, remove: (ids) => { window.__removed.push(...ids); ids.forEach((id) => interactions.delete(id)); } };
     window.Webflow = { push: (fn) => fn(), require: (name) => (name === 'ix3' ? { getInstance: () => instance } : undefined) };
   </script>`;
-  const errors = await open(page, 'https://brandvm.webflow.io/?wfc-ix=repo', fakeIx3);
+  const errors = await open(page, 'https://brandvm.webflow.io/', fakeIx3);
   await expect.poll(() => page.evaluate(() => window.__removed.length)).toBe(scrollIds.length + 2);
   expect(await page.evaluate(() => window.__removed)).not.toContain('i-other');
   // Built: the section header below the fold is at its from-state.
@@ -69,7 +70,7 @@ test('ix3 bridge: removes only its ids from a running IX3, then builds', async (
 });
 
 test('ix-scroll: section header plays once on enter', async ({ page }) => {
-  const errors = await open(page, 'https://brandvm.webflow.io/?wfc-ix=repo', readyQueue);
+  const errors = await open(page, 'https://brandvm.webflow.io/', readyQueue);
   await expect(page.locator('.text-b')).toHaveCSS('opacity', '0');
   await page.locator('#sh').scrollIntoViewIfNeeded();
   await expect(page.locator('.text-b')).toHaveCSS('opacity', '1', { timeout: 4000 });
@@ -80,7 +81,7 @@ test('ix-scroll: section header plays once on enter', async ({ page }) => {
 });
 
 test('ix-pointer: hover scales the cursor in and out; it follows the pointer', async ({ page }) => {
-  const errors = await open(page, 'https://brandvm.webflow.io/?wfc-ix=repo', readyQueue);
+  const errors = await open(page, 'https://brandvm.webflow.io/', readyQueue);
   const scale = () => page.locator('.project-link-cursor').evaluate((el) => new DOMMatrix(getComputedStyle(el).transform).a);
   expect(await scale()).toBe(0);
   await page.locator('#link').scrollIntoViewIfNeeded();

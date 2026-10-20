@@ -20,7 +20,7 @@
 // in its final state); scroll-linked ones keep tracking the scroll, without
 // the smoothing lag.
 //
-// Staging only, behind ?wfc-ix=repo, until the cutover (MANUAL-TODO H).
+// On everywhere since the IX3 deletion (2026-10-20, MANUAL-TODO H).
 import { gsap, ScrollTrigger } from '../lib/gsap';
 import { repoInteractions } from './ix-flag';
 import { takeOverFromIx3 } from '../interactions/ix3-bridge';

@@ -258,9 +258,19 @@ interactions, then replay them*, `lessons/js.md`):
      identical at rest, hovered, moved and left. Bundle 239 → 289 KB
      (ScrollTrigger); Webflow's 5 GSAP files go at the last IX3 deletion.
      Cutover: MANUAL-TODO **H** (with `orbit.ts` onto the bundled GSAP).
-   - **Next (resume here):** the cutovers, in order F (nav), G (dropdowns),
-     H (IX3), then E (hero, removes the last IX3 interaction, so Webflow
-     stops loading GSAP and the `w-mod-ix3` gate). PageSpeed after each.
+   - **Cutover done in Webflow (2026-10-20, Kajal):** all IX2 and IX3
+     interactions deleted, GSAP off in Site settings, staging published.
+     Staging now loads one Webflow chunk instead of seven files (no IX2/IX3
+     runtime, no gsap/ScrollTrigger/SplitText/CustomEase/Observer). The repo
+     interactions run without the flag (`ix-flag.ts` always on); `orbit.ts`
+     uses the bundled GSAP (same card positions as live at each scroll
+     step). Checked on staging without the flag: mobile menu, FAQ, C-drop,
+     cursor, orbit; no errors.
+   - **Next (resume here):** release (tag, then `RELEASE` in head code and
+     the production publish together: MANUAL-TODO I); PageSpeed row for
+     Stage 4; cleanup batch (drop the `!important`s and the `.wfc-ix`
+     prefix in styles.css §03, c-drop's stopPropagation, the ix3-bridge once
+     production has no IX3); Work page hook (J); Home hero (E).
    - `nav.ts`, `c-drop.ts` (+ CSS for the dropdowns): the IX2 nav, FAQ, filter and
      C-drop behaviour, written as plain JS + CSS state classes with ARIA
      (`aria-expanded`), not as animations of inline styles. One nav module

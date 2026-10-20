@@ -39,14 +39,15 @@ function boot() {
   // Stage 4: the Home hero intro starts on DOM ready, not after webflow.js,
   // so it can begin as soon as its images decode. Inert without [data-hero].
   run('hero-intro', initHeroIntro);
-  // Stage 4: nav dropdowns and mobile menu, staging-only behind ?wfc-ix=repo.
+  // Stage 4: nav dropdowns and mobile menu (Webflow's IX2 deleted 2026-10-20).
   run('nav', initNav);
-  // Stage 4: case-study C-drop, same flag. The FAQ, Services hub and filter
+  // Stage 4: case-study C-drop. The FAQ, Services hub and filter
   // dropdowns need no JS (styles.css §03, on Webflow's .w--open).
   run('c-drop', initCDrop);
   // Stage 4: IX3 scroll and pointer interactions replayed from
-  // src/interactions/runtime.json, same flag. Each takes its interactions
-  // over from Webflow's IX3 runtime (ix3-bridge.ts) once that has started.
+  // src/interactions/runtime.json. If a page still runs Webflow's IX3 (the
+  // live site until its next publish), each takes its interactions over
+  // (ix3-bridge.ts); otherwise it builds at once.
   run('ix-scroll', initIxScroll);
   run('ix-pointer', initIxPointer);
   // Starter fixes for markup Webflow publishes (conventions.md §9–11). Both

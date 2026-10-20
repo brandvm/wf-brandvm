@@ -1,29 +1,18 @@
-// Stage 4 switch: repo interactions on staging only, behind a flag, while
-// Webflow's IX2/IX3 still run on every page.
+// Stage 4 switch, now always on. While Webflow's IX2/IX3 still ran, the
+// repo interactions were staging-only behind ?wfc-ix=repo. On 2026-10-20
+// every IX2 and IX3 interaction was deleted in Webflow and its GSAP turned
+// off (MANUAL-TODO F, G, H), so the repo versions run everywhere.
 //
-//   ?wfc-ix=repo   turn the repo versions on (remembered in this browser)
-//   ?wfc-ix=off    back to Webflow's interactions
-//
-// Only on *.webflow.io (and the Designer preview). On the custom domain this
-// always returns false, so visitors never see the repo versions until a
-// family's cutover, when its module drops this check. While on, <html>
-// carries .wfc-ix and the repo CSS for that family takes over from IX2's
-// inline styles (styles.css §03).
-const KEY = 'wfc-ix';
-let cached: boolean | null = null;
+// <html> still gets .wfc-ix: the repo CSS for the nav, dropdowns and C-drop
+// (styles.css §03) is keyed on it, so that CSS only takes over once this
+// bundle runs. Its !important rules were there to beat IX2's inline styles
+// and can go in a cleanup batch.
+let added = false;
 
 export function repoInteractions() {
-  if (cached !== null) return cached;
-  cached = false;
-  if (!/\.webflow\.io$|\.canvas\.webflow\.com$/.test(location.hostname)) return cached;
-  const value = new URLSearchParams(location.search).get(KEY);
-  try {
-    if (value === 'repo') localStorage.setItem(KEY, 'repo');
-    if (value === 'off') localStorage.removeItem(KEY);
-    cached = value === 'repo' || (value !== 'off' && localStorage.getItem(KEY) === 'repo');
-  } catch (error) {
-    cached = value === 'repo';
+  if (!added) {
+    document.documentElement.classList.add('wfc-ix');
+    added = true;
   }
-  if (cached) document.documentElement.classList.add('wfc-ix');
-  return cached;
+  return true;
 }

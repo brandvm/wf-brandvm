@@ -13,7 +13,7 @@
 // prefers-reduced-motion: the cursor still follows the pointer and still
 // appears on hover (both are driven by the visitor), without smoothing.
 //
-// Staging only, behind ?wfc-ix=repo, until the cutover (MANUAL-TODO H).
+// On everywhere since the IX3 deletion (2026-10-20, MANUAL-TODO H).
 import { gsap } from '../lib/gsap';
 import { repoInteractions } from './ix-flag';
 import { takeOverFromIx3 } from '../interactions/ix3-bridge';

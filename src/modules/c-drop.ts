@@ -10,8 +10,8 @@
 // "C-drop"). Adds what IX2 never had: the toggle is a keyboard button with
 // aria-expanded/aria-controls.
 //
-// Staging only, behind ?wfc-ix=repo (ix-flag.ts), until the cutover. At the
-// cutover drop the flag check and the stopPropagation (IX2 is gone then).
+// On everywhere since the IX2 deletion (2026-10-20, ix-flag.ts). The
+// stopPropagation below only mattered while IX2 ran; it goes in a cleanup.
 import { repoInteractions } from './ix-flag';
 
 const CLOSED = '80px';

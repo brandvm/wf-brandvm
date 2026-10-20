@@ -1,9 +1,12 @@
 // @ts-nocheck -- ported verbatim from the About page footer code (Stage 3,
 // batch 3.2). Typing it is a later cleanup; behaviour must stay identical.
-// Orbit gallery on About: a scroll-driven card orbit on desktop (Webflow's
-// window.gsap + ScrollTrigger), a swipeable row on phones and with reduced
+// Orbit gallery on About: a scroll-driven card orbit on desktop (bundled
+// GSAP + ScrollTrigger from src/lib/gsap.ts since Webflow's GSAP was turned
+// off, 2026-10-20), a swipeable row on phones and with reduced
 // motion. CSS in styles.css §04 "Orbit gallery". Guarded by
 // [data-orbit-ready], so it never initializes twice.
+import { gsap, ScrollTrigger } from '../lib/gsap';
+
 export function initOrbit() {
 (function () {
   function initOrbit() {
@@ -114,10 +117,6 @@ export function initOrbit() {
     /* ===== DESKTOP: ORIGINAL ORBIT ANIMATION ===== */
 
     function startDesktop() {
-      var gsap = window.gsap;
-      var ScrollTrigger = window.ScrollTrigger;
-
-      gsap.registerPlugin(ScrollTrigger);
 
       var CFG = {
         maxCardW: 0.55,
@@ -378,8 +377,8 @@ export function initOrbit() {
       var useGallery =
         mobile.matches ||
         reducedMotion.matches ||
-        !window.gsap ||
-        !window.ScrollTrigger;
+        !gsap ||
+        !ScrollTrigger;
 
       if (useGallery === galleryMode) return;
       if (stop) stop();
@@ -388,8 +387,8 @@ export function initOrbit() {
       stop = useGallery ? startGallery() : startDesktop();
 
       /* Refresh other scroll sections after the section height changes. */
-      if (window.ScrollTrigger) {
-        window.ScrollTrigger.refresh();
+      if (ScrollTrigger) {
+        ScrollTrigger.refresh();
       }
     }
 

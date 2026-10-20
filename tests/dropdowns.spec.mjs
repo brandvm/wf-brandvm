@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
 // Stage 4 FAQ / Services hub / Filter CSS (on Webflow's .w--open) and
-// c-drop.ts, staging-only behind ?wfc-ix=repo. Webflow's dropdown script
+// c-drop.ts, on everywhere since IX2 was deleted. Webflow's dropdown script
 // isn't loaded here, so the tests set .w--open the way it does.
 const js = readFileSync(new URL('../dist/index.js', import.meta.url), 'utf8');
 const css = readFileSync(new URL('../dist/styles.css', import.meta.url), 'utf8');
@@ -33,15 +33,15 @@ async function open(page, url, reduced = 'reduce') {
 
 const height = (page, selector) => page.locator(selector).evaluate((el) => el.getBoundingClientRect().height);
 
-test('dropdowns: nothing changes on the live domain', async ({ page }) => {
-  const errors = await open(page, 'https://www.brandvm.com/?wfc-ix=repo');
-  await expect(page.locator('html')).not.toHaveClass(/wfc-ix/);
-  await expect(page.locator('.c-drop-toggle')).not.toHaveAttribute('aria-expanded', /.*/);
+test('dropdowns: on on the live domain, no flag needed', async ({ page }) => {
+  const errors = await open(page, 'https://www.brandvm.com/');
+  await expect(page.locator('html')).toHaveClass(/wfc-ix/);
+  await expect(page.locator('.c-drop-toggle')).toHaveAttribute('aria-expanded', 'false');
   expect(errors).toEqual([]);
 });
 
 test('dropdowns: FAQ and filter collapse to 0 and open to full height', async ({ page }) => {
-  const errors = await open(page, 'https://brandvm.webflow.io/?wfc-ix=repo');
+  const errors = await open(page, 'https://brandvm.webflow.io/');
   for (const name of ['faqs-accordion', 'filter-drop']) {
     expect(await height(page, `.${name}-list`)).toBe(0);
     await expect(page.locator(`.${name}-list`)).toBeHidden();
@@ -56,7 +56,7 @@ test('dropdowns: FAQ and filter collapse to 0 and open to full height', async ({
 });
 
 test('c-drop: click and keyboard toggle, labels swap, links pass through', async ({ page }) => {
-  const errors = await open(page, 'https://brandvm.webflow.io/?wfc-ix=repo', 'no-preference');
+  const errors = await open(page, 'https://brandvm.webflow.io/', 'no-preference');
   const toggle = page.locator('.c-drop-toggle');
   await expect(toggle).toHaveAttribute('aria-expanded', 'false');
   await expect(toggle).toHaveAttribute('aria-controls', 'c-drop-content-1');

@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
-// nav.ts + ix-flag.ts: repo nav only on *.webflow.io with ?wfc-ix=repo.
+// nav.ts + ix-flag.ts: the repo nav runs everywhere since IX2 was deleted.
 const js = readFileSync(new URL('../dist/index.js', import.meta.url), 'utf8');
 const css = readFileSync(new URL('../dist/styles.css', import.meta.url), 'utf8');
 const nav = `<div class="g-nav-w"><nav class="s-g-nav">
@@ -22,15 +22,15 @@ async function open(page, url) {
   return errors;
 }
 
-test('nav: off on the live domain even with the flag', async ({ page }) => {
-  const errors = await open(page, 'https://www.brandvm.com/?wfc-ix=repo');
-  await expect(page.locator('html')).not.toHaveClass(/wfc-ix/);
-  await expect(page.locator('.g-nav-menu-button')).not.toHaveAttribute('aria-expanded', /.*/);
+test('nav: on on the live domain, no flag needed', async ({ page }) => {
+  const errors = await open(page, 'https://www.brandvm.com/');
+  await expect(page.locator('html')).toHaveClass(/wfc-ix/);
+  await expect(page.locator('.g-nav-menu-button')).toHaveAttribute('aria-expanded', 'false');
   expect(errors).toEqual([]);
 });
 
-test('nav: mobile menu opens, closes, Escape and focus (staging flag)', async ({ page }) => {
-  const errors = await open(page, 'https://brandvm.webflow.io/?wfc-ix=repo');
+test('nav: mobile menu opens, closes, Escape and focus', async ({ page }) => {
+  const errors = await open(page, 'https://brandvm.webflow.io/');
   await expect(page.locator('html')).toHaveClass(/wfc-ix/);
   const button = page.locator('.g-nav-menu-button');
   await expect(button).toHaveAttribute('aria-expanded', 'false');
@@ -47,14 +47,4 @@ test('nav: mobile menu opens, closes, Escape and focus (staging flag)', async ({
   await expect(page.locator('.g-nav-menu')).not.toHaveClass(/is-open/);
   expect(page.url()).not.toContain('#');
   expect(errors).toEqual([]);
-});
-
-test('nav: the flag is remembered, and ?wfc-ix=off clears it', async ({ page }) => {
-  await open(page, 'https://brandvm.webflow.io/?wfc-ix=repo');
-  await page.goto('https://brandvm.webflow.io/');
-  await expect(page.locator('html')).toHaveClass(/wfc-ix/);
-  await page.goto('https://brandvm.webflow.io/?wfc-ix=off');
-  await expect(page.locator('html')).not.toHaveClass(/wfc-ix/);
-  await page.goto('https://brandvm.webflow.io/');
-  await expect(page.locator('html')).not.toHaveClass(/wfc-ix/);
 });
