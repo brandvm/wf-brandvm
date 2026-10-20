@@ -79,21 +79,25 @@ published.
       document.head.appendChild(warm);
     });
     // The canvas Embed (2a) must link the staging stylesheet, for the
-    // Designer. On a release domain, re-point it at the pinned sheet as the
-    // parser inserts it: the observer runs before the next script (2b), so
-    // first paint waits on one preconnected sheet instead of GitHub Pages
-    // and then a swap. 2b then finds the right URL and does nothing; if this
-    // ever misses, 2b swaps as before.
-    if (!staging && RELEASE && window.MutationObserver) {
+    // Designer. On a release domain, write the pinned sheet into <head>
+    // instead: a parser-inserted head stylesheet holds first paint in every
+    // browser, so the page never paints at the wrong scale (§01). Then
+    // re-point 2a at the same file as the parser inserts it (one request;
+    // the observer runs before 2b), so GitHub Pages never holds the page and
+    // 2b's swap is a no-op. If the observer misses, 2b swaps as before.
+    if (!staging && RELEASE) {
       var want = prod + "styles.css";
-      var watch = new MutationObserver(function () {
-        var link = document.getElementById("wfc-css");
-        if (!link) return;
-        watch.disconnect();
-        if (link.href !== want) link.href = want;
-      });
-      watch.observe(document.documentElement, { childList: true, subtree: true });
-      document.addEventListener("DOMContentLoaded", function () { watch.disconnect(); });
+      document.write('<link rel="stylesheet" href="' + want + '">');
+      if (window.MutationObserver) {
+        var watch = new MutationObserver(function () {
+          var link = document.getElementById("wfc-css");
+          if (!link) return;
+          watch.disconnect();
+          if (link.href !== want) link.href = want;
+        });
+        watch.observe(document.documentElement, { childList: true, subtree: true });
+        document.addEventListener("DOMContentLoaded", function () { watch.disconnect(); });
+      }
     }
     // Shared config — the Embed, the footer loader and the bundle read this.
     window.WFC = {

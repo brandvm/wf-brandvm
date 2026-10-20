@@ -34,13 +34,18 @@ collected from client repos into those files.
 - Cause: Embed 2a must link the staging sheet so the Designer canvas shows
   repo CSS; 2b only swaps to the release afterwards, and 2b itself waits
   for the 2a sheet (a script after a pending stylesheet).
-- Fix: piece 1 (head) runs a MutationObserver on release domains that
-  re-points `#wfc-css` at the pinned sheet as the parser inserts it; the
-  observer fires before 2b runs. One sheet holds first paint; 2b's swap is
-  a no-op. Note: Chrome reports a stylesheet in `<body>` as
-  `renderBlockingStatus: "non-blocking"` even though it holds the content
-  after it, so test with paint timing, not that field.
-- Status: fixed (loader 14b7638)
+- Fix: piece 1 (head) `document.write`s the pinned sheet into `<head>` on
+  release domains (a parser-inserted head sheet holds first paint in every
+  browser), and a MutationObserver re-points `#wfc-css` (2a) at the same
+  file as the parser inserts it, before 2b runs. 2b's swap is a no-op.
+- First attempt (14b7638, re-pointing 2a only) was wrong: once its href
+  changes, 2a no longer holds the parser, so the page painted before the
+  repo CSS and re-laid out when §01's type scale arrived. Live Home CLS
+  went 0 → 0.17 (mobile) / 0.31 (desktop) until the fix. The unit test had
+  passed because the stylesheet answered instantly; the test now delays it
+  1 s and requires first paint after it. Also: Chrome reports a `<body>`
+  stylesheet as `renderBlockingStatus: "non-blocking"`; test paint timing.
+- Status: fixed (loader, this commit); on live after the next publish
 - Found by: claude
 
 ### 2026-10-20 · Image loading, fonts and preloads through the MCP (Home 95 work)

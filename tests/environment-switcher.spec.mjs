@@ -222,18 +222,23 @@ for (const [url, origin] of [['https://example.webflow.io/', new URL(stage).orig
       expect(new URL(href).origin).toBe(origin);
   });
 
-test('on a release domain, first paint waits only for the pinned stylesheet', async ({ page }) => {
+test('on a release domain, first paint waits for the pinned stylesheet and only for it', async ({ page }) => {
   const requests = [];
-  // GitHub Pages answers after 3 s: if the 2a sheet still blocked rendering,
-  // nothing would paint before it.
-  await setup(page, { url: 'https://client.example/', requests, delay: url => url.startsWith(stage) ? 3000 : 0 });
+  // GitHub Pages answers after 3 s and the release after 1 s. The page must
+  // not paint before the release sheet (it scales the type: painting
+  // without it shifted the whole page, CLS 0.31), nor wait for GitHub Pages.
+  await setup(page, {
+    url: 'https://client.example/', requests,
+    delay: url => url.startsWith(stage) ? 3000 : url === release + 'styles.css' ? 1000 : 0,
+  });
   const paint = await page.evaluate(() => performance.getEntriesByName('first-contentful-paint')[0]?.startTime);
-  expect(paint).toBeLessThan(2000);
-  await expect(page.locator('link[rel=stylesheet]')).toHaveCount(1);
-  await expect(page.locator('#wfc-css')).toHaveAttribute('href', release + 'styles.css');
-  // The pinned sheet still holds the content after it (2b waits for it), so
-  // it has arrived by first paint: no unstyled frame.
   const loaded = await page.evaluate(href => performance.getEntriesByName(href)[0]?.responseEnd, release + 'styles.css');
-  expect(loaded).toBeLessThanOrEqual(paint);
-  expect(requests.filter(request => request.startsWith(release + 'styles.css'))).toHaveLength(1);
+  expect(loaded).toBeGreaterThan(900);
+  expect(paint).toBeGreaterThanOrEqual(loaded);
+  expect(paint).toBeLessThan(2500);
+  await expect(page.locator('#wfc-css')).toHaveAttribute('href', release + 'styles.css');
+  for (const href of await page.locator('link[rel=stylesheet]').evaluateAll(links => links.map(link => link.href)))
+    expect(href).toBe(release + 'styles.css');
+  // The browser's look-ahead scanner may still request the 2a sheet from
+  // GitHub Pages; the paint above shows it no longer holds the page.
 });
