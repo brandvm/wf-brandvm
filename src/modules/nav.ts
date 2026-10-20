@@ -15,13 +15,11 @@
 // button, Escape to close, focus to the close button on open and back to
 // the menu button on close.
 //
-// On everywhere since the IX2 deletion (2026-10-20, ix-flag.ts).
-import { repoInteractions } from './ix-flag';
+// Replaced Webflow's IX2 on 2026-10-20 (IX2 deleted, release 1.4.1).
 
 const MOBILE = '(max-width: 991px)';
 
 export function initNav() {
-  if (!repoInteractions()) return;
   const menu = document.querySelector<HTMLElement>('.g-nav-menu');
   const openers = Array.from(document.querySelectorAll<HTMLElement>('.g-nav-menu-button'));
   const closers = Array.from(document.querySelectorAll<HTMLElement>('.g-nav-close-button'));
@@ -46,14 +44,12 @@ export function initNav() {
     button.setAttribute('aria-controls', menu.id);
     button.setAttribute('aria-expanded', 'false');
     if (!button.getAttribute('aria-label')) button.setAttribute('aria-label', 'Open menu');
-    // Capture phase, stopped here: IX2's click handler (delegated above)
-    // never sees it, and the "#" link never jumps.
+    // The button is a "#" link: keep it from jumping to the top.
     button.addEventListener('click', (event) => {
       event.preventDefault();
-      event.stopPropagation();
       lastOpener = button;
       setOpen(true);
-    }, true);
+    });
   });
   closers.forEach((button) => {
     button.setAttribute('role', 'button');
@@ -61,9 +57,8 @@ export function initNav() {
     if (!button.getAttribute('aria-label')) button.setAttribute('aria-label', 'Close menu');
     button.addEventListener('click', (event) => {
       event.preventDefault();
-      event.stopPropagation();
       setOpen(false);
-    }, true);
+    });
   });
 
   document.addEventListener('keydown', (event) => {

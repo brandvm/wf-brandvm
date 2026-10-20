@@ -266,11 +266,21 @@ interactions, then replay them*, `lessons/js.md`):
      uses the bundled GSAP (same card positions as live at each scroll
      step). Checked on staging without the flag: mobile menu, FAQ, C-drop,
      cursor, orbit; no errors.
-   - **Next (resume here):** release (tag, then `RELEASE` in head code and
-     the production publish together: MANUAL-TODO I); PageSpeed row for
-     Stage 4; cleanup batch (drop the `!important`s and the `.wfc-ix`
-     prefix in styles.css §03, c-drop's stopPropagation, the ix3-bridge once
-     production has no IX3); Work page hook (J); Home hero (E).
+   - **Live (2026-10-20, 14:53 UTC):** 1.4.1 published to production with
+     the deletions. 1.4.1 fixed what 1.4.0 missed: the case-study
+     next-project card (78 hidden CMS blocks, Finsweet re-render;
+     GOTCHAS). Live vs staging compared on 7 page/width pairs: 0
+     differences.
+   - **Cleanup (1.4.2):** `ix-flag.ts` and `ix3-bridge.ts` removed; the
+     Stage 4 CSS is scoped to `html[data-wf-domain]` (published pages from
+     the first byte, never the Designer canvas) instead of a class the
+     bundle adds, so C-drop no longer collapses after load; no
+     `!important` left except reduced motion; nav/C-drop no longer stop
+     click propagation (analytics click listeners see them again); project
+     hover is delegated. Work page Finsweet → IX2 hook deleted (J). Checked
+     against live 1.4.1: 0 scroll differences, identical click end states.
+   - **Next (resume here):** Stage 4 PageSpeed row (`docs/perf/LOG.md`);
+     Home hero intro (E); Stage 5 batches.
    - `nav.ts`, `c-drop.ts` (+ CSS for the dropdowns): the IX2 nav, FAQ, filter and
      C-drop behaviour, written as plain JS + CSS state classes with ARIA
      (`aria-expanded`), not as animations of inline styles. One nav module

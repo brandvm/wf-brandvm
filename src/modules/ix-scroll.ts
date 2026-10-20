@@ -11,7 +11,7 @@
 // so resizing across one reverts or rebuilds it.
 //
 // Built lazily: elements within two screens of the viewport at start are
-// built at once (in the same task as IX3's removal, so nothing flashes);
+// built at once (before the first paint after boot, so nothing flashes);
 // the rest when they come within a screen, with one ScrollTrigger.refresh()
 // per frame of builds (a from-state can change layout, e.g. the tabs menu's
 // height). Hidden elements (no layout box) also wait: the case-study
@@ -27,16 +27,12 @@
 // in its final state); scroll-linked ones keep tracking the scroll, without
 // the smoothing lag.
 //
-// On everywhere since the IX3 deletion (2026-10-20, MANUAL-TODO H).
+// Replaced Webflow's IX3 on 2026-10-20 (IX3 deleted, release 1.4.1).
 import { gsap, ScrollTrigger } from '../lib/gsap';
-import { repoInteractions } from './ix-flag';
-import { takeOverFromIx3 } from '../interactions/ix3-bridge';
 import { buildTimeline, forModule, reducedMotion, type Interaction } from '../interactions/replay';
 
 export function initIxScroll() {
-  if (!repoInteractions()) return;
-  const list = forModule('ix-scroll');
-  takeOverFromIx3(list.map((x) => x.id), () => build(list));
+  build(forModule('ix-scroll'));
 }
 
 let refreshQueued = false;

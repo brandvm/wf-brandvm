@@ -1,11 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
-// Stage 4 IX3 replay: src/lib/gsap.ts isolation, ix3-bridge.ts takeover,
-// ix-scroll.ts / ix-pointer.ts, on everywhere since IX3 was deleted.
+// Stage 4 IX3 replay: src/lib/gsap.ts isolation, ix-scroll.ts and
+// ix-pointer.ts (Webflow's IX3 deleted 2026-10-20).
 const js = readFileSync(new URL('../dist/index.js', import.meta.url), 'utf8');
 const css = readFileSync(new URL('../dist/styles.css', import.meta.url), 'utf8');
-const runtime = JSON.parse(readFileSync(new URL('../src/interactions/runtime.json', import.meta.url), 'utf8'));
 
 const markup = `
   <div style="height:150vh">top</div>
@@ -23,7 +22,7 @@ async function open(page, url, head = '') {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.route(url.split('?')[0] + '*', (route) => route.fulfill({
     contentType: 'text/html',
-    body: `<!doctype html><html><head><style>${css}</style>${head}</head><body>${markup}
+    body: `<!doctype html><html data-wf-domain="brandvm.webflow.io"><head><style>${css}</style>${head}</head><body>${markup}
       <script>${js}</script></body></html>`,
   }));
   await page.goto(url);
@@ -45,27 +44,11 @@ test('gsap isolation: the bundle never registers plugins on Webflow\'s window.gs
   expect(errors).toEqual([]);
 });
 
-test('ix3 replay: on on the live domain, no flag needed', async ({ page }) => {
+test('ix3 replay: on on the live domain', async ({ page }) => {
   const errors = await open(page, 'https://www.brandvm.com/', readyQueue);
   await expect(page.locator('.text-b')).toHaveCSS('opacity', '0');
   await page.locator('#sh').scrollIntoViewIfNeeded();
   await expect(page.locator('.text-b')).toHaveCSS('opacity', '1', { timeout: 4000 });
-  expect(errors).toEqual([]);
-});
-
-test('ix3 bridge: removes only its ids from a running IX3, then builds', async ({ page }) => {
-  const scrollIds = runtime.filter((x) => x.module === 'ix-scroll').map((x) => x.id);
-  const fakeIx3 = `<script>
-    window.__removed = [];
-    const interactions = new Map(${JSON.stringify([...scrollIds, 'i-6bcd2f36', 'i-7a4acb26', 'i-other'].map((id) => [id, {}]))});
-    const instance = { interactions, remove: (ids) => { window.__removed.push(...ids); ids.forEach((id) => interactions.delete(id)); } };
-    window.Webflow = { push: (fn) => fn(), require: (name) => (name === 'ix3' ? { getInstance: () => instance } : undefined) };
-  </script>`;
-  const errors = await open(page, 'https://brandvm.webflow.io/', fakeIx3);
-  await expect.poll(() => page.evaluate(() => window.__removed.length)).toBe(scrollIds.length + 2);
-  expect(await page.evaluate(() => window.__removed)).not.toContain('i-other');
-  // Built: the section header below the fold is at its from-state.
-  await expect(page.locator('.text-b')).toHaveCSS('opacity', '0');
   expect(errors).toEqual([]);
 });
 
@@ -86,6 +69,17 @@ test('ix-pointer: hover scales the cursor in and out; it follows the pointer', a
   expect(await scale()).toBe(0);
   await page.locator('#link').scrollIntoViewIfNeeded();
   await page.locator('#link').hover();
+  await expect.poll(scale).toBeCloseTo(1, 1);
+  await page.mouse.move(5, 5);
+  await expect.poll(scale).toBe(0);
+  // Delegated: a link added after start (a list re-render) works too.
+  await page.evaluate(() => {
+    const old = document.querySelector('#link');
+    const copy = old.cloneNode(true);
+    copy.id = 'link2';
+    old.replaceWith(copy);
+  });
+  await page.locator('#link2').hover();
   await expect.poll(scale).toBeCloseTo(1, 1);
   await page.mouse.move(5, 5);
   await expect.poll(scale).toBe(0);

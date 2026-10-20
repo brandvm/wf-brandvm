@@ -45,9 +45,7 @@ function boot() {
   // dropdowns need no JS (styles.css §03, on Webflow's .w--open).
   run('c-drop', initCDrop);
   // Stage 4: IX3 scroll and pointer interactions replayed from
-  // src/interactions/runtime.json. If a page still runs Webflow's IX3 (the
-  // live site until its next publish), each takes its interactions over
-  // (ix3-bridge.ts); otherwise it builds at once.
+  // src/interactions/runtime.json.
   run('ix-scroll', initIxScroll);
   run('ix-pointer', initIxPointer);
   // Starter fixes for markup Webflow publishes (conventions.md §9–11). Both

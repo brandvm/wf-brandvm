@@ -142,7 +142,8 @@ collected from client repos into those files.
   `!important`; they drop it at the cutover, once IX2 is deleted. (2) the
   closed state also sets the item's vertical padding to 0, transitioned
   with the rows, so the Designer padding returns when open.
-- Status: documented
+- Status: (1) obsolete since IX2 was deleted (1.4.2 dropped the
+  `!important`s); (2) still applies
 - Found by: claude
 
 

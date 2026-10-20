@@ -1,5 +1,6 @@
 // IX3 pointer interactions, replayed with bundled GSAP (Stage 4):
 //   - "Project Link Hover" (i-6bcd2f36): entering any .project-overlay-link
+//     (delegated, so re-rendered list items work)
 //     scales the page's one .project-link-cursor 0 → 1 (0.4s); leaving plays
 //     it back at 3× speed.
 //   - "Project | Cursor Move" (i-7a4acb26), desktop only: the cursor follows
@@ -13,16 +14,12 @@
 // prefers-reduced-motion: the cursor still follows the pointer and still
 // appears on hover (both are driven by the visitor), without smoothing.
 //
-// On everywhere since the IX3 deletion (2026-10-20, MANUAL-TODO H).
+// Replaced Webflow's IX3 on 2026-10-20 (IX3 deleted, release 1.4.1).
 import { gsap } from '../lib/gsap';
-import { repoInteractions } from './ix-flag';
-import { takeOverFromIx3 } from '../interactions/ix3-bridge';
 import { buildTimeline, forModule, reducedMotion, type Interaction } from '../interactions/replay';
 
 export function initIxPointer() {
-  if (!repoInteractions()) return;
-  const list = forModule('ix-pointer');
-  takeOverFromIx3(list.map((x) => x.id), () => list.forEach(build));
+  forModule('ix-pointer').forEach(build);
 }
 
 function build(ix: Interaction) {
@@ -35,15 +32,25 @@ function hover(ix: Interaction) {
   const enter = ix.triggers.find((t) => t.control === 'play');
   const leave = ix.triggers.find((t) => t.control === 'reverse');
   if (!enter?.target) return;
-  const links = Array.from(document.querySelectorAll(enter.target.selector));
-  if (!links.length) return;
+  const selector = enter.target.selector;
+  if (!document.querySelector(selector)) return;
   const tl = buildTimeline(ix.timelines[0], null, { paused: true });
   if (reducedMotion()) tl.duration(0.001);
   const speed = leave?.speed ?? 1;
-  links.forEach((link) => {
-    link.addEventListener('mouseenter', () => tl.timeScale(1).play());
-    if (leave) link.addEventListener('mouseleave', () => tl.timeScale(speed).reverse());
+  // Delegated, so links that Finsweet List (or any re-render) adds later
+  // work too: mouseover/mouseout bubble, mouseenter/leave don't. Moving
+  // between a link's own children doesn't count as entering or leaving.
+  const linkOf = (node: EventTarget | null) => (node instanceof Element ? node.closest(selector) : null);
+  document.addEventListener('mouseover', (event) => {
+    const link = linkOf(event.target);
+    if (link && linkOf(event.relatedTarget) !== link) tl.timeScale(1).play();
   });
+  if (leave) {
+    document.addEventListener('mouseout', (event) => {
+      const link = linkOf(event.target);
+      if (link && linkOf(event.relatedTarget) !== link) tl.timeScale(speed).reverse();
+    });
+  }
 }
 
 function follow(ix: Interaction) {

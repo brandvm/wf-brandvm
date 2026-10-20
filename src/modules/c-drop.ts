@@ -10,15 +10,12 @@
 // "C-drop"). Adds what IX2 never had: the toggle is a keyboard button with
 // aria-expanded/aria-controls.
 //
-// On everywhere since the IX2 deletion (2026-10-20, ix-flag.ts). The
-// stopPropagation below only mattered while IX2 ran; it goes in a cleanup.
-import { repoInteractions } from './ix-flag';
+// Replaced Webflow's IX2 on 2026-10-20 (IX2 deleted, release 1.4.1).
 
 const CLOSED = '80px';
 const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export function initCDrop() {
-  if (!repoInteractions()) return;
   document.querySelectorAll<HTMLElement>('.c-drop').forEach((drop, index) => {
     const content = drop.querySelector<HTMLElement>('.c-drop-content');
     const toggle = drop.querySelector<HTMLElement>('.c-drop-toggle');
@@ -47,14 +44,12 @@ export function initCDrop() {
       if (open && reducedMotion()) settle();
     };
 
-    // Capture phase, stopped here: IX2's delegated click handler never
-    // sees it, so it doesn't run a-7/a-8 on top. Links inside the content
-    // keep working and don't toggle.
+    // A click anywhere on .c-drop toggles it, as IX2's did. Links inside
+    // the content keep working and don't toggle.
     drop.addEventListener('click', (event) => {
       if ((event.target as Element).closest('a')) return;
-      event.stopPropagation();
       setOpen(!drop.classList.contains('is-open'));
-    }, true);
+    });
     toggle.addEventListener('keydown', (event) => {
       if (event.key !== 'Enter' && event.key !== ' ') return;
       event.preventDefault();

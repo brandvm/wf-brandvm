@@ -552,86 +552,88 @@ a {
 /* ---------- G | Nav dropdowns and mobile menu (Stage 4, nav.ts) ---------- */
 /* repo-css: js-state — open/closed motion keyed on Webflow's .w--open
    (dropdowns) and nav.ts's .is-open (mobile menu), IX2's timing and curve.
-   Staging-only behind html.wfc-ix (?wfc-ix=repo). The !important beats the
-   inline styles IX2 still writes while it runs (GOTCHAS 2026-10-19); drop it
-   at the cutover, when IX2 is deleted. */
-html.wfc-ix {
+   Every Stage 4 rule is scoped to html[data-wf-domain]: published pages
+   carry it from the first byte (no shift before the bundle runs), the
+   Designer canvas never does, so editors still see open menus, dropdown
+   lists and full C-drop text there. IX2 was deleted on 2026-10-20, so no
+   rule needs !important any more except the reduced-motion overrides. */
+html[data-wf-domain] {
   --bv-nav-ease: cubic-bezier(0.64, 0.05, 0, 1);
 }
-html.wfc-ix .g-nav-drop-list {
-  display: block !important;
+html[data-wf-domain] .g-nav-drop-list {
+  display: block;
   visibility: hidden;
   pointer-events: none;
   transition: visibility 0s linear 0.4s;
 }
-html.wfc-ix .g-nav-drop-list.w--open {
+html[data-wf-domain] .g-nav-drop-list.w--open {
   visibility: visible;
   pointer-events: auto;
   transition-delay: 0s;
 }
-html.wfc-ix .g-nav-drop-content-w {
+html[data-wf-domain] .g-nav-drop-content-w {
   display: grid;
   grid-template-rows: 0fr;
-  height: auto !important;
+  height: auto;
   transition: grid-template-rows 0.4s var(--bv-nav-ease);
 }
-html.wfc-ix .g-nav-drop-list.w--open .g-nav-drop-content-w {
+html[data-wf-domain] .g-nav-drop-list.w--open .g-nav-drop-content-w {
   grid-template-rows: 1fr;
 }
-html.wfc-ix .g-nav-drop-content-w > * {
+html[data-wf-domain] .g-nav-drop-content-w > * {
   min-height: 0;
   transition: padding 0.4s var(--bv-nav-ease);
 }
 /* A 0fr row still keeps the content's padding: collapse it while closed;
    open, the Designer's padding applies again. */
-html.wfc-ix .g-nav-drop-list:not(.w--open) .g-nav-drop-content-w > * {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+html[data-wf-domain] .g-nav-drop-list:not(.w--open) .g-nav-drop-content-w > * {
+  padding-top: 0;
+  padding-bottom: 0;
 }
-html.wfc-ix .g-n-d-content-w {
-  opacity: 0 !important;
+html[data-wf-domain] .g-n-d-content-w {
+  opacity: 0;
   transition: opacity 0.4s var(--bv-nav-ease);
 }
-html.wfc-ix .g-nav-drop-list.w--open .g-n-d-content-w {
-  opacity: 1 !important;
+html[data-wf-domain] .g-nav-drop-list.w--open .g-n-d-content-w {
+  opacity: 1;
   transition-delay: 0.24s;
 }
-html.wfc-ix .mega-menu-overlay {
-  display: block !important;
-  opacity: 0 !important;
+html[data-wf-domain] .mega-menu-overlay {
+  display: block;
+  opacity: 0;
   transition: opacity 0.4s var(--bv-nav-ease);
 }
-html.wfc-ix .g-nav-drop-list.w--open .mega-menu-overlay {
-  opacity: 1 !important;
+html[data-wf-domain] .g-nav-drop-list.w--open .mega-menu-overlay {
+  opacity: 1;
 }
-html.wfc-ix .g-nav-drop .icon-drop {
-  transform: none !important;
+html[data-wf-domain] .g-nav-drop .icon-drop {
+  transform: none;
   transition: transform 0.4s var(--bv-nav-ease);
 }
-html.wfc-ix .g-nav-drop-toggle.w--open .icon-drop {
-  transform: rotate(180deg) !important;
+html[data-wf-domain] .g-nav-drop-toggle.w--open .icon-drop {
+  transform: rotate(180deg);
 }
 @media screen and (max-width: 991px) {
-  html.wfc-ix .g-nav-menu {
-    display: flex !important;
+  html[data-wf-domain] .g-nav-menu {
+    display: flex;
     visibility: hidden;
-    transform: none !important;
+    transform: none;
     transition: transform 1.2s var(--bv-nav-ease), visibility 0s linear 1.2s;
   }
-  html.wfc-ix .g-nav-menu.is-open {
+  html[data-wf-domain] .g-nav-menu.is-open {
     visibility: visible;
-    transform: translateX(-101%) !important;
+    transform: translateX(-101%);
     transition: transform 1.2s var(--bv-nav-ease), visibility 0s linear 0s;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  html.wfc-ix .g-nav-drop-list,
-  html.wfc-ix .g-nav-drop-content-w,
-  html.wfc-ix .g-nav-drop-content-w > *,
-  html.wfc-ix .g-n-d-content-w,
-  html.wfc-ix .mega-menu-overlay,
-  html.wfc-ix .g-nav-drop .icon-drop,
-  html.wfc-ix .g-nav-menu {
+  html[data-wf-domain] .g-nav-drop-list,
+  html[data-wf-domain] .g-nav-drop-content-w,
+  html[data-wf-domain] .g-nav-drop-content-w > *,
+  html[data-wf-domain] .g-n-d-content-w,
+  html[data-wf-domain] .mega-menu-overlay,
+  html[data-wf-domain] .g-nav-drop .icon-drop,
+  html[data-wf-domain] .g-nav-menu {
     transition-duration: 1ms !important;
     transition-delay: 0s !important;
   }
@@ -643,72 +645,72 @@ html.wfc-ix .g-nav-drop-toggle.w--open .icon-drop {
    Sub Open/Close" (a-3/a-4) and "Filter Drop Open/Close" (a-5/a-6): height
    0 → auto 740ms, content opacity 0 → 1 delayed 240ms, FAQ icon 135°,
    S HUB icon 90° and toggle text → rgb(203,53,26). Same pattern and caveats
-   as "G | Nav" above (flag-gated, !important against IX2's inline styles,
-   closed padding/margin collapsed: GOTCHAS 2026-10-19). Webflow's dropdown
+   as "G | Nav" above (scoped to published pages; closed padding/margin
+   collapsed: GOTCHAS 2026-10-19). Webflow's dropdown
    already sets aria-expanded and handles keys and outside clicks. */
-html.wfc-ix {
+html[data-wf-domain] {
   --bv-acc-dur: 0.74s;
 }
-html.wfc-ix .faqs-accordion-list,
-html.wfc-ix .services-hub-sub-acc-list,
-html.wfc-ix .filter-drop-list {
-  display: grid !important;
+html[data-wf-domain] .faqs-accordion-list,
+html[data-wf-domain] .services-hub-sub-acc-list,
+html[data-wf-domain] .filter-drop-list {
+  display: grid;
   grid-template-rows: 0fr;
-  height: auto !important;
+  height: auto;
   visibility: hidden;
   transition: grid-template-rows var(--bv-acc-dur) var(--bv-nav-ease),
     visibility 0s linear var(--bv-acc-dur);
 }
-html.wfc-ix .faqs-accordion-list.w--open,
-html.wfc-ix .services-hub-sub-acc-list.w--open,
-html.wfc-ix .filter-drop-list.w--open {
+html[data-wf-domain] .faqs-accordion-list.w--open,
+html[data-wf-domain] .services-hub-sub-acc-list.w--open,
+html[data-wf-domain] .filter-drop-list.w--open {
   grid-template-rows: 1fr;
   visibility: visible;
   transition: grid-template-rows var(--bv-acc-dur) var(--bv-nav-ease), visibility 0s linear 0s;
 }
-html.wfc-ix .faqs-accordion-content,
-html.wfc-ix .services-hub-sub-acc-content,
-html.wfc-ix .filter-drop-content {
+html[data-wf-domain] .faqs-accordion-content,
+html[data-wf-domain] .services-hub-sub-acc-content,
+html[data-wf-domain] .filter-drop-content {
   min-height: 0;
   transition: padding var(--bv-acc-dur) var(--bv-nav-ease),
     margin var(--bv-acc-dur) var(--bv-nav-ease),
     opacity var(--bv-acc-dur) var(--bv-nav-ease);
 }
-html.wfc-ix .faqs-accordion-list:not(.w--open) .faqs-accordion-content,
-html.wfc-ix .services-hub-sub-acc-list:not(.w--open) .services-hub-sub-acc-content,
-html.wfc-ix .filter-drop-list:not(.w--open) .filter-drop-content {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+html[data-wf-domain] .faqs-accordion-list:not(.w--open) .faqs-accordion-content,
+html[data-wf-domain] .services-hub-sub-acc-list:not(.w--open) .services-hub-sub-acc-content,
+html[data-wf-domain] .filter-drop-list:not(.w--open) .filter-drop-content {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 /* Content fade: FAQ and S HUB only (IX2's filter list has none). */
-html.wfc-ix .faqs-accordion-content,
-html.wfc-ix .services-hub-sub-acc-content {
-  opacity: 0 !important;
+html[data-wf-domain] .faqs-accordion-content,
+html[data-wf-domain] .services-hub-sub-acc-content {
+  opacity: 0;
 }
-html.wfc-ix .faqs-accordion-list.w--open .faqs-accordion-content,
-html.wfc-ix .services-hub-sub-acc-list.w--open .services-hub-sub-acc-content {
-  opacity: 1 !important;
+html[data-wf-domain] .faqs-accordion-list.w--open .faqs-accordion-content,
+html[data-wf-domain] .services-hub-sub-acc-list.w--open .services-hub-sub-acc-content {
+  opacity: 1;
   transition-delay: 0s, 0s, 0.24s;
 }
-html.wfc-ix .faqs-accordion-icon-w,
-html.wfc-ix .sh-sa-icon-w {
-  transform: none !important;
+html[data-wf-domain] .faqs-accordion-icon-w,
+html[data-wf-domain] .sh-sa-icon-w {
+  transform: none;
   transition: transform var(--bv-acc-dur) var(--bv-nav-ease);
 }
-html.wfc-ix .faqs-accordion-toggle.w--open .faqs-accordion-icon-w {
-  transform: rotate(135deg) !important;
+html[data-wf-domain] .faqs-accordion-toggle.w--open .faqs-accordion-icon-w {
+  transform: rotate(135deg);
 }
-html.wfc-ix .services-hub-sub-acc-toggle.w--open .sh-sa-icon-w {
-  transform: rotate(90deg) !important;
+html[data-wf-domain] .services-hub-sub-acc-toggle.w--open .sh-sa-icon-w {
+  transform: rotate(90deg);
 }
-html.wfc-ix .services-hub-sub-acc-toggle {
-  color: rgb(0, 0, 0) !important;
+html[data-wf-domain] .services-hub-sub-acc-toggle {
+  color: rgb(0, 0, 0);
   transition: color var(--bv-acc-dur) var(--bv-nav-ease);
 }
-html.wfc-ix .services-hub-sub-acc-toggle.w--open {
-  color: rgb(203, 53, 26) !important;
+html[data-wf-domain] .services-hub-sub-acc-toggle.w--open {
+  color: rgb(203, 53, 26);
 }
 
 /* ---------- C-drop "Learn More" (Stage 4, c-drop.ts) ---------- */
@@ -716,43 +718,43 @@ html.wfc-ix .services-hub-sub-acc-toggle.w--open {
    --c-drop-h (the measured height, then auto). Replaces IX2 "C Drop Click
    Open/Close" (a-7/a-8): content 80px → auto 740ms, labels swap, fader
    100% → 0 after 240ms (its own Designer transition animates it). */
-html.wfc-ix .c-drop-content {
-  height: var(--c-drop-h, 80px) !important;
+html[data-wf-domain] .c-drop-content {
+  height: var(--c-drop-h, 80px);
   transition: height var(--bv-acc-dur) var(--bv-nav-ease);
 }
-html.wfc-ix .c-drop.is-open .c-drop-content-fader {
-  height: 0 !important;
+html[data-wf-domain] .c-drop.is-open .c-drop-content-fader {
+  height: 0;
   transition-delay: 0.24s;
 }
-html.wfc-ix .c-drop:not(.is-open) .c-drop-content-fader {
-  height: 100% !important;
+html[data-wf-domain] .c-drop:not(.is-open) .c-drop-content-fader {
+  height: 100%;
 }
 /* The hover peek ("C-drop hover" below) still applies while closed. */
-html.wfc-ix .c-drop:not(.is-open):hover .c-drop-content-fader {
-  height: 20% !important;
+html[data-wf-domain] .c-drop:not(.is-open):hover .c-drop-content-fader {
+  height: 20%;
 }
-html.wfc-ix .c-drop .c-drop-toggle-label.to-open {
-  display: flex !important;
+html[data-wf-domain] .c-drop .c-drop-toggle-label.to-open {
+  display: flex;
 }
-html.wfc-ix .c-drop .c-drop-toggle-label.to-close,
-html.wfc-ix .c-drop.is-open .c-drop-toggle-label.to-open {
-  display: none !important;
+html[data-wf-domain] .c-drop .c-drop-toggle-label.to-close,
+html[data-wf-domain] .c-drop.is-open .c-drop-toggle-label.to-open {
+  display: none;
 }
-html.wfc-ix .c-drop.is-open .c-drop-toggle-label.to-close {
-  display: flex !important;
+html[data-wf-domain] .c-drop.is-open .c-drop-toggle-label.to-close {
+  display: flex;
 }
 @media (prefers-reduced-motion: reduce) {
-  html.wfc-ix .faqs-accordion-list,
-  html.wfc-ix .services-hub-sub-acc-list,
-  html.wfc-ix .filter-drop-list,
-  html.wfc-ix .faqs-accordion-content,
-  html.wfc-ix .services-hub-sub-acc-content,
-  html.wfc-ix .filter-drop-content,
-  html.wfc-ix .faqs-accordion-icon-w,
-  html.wfc-ix .sh-sa-icon-w,
-  html.wfc-ix .services-hub-sub-acc-toggle,
-  html.wfc-ix .c-drop-content,
-  html.wfc-ix .c-drop-content-fader {
+  html[data-wf-domain] .faqs-accordion-list,
+  html[data-wf-domain] .services-hub-sub-acc-list,
+  html[data-wf-domain] .filter-drop-list,
+  html[data-wf-domain] .faqs-accordion-content,
+  html[data-wf-domain] .services-hub-sub-acc-content,
+  html[data-wf-domain] .filter-drop-content,
+  html[data-wf-domain] .faqs-accordion-icon-w,
+  html[data-wf-domain] .sh-sa-icon-w,
+  html[data-wf-domain] .services-hub-sub-acc-toggle,
+  html[data-wf-domain] .c-drop-content,
+  html[data-wf-domain] .c-drop-content-fader {
     transition-duration: 1ms !important;
     transition-delay: 0s !important;
   }
