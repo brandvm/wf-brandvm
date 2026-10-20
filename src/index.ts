@@ -2,6 +2,7 @@
 // Feature code lives in src/modules/<name>.ts and exports an init
 // function that no-ops when its selector is absent from the page.
 import { initAriaRoles } from './modules/aria-roles';
+import { initCDrop } from './modules/c-drop';
 import { initCounter } from './modules/counter';
 import { initDotMap } from './modules/dot-map';
 import { initDropdownClose } from './modules/dropdown-close';
@@ -38,6 +39,9 @@ function boot() {
   run('hero-intro', initHeroIntro);
   // Stage 4: nav dropdowns and mobile menu, staging-only behind ?wfc-ix=repo.
   run('nav', initNav);
+  // Stage 4: case-study C-drop, same flag. The FAQ, Services hub and filter
+  // dropdowns need no JS (styles.css §03, on Webflow's .w--open).
+  run('c-drop', initCDrop);
   // Starter fixes for markup Webflow publishes (conventions.md §9–11). Both
   // act only on data-aria-role / data-placeholder, which the site doesn't
   // use yet. unique-form-ids stays off for parity: it would rename the

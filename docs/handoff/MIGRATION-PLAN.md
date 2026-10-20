@@ -219,19 +219,22 @@ interactions, then replay them*, `lessons/js.md`):
      on Webflow's `.w--open`; the mobile menu adds aria-expanded, Escape
      and focus. Compared frame by frame with IX2 at 1440 and 390: same end
      states, same timing. Cutover: MANUAL-TODO **F**.
-   - **Next (paused 2026-10-19, resume here):** FAQ accordion, Services
-     hub sub-lists, Insights filter and C-drop, same `?wfc-ix=repo` flag.
-     Decoded IX2 (all 16 lists, 34 events): `docs/audit/2026-10-19-ix2-home.json`.
-     FAQ (`a`/`a-2`), S HUB (`a-3`/`a-4`), Filter (`a-5`/`a-6`) are Webflow
-     dropdowns: same CSS pattern as the nav on `.w--open`, 740ms, content
-     opacity delayed 240ms; FAQ icon `.faqs-accordion-icon-w` 0→135°, S HUB
-     icon `.sh-sa-icon-w` 0→90° and toggle text black → rgb(203,53,26).
-     C-drop (`a-7`/`a-8`) is a click toggle on `.c-drop`: `.c-drop-content`
-     80px → auto, labels `.to-open`/`.to-close` swap, `.c-drop-content-fader`
-     100% → 0 after 240ms; needs JS (aria-expanded) for the height.
-     First step: find which pages carry each (the 50-page list in
-     `screenshots/2026-10-19-live/pages.txt`).
-   - `nav.ts`, `accordion.ts`, `dropdown.ts`: the IX2 nav, FAQ, filter and
+   - **FAQ, Services hub, Filter, C-drop — built, on staging behind
+     `?wfc-ix=repo` (2026-10-20):** decoded from
+     `docs/audit/2026-10-19-ix2-home.json` (a…a-8). FAQ (55 pages), S HUB
+     (/services), Filter (/insights + 7 category pages, /our-work-portfolio)
+     are Webflow dropdowns, so CSS only on `.w--open` (styles.css §03 "FAQ,
+     Services hub and Filter dropdowns"): 740ms, content opacity delayed
+     240ms, FAQ icon 135°, S HUB icon 90° + toggle colour. C-drop (78 case
+     studies) is `c-drop.ts` + §03 "C-drop": measured height 80px → auto,
+     labels swap, fader cleared after 240ms, keyboard toggle with
+     aria-expanded. Checked on real staging pages with IX2 running, flag on
+     vs off: same closed/open heights and icon angles on /, /faq,
+     /services, /insights, /case-studies/nexus. Cutover: MANUAL-TODO **G**.
+   - **Next (resume here):** the IX3 families — `ix-scroll.ts`,
+     `ix-pointer.ts`, `ix-load.ts` (step 1: decode the IX3 timelines from
+     each page type's `webflow.*.js` chunk into `src/interactions/spec.json`).
+   - `nav.ts`, `c-drop.ts` (+ CSS for the dropdowns): the IX2 nav, FAQ, filter and
      C-drop behaviour, written as plain JS + CSS state classes with ARIA
      (`aria-expanded`), not as animations of inline styles. One nav module
      replaces the three "Drop Open / Menu Close" copies.

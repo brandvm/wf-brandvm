@@ -52,6 +52,7 @@ again at each gate, so the steps are found early and not at the end:
 | D | Site settings › Apps (or the Flowbase account) | — | Uninstall / disable Flowbase "Auto Tab Rotation" booster. `tab-rotation.ts` takes over automatically (it stays off while Flowbase's script is on the page) | Installed by an app, not as site/page code; no API to remove it | ☐ |
 | E | Home hero (+ the 9 location pages with the same hero) | all | The Home hero intro build, section below | Designer markup, Embeds, page head code and an IX3 deletion; done together with a wf-brandvm release | ☐ |
 | F | Interactions panel › IX2 "G Nav \| …" (8 action lists) | all | Delete them, after Asheem has tried staging with `?wfc-ix=repo` | IX2 deletion has no API | ☐ |
+| G | Interactions panel › IX2 "FAQs Accordion", "S HUB", "Filter Drop", "C Drop Click" (8 action lists) | all | Delete them, after trying staging with `?wfc-ix=repo` (section below) | IX2 deletion has no API | ☐ |
 
 ## F · Nav cutover (Stage 4)
 
@@ -65,6 +66,23 @@ again at each gate, so the steps are found early and not at the end:
    "Drop Open 3", "Drop Close", "Menu Open", "Menu Close", "Menu Close 2",
    "Menu Close 3" and their 12 events, in the same publish as the release.
 4. Publish staging, check by eye at 1440, 991, 390; then "publish".
+
+## G · FAQ, Services hub, Filter and C-drop cutover (Stage 4)
+
+1. **Try it first** on `brandvm.webflow.io` with `?wfc-ix=repo`: a FAQ
+   (`/`, `/faq`, any service page), the sub-lists on `/services`, "Sort by"
+   on `/insights`, and "Learn More" on any case study (also with the
+   keyboard: Tab to it, Enter).
+2. **Claude:** remove the flag check and the `stopPropagation` from
+   `c-drop.ts`, the `!important`s and the `html.wfc-ix` prefix from
+   styles.css §03 "FAQ, Services hub and Filter dropdowns" and "C-drop",
+   release.
+3. **Webflow:** delete IX2 action lists "FAQs Accordion | Open", "FAQs
+   Accordion | Close", "S HUB | Sub Open", "S HUB | Sub Close", "Filter
+   Drop Open", "Filter Drop Close", "C Drop Click Open", "C Drop Click
+   Close" and their 22 events (e, e-2, e-5…e-24), in the same publish as
+   the release.
+4. Publish staging, check by eye at 1440, 991, 390; then publish.
 
 ## E · Home hero intro cutover (Stage 4, one batch, staging first)
 

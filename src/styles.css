@@ -637,6 +637,127 @@ html.wfc-ix .g-nav-drop-toggle.w--open .icon-drop {
   }
 }
 
+/* ---------- FAQ, Services hub and Filter dropdowns (Stage 4, CSS only) ---------- */
+/* repo-css: js-state — open/closed motion keyed on Webflow's dropdown
+   .w--open, replacing IX2 "FAQs Accordion | Open/Close" (a/a-2), "S HUB |
+   Sub Open/Close" (a-3/a-4) and "Filter Drop Open/Close" (a-5/a-6): height
+   0 → auto 740ms, content opacity 0 → 1 delayed 240ms, FAQ icon 135°,
+   S HUB icon 90° and toggle text → rgb(203,53,26). Same pattern and caveats
+   as "G | Nav" above (flag-gated, !important against IX2's inline styles,
+   closed padding/margin collapsed: GOTCHAS 2026-10-19). Webflow's dropdown
+   already sets aria-expanded and handles keys and outside clicks. */
+html.wfc-ix {
+  --bv-acc-dur: 0.74s;
+}
+html.wfc-ix .faqs-accordion-list,
+html.wfc-ix .services-hub-sub-acc-list,
+html.wfc-ix .filter-drop-list {
+  display: grid !important;
+  grid-template-rows: 0fr;
+  height: auto !important;
+  visibility: hidden;
+  transition: grid-template-rows var(--bv-acc-dur) var(--bv-nav-ease),
+    visibility 0s linear var(--bv-acc-dur);
+}
+html.wfc-ix .faqs-accordion-list.w--open,
+html.wfc-ix .services-hub-sub-acc-list.w--open,
+html.wfc-ix .filter-drop-list.w--open {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows var(--bv-acc-dur) var(--bv-nav-ease), visibility 0s linear 0s;
+}
+html.wfc-ix .faqs-accordion-content,
+html.wfc-ix .services-hub-sub-acc-content,
+html.wfc-ix .filter-drop-content {
+  min-height: 0;
+  transition: padding var(--bv-acc-dur) var(--bv-nav-ease),
+    margin var(--bv-acc-dur) var(--bv-nav-ease),
+    opacity var(--bv-acc-dur) var(--bv-nav-ease);
+}
+html.wfc-ix .faqs-accordion-list:not(.w--open) .faqs-accordion-content,
+html.wfc-ix .services-hub-sub-acc-list:not(.w--open) .services-hub-sub-acc-content,
+html.wfc-ix .filter-drop-list:not(.w--open) .filter-drop-content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+/* Content fade: FAQ and S HUB only (IX2's filter list has none). */
+html.wfc-ix .faqs-accordion-content,
+html.wfc-ix .services-hub-sub-acc-content {
+  opacity: 0 !important;
+}
+html.wfc-ix .faqs-accordion-list.w--open .faqs-accordion-content,
+html.wfc-ix .services-hub-sub-acc-list.w--open .services-hub-sub-acc-content {
+  opacity: 1 !important;
+  transition-delay: 0s, 0s, 0.24s;
+}
+html.wfc-ix .faqs-accordion-icon-w,
+html.wfc-ix .sh-sa-icon-w {
+  transform: none !important;
+  transition: transform var(--bv-acc-dur) var(--bv-nav-ease);
+}
+html.wfc-ix .faqs-accordion-toggle.w--open .faqs-accordion-icon-w {
+  transform: rotate(135deg) !important;
+}
+html.wfc-ix .services-hub-sub-acc-toggle.w--open .sh-sa-icon-w {
+  transform: rotate(90deg) !important;
+}
+html.wfc-ix .services-hub-sub-acc-toggle {
+  color: rgb(0, 0, 0) !important;
+  transition: color var(--bv-acc-dur) var(--bv-nav-ease);
+}
+html.wfc-ix .services-hub-sub-acc-toggle.w--open {
+  color: rgb(203, 53, 26) !important;
+}
+
+/* ---------- C-drop "Learn More" (Stage 4, c-drop.ts) ---------- */
+/* repo-css: js-state — c-drop.ts toggles .is-open on .c-drop and sets
+   --c-drop-h (the measured height, then auto). Replaces IX2 "C Drop Click
+   Open/Close" (a-7/a-8): content 80px → auto 740ms, labels swap, fader
+   100% → 0 after 240ms (its own Designer transition animates it). */
+html.wfc-ix .c-drop-content {
+  height: var(--c-drop-h, 80px) !important;
+  transition: height var(--bv-acc-dur) var(--bv-nav-ease);
+}
+html.wfc-ix .c-drop.is-open .c-drop-content-fader {
+  height: 0 !important;
+  transition-delay: 0.24s;
+}
+html.wfc-ix .c-drop:not(.is-open) .c-drop-content-fader {
+  height: 100% !important;
+}
+/* The hover peek ("C-drop hover" below) still applies while closed. */
+html.wfc-ix .c-drop:not(.is-open):hover .c-drop-content-fader {
+  height: 20% !important;
+}
+html.wfc-ix .c-drop .c-drop-toggle-label.to-open {
+  display: flex !important;
+}
+html.wfc-ix .c-drop .c-drop-toggle-label.to-close,
+html.wfc-ix .c-drop.is-open .c-drop-toggle-label.to-open {
+  display: none !important;
+}
+html.wfc-ix .c-drop.is-open .c-drop-toggle-label.to-close {
+  display: flex !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.wfc-ix .faqs-accordion-list,
+  html.wfc-ix .services-hub-sub-acc-list,
+  html.wfc-ix .filter-drop-list,
+  html.wfc-ix .faqs-accordion-content,
+  html.wfc-ix .services-hub-sub-acc-content,
+  html.wfc-ix .filter-drop-content,
+  html.wfc-ix .faqs-accordion-icon-w,
+  html.wfc-ix .sh-sa-icon-w,
+  html.wfc-ix .services-hub-sub-acc-toggle,
+  html.wfc-ix .c-drop-content,
+  html.wfc-ix .c-drop-content-fader {
+    transition-duration: 1ms !important;
+    transition-delay: 0s !important;
+  }
+}
+
 /* ---------- Home hero intro (Stage 4, hero-intro.ts) ---------- */
 /* repo-css: js-state — frame 0 of the intro, held from first paint.
    html.w-mod-js comes from Webflow's head script, so without JS nothing is
