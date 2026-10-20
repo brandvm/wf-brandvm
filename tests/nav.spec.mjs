@@ -8,6 +8,8 @@ const css = readFileSync(new URL('../dist/styles.css', import.meta.url), 'utf8')
 const nav = `<div class="g-nav-w"><nav class="s-g-nav">
   <div class="g-nav-menu"><ul><li><a href="#" class="g-nav-close-button">×</a></li>
     <li><a href="#section" id="anchor">Anchor</a></li></ul></div>
+  <div class="g-nav-drop w-dropdown"><div class="g-nav-drop-toggle w-dropdown-toggle">Services</div>
+    <nav class="g-nav-drop-list w-dropdown-list"><div class="g-nav-drop-content-w"><div>Panel</div></div></nav></div>
   <a href="#" class="g-nav-menu-button">☰</a></nav></div><div id="section" style="height:200vh"></div>`;
 
 async function open(page, url) {
@@ -46,5 +48,18 @@ test('nav: mobile menu opens, closes, Escape and focus', async ({ page }) => {
   await page.locator('.g-nav-close-button').dispatchEvent('click');
   await expect(page.locator('.g-nav-menu')).not.toHaveClass(/is-open/);
   expect(page.url()).not.toContain('#');
+  expect(errors).toEqual([]);
+});
+
+test('nav: closed panels are not laid out until the visitor heads for the nav', async ({ page }) => {
+  const errors = await open(page, 'https://brandvm.webflow.io/');
+  await page.setViewportSize({ width: 1440, height: 900 });
+  const panel = page.locator('.g-nav-drop-list');
+  // display: none keeps the browser from fetching the panels' lazy images.
+  await expect(panel).toHaveCSS('display', 'none');
+  await page.locator('.g-nav-drop-toggle').hover();
+  await expect(page.locator('html')).toHaveClass(/is-nav-ready/);
+  await expect(panel).toHaveCSS('display', 'block');
+  await expect(panel).toHaveCSS('visibility', 'hidden');
   expect(errors).toEqual([]);
 });

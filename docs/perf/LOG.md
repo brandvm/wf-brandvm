@@ -174,3 +174,100 @@ What it shows (measured):
 Desktop **82 (81–88)**, LCP 1.9 s; mobile 54 (50–59), LCP 18.4 s; 100 MB.
 Back at Stage 2's 83: the 76 in the batch 3.3 run was noise, not Finsweet.
 Raw: `2026-10-19-work-10runs-live.json`.
+
+## 2026-10-20 · Stage 4: all interactions in the repo (1.4.1, live)
+
+Every Webflow IX2/IX3 interaction deleted and Webflow's GSAP turned off;
+the bundle runs all interactions on its own GSAP + ScrollTrigger. All ten
+pages, compared with the Stage 3 batch 3.3 run. Raw:
+`2026-10-20-stage4-live.json`.
+
+Release caveat: the live HTML said `RELEASE = "1.4.1"` when the run
+started, and `"1.4.2"` when it ended (a single check run after it loaded
+`wf-brandvm@1.4.2/dist/index.js`). Some of these pages were measured on
+1.4.1 and some on 1.4.2; we can't tell which from the runs. PageSpeed
+Insights: not run (no `PSI_KEY` in `.env`).
+
+| Page | Mode | Score 3.3 → now (range) | LCP | TBT | CLS | Transfer |
+| --- | --- | --- | --- | --- | --- | --- |
+| `/` | mobile | 57 → 62 (35–81) | 18.7 → 7.1 s | 190 → 239 ms | 0.005 → 0.005 | 9.7 → 9.7 MB |
+| `/` | desktop | 85 → 82 (81–84) | 2.0 → 2.0 s | 0 → 0 ms | 0.006 → 0.003 | 10.5 → **15.4 MB** |
+| `/about` | mobile | 56 → 58 (52–65) | 11.4 → 12.8 s | 183 → 163 ms | 0.001 → 0.001 | 14.0 → 14.0 MB |
+| `/about` | desktop | 80 → 83 (79–84) | 2.4 → 2.2 s | 0 → 0 ms | 0.001 → 0.001 | 15.6 → **20.7 MB** |
+| `/contact` | mobile | 51 → 52 (48–60) | 14.1 → 7.8 s | 291 → 267 ms | 0.032 → **0.275** | 2.9 → 3.1 MB |
+| `/contact` | desktop | 86 → 84 (81–90) | 1.8 → 1.9 s | 0 → 0 ms | 0.013 → 0.013 | 3.7 → **8.4 MB** |
+| `/web-design` | mobile | 56 → 61 (58–63) | 18.8 → 7.2 s | 166 → 187 ms | 0.004 → 0.004 | 10.6 → 10.5 MB |
+| `/web-design` | desktop | 86 → 85 (84–89) | 1.8 → 1.8 s | 0 → 0 ms | 0.008 → 0.015 | 10.9 → **15.7 MB** |
+| `/branding` | mobile | 57 → 62 (61–63) | 18.9 → 9.4 s | 185 → 176 ms | 0.001 → 0 | 9.7 → 9.7 MB |
+| `/branding` | desktop | 78 → **70** (67–71) | 2.7 → **6.7 s** | 0 → 4 ms | 0.025 → 0.025 | 10.2 → **15.1 MB** |
+| `/our-work-portfolio` | mobile | 56 → 58 (56–64) | 16.5 → 8.6 s | 150 → 155 ms | 0.004 → 0.005 | 97.9 → 97.9 MB |
+| `/our-work-portfolio` | desktop | 76 → 74 (68–78) | 2.4 → 2.9 s | 0 → 0 ms | 0.002 → 0.004 | 98.5 → **102.8 MB** |
+| `/insights` | mobile | 56 → **70** (68–90) | 22.8 → 5.1 s | 196 → 151 ms | 0 → 0.001 | 3.1 → 3.1 MB |
+| `/insights` | desktop | 92 → 92 (91–93) | 1.3 → 1.4 s | 0 → 0 ms | 0.001 → 0.001 | 4.0 → **8.9 MB** |
+| `/services` | mobile | 65 → 70 (60–81) | 7.3 → 9.0 s | 155 → 135 ms | 0.001 → 0.001 | 9.7 → 9.7 MB |
+| `/services` | desktop | 87 → 78 (76–88) | 2.1 → 3.1 s | 0 → 0 ms | 0 → 0 | 9.9 → **14.8 MB** |
+| case study | mobile | 54 → 55 (47–65) | 16.6 → 8.7 s | 225 → 132 ms | 0.001 → 0.001 | 12.2 → 12.1 MB |
+| case study | desktop | 85 → 80 (58–88) | 1.8 → 2.8 s | 9 → 0 ms | 0 → 0 | 12.2 → **17.2 MB** |
+| post | mobile | 57 → 62 (58–68) | 12.1 → 12.6 s | 214 → 164 ms | 0.001 → 0.001 | 2.6 → 2.6 MB |
+| post | desktop | 71 → 73 (70–75) | 4.3 → 5.2 s | 0 → 0 ms | 0 → 0.001 | 2.9 → **7.8 MB** |
+
+Case study: `/case-studies/accounting-advisory-firm-website`; post:
+`/post/10-essential-marketing-metrics`.
+
+What it shows (measured):
+
+- **Desktop transfer is up ~5 MB on every page; mobile is not.** That's
+  not the bundle. A check run on the post (desktop, 96 requests, 7.8 MB;
+  mobile 62 requests, 2.6 MB) shows **24 images from the nav dropdown's
+  Industries panel (`.g-n-d-industries-image`, ~5.2 MB, largest Food &
+  Beverage 1.26 MB, Education 0.82 MB) now load on page load**. They are
+  `loading="lazy"`, so the dropdown panel is probably no longer
+  `display: none` at load (IX used to hide it; now it looks hidden in a
+  way Chrome's lazy-loading still counts as near the viewport). To fix in
+  the repo: hide the closed panel with `display: none` / `content-visibility`,
+  or move the images out until the panel opens. The images themselves are
+  also too big for thumbnails (Stage 5).
+- **Webflow's GSAP files and IX chunks no longer load.** On the post the
+  only Webflow script left is `webflow.js` (20 KB transferred); the bundle
+  `index.js` is 93 KB transferred. The script doesn't count requests, and
+  the 3.3 run has no request list, so there is no measured before/after for
+  the script bytes alone; the 5 MB image jump hides them.
+- **Branding desktop 78 → 70 (67–71), LCP 2.7 → 6.7 s (6.5–7.3 s)**: the
+  whole range is below 3.3's (77–80). A real regression. First suspects:
+  the hero reveal now done by the bundle, and image bandwidth competing
+  with the dropdown images.
+- **Contact mobile CLS 0.032 → 0.275 (0.087–0.276)**: above 3.3 on every
+  run, back to baseline level (0.276). A real regression. Likely an element
+  the bundle reveals or sizes after first paint.
+- **Services desktop 87 → 78 (76–88)** and **case study desktop 85 → 80
+  (58–88)**: medians are lower and LCP is up 1 s, but both ranges still
+  reach the old median. Probably the extra images; re-measure after the
+  dropdown fix before calling it.
+- **Mobile is better or flat on all ten pages.** The largest change is
+  Insights 56 → 70 (68–90; the old range 53–77 reached 68–77 only once).
+  Mobile LCP medians are in the fast mode on 7 pages (Home 18.7 → 7.1 s,
+  Web Design 18.8 → 7.2 s, Insights 22.8 → 5.1 s, Branding 18.9 → 9.4 s,
+  Work 16.5 → 8.6 s, Contact 14.1 → 7.8 s, case study 16.6 → 8.7 s), and
+  Branding and Web Design have tight ranges (9.1–9.7 s, 6.1–9.1 s). That
+  fits IX3's hide-until-ready reveal being gone, but mobile LCP was
+  two-mode before (see Stage 2), so it needs a 10-run check before it is
+  called a gain.
+- Inside the noise: the other desktop scores (Home, About, Contact, Web
+  Design, Work, Insights, post) and TBT everywhere. Home mobile had one
+  run with TBT 1,081 ms and score 35; the median is 239 ms.
+
+**Follow-up, same day (1.4.3):**
+
+- The nav regression is fixed in the repo: closed mega-menu panels stay
+  `display: none` until the visitor heads for the nav (pointer, focus or
+  touch in it, or the mobile menu opening). On staging, nav-panel images
+  requested at load went from 39 to 0; they load when the nav is used. The
+  dropdown animation is unchanged (same heights at 400 ms and 1 s).
+- Video: the two testimonial videos in "S | Why Choose" had `autoplay`,
+  which overrides `preload="none"`, so ~3.5 MB downloaded at load on 59
+  pages even when off screen (and on phones also for the hidden one).
+  Changed in the Designer (MCP) to the lazy pattern the case-study videos
+  use (`data-bv-lazy-video`, no autoplay): 0 MB of video at load on
+  staging; they load 300 px ahead and play while visible.
+- To re-measure after 1.4.3 is live: all desktop pages (transfer should
+  drop ~5–8 MB), Branding desktop LCP, Contact mobile CLS.

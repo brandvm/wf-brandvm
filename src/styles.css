@@ -566,6 +566,11 @@ html[data-wf-domain] .g-nav-drop-list {
   pointer-events: none;
   transition: visibility 0s linear 0.4s;
 }
+/* Until nav.ts sees the visitor head for the nav (.is-nav-ready), closed
+   panels are not laid out, so their lazy images don't load (~5 MB). */
+html[data-wf-domain]:not(.is-nav-ready) .g-nav-drop-list:not(.w--open) {
+  display: none;
+}
 html[data-wf-domain] .g-nav-drop-list.w--open {
   visibility: visible;
   pointer-events: auto;

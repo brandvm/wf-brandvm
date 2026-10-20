@@ -19,7 +19,23 @@
 
 const MOBILE = '(max-width: 991px)';
 
+// Closed mega-menu panels stay display: none (styles.css "G | Nav") until
+// the visitor heads for the nav: pointer, focus or touch inside it, or the
+// mobile menu opening. Laid-out panels, even invisible, let the browser
+// fetch their lazy images: 43 images, ~5 MB on every desktop page view
+// (PageSpeed, 2026-10-20). A click always follows the pointer reaching
+// the nav, so the panels are ready to animate by then.
+function armPanels() {
+  const root = document.documentElement;
+  if (root.classList.contains('is-nav-ready')) return;
+  const ready = () => root.classList.add('is-nav-ready');
+  const nav = document.querySelector('.g-nav-w') || document.querySelector('.s-g-nav');
+  if (!nav) return ready();
+  ['pointerover', 'focusin', 'touchstart'].forEach((type) => nav.addEventListener(type, ready, { once: true, passive: true }));
+}
+
 export function initNav() {
+  armPanels();
   const menu = document.querySelector<HTMLElement>('.g-nav-menu');
   const openers = Array.from(document.querySelectorAll<HTMLElement>('.g-nav-menu-button'));
   const closers = Array.from(document.querySelectorAll<HTMLElement>('.g-nav-close-button'));
@@ -30,6 +46,7 @@ export function initNav() {
   let lastOpener: HTMLElement | null = null;
 
   const setOpen = (open: boolean, focus = true) => {
+    if (open) document.documentElement.classList.add('is-nav-ready');
     menu.classList.toggle('is-open', open);
     openers.forEach((button) => button.setAttribute('aria-expanded', String(open)));
     if (open) {
