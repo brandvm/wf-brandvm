@@ -14,7 +14,7 @@ Filled in by `pnpm new-project` on 2026-10-19.
 - Staging site: `https://brandvm.webflow.io`
 - Staging bundles: `https://brandvm.github.io/wf-brandvm/`
 - Production domain: `https://www.brandvm.com` (also `brandvm.com`)
-- Production release: `1.4.3` (RELEASE in Webflow head code, 2026-10-20 15:29 UTC; 1.4.1 at 14:53 shipped Stage 4 with every IX2/IX3 interaction deleted and Webflow GSAP off, 1.4.2 the cleanup, 1.4.3 the nav-image fix)
+- Production release: `1.4.6` (RELEASE in Webflow head code, 2026-10-20 ~18:30 UTC, with the Home performance changes in Webflow: subset fonts, lazy badges and hero panels, hero preloads; see docs/perf/LOG.md. Earlier the same day: 1.4.1 Stage 4 with every IX2/IX3 interaction deleted and Webflow GSAP off, 1.4.2 cleanup, 1.4.3 nav images, 1.4.4–1.4.5 HubSpot form space)
 
 ## Who owns what
 
