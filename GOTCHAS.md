@@ -25,6 +25,24 @@ collected from client repos into those files.
 
 ## This project
 
+### 2026-10-20 · Production loaded the repo stylesheet twice, the first from GitHub Pages
+- Area: loader, perf
+- Scope: template-candidate
+- Symptom: on www, Lighthouse listed `brandvm.github.io/.../styles.css` as
+  render-blocking (~770 ms on mobile), then the pinned jsDelivr sheet
+  loaded as well: two origins before first paint.
+- Cause: Embed 2a must link the staging sheet so the Designer canvas shows
+  repo CSS; 2b only swaps to the release afterwards, and 2b itself waits
+  for the 2a sheet (a script after a pending stylesheet).
+- Fix: piece 1 (head) runs a MutationObserver on release domains that
+  re-points `#wfc-css` at the pinned sheet as the parser inserts it; the
+  observer fires before 2b runs. One sheet holds first paint; 2b's swap is
+  a no-op. Note: Chrome reports a stylesheet in `<body>` as
+  `renderBlockingStatus: "non-blocking"` even though it holds the content
+  after it, so test with paint timing, not that field.
+- Status: fixed (loader 14b7638)
+- Found by: claude
+
 ### 2026-10-20 · Image loading, fonts and preloads through the MCP (Home 95 work)
 - Area: perf, mcp
 - Scope: template-candidate
