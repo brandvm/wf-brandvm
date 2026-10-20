@@ -1,0 +1,421 @@
+[
+  {
+    "page": "home",
+    "device": "mobile",
+    "runs": [
+      {
+        "file": "home-mobile-1.report.json",
+        "score": 75,
+        "lcp_seconds": 4.644686999999999,
+        "fcp_seconds": 3.010574999999999,
+        "tbt_ms": 0,
+        "cls": 0.00960629109167768,
+        "transfer_mib": 0.5937089920043945,
+        "version": "13.4.1",
+        "fetchTime": "2026-10-20T20:32:45.629Z",
+        "benchmarkIndex": 3802,
+        "warnings": []
+      },
+      {
+        "file": "home-mobile-2.report.json",
+        "score": 71,
+        "lcp_seconds": 4.801636500000001,
+        "fcp_seconds": 3.8530000000000006,
+        "tbt_ms": 93.5,
+        "cls": 0,
+        "transfer_mib": 0.8682489395141602,
+        "version": "13.4.1",
+        "fetchTime": "2026-10-20T20:33:46.106Z",
+        "benchmarkIndex": 3731.5,
+        "warnings": []
+      },
+      {
+        "file": "home-mobile-3.report.json",
+        "score": 77,
+        "lcp_seconds": 4.6910085,
+        "fcp_seconds": 3.023084,
+        "tbt_ms": 4,
+        "cls": 0.00960629109167768,
+        "transfer_mib": 0.5936307907104492,
+        "version": "13.4.1",
+        "fetchTime": "2026-10-20T20:34:44.911Z",
+        "benchmarkIndex": 3895.5,
+        "warnings": []
+      }
+    ],
+    "median": {
+      "score": 75,
+      "lcp_seconds": 4.6910085,
+      "fcp_seconds": 3.023084,
+      "tbt_ms": 4,
+      "cls": 0.00960629109167768,
+      "transfer_mib": 0.5937089920043945
+    },
+    "baseline": {
+      "score": 46,
+      "lcp_seconds": 8.020703000000001,
+      "transfer_mib": 21.786660194396973
+    },
+    "representative_report": "home-mobile-1.report.html",
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "display": "Est savings of 68 KiB",
+        "savings": {
+          "FCP": 0,
+          "LCP": 350
+        }
+      },
+      {
+        "id": "cache-insight",
+        "title": "Use efficient cache lifetimes",
+        "display": "Est savings of 25 KiB",
+        "savings": {
+          "FCP": 0,
+          "LCP": 0
+        }
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "display": "Est savings of 157 KiB",
+        "savings": {
+          "FCP": 0,
+          "LCP": 0
+        }
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "display": "",
+        "savings": {
+          "LCP": 0
+        }
+      },
+      {
+        "id": "render-blocking-insight",
+        "title": "Render-blocking requests",
+        "display": "Est savings of 1,630 ms",
+        "savings": {
+          "FCP": 1650,
+          "LCP": 0
+        }
+      }
+    ]
+  },
+  {
+    "page": "home",
+    "device": "desktop",
+    "runs": [
+      {
+        "file": "home-desktop-1.report.json",
+        "score": 96,
+        "lcp_seconds": 1.1810381600000002,
+        "fcp_seconds": 0.9132241989709473,
+        "tbt_ms": 0,
+        "cls": 0.0033769143919826056,
+        "transfer_mib": 1.50042724609375,
+        "version": "13.4.1",
+        "fetchTime": "2026-10-20T20:33:02.121Z",
+        "benchmarkIndex": 3890,
+        "warnings": []
+      },
+      {
+        "file": "home-desktop-2.report.json",
+        "score": 98,
+        "lcp_seconds": 1.0257660000000002,
+        "fcp_seconds": 0.752984,
+        "tbt_ms": 0,
+        "cls": 0.003170705069973441,
+        "transfer_mib": 1.5004034042358398,
+        "version": "13.4.1",
+        "fetchTime": "2026-10-20T20:34:02.896Z",
+        "benchmarkIndex": 3856,
+        "warnings": []
+      },
+      {
+        "file": "home-desktop-3.report.json",
+        "score": 99,
+        "lcp_seconds": 0.993128,
+        "fcp_seconds": 0.6782509999999999,
+        "tbt_ms": 0,
+        "cls": 0.003170705069973441,
+        "transfer_mib": 1.500406265258789,
+        "version": "13.4.1",
+        "fetchTime": "2026-10-20T20:35:00.074Z",
+        "benchmarkIndex": 3907.5,
+        "warnings": []
+      }
+    ],
+    "median": {
+      "score": 98,
+      "lcp_seconds": 1.0257660000000002,
+      "fcp_seconds": 0.752984,
+      "tbt_ms": 0,
+      "cls": 0.003170705069973441,
+      "transfer_mib": 1.500406265258789
+    },
+    "representative_report": "home-desktop-2.report.html",
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "display": "Est savings of 62 KiB",
+        "savings": {
+          "FCP": 0,
+          "LCP": 0
+        }
+      },
+      {
+        "id": "cache-insight",
+        "title": "Use efficient cache lifetimes",
+        "display": "Est savings of 190 KiB",
+        "savings": {
+          "FCP": 0,
+          "LCP": 0
+        }
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "display": "Est savings of 842 KiB",
+        "savings": {
+          "FCP": 0,
+          "LCP": 100
+        }
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "display": "",
+        "savings": {
+          "LCP": 0
+        }
+      },
+      {
+        "id": "render-blocking-insight",
+        "title": "Render-blocking requests",
+        "display": "Est savings of 350 ms",
+        "savings": {
+          "FCP": 350,
+          "LCP": 0
+        }
+      }
+    ]
+  },
+  {
+    "page": "web-design",
+    "device": "mobile",
+    "runs": [
+      {
+        "file": "web-design-mobile-1.report.json",
+        "score": 68,
+        "lcp_seconds": 5.3376425,
+        "fcp_seconds": 3.6912409999999998,
+        "tbt_ms": 79.5,
+        "cls": 0,
+        "transfer_mib": 2.2789134979248047,
+        "version": "13.4.1",
+        "fetchTime": "2026-10-20T20:33:15.990Z",
+        "benchmarkIndex": 3808,
+        "warnings": []
+      },
+      {
+        "file": "web-design-mobile-2.report.json",
+        "score": 73,
+        "lcp_seconds": 5.276872499999999,
+        "fcp_seconds": 3.21245,
+        "tbt_ms": 3,
+        "cls": 0.006382555422364549,
+        "transfer_mib": 1.818638801574707,
+        "version": "13.4.1",
+        "fetchTime": "2026-10-20T20:34:15.945Z",
+        "benchmarkIndex": 3898.5,
+        "warnings": []
+      },
+      {
+        "file": "web-design-mobile-3.report.json",
+        "score": 68,
+        "lcp_seconds": 5.2820325,
+        "fcp_seconds": 3.759015,
+        "tbt_ms": 88.5,
+        "cls": 0,
+        "transfer_mib": 2.2851009368896484,
+        "version": "13.4.1",
+        "fetchTime": "2026-10-20T20:35:13.389Z",
+        "benchmarkIndex": 3876.5,
+        "warnings": []
+      }
+    ],
+    "median": {
+      "score": 68,
+      "lcp_seconds": 5.2820325,
+      "fcp_seconds": 3.6912409999999998,
+      "tbt_ms": 79.5,
+      "cls": 0,
+      "transfer_mib": 2.2789134979248047
+    },
+    "baseline": {
+      "score": 51,
+      "lcp_seconds": 24.756901499999994,
+      "transfer_mib": 22.766255378723145
+    },
+    "representative_report": "web-design-mobile-1.report.html",
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "display": "Est savings of 205 KiB",
+        "savings": {
+          "FCP": 300,
+          "LCP": 500
+        }
+      },
+      {
+        "id": "cache-insight",
+        "title": "Use efficient cache lifetimes",
+        "display": "Est savings of 121 KiB",
+        "savings": {
+          "FCP": 0,
+          "LCP": 0
+        }
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "display": "Est savings of 509 KiB",
+        "savings": {
+          "FCP": 0,
+          "LCP": 150
+        }
+      },
+      {
+        "id": "legacy-javascript-insight",
+        "title": "Legacy JavaScript",
+        "display": "Est savings of 13 KiB",
+        "savings": {
+          "FCP": 0,
+          "LCP": 0
+        }
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "display": "",
+        "savings": {
+          "LCP": 0
+        }
+      },
+      {
+        "id": "render-blocking-insight",
+        "title": "Render-blocking requests",
+        "display": "Est savings of 1,230 ms",
+        "savings": {
+          "FCP": 1250,
+          "LCP": 0
+        }
+      }
+    ]
+  },
+  {
+    "page": "web-design",
+    "device": "desktop",
+    "runs": [
+      {
+        "file": "web-design-desktop-1.report.json",
+        "score": 97,
+        "lcp_seconds": 1.1076769999999996,
+        "fcp_seconds": 0.8160429999999999,
+        "tbt_ms": 0,
+        "cls": 0.0242195755625602,
+        "transfer_mib": 2.0552978515625,
+        "version": "13.4.1",
+        "fetchTime": "2026-10-20T20:33:32.700Z",
+        "benchmarkIndex": 3908,
+        "warnings": []
+      },
+      {
+        "file": "web-design-desktop-2.report.json",
+        "score": 98,
+        "lcp_seconds": 1.0215949999999996,
+        "fcp_seconds": 0.846921,
+        "tbt_ms": 0,
+        "cls": 0.018513983716034785,
+        "transfer_mib": 2.0553903579711914,
+        "version": "13.4.1",
+        "fetchTime": "2026-10-20T20:34:31.422Z",
+        "benchmarkIndex": 3881,
+        "warnings": []
+      },
+      {
+        "file": "web-design-desktop-3.report.json",
+        "score": 97,
+        "lcp_seconds": 1.222822,
+        "fcp_seconds": 0.8221240000000002,
+        "tbt_ms": 0,
+        "cls": 0.019412249985406995,
+        "transfer_mib": 2.0618391036987305,
+        "version": "13.4.1",
+        "fetchTime": "2026-10-20T20:35:30.056Z",
+        "benchmarkIndex": 3882,
+        "warnings": []
+      }
+    ],
+    "median": {
+      "score": 97,
+      "lcp_seconds": 1.1076769999999996,
+      "fcp_seconds": 0.8221240000000002,
+      "tbt_ms": 0,
+      "cls": 0.019412249985406995,
+      "transfer_mib": 2.0553903579711914
+    },
+    "representative_report": "web-design-desktop-1.report.html",
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "display": "Est savings of 62 KiB",
+        "savings": {
+          "FCP": 0,
+          "LCP": 0
+        }
+      },
+      {
+        "id": "cache-insight",
+        "title": "Use efficient cache lifetimes",
+        "display": "Est savings of 25 KiB",
+        "savings": {
+          "FCP": 0,
+          "LCP": 0
+        }
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "display": "Est savings of 712 KiB",
+        "savings": {
+          "FCP": 0,
+          "LCP": 100
+        }
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "display": "",
+        "savings": {
+          "LCP": 0
+        }
+      },
+      {
+        "id": "render-blocking-insight",
+        "title": "Render-blocking requests",
+        "display": "Est savings of 410 ms",
+        "savings": {
+          "FCP": 400,
+          "LCP": 0
+        }
+      }
+    ]
+  }
+]

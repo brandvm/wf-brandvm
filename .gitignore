@@ -19,3 +19,6 @@ playwright-report/
 
 # Visual baselines of the live site (large; kept out of git per webflow-audit)
 baselines/
+
+# Screaming Frog handoff: raw Lighthouse reports (23 MB) kept locally only
+docs/audit/2026-10-20-seo-crawl/lighthouse-reports/

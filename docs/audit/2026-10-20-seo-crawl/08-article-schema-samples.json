@@ -1,0 +1,98 @@
+[
+  {
+    "url": "https://www.brandvm.com/post/mastercard-protected-monsters-marketing-campaign",
+    "status": 200,
+    "final": "https://www.brandvm.com/post/mastercard-protected-monsters-marketing-campaign",
+    "title": [
+      "Mastercard Protected Monsters: A Fraud-Protection Marketing Case Study | Brand Vision"
+    ],
+    "schema_types": [
+      "Organization",
+      "OfferCatalog",
+      [
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      [
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      [
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      [
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      "WebSite"
+    ],
+    "article_nodes": [],
+    "schema_parse_errors": [],
+    "hops": []
+  },
+  {
+    "url": "https://www.brandvm.com/post/mcdonalds-im-lovin-it-marketing",
+    "status": 200,
+    "final": "https://www.brandvm.com/post/mcdonalds-im-lovin-it-marketing",
+    "title": [
+      "McDonald’s “I’m Lovin’ It” Marketing: Why the Jingle Endures | Brand Vision"
+    ],
+    "schema_types": [
+      "Organization",
+      "OfferCatalog",
+      [
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      [
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      [
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      [
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      "WebSite"
+    ],
+    "article_nodes": [],
+    "schema_parse_errors": [],
+    "hops": []
+  },
+  {
+    "url": "https://www.brandvm.com/post/business-website-cost-2026",
+    "status": 200,
+    "final": "https://www.brandvm.com/post/business-website-cost-2026",
+    "title": [
+      "How Much Does a Business Website Cost in 2026? | Brand Vision"
+    ],
+    "schema_types": [
+      "Organization",
+      "OfferCatalog",
+      [
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      [
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      [
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      [
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
+      "WebSite"
+    ],
+    "article_nodes": [],
+    "schema_parse_errors": [],
+    "hops": []
+  }
+]

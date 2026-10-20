@@ -1,0 +1,272 @@
+[
+  {
+    "name": "Canonicals: Canonicalised",
+    "crawler_priority": "High",
+    "count": 14
+  },
+  {
+    "name": "Content: Low Content Pages",
+    "crawler_priority": "Medium",
+    "count": 3
+  },
+  {
+    "name": "Content: Readability Difficult",
+    "crawler_priority": "Low",
+    "count": 326
+  },
+  {
+    "name": "Content: Readability Very Difficult",
+    "crawler_priority": "Low",
+    "count": 10
+  },
+  {
+    "name": "Content: Soft 404 Pages",
+    "crawler_priority": "High",
+    "count": 1
+  },
+  {
+    "name": "Directives: Noindex",
+    "crawler_priority": "High",
+    "count": 3
+  },
+  {
+    "name": "H1: Duplicate",
+    "crawler_priority": "Low",
+    "count": 145
+  },
+  {
+    "name": "H1: Multiple",
+    "crawler_priority": "Medium",
+    "count": 9
+  },
+  {
+    "name": "H1: Non-Sequential",
+    "crawler_priority": "Low",
+    "count": 2
+  },
+  {
+    "name": "H1: Over 70 Characters",
+    "crawler_priority": "Low",
+    "count": 351
+  },
+  {
+    "name": "H2: Duplicate",
+    "crawler_priority": "Low",
+    "count": 274
+  },
+  {
+    "name": "H2: Missing",
+    "crawler_priority": "Low",
+    "count": 272
+  },
+  {
+    "name": "H2: Multiple",
+    "crawler_priority": "Low",
+    "count": 1102
+  },
+  {
+    "name": "H2: Non-Sequential",
+    "crawler_priority": "Low",
+    "count": 149
+  },
+  {
+    "name": "H2: Over 70 Characters",
+    "crawler_priority": "Low",
+    "count": 26
+  },
+  {
+    "name": "Images: Alt Text Over 100 Characters",
+    "crawler_priority": "Low",
+    "count": 18
+  },
+  {
+    "name": "Images: Missing Alt Text",
+    "crawler_priority": "Low",
+    "count": 3455
+  },
+  {
+    "name": "Images: Missing Size Attributes",
+    "crawler_priority": "Low",
+    "count": 5509
+  },
+  {
+    "name": "Images: Over 100 kB",
+    "crawler_priority": "Medium",
+    "count": 3056
+  },
+  {
+    "name": "Links: Internal Outlinks With No Anchor Text",
+    "crawler_priority": "Low",
+    "count": 1481
+  },
+  {
+    "name": "Links: Pages With High Crawl Depth",
+    "crawler_priority": "Medium",
+    "count": 1014
+  },
+  {
+    "name": "Links: Pages With High External Outlinks",
+    "crawler_priority": "Low",
+    "count": 1481
+  },
+  {
+    "name": "Meta Description: Duplicate",
+    "crawler_priority": "Low",
+    "count": 149
+  },
+  {
+    "name": "Meta Description: Missing",
+    "crawler_priority": "Low",
+    "count": 1
+  },
+  {
+    "name": "Meta Description: Over 155 Characters",
+    "crawler_priority": "Low",
+    "count": 810
+  },
+  {
+    "name": "Meta Description: Over 985 Pixels",
+    "crawler_priority": "Low",
+    "count": 708
+  },
+  {
+    "name": "Page Titles: Below 30 Characters",
+    "crawler_priority": "Medium",
+    "count": 1
+  },
+  {
+    "name": "Page Titles: Duplicate",
+    "crawler_priority": "Medium",
+    "count": 145
+  },
+  {
+    "name": "Page Titles: Over 561 Pixels",
+    "crawler_priority": "Medium",
+    "count": 1110
+  },
+  {
+    "name": "Page Titles: Over 60 Characters",
+    "crawler_priority": "Medium",
+    "count": 1111
+  },
+  {
+    "name": "Response Codes: External Client Error (4xx)",
+    "crawler_priority": "Low",
+    "count": 1294
+  },
+  {
+    "name": "Response Codes: External No Response",
+    "crawler_priority": "Low",
+    "count": 25
+  },
+  {
+    "name": "Response Codes: External Server Error (5xx)",
+    "crawler_priority": "Low",
+    "count": 18
+  },
+  {
+    "name": "Response Codes: Internal Client Error (4xx)",
+    "crawler_priority": "High",
+    "count": 46
+  },
+  {
+    "name": "Response Codes: Internal Redirect Chain",
+    "crawler_priority": "Medium",
+    "count": 6
+  },
+  {
+    "name": "Response Codes: Internal Redirection (3xx)",
+    "crawler_priority": "Low",
+    "count": 204
+  },
+  {
+    "name": "Security: Bad Content Type",
+    "crawler_priority": "Low",
+    "count": 1
+  },
+  {
+    "name": "Security: HTTP URLs",
+    "crawler_priority": "High",
+    "count": 2
+  },
+  {
+    "name": "Security: Missing Content-Security-Policy Header",
+    "crawler_priority": "Low",
+    "count": 1483
+  },
+  {
+    "name": "Security: Missing Secure Referrer-Policy Header",
+    "crawler_priority": "Low",
+    "count": 1483
+  },
+  {
+    "name": "Security: Missing X-Content-Type-Options Header",
+    "crawler_priority": "Low",
+    "count": 1483
+  },
+  {
+    "name": "Security: Missing X-Frame-Options Header",
+    "crawler_priority": "Low",
+    "count": 1483
+  },
+  {
+    "name": "Security: Protocol-Relative Resource Links",
+    "crawler_priority": "Low",
+    "count": 26
+  },
+  {
+    "name": "Security: Unsafe Cross-Origin Links",
+    "crawler_priority": "Low",
+    "count": 1481
+  },
+  {
+    "name": "Sitemaps: Orphan URLs",
+    "crawler_priority": "Medium",
+    "count": 2
+  },
+  {
+    "name": "Sitemaps: URLs not in Sitemap",
+    "crawler_priority": "Medium",
+    "count": 131
+  },
+  {
+    "name": "Structured Data: Rich Result Validation Warnings",
+    "crawler_priority": "Low",
+    "count": 1465
+  },
+  {
+    "name": "URL: Contains Space",
+    "crawler_priority": "Low",
+    "count": 1
+  },
+  {
+    "name": "URL: Non ASCII Characters",
+    "crawler_priority": "Low",
+    "count": 1
+  },
+  {
+    "name": "URL: Over 115 Characters",
+    "crawler_priority": "Low",
+    "count": 13
+  },
+  {
+    "name": "URL: Parameters",
+    "crawler_priority": "Low",
+    "count": 145
+  },
+  {
+    "name": "URL: Repetitive Path",
+    "crawler_priority": "Low",
+    "count": 1
+  },
+  {
+    "name": "URL: Underscores",
+    "crawler_priority": "Low",
+    "count": 146
+  },
+  {
+    "name": "URL: Uppercase",
+    "crawler_priority": "Low",
+    "count": 1
+  }
+]
