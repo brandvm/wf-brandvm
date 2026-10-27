@@ -81,3 +81,12 @@ fixes the escaping and leaves empty fields out. Options:
 ## Open
 
 None.
+
+### 2026-10-27 · D8 · SEO handoff: redirects, slugs, Article schema
+- Who: Kajal
+- What: the redirect table `docs/audit/2026-10-20-seo-crawl/redirect-review.csv`
+  is approved as proposed (38 to a specific article, 52 removed so the URL
+  404s, 39 kept, 1 unlinked). There is no migration map for old post
+  slugs, so broken links without a clear live match are unlinked with the
+  text kept. Article schema stays as D4b: the browser-built script, no
+  change.
