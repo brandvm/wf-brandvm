@@ -875,6 +875,11 @@ html[data-wf-domain] .hs-form-slot:not(.is-ready) {
   overscroll-behavior: contain;
   outline: none;
 }
+.bv-hs-dropdown-divider {
+  height: 1px;
+  margin: 0.375rem 0.5rem;
+  background: #e4e6e9;
+}
 .bv-hs-dropdown-option {
   position: relative;
   padding: 0.7rem 2.5rem 0.7rem 1rem;

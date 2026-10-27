@@ -160,7 +160,7 @@ function enhanceFields(form: HTMLFormElement, iframe: HTMLIFrameElement) {
       label.classList.add('bv-sr');
       const country = phone.querySelector('select');
       if (country && !country.getAttribute('aria-label')) country.setAttribute('aria-label', text + ' country');
-      if (country) enhanceSelect(country, iframe, text + ' country');
+      if (country) enhanceSelect(country, iframe, text + ' country', ['CA', 'US', 'GB', 'AU']);
     } else if (select) {
       const empty = select.querySelector('option[value=""]');
       if (empty) {

@@ -19,8 +19,16 @@
 // Keyboard: on the button, Enter/Space/Arrow keys open; in the list, arrows,
 // Home/End, Page Up/Down, Enter or Space to pick, Escape or Tab to close,
 // letters to jump (or to filter, in long lists). Focus returns to the button.
+//
+// A select can pin a few values to the top of its list, above a divider
+// (the phone country: Canada, United States, United Kingdom, Australia).
+// Pinned options aren't repeated below; while filtering, the divider hides
+// and the list is just the matches. Only the custom list is reordered:
+// the native select's options belong to HubSpot's React, so phones keep
+// HubSpot's alphabetical order.
 
 const FILTER_FROM = 15;
+const pinnedFor = new WeakMap<HTMLSelectElement, string[]>();
 
 type Open = {
   select: HTMLSelectElement;
@@ -184,7 +192,14 @@ function build(select: HTMLSelectElement, button: HTMLButtonElement, iframe: HTM
     panel.appendChild(filter);
   }
 
-  const options: HTMLElement[] = choices.map((option) => {
+  const pins = pinnedFor.get(select) || [];
+  const rank = (o: HTMLOptionElement) => {
+    const i = pins.indexOf(o.value);
+    return i < 0 ? pins.length : i;
+  };
+  const ordered = choices.slice().sort((a, b) => rank(a) - rank(b) || a.index - b.index);
+  const pinnedCount = ordered.filter((o) => pins.includes(o.value)).length;
+  const options: HTMLElement[] = ordered.map((option) => {
     const el = document.createElement('div');
     el.className = 'bv-hs-dropdown-option';
     el.id = listId + '-' + option.index;
@@ -195,7 +210,16 @@ function build(select: HTMLSelectElement, button: HTMLButtonElement, iframe: HTM
     el.setAttribute('aria-selected', String(selected));
     return el;
   });
-  options.forEach((el) => list.appendChild(el));
+  let divider: HTMLElement | null = null;
+  options.forEach((el, i) => {
+    if (i === pinnedCount && pinnedCount > 0) {
+      divider = document.createElement('div');
+      divider.className = 'bv-hs-dropdown-divider';
+      divider.setAttribute('role', 'separator');
+      list.appendChild(divider);
+    }
+    list.appendChild(el);
+  });
   panel.appendChild(list);
 
   const o: Open = { select, button, iframe, panel, list, filter, options, active: -1 };
@@ -211,8 +235,11 @@ function build(select: HTMLSelectElement, button: HTMLButtonElement, iframe: HTM
   });
   if (filter) {
     filter.addEventListener('input', () => {
+      // Match from the start of a word: "can" finds Canada, not American Samoa.
       const q = filter!.value.trim().toLowerCase();
-      options.forEach((el) => (el.hidden = !!q && !(el.textContent || '').toLowerCase().includes(q)));
+      const word = new RegExp('(^|[\\s(\\-])' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      options.forEach((el) => (el.hidden = !!q && !word.test((el.textContent || '').toLowerCase())));
+      if (divider) divider.hidden = !!q;
       setActive(o, 0);
     });
   }
@@ -253,8 +280,9 @@ function bindPage() {
   }, true);
 }
 
-export function enhanceSelect(select: HTMLSelectElement, iframe: HTMLIFrameElement, name: string) {
+export function enhanceSelect(select: HTMLSelectElement, iframe: HTMLIFrameElement, name: string, pinned: string[] = []) {
   if (select.dataset.bvCustom) return;
+  pinnedFor.set(select, pinned);
   const doc = select.ownerDocument;
   const view = doc.defaultView;
   if (!view || !view.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
