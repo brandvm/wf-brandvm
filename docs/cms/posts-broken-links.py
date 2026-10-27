@@ -19,9 +19,10 @@ REPO = '/Users/Work/Documents/Webflow Projects/Brand Vision/wf-brandvm'
 SITE = '68b9f0236581de795cba8ec2'
 CID = '69fd085c7299c8fab016ef89'
 BASE = 'https://www.brandvm.com'
-PLAN = W + '/posts-broken-links-plan-2026-10-27.json'
-BACKUP = W + '/posts-broken-links-backup-2026-10-27.jsonl'
-ROLLBACK = W + '/posts-broken-links-rollback-2026-10-27.json'
+BATCH = os.environ.get('BATCH', '2026-10-27')  # 2026-10-27-redirects: links to redirects being removed
+PLAN = W + f'/posts-broken-links-plan-{BATCH}.json'
+BACKUP = W + f'/posts-broken-links-backup-{BATCH}.jsonl'
+ROLLBACK = W + f'/posts-broken-links-rollback-{BATCH}.json'
 TOK = [l.split('=', 1)[1].strip().strip('"\'') for l in open(REPO + '/.env') if l.startswith('WEBFLOW_TOKEN=')][0]
 
 
@@ -53,13 +54,19 @@ def text_of(h):
 
 
 def transform(body, rows):
-    """Apply the plan rows for one post. Each named link must occur exactly once."""
+    """Apply the plan rows for one post. Each named link must occur `count` times (default 1)."""
     changes = []
     for r in rows:
         rx = anchor_re(r['dest'])
         hits = rx.findall(body)
-        if len(hits) != 1:
+        if len(hits) != r.get('count', 1):
             raise RuntimeError(f"{r['source']}: {len(hits)} matches for {r['dest']}")
+        for _ in range(r.get('count', 1)):
+            body = _one(body, r, rx, changes)
+    return body, changes
+
+
+def _one(body, r, rx, changes):
         m = rx.search(body)
         tag = m.group(0)
         old_href = re.search(r'\bhref="([^"]*)"', tag).group(1)
@@ -72,7 +79,7 @@ def transform(body, rows):
         body = body[:m.start()] + repl + body[m.end():]
         changes.append({'anchor': text_of(m.group(1)), 'old_href': old_href, 'new_href': new_href,
                         'action': r['action'], 'old_tag': tag, 'new_html': repl})
-    return body, changes
+        return body
 
 
 def check(old, new, changes):
@@ -82,7 +89,7 @@ def check(old, new, changes):
     assert len(re.findall(r'<a\b', old)) - len(re.findall(r'<a\b', new)) == unl, 'anchor count off'
     rebuilt = old
     for c in changes:
-        assert rebuilt.count(c['old_tag']) == 1
+        assert c['old_tag'] in rebuilt
         rebuilt = rebuilt.replace(c['old_tag'], c['new_html'], 1)
     assert rebuilt == new, 'unexpected difference'
 

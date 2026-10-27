@@ -25,6 +25,39 @@ collected from client repos into those files.
 
 ## This project
 
+### 2026-10-27 · CMS drafts stay live; unpublish needs references cleared and a publish
+- Area: mcp
+- Scope: template-candidate
+- Symptom: a Posts item set to draft weeks earlier was still on the live
+  site through several full publishes. `unpublish_collection_items`
+  returned 409 "still being referenced by" another post. After clearing
+  that, the API reported the item not live and staging returned 404, but
+  the custom domains kept serving it (fresh, not cached) for 15+ minutes.
+- Cause: a site publish skips draft items rather than removing their live
+  version. Unpublish refuses while a live item references the item. The
+  custom domains drop the page only at their next publish.
+- Fix: find live drafts by comparing `isDraft` + `lastPublished` with the
+  live URL. To remove one: clear references (e.g. `related-articles`),
+  publish the referencing item, unpublish, then publish the custom domains.
+  Edits to a live draft never publish. 18 such posts listed in
+  `docs/audit/2026-10-20-seo-crawl/phase2-4-2026-10-27.md`.
+- Status: documented
+- Found by: claude
+
+### 2026-10-27 · 301 redirects and robots.txt APIs are Enterprise-only
+- Area: mcp
+- Scope: template-candidate
+- Symptom: `GET /v2/sites/{id}/redirects` and `/robots_txt` returned 403
+  `not_enterprise_plan_site`; the MCP has no redirect tool. Webflow's login
+  page also refuses the built-in browser (bot check), so the Site settings
+  UI can't be driven either.
+- Cause: plan gating; bot protection on webflow.com login.
+- Fix: write the redirect changes as a sheet for a person
+  (`phase2-redirects-2026-10-27.md`) and check the result over HTTP with
+  `check-redirects.py` (first hop only, no follow).
+- Status: documented
+- Found by: claude
+
 ### 2026-10-20 · Production loaded the repo stylesheet twice, the first from GitHub Pages
 - Area: loader, perf
 - Scope: template-candidate

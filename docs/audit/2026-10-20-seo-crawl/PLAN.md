@@ -1,6 +1,6 @@
 # Plan: Screaming Frog handoff (crawl of 2026-10-20)
 
-Phase 1 links live 2026-10-27 (`phase1-links-2026-10-27.md`); the redirect fixes (Phase 2) are still to do. Not urgent: nothing here blocks the speed work. The handoff
+Phase 1 links live 2026-10-27 (`phase1-links-2026-10-27.md`). Phases 2 and 4 live 2026-10-27 (`phase2-4-2026-10-27.md`): redirects imported (`phase2-redirects-2026-10-27.md`, 0 mismatches), metadata fixes and unlinks published. The 17 pre-existing redirects to 404 pages fixed the same day (v2 import, 0 mismatches). Open: indexability questions for Asheem, 18 live drafts, and the Phase 5 re-crawl. Not urgent: nothing here blocks the speed work. The handoff
 (`START-HERE-Asheem-SEO-Handoff.txt`, `Asheem-Technical-SEO-Handoff.html`)
 and its evidence files are kept as received; `lighthouse-reports/` (23 MB)
 stays local and out of git. The handoff authorizes no production changes:
