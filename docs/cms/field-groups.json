@@ -1,0 +1,94 @@
+{
+  "_about": "CMS field groups for brandvm.com, by field slug. Standard: Card · Page · <Section> · Relations & Filters · SEO & Sharing · Settings · Deprecated. Evidence: docs/audit/2026-10-20-cms-field-usage.md. Applied 2026-10-20 with data_cms_tool update_collection_field_groups (replaces the whole list).",
+  "post": [
+    {"group": "Card", "description": "Shown where posts are listed: /insights, Featured Articles, Recommended, nav, author and category pages. Thumbnail is also the OG image.", "fields": ["post-thubmnail", "description"]},
+    {"group": "Page · Article", "description": "Post template: body and the Published / Updated dates in the header.", "fields": ["post-content", "date---published", "date---updated"]},
+    {"group": "Relations & Filters", "description": "Featured ON = shown only in Featured Articles and hidden from the /insights list and nav. Category, author and related articles drive lists and the author box.", "fields": ["category", "post-author", "related-articles", "featured"]},
+    {"group": "Deprecated · review by 2026-11-20", "description": "Not shown anywhere on the site (audit 2026-10-20). Display it or delete it.", "fields": ["minutes-to-read"]}
+  ],
+  "author": [
+    {"group": "Page · Profile", "description": "Author page, and the author box on every post.", "fields": ["avatar", "role-position", "company", "bio", "linkedin-profile"]}
+  ],
+  "insights": [
+    {"group": "SEO & Sharing", "description": "Category template page settings: meta title, meta description, OG image.", "fields": ["meta-title", "meta-description", "cover-image-tiny-size"]}
+  ],
+  "badges-no-pages": [
+    {"group": "Card", "description": "Shown in the C | Badge Carousel component.", "fields": ["badge", "badge-for-dark-background"]}
+  ],
+  "partners-no-pages": [
+    {"group": "Card", "description": "Shown in S | Logo Strip, S | Selected Clients, S | Contact and the Insights contact page.", "fields": ["logo"]},
+    {"group": "Deprecated · review by 2026-11-20", "description": "No list sorts by this; every Partners list is curated or unsorted (audit 2026-10-20).", "fields": ["sort-order"]}
+  ],
+  "faqs": [
+    {"group": "Card", "description": "Shown in S | FAQs and on /faq.", "fields": ["answer"]},
+    {"group": "Relations & Filters", "description": "Which pages show the FAQ: For Pages (static pages), Industry or one Service reference (that item's page), Category (/faq tabs). Sort Order sets the order.", "fields": ["sort-order", "category", "for-pages", "industry", "web-design-service", "branding-service", "ui-ux-service", "seo-service"]}
+  ],
+  "case-studies": [
+    {"group": "Card", "description": "Shown in project grids: /our-work-portfolio, S | Projects, industry and service pages. Square thumbnail is also the OG image.", "fields": ["thumbnail---full", "thumbnail---square", "thumbnail-video-link-mp4", "thumbnail-video-link-webm", "work-section-video-link-mp4", "work-section-video-link-webm"]},
+    {"group": "Page · Hero", "description": "Case study template header.", "fields": ["tagline", "project-duration", "new-live-website-link----shared"]},
+    {"group": "Page · Client Intro", "description": "Client section after the hero.", "fields": ["client-logo", "client-intro---title", "client-intro---paragraph", "content-visuals---after-client-intro"]},
+    {"group": "Page · Project Story", "description": "Highlights, challenges, approach, outcomes, each followed by its visuals. Use only bullet points and paragraphs here.", "fields": ["project-highlights", "content-visuals---after-project-highlight", "project-challenges", "content-visuals---after-project-challenges", "project-approach", "content-visuals---after-project-approach", "project-outcomes"]},
+    {"group": "Relations & Filters", "description": "Sort Order (must be set to appear in S | Projects), completion date (list sort), and the service, industry and platform tags shown on the page.", "fields": ["sort-order", "new-date-of-completion----shared", "services", "industry-s", "platform-s-used"]},
+    {"group": "SEO & Sharing", "description": "Case study template page settings.", "fields": ["meta-title", "meta-description"]},
+    {"group": "Deprecated · review by 2026-11-20", "description": "Not shown anywhere (audit 2026-10-20). Four are empty; Byline - 3 copies the tagline; Deliverables is filled but not rendered.", "fields": ["new-case-study-cover----case-study", "new-preview-description----shared", "featured-shot----work", "home-feature-cover", "project-title-byline-h1---3", "project-deliverables"]}
+  ],
+  "services-no-pages": [
+    {"group": "Card", "description": "Shown on /services, the case study service tags and /our-work-portfolio filters.", "fields": ["services-icon", "link-to-services"]},
+    {"group": "Relations & Filters", "description": "List order.", "fields": ["sort-order"]}
+  ],
+  "platforms": [
+    {"group": "Card", "description": "Shown on /services, /web-design and /web-development, and as case study platform tags.", "fields": ["image", "description", "page-link"]}
+  ],
+  "industry": [
+    {"group": "Card", "description": "Industry cards on /industries and the nav.", "fields": ["card-title", "card-decription", "card-cover"]},
+    {"group": "Page · Hero", "description": "S | Service Hero. Hero image is also the OG image.", "fields": ["h1", "paragraph-1", "paragraph-2", "hero-image"]},
+    {"group": "Page · Services", "description": "Services header and the service tabs (1–8). Tabs 7–8 are on the template but no industry fills them.", "fields": ["services-header-sub-title", "service-header-bubble-image", "tab-label-1", "tab-title-1", "tab-sub-title-1", "tab-image-1", "tab-label-2", "tab-title-2", "tab-sub-title-2", "tab-image-2", "tab-label-3", "tab-title-3", "tab-sub-title-3", "tab-image-3", "tab-label-4", "tab-title-4", "tab-sub-title-4", "tab-image-4", "tab-label-5", "tab-title-5", "tab-sub-title-5", "tab-image-5", "tab-label-6", "tab-title-6", "tab-sub-title-6", "tab-image-6", "tab-label-7", "tab-title-7", "tab-sub-title-7", "tab-image-7", "tab-label-8", "tab-title-8", "tab-sub-title-8", "tab-image-8"]},
+    {"group": "Page · Advantage", "description": "Advantage section: header, background and three cards.", "fields": ["advantage-header-title", "advantage-header-sub-title", "advantage-background-image", "advantage-card-title-1", "advantage-card-sub-title-1", "advantage-card-tag-1", "advantage-card-title-2", "advantage-card-sub-title-2", "advantage-card-tag-2", "advantage-card-title-3", "advantage-card-sub-title-3", "advantage-card-tag-3"]},
+    {"group": "Page · Case Studies", "description": "Case studies section header.", "fields": ["case-studies-header-title", "case-studies-header-sub-title"]},
+    {"group": "Relations & Filters", "description": "Case studies shown on the industry page.", "fields": ["selected-work"]},
+    {"group": "SEO & Sharing", "description": "Industry template page settings.", "fields": ["meta-title", "meta-description"]},
+    {"group": "Settings", "description": "Where cards and links point. Only Real Estate differs from the default /industry/<slug>.", "fields": ["industry-link-if-different-from-default-cms-page"]}
+  ],
+  "_services": {
+    "applies_to": ["web-design", "branding", "ui-ux-agency", "seo-agency"],
+    "groups": [
+      {"group": "Page · Hero", "description": "S | Service Hero. Cover image is also the OG image.", "fields": ["h1", "paragraph-1", "paragraph-2", "cover-image"]},
+      {"group": "Page · Services", "description": "Services section header; the tabs come from Services • Tabs.", "fields": ["services-title", "services-sub-title"]},
+      {"group": "Page · Process", "description": "Process section.", "fields": ["process-title", "process-sub-title", "step-title-1", "step-description-1", "step-title-2", "step-description-2", "step-title-3", "step-description-3", "step-title-4", "step-description-4"]},
+      {"group": "Page · Advantage", "description": "Advantage section.", "fields": []},
+      {"group": "Page · Work", "description": "Work section header; projects come from Selected Works.", "fields": ["work-title", "work-sub-title"]},
+      {"group": "Page · Industries", "description": "S | Industries section header.", "fields": ["industries-title", "industries-sub-title"]},
+      {"group": "Page · Stats", "description": "S | Why Choose counters: number, suffix, label.", "fields": ["num-1", "suffix-1", "label-1", "num-2", "suffix-2", "label-2", "num-3", "suffix-3", "label-3"]},
+      {"group": "Relations & Filters", "description": "Case studies shown in the Work section.", "fields": ["selected-works"]},
+      {"group": "SEO & Sharing", "description": "Service template page settings.", "fields": ["meta-title", "meta-description"]},
+      {"group": "Deprecated · review by 2026-11-20", "description": "", "fields": ["dropdown-images", "dropdown-content"]}
+    ],
+    "overrides": {
+      "web-design": {"move_to_deprecated": ["step-title-1", "step-title-2", "step-title-3", "step-title-4"], "deprecated_description": "Not shown (audit 2026-10-20). Dropdown fields are empty. Step titles: the template shows fixed process titles; wire them in or delete."},
+      "ui-ux-agency": {"move_to_deprecated": ["step-title-1", "step-description-1", "step-title-2", "step-description-2", "step-title-3", "step-description-3", "step-title-4", "step-description-4"], "deprecated_description": "Not shown (audit 2026-10-20). Dropdown fields are empty. Steps: the template shows fixed process copy; wire them in or delete."},
+      "seo-agency": {"move_to_deprecated": ["advantage-header-title", "advantage-header-sub-title", "advantage-background-image", "advantage-card-title-1", "advantage-card-sub-title-1", "advantage-card-tag-1", "advantage-card-title-2", "advantage-card-sub-title-2", "advantage-card-tag-2", "advantage-card-title-3", "advantage-card-sub-title-3", "advantage-card-tag-3"], "deprecated_description": "Not shown (audit 2026-10-20). Dropdown fields are empty. Advantage: filled, but the SEO template has no section for it; add one or delete."},
+      "branding": {"move_to_deprecated": [], "deprecated_description": "Empty and not shown anywhere (audit 2026-10-20)."}
+    }
+  },
+  "services-tabs": [
+    {"group": "Card", "description": "Tabs on service pages: short label (tab), title, subtitle, image, optional button.", "fields": ["short-tab-label", "title", "sub-title", "image", "button-link-if-any"]},
+    {"group": "Relations & Filters", "description": "Which service page shows the tab (set exactly one), and its order.", "fields": ["sort-order", "service", "service-branding", "service-seo", "service-ui-ux"]},
+    {"group": "Deprecated · review by 2026-11-20", "description": "Empty and not shown anywhere (audit 2026-10-20).", "fields": ["tab-color-for-mobile"]}
+  ],
+  "services-hub-accrodion": [
+    {"group": "Card", "description": "Accordions on /services.", "fields": ["dropdown-content", "button-label", "button-link"]},
+    {"group": "Relations & Filters", "description": "Which service the accordion sits under, and its order.", "fields": ["related-to-services", "sort-order"]},
+    {"group": "Deprecated · review by 2026-11-20", "description": "Empty and not shown anywhere (audit 2026-10-20).", "fields": ["bubble-image-for-later"]}
+  ],
+  "orbit-images": [
+    {"group": "Card", "description": "Orbit on /about.", "fields": ["image", "height", "ratio"]},
+    {"group": "Relations & Filters", "description": "Orbit order.", "fields": ["order"]}
+  ],
+  "team": [
+    {"group": "Card", "description": "Team on /about.", "fields": ["photo", "position"]},
+    {"group": "Relations & Filters", "description": "List order.", "fields": ["order"]}
+  ],
+  "job": [
+    {"group": "Card", "description": "Open roles on /career and the home page.", "fields": ["job-type", "job-hours", "job-location", "job-description", "job-link"]}
+  ]
+}
