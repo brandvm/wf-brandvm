@@ -1,0 +1,873 @@
+{
+ "items": [
+  {
+   "id": "6a7f5698be1cb4ccf8dc6b71",
+   "slug": "godiva-rebrand-reinvention-2026",
+   "isDraft": false,
+   "updated": "2026-10-27T15:25:37.507Z",
+   "changes": [
+    {
+     "anchor": "food and beverage marketing",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/industry/food-beverage-marketing",
+     "new_href": "https://www.brandvm.com/industry/food-and-beverage-marketing"
+    }
+   ]
+  },
+  {
+   "id": "6a7f667833d5808cb12a0300",
+   "slug": "what-is-local-seo-improve-seo",
+   "isDraft": false,
+   "updated": "2026-10-27T15:26:01.501Z",
+   "changes": [
+    {
+     "anchor": "links from regionally significant sites",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/link-building-2024",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4dde5193f8d18f68286d",
+   "slug": "brand-voice-playbook",
+   "isDraft": false,
+   "updated": "2026-10-27T15:26:06.005Z",
+   "changes": [
+    {
+     "anchor": "branding terms",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/most-important-branding-terms-examples",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f670a9cde4ee52f1a3293",
+   "slug": "visual-identity-vs-brand-identity",
+   "isDraft": false,
+   "updated": "2026-10-27T15:26:10.267Z",
+   "changes": [
+    {
+     "anchor": "the most important branding terms",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/most-important-branding-terms-examples",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f569f352ac079736a5032",
+   "slug": "google-ai-overviews-2026",
+   "isDraft": false,
+   "updated": "2026-10-27T15:26:14.876Z",
+   "changes": [
+    {
+     "anchor": "how to show up in AI search results",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/how-to-show-up-in-ai-search-results",
+     "new_href": "https://www.brandvm.com/post/ai-search-optimization-checklist"
+    }
+   ]
+  },
+  {
+   "id": "6a7f4b83854f44814700fb5f",
+   "slug": "ai-app-builders-small-business-digital-foundation",
+   "isDraft": false,
+   "updated": "2026-10-27T15:26:19.300Z",
+   "changes": [
+    {
+     "anchor": "improve your AI Visibility",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/how-to-show-up-in-ai-search-results",
+     "new_href": "https://www.brandvm.com/post/ai-visibility-brand-discovery-marketing-discipline"
+    }
+   ]
+  },
+  {
+   "id": "6a7f66e63fe3f8f3d46129a8",
+   "slug": "user-persona-template",
+   "isDraft": false,
+   "updated": "2026-10-27T15:26:23.591Z",
+   "changes": [
+    {
+     "anchor": "designing for SEO with UX and UI essentials",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/designing-seo-ux-ui-essentials",
+     "new_href": "https://www.brandvm.com/post/the-intersection-of-ux-and-seo-why-your-website-design-matters-for-rankings"
+    }
+   ]
+  },
+  {
+   "id": "6a7f64602386705ec9e6201f",
+   "slug": "the-2016-resurgence-trend-2026",
+   "isDraft": false,
+   "updated": "2026-10-27T15:26:27.991Z",
+   "changes": [
+    {
+     "anchor": "The Biggest Marketing Resurgences of 2025",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/biggest-marketing-resurgences-2025",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f66c58c4276798495da84",
+   "slug": "wireframe-vs-prototype-vs-mockup",
+   "isDraft": false,
+   "updated": "2026-10-27T15:26:32.254Z",
+   "changes": [
+    {
+     "anchor": "The Importance of Low Fidelity Design in Web Design",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/low-fidelity-design",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f5882b65d697b85b42d6a",
+   "slug": "influencer-marketing-guide",
+   "isDraft": false,
+   "updated": "2026-10-27T15:26:36.473Z",
+   "changes": [
+    {
+     "anchor": "Creator brands",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/most-successful-creator-brands-2025",
+     "new_href": null
+    },
+    {
+     "anchor": "TikTok for B2B",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/tiktok-for-b2b-networking",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f566c2a7d6ff3bf1d5cdd",
+   "slug": "from-brand-deals-to-real-brands-the-financial-stack-behind-creator-empires",
+   "isDraft": false,
+   "updated": "2026-10-27T15:26:40.765Z",
+   "changes": [
+    {
+     "anchor": "Most Successful Creator Brands in 2025",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/most-successful-creator-brands-2025",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f590d7c84f77bbb014b45",
+   "slug": "lemme-marketing-strategy",
+   "isDraft": false,
+   "updated": "2026-10-27T15:26:44.974Z",
+   "changes": [
+    {
+     "anchor": "Poosh marketing strategy",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/poosh-marketing-strategy-wellness-blog",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f55482a7d6ff3bf1cbfab",
+   "slug": "definition-answer-engine-optimization",
+   "isDraft": false,
+   "updated": "2026-10-27T15:26:49.313Z",
+   "changes": [
+    {
+     "anchor": "high-quality content",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/creating-content-2024",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f63a09495cff8a0276048",
+   "slug": "seo-2025-tips-tricks",
+   "isDraft": false,
+   "updated": "2026-10-27T15:26:53.493Z",
+   "changes": [
+    {
+     "anchor": "WordPress tools and plugins",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/wordpress-plugins-2025",
+     "new_href": null
+    },
+    {
+     "anchor": "PPC and SEO",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/ppc-vs-seo-understanding",
+     "new_href": "https://www.brandvm.com/post/ppc-vs-seo"
+    }
+   ]
+  },
+  {
+   "id": "6a7f63dd5bcd827b1411d4db",
+   "slug": "small-business-web-design-guide",
+   "isDraft": false,
+   "updated": "2026-10-27T15:26:57.936Z",
+   "changes": [
+    {
+     "anchor": "Webflow and WordPress comparison",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/webflow-vs-wordpress-vs-wix-vs-squarespace",
+     "new_href": "https://www.brandvm.com/post/webflow-vs-wordpress-vs-wix-vs-squarespace-seo-2025"
+    }
+   ]
+  },
+  {
+   "id": "6a7f58488e313b6e27b59a4d",
+   "slug": "how-ux-design-keeps-users-on-your-platform-longer",
+   "isDraft": false,
+   "updated": "2026-10-27T15:27:02.300Z",
+   "changes": [
+    {
+     "anchor": "web design and UX performance",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/mobile-ux-audit-fixes",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4e3c565a3e861a0b3dea",
+   "slug": "buy-now-pay-later-bnpl-strategy",
+   "isDraft": false,
+   "updated": "2026-10-27T15:27:06.518Z",
+   "changes": [
+    {
+     "anchor": "mobile UX audit",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/mobile-ux-audit-fixes",
+     "new_href": null
+    },
+    {
+     "anchor": "website speed ROI",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/invest-website-speed-roi",
+     "new_href": "https://www.brandvm.com/post/page-speed-mobile-conversion"
+    }
+   ]
+  },
+  {
+   "id": "6a7f6729866ba43d9e5d414f",
+   "slug": "web-design-pricing-models-guide",
+   "isDraft": false,
+   "updated": "2026-10-27T15:27:10.797Z",
+   "changes": [
+    {
+     "anchor": "website speed and ROI",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/invest-website-speed-roi",
+     "new_href": "https://www.brandvm.com/post/page-speed-mobile-conversion"
+    }
+   ]
+  },
+  {
+   "id": "6a7f677cc25a340ef90ac41e",
+   "slug": "what-is-brand-personality",
+   "isDraft": false,
+   "updated": "2026-10-27T15:27:15.202Z",
+   "changes": [
+    {
+     "anchor": "Ford",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/fords-marketing-strategy-tradition",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f586ed11ad34436229521",
+   "slug": "immersive-experiential-branding-sensory-marketing",
+   "isDraft": false,
+   "updated": "2026-10-27T15:27:19.400Z",
+   "changes": [
+    {
+     "anchor": "food and beverage marketing",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/industry/food-beverage-marketing",
+     "new_href": "https://www.brandvm.com/industry/food-and-beverage-marketing"
+    }
+   ]
+  },
+  {
+   "id": "6a7f5662a7890ad4a1fc9f5f",
+   "slug": "five-wellness-trends-shaping-marketing-2026",
+   "isDraft": false,
+   "updated": "2026-10-27T15:27:23.743Z",
+   "changes": [
+    {
+     "anchor": "food and beverage marketing",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/industry/food-beverage-marketing",
+     "new_href": "https://www.brandvm.com/industry/food-and-beverage-marketing"
+    }
+   ]
+  },
+  {
+   "id": "6a7f4bfdfec40c50edcb7f41",
+   "slug": "best-anti-ai-marketing-campaigns-2025",
+   "isDraft": false,
+   "updated": "2026-10-27T15:27:27.894Z",
+   "changes": [
+    {
+     "anchor": "food and beverage marketing",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/industry/food-beverage-marketing",
+     "new_href": "https://www.brandvm.com/industry/food-and-beverage-marketing"
+    }
+   ]
+  },
+  {
+   "id": "6a7f4c18fec40c50edcb8c46",
+   "slug": "best-guerrilla-marketing-examples-ads",
+   "isDraft": false,
+   "updated": "2026-10-27T15:27:32.209Z",
+   "changes": [
+    {
+     "anchor": "food and beverage marketing",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/industry/food-beverage-marketing",
+     "new_href": "https://www.brandvm.com/industry/food-and-beverage-marketing"
+    }
+   ]
+  },
+  {
+   "id": "6a7f4ec2b572e64a80db66b8",
+   "slug": "content-marketing-tips-for-better-brand-awareness-and-audience-engagement",
+   "isDraft": false,
+   "updated": "2026-10-27T15:27:36.388Z",
+   "changes": [
+    {
+     "anchor": "market research",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/remarketing-tips",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f5704707e8f5a71bbca93",
+   "slug": "how-ai-can-enhance-your-ugc-marketing-efforts",
+   "isDraft": false,
+   "updated": "2026-10-27T15:27:40.593Z",
+   "changes": [
+    {
+     "anchor": "personalization is seen to be pivotal",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/remarketing-tips",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f55bf7cfd01c2454706de",
+   "slug": "emily-in-paris-season-5-collaborations",
+   "isDraft": false,
+   "updated": "2026-10-27T15:27:45.490Z",
+   "changes": [
+    {
+     "anchor": "Iconic Brands in Movies: The Art of Product Placement",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/brands-in-movies-product-placement-in-movies",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f64ad3218ec332b93f304",
+   "slug": "rare-beauty-business-model-marketing-strategy-2025",
+   "isDraft": false,
+   "updated": "2026-10-27T15:27:49.861Z",
+   "changes": [
+    {
+     "anchor": "The Branding and Marketing Genius of the Kardashian Family",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/branding-marketing-kardashian-family",
+     "new_href": null
+    },
+    {
+     "anchor": "The Marketing Strategy of Walmart: A Store That Feels Like Home",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/marketing-strategy-walmart",
+     "new_href": null
+    },
+    {
+     "anchor": "Drake’s Success and Marketing Tactics: The Story Behind The Invincible Genius",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/drake-success-marketing-genius",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f63894832fade57b41914",
+   "slug": "microsofts-marketing-strategy",
+   "isDraft": false,
+   "updated": "2026-10-27T15:27:54.677Z",
+   "changes": [
+    {
+     "anchor": "The Branding and Marketing Genius of the Kardashian Family",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/branding-marketing-kardashian-family",
+     "new_href": null
+    },
+    {
+     "anchor": "The Marketing Strategy of Walmart: A Store That Feels Like Home",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/marketing-strategy-walmart",
+     "new_href": null
+    },
+    {
+     "anchor": "Drake’s Success and Marketing Tactics: The Story Behind The Invincible Genius",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/drake-success-marketing-genius",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4b560979c19ee6ad5d21",
+   "slug": "818-tequila-marketing-strategies",
+   "isDraft": false,
+   "updated": "2026-10-27T15:27:58.878Z",
+   "changes": [
+    {
+     "anchor": "Kardashian-Jenner family's broader approach to brand building",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/branding-marketing-kardashian-family",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f57db31ac149b8b2730e1",
+   "slug": "how-to-build-a-marketing-strategy-for-a-software-development-company",
+   "isDraft": false,
+   "updated": "2026-10-27T15:28:03.895Z",
+   "changes": [
+    {
+     "anchor": "marketing strategy",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/marketing-strategy-walmart",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f63c742d8d7123c9dcbc2",
+   "slug": "signage-that-moves-shoppers-the-walmart-approach-to-in-store-conversion",
+   "isDraft": false,
+   "updated": "2026-10-27T15:28:08.207Z",
+   "changes": [
+    {
+     "anchor": "BrandVM’s own Walmart marketing strategy overview",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/marketing-strategy-walmart",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f677746c439c0498ed21f",
+   "slug": "what-is-a-value-proposition-guide-and-top-examples",
+   "isDraft": true,
+   "updated": "2026-10-27T15:28:13.040Z",
+   "changes": [
+    {
+     "anchor": "branding",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/modernized-branding-what-are-companies-doing-differently",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f655e3218ec332b94548c",
+   "slug": "the-role-of-learning-and-personal-growth-in-purpose-driven-branding",
+   "isDraft": false,
+   "updated": "2026-10-27T15:28:17.320Z",
+   "changes": [
+    {
+     "anchor": "Branding",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/modernized-branding-what-are-companies-doing-differently",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f672e771af596bb4d80bd",
+   "slug": "web-development-vs-web-design-key-differences-and-how-they-collaborate",
+   "isDraft": false,
+   "updated": "2026-10-27T15:28:21.490Z",
+   "changes": [
+    {
+     "anchor": "choosing a web designer",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/choosing-a-web-designer",
+     "new_href": "https://www.brandvm.com/post/how-to-choose-web-design-agency"
+    },
+    {
+     "anchor": "AI website builders",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/ai-website-builders-pros-and-cons",
+     "new_href": null
+    },
+    {
+     "anchor": "web design trends",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/2025-web-design-trends",
+     "new_href": "https://www.brandvm.com/post/top-web-design-trends-in-2024"
+    }
+   ]
+  },
+  {
+   "id": "6a7f58b4ceae417effe6b83c",
+   "slug": "is-digital-marketing-essential-for-your-plumbing-business",
+   "isDraft": false,
+   "updated": "2026-10-27T15:28:25.627Z",
+   "changes": [
+    {
+     "anchor": "go through the portfolio of the web designer",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/choosing-a-web-designer",
+     "new_href": "https://www.brandvm.com/post/how-to-choose-web-design-agency"
+    }
+   ]
+  },
+  {
+   "id": "6a7f66ed866ba43d9e5d3169",
+   "slug": "zoom-marketing-strategy-brand-story",
+   "isDraft": false,
+   "updated": "2026-10-27T15:28:29.812Z",
+   "changes": [
+    {
+     "anchor": "Brand Vision Insights",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/zoom-ahead-marketing-advertisement",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4e10b572e64a80db19b0",
+   "slug": "brands-with-low-advertising-spend",
+   "isDraft": false,
+   "updated": "2026-10-27T15:28:34.426Z",
+   "changes": [
+    {
+     "anchor": "Rolls-Royce",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/rolls-royces-strategy",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f641333d5808cb128f04f",
+   "slug": "non-fashion-brands-merch-food-status",
+   "isDraft": false,
+   "updated": "2026-10-27T15:28:38.817Z",
+   "changes": [
+    {
+     "anchor": "Bearista cup drop analysis",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/starbucks-drop-strategy-bearista-cups",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f649f85e1357f583f4872",
+   "slug": "pros-and-cons-of-custom-applications-vs-off-the-shelf-software",
+   "isDraft": false,
+   "updated": "2026-10-27T15:28:42.997Z",
+   "changes": [
+    {
+     "anchor": "SaaS products",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/saas-practices-marketing-and-branding",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f63df4832fade57b44518",
+   "slug": "small-design-studios-global-talent",
+   "isDraft": false,
+   "updated": "2026-10-27T15:28:47.210Z",
+   "changes": [
+    {
+     "anchor": "difference between hiring freelancers and an in-house team",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/outsourcing-vs-in-house-teams-2025",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4ed722e2388f3078aea3",
+   "slug": "create-more-compromise-less-the-new-standard-in-branded-videos",
+   "isDraft": false,
+   "updated": "2026-10-27T15:28:51.841Z",
+   "changes": [
+    {
+     "anchor": "For creative teams",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/outsourcing-vs-in-house-teams-2025",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f661d3fe3f8f3d4609c3d",
+   "slug": "top-guerrilla-marketing-tactics",
+   "isDraft": false,
+   "updated": "2026-10-27T15:28:55.934Z",
+   "changes": [
+    {
+     "anchor": "brand loyalty",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/crafting-a-seamless-customer-journey-from-first-impression-to-brand-loyalty",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f66a5bb0bda043db57f8a",
+   "slug": "why-re-commerce-fastest-growing-model-high-value-goods",
+   "isDraft": false,
+   "updated": "2026-10-27T15:29:00.117Z",
+   "changes": [
+    {
+     "anchor": "luxury branding",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/luxury-branding",
+     "new_href": "https://www.brandvm.com/post/luxury-brands-marketing"
+    }
+   ]
+  },
+  {
+   "id": "6a7f40072af6b6191defa115",
+   "slug": "how-brand-storytelling-crosses-borders-using-streaming-creators-and-secure-tools-for-global-reach",
+   "isDraft": false,
+   "updated": "2026-10-27T15:29:04.306Z",
+   "changes": [
+    {
+     "anchor": "storytelling",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/how-to-write-brand-story-must-include",
+     "new_href": "https://www.brandvm.com/post/brand-storytelling-narrative-framework"
+    }
+   ]
+  },
+  {
+   "id": "6a7f406db51eaef4661bb3bb",
+   "slug": "the-role-of-strategic-website-design-in-business-credibility",
+   "isDraft": false,
+   "updated": "2026-10-27T15:29:08.512Z",
+   "changes": [
+    {
+     "anchor": "brand identity",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/types-brand-identities-business-examples",
+     "new_href": "https://www.brandvm.com/post/brand-identity-design-process"
+    }
+   ]
+  },
+  {
+   "id": "6a7f58203944a982e4c0a304",
+   "slug": "how-to-simplify-digital-paperwork-while-staying-fully-privacy-compliant",
+   "isDraft": false,
+   "updated": "2026-10-27T15:29:12.710Z",
+   "changes": [
+    {
+     "anchor": "create clear audit trails",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/brand-audit-checklist-2025",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f648be0defe3cbf907cf2",
+   "slug": "the-intersection-of-ux-and-seo-why-your-website-design-matters-for-rankings",
+   "isDraft": false,
+   "updated": "2026-10-27T15:29:16.902Z",
+   "changes": [
+    {
+     "anchor": "improve discoverability and SEO",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/tips-improving-online-visibility-business-seo-2025",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4b5e6b439686cfac0f47",
+   "slug": "academic-brand-building-dissertation",
+   "isDraft": false,
+   "updated": "2026-10-27T15:29:21.000Z",
+   "changes": [
+    {
+     "anchor": "boost your brand",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/top-branding-ideas",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f668685e1357f58402f3d",
+   "slug": "what-people-are-saying-firsthand-experiences-with-tweetdelete",
+   "isDraft": false,
+   "updated": "2026-10-27T15:29:25.796Z",
+   "changes": [
+    {
+     "anchor": "personal rebranding",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/building-personal-brand-as-entrepreneur",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f3f4fe22ef6c52dd718aa",
+   "slug": "everything-you-need-to-know-about-ringless-voicemail",
+   "isDraft": false,
+   "updated": "2026-10-27T15:29:30.056Z",
+   "changes": [
+    {
+     "anchor": "proactive outreach",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/lead-generation-strategies-inbound-vs-outbound",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4e1e5cdfbb21e5e8c0cb",
+   "slug": "building-a-distinctive-brand-what-cash-home-buyers-in-portland-really-want",
+   "isDraft": false,
+   "updated": "2026-10-27T15:29:34.098Z",
+   "changes": [
+    {
+     "anchor": "branding real estate agents",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/branding-real-estate-agents",
+     "new_href": "https://www.brandvm.com/post/real-estate-branding-guide"
+    }
+   ]
+  },
+  {
+   "id": "6a7f570956646e050d576173",
+   "slug": "how-ai-is-reshaping-content-marketing-and-seo",
+   "isDraft": false,
+   "updated": "2026-10-27T15:29:38.394Z",
+   "changes": [
+    {
+     "anchor": "AI-generated content",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/artificial-intelligence-future-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4e3d3aaeeb365f9b5c97",
+   "slug": "buying-youtube-views-in-2025-weighing-the-risks-and-rewards",
+   "isDraft": false,
+   "updated": "2026-10-27T15:29:42.769Z",
+   "changes": [
+    {
+     "anchor": "marketing strategy",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/artificial-intelligence-future-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f408d3784b66097dfa99b",
+   "slug": "from-concept-to-shelf-the-science-behind-effective-packaging",
+   "isDraft": false,
+   "updated": "2026-10-27T15:29:46.996Z",
+   "changes": [
+    {
+     "anchor": "Good packaging does more than hold a product",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/branding-design-brand",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f58d2daf1ead5f472287b",
+   "slug": "key-templates-for-effective-business-management",
+   "isDraft": false,
+   "updated": "2026-10-27T15:29:51.231Z",
+   "changes": [
+    {
+     "anchor": "brand identity",
+     "action": "repoint",
+     "old_href": "https://www.brandvm.com/post/best-marketing-for-architecture-firms",
+     "new_href": "https://www.brandvm.com/post/brand-identity-design-process"
+    }
+   ]
+  },
+  {
+   "id": "6a7f642a43b7a1d224a54b5f",
+   "slug": "online-psychology-insights-for-visual-identity-and-branding",
+   "isDraft": false,
+   "updated": "2026-10-27T15:29:55.372Z",
+   "changes": [
+    {
+     "anchor": "purple is used by Twitch",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/twitchs-marketing-strategy",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4b0f26f00601805735c9",
+   "slug": "15-vision-mission-statement-examples",
+   "isDraft": false,
+   "updated": "2026-10-27T18:11:43.817Z",
+   "changes": [
+    {
+     "anchor": "value proposition",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/what-is-a-value-proposition-guide-and-top-examples",
+     "new_href": null
+    }
+   ]
+  }
+ ],
+ "other": [
+  {
+   "id": "6a7f4b0f26f00601805735c9",
+   "slug": "15-vision-mission-statement-examples",
+   "field": "related-articles",
+   "old": [
+    "6a7f4dc7af9031ec94e426d2",
+    "6a7f4dd72a473f3d2e867084",
+    "6a7f677746c439c0498ed21f"
+   ],
+   "new": [
+    "6a7f4dc7af9031ec94e426d2",
+    "6a7f4dd72a473f3d2e867084"
+   ],
+   "why": "remove reference to the draft value-proposition post (6a7f677746c439c0498ed21f) so it can be unpublished"
+  }
+ ]
+}

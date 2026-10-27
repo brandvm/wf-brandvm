@@ -1,6 +1,6 @@
 # Plan: Screaming Frog handoff (crawl of 2026-10-20)
 
-Not started. Not urgent: nothing here blocks the speed work. The handoff
+Phase 1 links live 2026-10-27 (`phase1-links-2026-10-27.md`); the redirect fixes (Phase 2) are still to do. Not urgent: nothing here blocks the speed work. The handoff
 (`START-HERE-Asheem-SEO-Handoff.txt`, `Asheem-Technical-SEO-Handoff.html`)
 and its evidence files are kept as received; `lighthouse-reports/` (23 MB)
 stays local and out of git. The handoff authorizes no production changes:
@@ -63,3 +63,13 @@ every batch goes to staging, gets checked, and is published on a go-ahead.
 - Phase 2: who approves the redirect table, and is a 410 acceptable for
   articles that were removed on purpose?
 - Phase 3: option (a), (b) or (c)?
+
+## Answers (2026-10-27, Kajal)
+
+- No migration map for old post slugs: unmatched broken links are
+  unlinked (text kept), not guessed.
+- Redirects: the Screaming Frog export has current destinations only, no
+  proposals. Proposed table: `redirect-review.csv` (130 URLs, re-checked
+  live 2026-10-27: all still 301). Approved by Kajal 2026-10-27 (D8). Webflow can't serve
+  410, so "remove" means deleting the 301 and letting the URL 404.
+- Structured data: keep the browser-built script (option a, D8). Phase 3 is closed.
