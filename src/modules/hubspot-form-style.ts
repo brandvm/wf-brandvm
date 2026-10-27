@@ -16,6 +16,11 @@
 //   file name next to it.
 // - The iframe follows the page's fluid root font-size, so the form scales
 //   with the rest of the site, and its height follows the form.
+// - The iframe reaches 8px past the form on every side (body padding, the
+//   iframe's negative margin), so the reCAPTCHA badge's shadow and focus
+//   outlines aren't cut off at its edge.
+// - Selects get a custom dropdown on fine pointers (hubspot-form-select.ts).
+import { enhanceSelect } from './hubspot-form-select';
 
 // Fallback for the site's Inter Variable (a Webflow-hosted asset); the
 // loaded URL is read from the page first, so a re-uploaded font still works.
@@ -32,7 +37,7 @@ function css(fontUrl: string) {
   return `
 @font-face{font-family:"Inter Variable";src:url("${fontUrl}") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 :root.bv-hs{--bv-text:#010101;--bv-muted:#808287;--bv-field:#f5f7fb;--bv-line:#e4e6e9;--bv-dash:#d5d5d5;--bv-accent:#cb341a;--bv-accent-hover:#b02c15}
-:root.bv-hs body{margin:0;font-family:"Inter Variable",Arial,sans-serif;color:var(--bv-text);-webkit-font-smoothing:antialiased}
+:root.bv-hs body{margin:0;padding:8px;font-family:"Inter Variable",Arial,sans-serif;color:var(--bv-text);-webkit-font-smoothing:antialiased}
 ${P}{display:flex;flex-direction:column;gap:1rem;max-width:none;margin:0;font-family:inherit;font-size:1rem;line-height:1.4}
 ${P} fieldset{display:flex;gap:1rem;max-width:none;margin:0;padding:0;border:0;min-width:0}
 ${P} fieldset.bv-hidden{display:none}
@@ -44,17 +49,25 @@ ${P} .hs-form-required{color:inherit;margin-left:.15em}
 ${P} .hs-field-desc{margin:-.4rem 0 .75rem;font-size:.875rem;line-height:1.4;color:var(--bv-muted)}
 ${P} .bv-sr{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}
 
-${P} :where(input.hs-input:not([type=file],[type=checkbox],[type=radio]),select.hs-input),
+${P} :where(input.hs-input:not([type=file],[type=checkbox],[type=radio]),select.hs-input,.bv-select),
 ${P} .hs-fieldtype-intl-phone.hs-input{display:block;width:100%;max-width:none;height:3.5rem;margin:0;padding:0 1.5rem;border:1px solid var(--bv-line);border-radius:999px;background-color:var(--bv-field);box-shadow:none;outline:none;font-size:1rem;font-weight:400;line-height:1.4;color:var(--bv-text);transition:border-color .2s}
 ${P} .hs-input::placeholder{color:var(--bv-muted);opacity:1}
 ${P} :where(input.hs-input:not([type=file]),select.hs-input,textarea.hs-input):hover,${P} .hs-fieldtype-intl-phone.hs-input:hover{border-color:#c9ccd3}
 ${P} :where(input.hs-input:not([type=file]),select.hs-input,textarea.hs-input):focus,${P} .hs-fieldtype-intl-phone.hs-input:focus-within{border-color:var(--bv-text)}
 ${P} .hs-fieldtype-intl-phone.hs-input>.hs-input:hover,${P} .hs-fieldtype-intl-phone.hs-input>.hs-input:focus{border-color:var(--bv-line)}
-${P} select.hs-input,${P} select.hs-input.is-placeholder{appearance:none;-webkit-appearance:none;padding-right:3rem;color:var(--bv-text);background-image:${CHEVRON};background-repeat:no-repeat;background-position:right 1.5rem center;background-size:.85rem;cursor:pointer;text-overflow:ellipsis}
+${P} select.hs-input,${P} select.hs-input.is-placeholder,${P} .bv-select{appearance:none;-webkit-appearance:none;padding-right:3rem;color:var(--bv-text);background-image:${CHEVRON};background-repeat:no-repeat;background-position:right 1.5rem center;background-size:.85rem;cursor:pointer;text-overflow:ellipsis}
 ${P} select.hs-input option{color:var(--bv-text)}
+${P} .bv-select{text-align:left;font-family:inherit;white-space:nowrap;overflow:hidden}
+${P} .bv-select-text{display:block;overflow:hidden;text-overflow:ellipsis}
+${P} .bv-select:hover{border-color:#c9ccd3}
+${P} .bv-select:focus-visible,${P} .bv-select[aria-expanded=true]{border-color:var(--bv-text)}
+${P} .input,${P} .hs-fieldtype-intl-phone.hs-input{position:relative}
+${P} select[data-bv-custom]{position:absolute!important;inset:0;width:100%!important;height:100%!important;opacity:0;pointer-events:none}
+${P} select[data-bv-custom].error+.bv-select,${P} select[data-bv-custom].invalid+.bv-select{border-color:var(--bv-accent)}
 
 ${P} .hs-fieldtype-intl-phone.hs-input{display:flex;align-items:center;gap:.75rem}
 ${P} .hs-fieldtype-intl-phone.hs-input>.hs-input{float:none;flex:1 1 auto;width:auto;min-width:0;height:100%;margin:0;padding:0;border:0;border-radius:0;background-color:transparent}
+${P} .hs-fieldtype-intl-phone.hs-input>.bv-select{flex:0 0 auto;width:auto;max-width:45%;height:100%;padding:0 1.4rem 0 0;border:0;border-radius:0;background-color:transparent;background-position:right 0 center}
 ${P} .hs-fieldtype-intl-phone.hs-input>select.hs-input{flex:0 0 auto;width:7.5em;field-sizing:content;max-width:45%;padding-right:1.4rem;background-position:right 0 center}
 ${P} .hs-fieldtype-intl-phone.hs-input>input.hs-input{padding-left:.75rem;border-left:1px solid var(--bv-line);height:1.6rem}
 
@@ -83,7 +96,7 @@ ${P} .hs-button:focus-visible{outline:2px solid var(--bv-text);outline-offset:2p
 
 :root.bv-hs .submitted-message{font-family:"Inter Variable",Arial,sans-serif;font-size:1.15rem;line-height:1.5;color:var(--bv-text)}
 
-@media (max-width:479px){${P} fieldset{flex-direction:column}${P} :where(textarea.hs-input){height:10rem}}
+@media (max-width:495px){${P} fieldset{flex-direction:column}${P} :where(textarea.hs-input){height:10rem}}
 @media (hover:none) and (pointer:coarse){${P} :where(.hs-input){font-size:max(1rem,16px)}}
 `;
 }
@@ -103,7 +116,7 @@ function labelText(label: Element) {
 
 let ids = 0;
 
-function enhanceFields(form: HTMLFormElement) {
+function enhanceFields(form: HTMLFormElement, iframe: HTMLIFrameElement) {
   form.querySelectorAll('fieldset').forEach((fieldset) => {
     const visible = fieldset.querySelector('input:not([type=hidden]), select, textarea');
     fieldset.classList.toggle('bv-hidden', !visible);
@@ -147,12 +160,14 @@ function enhanceFields(form: HTMLFormElement) {
       label.classList.add('bv-sr');
       const country = phone.querySelector('select');
       if (country && !country.getAttribute('aria-label')) country.setAttribute('aria-label', text + ' country');
+      if (country) enhanceSelect(country, iframe, text + ' country');
     } else if (select) {
       const empty = select.querySelector('option[value=""]');
       if (empty) {
         empty.textContent = shown;
         label.classList.add('bv-sr');
       }
+      enhanceSelect(select, iframe, text);
     } else if (input) {
       if (!input.placeholder) input.placeholder = shown;
       label.classList.add('bv-sr');
@@ -195,6 +210,7 @@ export function styleHubSpotIframe(iframe: HTMLIFrameElement) {
     doc.head.appendChild(style);
     doc.documentElement.classList.add('bv-hs');
     syncFontSize(doc);
+    Object.assign(iframe.style, { display: 'block', width: 'calc(100% + 16px)', maxWidth: 'none', margin: '-8px' });
 
     // Keep the iframe as tall as its content (HubSpot sizes it once, for
     // its own default styles), including validation messages and the
@@ -225,13 +241,13 @@ export function styleHubSpotIframe(iframe: HTMLIFrameElement) {
         const current = doc!.querySelector<HTMLFormElement>('form.hs-form');
         if (current) {
           current.classList.add('bv-form');
-          enhanceFields(current);
+          enhanceFields(current, iframe);
         }
       }).observe(body, { childList: true, subtree: true });
     }
   }
   form.classList.add('bv-form');
-  enhanceFields(form);
+  enhanceFields(form, iframe);
 
   if (!resizeBound) {
     resizeBound = true;
