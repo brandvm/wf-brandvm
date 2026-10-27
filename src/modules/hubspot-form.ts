@@ -9,6 +9,11 @@
 // viewport (data-hs-load="idle": when the browser is idle instead).
 // [data-hs-inited] marks a slot as taken, so the old Embed script and this
 // module never create the same form twice.
+//
+// Every HubSpot form on the page, however it was created, gets the Brand
+// Vision look from hubspot-form-style.ts once HubSpot reports it ready.
+import { styleHubSpotForms } from './hubspot-form-style';
+
 const SRC = 'https://js.hsforms.net/forms/embed/v2.js';
 
 type HubSpotWindow = typeof window & {
@@ -69,6 +74,11 @@ function holdSpace(el: HTMLElement) {
     observer?.disconnect();
   };
   const check = () => {
+    // Measure the form in its final look only: HubSpot's own styles make
+    // it taller, and releasing on those would shift the page when
+    // hubspot-form-style.ts shrinks it.
+    const frame = el.querySelector<HTMLIFrameElement>('iframe.hs-form-iframe');
+    if (frame && !frame.dataset.bvStyled) return;
     const reserved = parseFloat(getComputedStyle(el).minHeight) || 0;
     if (formHeight() >= reserved - 24) release();
   };
@@ -85,8 +95,9 @@ function holdSpace(el: HTMLElement) {
     observer.observe(el);
     new MutationObserver((_, mo) => {
       Array.from(el.children).forEach((c) => observer.observe(c));
+      check();
       if (done) mo.disconnect();
-    }).observe(el, { childList: true });
+    }).observe(el, { childList: true, subtree: true, attributeFilter: ['data-bv-styled'] });
   }
   setTimeout(showFallback, FALLBACK_MS);
   return { release, showFallback };
@@ -113,7 +124,22 @@ function create(el: HTMLElement) {
     });
 }
 
+let listening = false;
+
+function listenForForms() {
+  if (listening) return;
+  listening = true;
+  window.addEventListener('message', (event) => {
+    const data = event.data;
+    if (data && data.type === 'hsFormCallback' && data.eventName === 'onFormReady') {
+      styleHubSpotForms();
+    }
+  });
+  styleHubSpotForms();
+}
+
 export function initHubSpotForms() {
+  listenForForms();
   const els = Array.from(document.querySelectorAll<HTMLElement>('[data-hs-form]')).filter((el) => !el.dataset.hsInited);
   if (!els.length) return;
   els.forEach((el) => {

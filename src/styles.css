@@ -769,22 +769,33 @@ html[data-wf-domain] .c-drop.is-open .c-drop-toggle-label.to-close {
 /* repo-css: js-state — the slot is published empty and hubspot-form.ts
    loads the form into it on approach, so everything below it jumped when
    the form arrived (Contact mobile CLS 0.276, PageSpeed 2026-10-20).
-   Reserve the rendered height of the one form used site-wide (7a162eb3,
-   measured 2026-10-20): ~920px up to 500px wide (HubSpot's single-column
-   layout), ~620px above, so the form, its errors and the thank-you message
-   size themselves once it is ready. Re-measure
-   if the form's fields change. Released by hubspot-form.ts adding
-   .is-ready once the rendered form is as tall as this (or on submit, or
-   after 8s). Not :empty (HubSpot inserts its wrapper before the fields,
-   0.276 → 0.355) and not onFormReady (it can fire before the fields have
-   their final height: 0.467 on live 1.4.4). If the form never comes,
-   the space stays and holds .hs-form-fallback (contact details). */
+   Reserve the rendered height of the one form used site-wide (7a162eb3)
+   in its Brand Vision look (hubspot-form-style.ts), measured 2026-10-27
+   on staging at 320–1920px: 33.1rem + 61px with two columns, 49.4rem +
+   64px stacked (the px part is HubSpot's reCAPTCHA badge, which doesn't
+   follow the page's fluid root size; the rest does). The form stacks when
+   HubSpot's iframe is under 480px wide, i.e. at page widths up to
+   ~603px. The slot is also clipped to that height until released:
+   HubSpot first renders the form in its own, taller look, and letting
+   that through pushed the page down and back (0.11 at 992px). Kept a
+   little under the measured height: the form, its
+   errors and the thank-you message size themselves once it is ready.
+   Re-measure if the form's fields or its look change. Released by
+   hubspot-form.ts adding .is-ready once the styled form is as tall as
+   this (or on submit). Not :empty (HubSpot inserts its wrapper before
+   the fields, 0.276 → 0.355) and not onFormReady (it can fire before
+   the fields have their final height: 0.467 on live 1.4.4). If the form
+   never comes, the space stays and holds .hs-form-fallback (contact
+   details). */
 html[data-wf-domain] .hs-form-slot:not(.is-ready) {
-  min-height: 620px;
+  min-height: calc(33rem + 60px);
+  max-height: calc(33rem + 60px);
+  overflow: clip;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 603px) {
   html[data-wf-domain] .hs-form-slot:not(.is-ready) {
-    min-height: 920px;
+    min-height: calc(49rem + 60px);
+    max-height: calc(49rem + 60px);
   }
 }
 /* The message hubspot-form.ts shows in the reserved space when the form

@@ -25,7 +25,8 @@ test('HubSpot blocked: the reserved space stays and shows contact details', asyn
   await expect(slot.locator('a[href^="mailto:"]')).toHaveText('info@brandvm.com');
   await expect(slot.locator('a[href^="tel:"]')).toBeVisible();
   // Still the reserved height: nothing below moved.
-  expect(Math.round(await slot.evaluate((el) => el.getBoundingClientRect().height))).toBe(920);
+  const [height, root] = await slot.evaluate((el) => [el.getBoundingClientRect().height, parseFloat(getComputedStyle(document.documentElement).fontSize)]);
+  expect(Math.round(height)).toBe(Math.round(49 * root + 60));
   await expect(slot).not.toHaveClass(/is-ready/);
   expect(errors).toEqual([]);
 });
