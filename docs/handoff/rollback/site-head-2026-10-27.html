@@ -1,0 +1,362 @@
+<!-- Global | Webflow Head Custom Code | Start -->
+
+<!-- Google Tag Manager (GA4, Google Ads, X pixel, HubSpot), deferred: it loads on the first
+     scroll, tap, key or pointer move, or 3.5 s after the page has loaded, whichever comes
+     first, so the tags stay off the critical path (Home performance, 2026-10-20).
+     Original snippet: brandvm/wf-brandvm docs/audit/2026-10-20-tags.md -->
+<script>
+  (function (w, d, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var events = ['scroll', 'pointerdown', 'pointermove', 'keydown', 'touchstart'];
+    var loaded = false;
+    function load() {
+      if (loaded) return;
+      loaded = true;
+      events.forEach(function (e) { w.removeEventListener(e, load, true); });
+      var j = d.createElement('script');
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i;
+      d.head.appendChild(j);
+    }
+    events.forEach(function (e) { w.addEventListener(e, load, { capture: true, passive: true }); });
+    if (d.readyState === 'complete') setTimeout(load, 3500);
+    else w.addEventListener('load', function () { setTimeout(load, 3500); });
+  })(window, document, 'dataLayer', 'GTM-T8GBTH3J');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Meta Tags -->
+<meta name="theme-color" content="#FBF8EA" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="trustburn-site-verification" content="c7f510d882e731d0b3b2a1ab25cb051d" />
+<meta name="msvalidate.01" content="CD40592FB5AAD365BE5920C86B772A4F" />
+
+<!-- wf-brandvm loader, piece 1 (config + connection warming). Source: brandvm/wf-brandvm loader.html -->
+<script>
+  (function () {
+    var RELEASE = "1.4.7"; // the release tag, e.g. "1.0.0" — the only version string
+    var OWNER = "brandvm"; // the GitHub org or user that owns this repo
+    var SITE = "wf-brandvm"; // this repo's name
+    var STAG = "https://" + OWNER + ".github.io/" + SITE + "/";
+    var DEV = "http://localhost:3000/";
+    // *.canvas.webflow.com is the Designer's custom-code preview: a separate
+    // origin, with its own URL flag and localStorage.
+    var staging = /\.webflow\.io$|\.canvas\.webflow\.com$/.test(location.hostname);
+    var q = new URLSearchParams(location.search);
+    var flag = staging && q.get("wfc-dev") === "1";
+    try {
+      if (staging && q.has("wfc-dev")) localStorage.setItem("wfc-dev", flag ? "1" : "0");
+      if (staging && !q.has("wfc-dev")) flag = localStorage.getItem("wfc-dev") === "1";
+    } catch (e) { /* An explicit URL flag still works without storage. */ }
+    var prod = RELEASE
+      ? "https://cdn.jsdelivr.net/gh/" + OWNER + "/" + SITE + "@" + RELEASE + "/dist/"
+      : STAG;
+    if (!staging && !RELEASE)
+      console.error("[wfc] RELEASE is not set in head code; serving the staging bundle. Tag a release and set RELEASE before launch.");
+    // Warm the connection to wherever the bundle comes from (GitHub Pages
+    // on staging, jsDelivr with a RELEASE, localhost in dev mode). A fixed
+    // jsDelivr preconnect went unused on staging and before the first
+    // release. Two links on purpose: the stylesheet and its font fetches
+    // are CORS-different and open separate connections.
+    var origin = new URL(flag ? DEV : staging ? STAG : prod).origin;
+    [false, true].forEach(function (cors) {
+      var warm = document.createElement("link");
+      warm.rel = "preconnect";
+      warm.href = origin;
+      if (cors) warm.crossOrigin = "";
+      document.head.appendChild(warm);
+    });
+    // The canvas Embed (2a) must link the staging stylesheet, for the
+    // Designer. On a release domain, write the pinned sheet into <head>
+    // instead: a parser-inserted head stylesheet holds first paint in every
+    // browser, so the page never paints at the wrong scale (§01). Then
+    // re-point 2a at the same file as the parser inserts it (one request;
+    // the observer runs before 2b), so GitHub Pages never holds the page and
+    // 2b's swap is a no-op. If the observer misses, 2b swaps as before.
+    if (!staging && RELEASE) {
+      var want = prod + "styles.css";
+      document.write('<link rel="stylesheet" href="' + want + '">');
+      if (window.MutationObserver) {
+        var watch = new MutationObserver(function () {
+          var link = document.getElementById("wfc-css");
+          if (!link) return;
+          watch.disconnect();
+          if (link.href !== want) link.href = want;
+        });
+        watch.observe(document.documentElement, { childList: true, subtree: true });
+        document.addEventListener("DOMContentLoaded", function () { watch.disconnect(); });
+      }
+    }
+    // Shared config — the Embed, the footer loader and the bundle read this.
+    window.WFC = {
+      staging: staging, dev: flag, devBase: DEV, stag: STAG,
+      release: RELEASE, prod: prod,
+    };
+
+    // No pre-paint scroll lock on brandvm.com (decision D1): the live site
+    // never had one, and the parity release changes nothing visitors see.
+  })();
+</script>
+
+<!-- Ahrefs Analytics -->
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="3hc4+Y/AOKZu+6OnByanpA" async></script>
+
+<!-- Finsweet Attributes (list, socialshare) are bundled in wf-brandvm since v1.3.0; no CDN tag. -->
+
+<style>
+  /* Hiding Dev Supports */
+  .g-embed-code,
+  .s-hidden-elements,
+  .finsweet-only,
+  /* .g-grid-guide, */
+  .w-webflow-badge {
+    z-index: -99999 !important;
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+</style>
+
+<!-- Global | Webflow Head Custom Code | End -->
+
+<!-- Global Schema Tag (v4) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.brandvm.com/#organization",
+      "name": "Brand Vision",
+      "legalName": "Brand Vision Marketing Inc.",
+      "url": "https://www.brandvm.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.brandvm.com/#logo",
+        "url": "https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/6356fc6eb1dd160d0f9de5bc_Brand%20Vision%20Logo.svg"
+      },
+      "image": {
+        "@id": "https://www.brandvm.com/#logo"
+      },
+      "description": "Design-led marketing agency specializing in web design, branding, UI/UX, and SEO.",
+      "email": "info@brandvm.com",
+      "telephone": "+1-888-832-2917",
+      "foundingDate": "2018",
+      "sameAs": [
+        "https://www.instagram.com/brandvisionofficial/",
+        "https://www.facebook.com/BrandVisionM",
+        "https://www.linkedin.com/company/brandvm",
+        "https://x.com/brandvmofficial",
+        "https://www.tiktok.com/@brandvisioninsights"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+1-888-832-2917",
+          "email": "info@brandvm.com",
+          "areaServed": [
+            { "@type": "Country", "name": "Canada" },
+            { "@type": "Country", "name": "United States" }
+          ],
+          "availableLanguage": ["en"]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+1-416-360-3434",
+          "email": "info@brandvm.com",
+          "areaServed": [
+            { "@type": "Country", "name": "Canada" },
+            { "@type": "Country", "name": "United States" }
+          ],
+          "availableLanguage": ["en"]
+        }
+      ],
+      "areaServed": [
+        { "@type": "Country", "name": "Canada" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "location": [
+        { "@id": "https://www.brandvm.com/#toronto" },
+        { "@id": "https://www.brandvm.com/#chicago" },
+        { "@id": "https://www.brandvm.com/#san-francisco" },
+        { "@id": "https://www.brandvm.com/#miami" }
+      ],
+      "hasOfferCatalog": {
+        "@id": "https://www.brandvm.com/#services"
+      }
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://www.brandvm.com/#services",
+      "name": "Brand Vision Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "@id": "https://www.brandvm.com/web-design#service",
+            "name": "Web Design",
+            "url": "https://www.brandvm.com/web-design",
+            "provider": {
+              "@id": "https://www.brandvm.com/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "@id": "https://www.brandvm.com/branding#service",
+            "name": "Branding",
+            "url": "https://www.brandvm.com/branding",
+            "provider": {
+              "@id": "https://www.brandvm.com/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "@id": "https://www.brandvm.com/ui-ux-agency#service",
+            "name": "UI/UX",
+            "url": "https://www.brandvm.com/ui-ux-agency",
+            "provider": {
+              "@id": "https://www.brandvm.com/#organization"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "@id": "https://www.brandvm.com/seo-agency#service",
+            "name": "SEO",
+            "url": "https://www.brandvm.com/seo-agency",
+            "provider": {
+              "@id": "https://www.brandvm.com/#organization"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": "https://www.brandvm.com/#toronto",
+      "name": "Brand Vision - Toronto",
+      "url": "https://www.brandvm.com/",
+      "image": {
+        "@id": "https://www.brandvm.com/#logo"
+      },
+      "telephone": "+1-416-360-3434",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Bloor St W, Suite 401",
+        "addressLocality": "Toronto",
+        "addressRegion": "ON",
+        "postalCode": "M4W 3B8",
+        "addressCountry": "CA"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Toronto" },
+        { "@type": "AdministrativeArea", "name": "Ontario" },
+        { "@type": "Country", "name": "Canada" }
+      ],
+      "branchOf": {
+        "@id": "https://www.brandvm.com/#organization"
+      }
+    },
+    {
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": "https://www.brandvm.com/#chicago",
+      "name": "Brand Vision - Chicago",
+      "url": "https://www.brandvm.com/chicago",
+      "image": {
+        "@id": "https://www.brandvm.com/#logo"
+      },
+      "telephone": "+1-888-832-2917",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "30 N Michigan Ave, Suite 504",
+        "addressLocality": "Chicago",
+        "addressRegion": "IL",
+        "postalCode": "60602",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Chicago" },
+        { "@type": "AdministrativeArea", "name": "Illinois" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "branchOf": {
+        "@id": "https://www.brandvm.com/#organization"
+      }
+    },
+    {
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": "https://www.brandvm.com/#san-francisco",
+      "name": "Brand Vision - San Francisco",
+      "url": "https://www.brandvm.com/san-francisco",
+      "image": {
+        "@id": "https://www.brandvm.com/#logo"
+      },
+      "telephone": "+1-888-832-2917",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "71 Stevenson St, Suite 400",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "postalCode": "94105",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "San Francisco" },
+        { "@type": "AdministrativeArea", "name": "California" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "branchOf": {
+        "@id": "https://www.brandvm.com/#organization"
+      }
+    },
+    {
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": "https://www.brandvm.com/#miami",
+      "name": "Brand Vision - Miami",
+      "url": "https://www.brandvm.com/miami",
+      "image": {
+        "@id": "https://www.brandvm.com/#logo"
+      },
+      "telephone": "+1-888-832-2917",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "80 S.W. 8th Street, Suite 2000",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "postalCode": "33130",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Miami" },
+        { "@type": "AdministrativeArea", "name": "Florida" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "branchOf": {
+        "@id": "https://www.brandvm.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.brandvm.com/#website",
+      "url": "https://www.brandvm.com/",
+      "name": "Brand Vision",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.brandvm.com/#organization"
+      }
+    }
+  ]
+}
+</script>

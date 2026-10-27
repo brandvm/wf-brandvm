@@ -36,6 +36,11 @@ collected from client repos into those files.
 - Cause: a site publish skips draft items rather than removing their live
   version. Unpublish refuses while a live item references the item. The
   custom domains drop the page only at their next publish.
+- Note (same day): most "live drafts" here were live articles with saved,
+  unpublished edits (live text 92–100% the same as the CMS, some edited
+  that day). The API reports those as `isDraft: true` too, so `isDraft`
+  alone doesn't mean abandoned: compare the live page with the CMS text
+  before calling a post a draft.
 - Fix: find live drafts by comparing `isDraft` + `lastPublished` with the
   live URL. To remove one: clear references (e.g. `related-articles`),
   publish the referencing item, unpublish, then publish the custom domains.

@@ -14,7 +14,8 @@ ORIGIN = sys.argv[1] if len(sys.argv) > 1 else 'https://www.brandvm.com'
 HERE = os.path.dirname(os.path.abspath(__file__))
 EXPORT = HERE + '/redirects/webflow-export-2026-10-27.csv'
 EARLIER = [HERE + '/redirects/webflow-import-2026-10-27.csv']
-IMPORT = HERE + '/redirects/webflow-import-2026-10-27-v2.csv'  # 17 rows that landed on 404s
+EARLIER.append(HERE + '/redirects/webflow-import-2026-10-27-v2.csv')
+IMPORT = HERE + '/redirects/webflow-import-2026-10-27-v3.csv'  # 3 rows whose targets were unpublished
 
 
 def unescape(s):  # Webflow writes "/post/a%-b" for "/post/a-b"

@@ -1,0 +1,738 @@
+{
+ "items": [
+  {
+   "id": "6a7f58dbb245d44ed3376d91",
+   "slug": "kim-kardashian-branding",
+   "isDraft": false,
+   "updated": "2026-10-27T21:38:40.259Z",
+   "changes": [
+    {
+     "anchor": "NikeSKIMS marketing analysis",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/nikeskims-2025-marketing-collaboration-activewear",
+     "new_href": null
+    },
+    {
+     "anchor": "brand architecture",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/what-is-brand-architecture-comprehensive-guide",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4b560979c19ee6ad5d21",
+   "slug": "818-tequila-marketing-strategies",
+   "isDraft": false,
+   "updated": "2026-10-27T21:38:45.278Z",
+   "changes": [
+    {
+     "anchor": "celebrity marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/celebrity-marketing-partnerships",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4b6a6fc87c8384f781cb",
+   "slug": "adidas-marketing",
+   "isDraft": false,
+   "updated": "2026-10-27T21:38:49.979Z",
+   "changes": [
+    {
+     "anchor": "Mercedes-Benz",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/mercedes-benzs-marketing-strategies",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4be626f0060180579aae",
+   "slug": "b2b-saas-marketing-strategy-2025",
+   "isDraft": false,
+   "updated": "2026-10-27T21:38:54.345Z",
+   "changes": [
+    {
+     "anchor": "well-produced videos",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4bff61581df0095e4634",
+   "slug": "best-apple-ads-of-all-time",
+   "isDraft": false,
+   "updated": "2026-10-27T21:38:58.637Z",
+   "changes": [
+    {
+     "anchor": "video marketing formats",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4c3e433b78c3969ba9e9",
+   "slug": "best-mcdonalds-advertisements",
+   "isDraft": false,
+   "updated": "2026-10-27T21:39:02.791Z",
+   "changes": [
+    {
+     "anchor": "video marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4d74cedc5bab9b8dcab0",
+   "slug": "biggest-video-game-franchises-of-all-time",
+   "isDraft": false,
+   "updated": "2026-10-27T21:39:07.036Z",
+   "changes": [
+    {
+     "anchor": "brand architecture",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/what-is-brand-architecture-comprehensive-guide",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4d7f6baa2df8d07c311e",
+   "slug": "bmws-marketing",
+   "isDraft": false,
+   "updated": "2026-10-27T21:39:11.661Z",
+   "changes": [
+    {
+     "anchor": "Mercedes-Benz",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/mercedes-benzs-marketing-strategies",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4db4776003930b20d83a",
+   "slug": "brand-events-how-to-guide",
+   "isDraft": false,
+   "updated": "2026-10-27T21:39:15.942Z",
+   "changes": [
+    {
+     "anchor": "video marketing plan",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4e3fc81781042cf76702",
+   "slug": "buzzfeed-marketing",
+   "isDraft": false,
+   "updated": "2026-10-27T21:39:20.814Z",
+   "changes": [
+    {
+     "anchor": "video marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f40240d31fb493f4ead12",
+   "slug": "ceraves-marketing-strategy",
+   "isDraft": false,
+   "updated": "2026-10-27T21:39:25.048Z",
+   "changes": [
+    {
+     "anchor": "celebrity and influencer partnerships",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/celebrity-marketing-partnerships",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4e86c81781042cf79804",
+   "slug": "chick-fil-a-marketing-strategy",
+   "isDraft": false,
+   "updated": "2026-10-27T21:39:29.285Z",
+   "changes": [
+    {
+     "anchor": "Mercedes-Benz",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/mercedes-benzs-marketing-strategies",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f4e9843959009aec172d5",
+   "slug": "coca-cola-marketing-strategy",
+   "isDraft": false,
+   "updated": "2026-10-27T21:39:34.185Z",
+   "changes": [
+    {
+     "anchor": "video marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f55992d634d9aca22d061",
+   "slug": "duolingos-tiktok-strategy",
+   "isDraft": false,
+   "updated": "2026-10-27T21:39:38.365Z",
+   "changes": [
+    {
+     "anchor": "Mercedes-Benz",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/mercedes-benzs-marketing-strategies",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f562b9c6b2072ecf4cdc5",
+   "slug": "fastest-growing-social-media-platforms-2025",
+   "isDraft": false,
+   "updated": "2026-10-27T21:39:42.839Z",
+   "changes": [
+    {
+     "anchor": "video marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f5639ceae417effe52382",
+   "slug": "fenty-beautys-marketing",
+   "isDraft": false,
+   "updated": "2026-10-27T21:39:47.235Z",
+   "changes": [
+    {
+     "anchor": "Mercedes-Benz",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/mercedes-benzs-marketing-strategies",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f566908303ab82a5c23a5",
+   "slug": "formula-one-marketing",
+   "isDraft": false,
+   "updated": "2026-10-27T21:39:52.254Z",
+   "changes": [
+    {
+     "anchor": "video marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f56cb30c5cb3b98d411d1",
+   "slug": "growing-your-youtube-channel",
+   "isDraft": false,
+   "updated": "2026-10-27T21:39:56.501Z",
+   "changes": [
+    {
+     "anchor": "video marketing strategy",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f57067179da4ee5fe5bb2",
+   "slug": "how-ai-content-saves-time-while-strengthening-brand-identity",
+   "isDraft": true,
+   "updated": "2026-10-27T21:40:00.645Z",
+   "changes": [
+    {
+     "anchor": "Google",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/how-fast-get-first-page-google",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f582525329234377b4d4b",
+   "slug": "how-to-start-youtube-channel",
+   "isDraft": false,
+   "updated": "2026-10-27T21:40:05.128Z",
+   "changes": [
+    {
+     "anchor": "video marketing across platforms",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f588417e2718a822e5ec9",
+   "slug": "influencers-can-build-brand-empire",
+   "isDraft": false,
+   "updated": "2026-10-27T21:40:10.483Z",
+   "changes": [
+    {
+     "anchor": "video marketing strategy",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f588bdee876dbf9149668",
+   "slug": "innovative-international-marketing",
+   "isDraft": false,
+   "updated": "2026-10-27T21:40:15.387Z",
+   "changes": [
+    {
+     "anchor": "video marketing formats",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f58be8e313b6e27b5c4a2",
+   "slug": "jaguars-controversial-rebrand",
+   "isDraft": false,
+   "updated": "2026-10-27T21:40:19.884Z",
+   "changes": [
+    {
+     "anchor": "brand architecture",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/what-is-brand-architecture-comprehensive-guide",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f58cefa462d5a56ff02ba",
+   "slug": "kanye-west-branding",
+   "isDraft": false,
+   "updated": "2026-10-27T21:40:24.103Z",
+   "changes": [
+    {
+     "anchor": "brand architecture",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/what-is-brand-architecture-comprehensive-guide",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f58de72e79a249432cba1",
+   "slug": "kith-x-columbia-nse-marketing-collaboration",
+   "isDraft": true,
+   "updated": "2026-10-27T21:40:28.616Z",
+   "changes": [
+    {
+     "anchor": "Wildflower Cases marketing and collaborations",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/wildflower-cases-marketing-collaborations",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f594917e2718a822ec12c",
+   "slug": "marketing-and-branding-real-estate-business",
+   "isDraft": false,
+   "updated": "2026-10-27T21:40:32.948Z",
+   "changes": [
+    {
+     "anchor": "video marketing guide",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f6355c6e50ed12775a0e8",
+   "slug": "marketing-strategy-of-successful-shark-tank-businesses",
+   "isDraft": false,
+   "updated": "2026-10-27T21:40:37.426Z",
+   "changes": [
+    {
+     "anchor": "video marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f63603fe3f8f3d45eb906",
+   "slug": "marketing-trends-2025",
+   "isDraft": false,
+   "updated": "2026-10-27T21:40:41.624Z",
+   "changes": [
+    {
+     "anchor": "video marketing strategy",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f636de4fd03f7fa06f871",
+   "slug": "marvel-marketing-strategy",
+   "isDraft": false,
+   "updated": "2026-10-27T21:40:45.939Z",
+   "changes": [
+    {
+     "anchor": "how brand architecture works",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/what-is-brand-architecture-comprehensive-guide",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f6387e4fd03f7fa0709fc",
+   "slug": "michael-jordan-basketball-marketing",
+   "isDraft": false,
+   "updated": "2026-10-27T21:40:50.496Z",
+   "changes": [
+    {
+     "anchor": "Mercedes-Benz",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/mercedes-benzs-marketing-strategies",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f643bd11ae7752df7e787",
+   "slug": "ovo-marketing-strategies",
+   "isDraft": false,
+   "updated": "2026-10-27T21:40:54.867Z",
+   "changes": [
+    {
+     "anchor": "celebrity marketing partnerships",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/celebrity-marketing-partnerships",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f64736b7eb950ef991492",
+   "slug": "polestars-marketing",
+   "isDraft": false,
+   "updated": "2026-10-27T21:40:59.092Z",
+   "changes": [
+    {
+     "anchor": "Mercedes-Benz marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/mercedes-benzs-marketing-strategies",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f64760854c4e252093e96",
+   "slug": "poppi-marketing-strategy",
+   "isDraft": false,
+   "updated": "2026-10-27T21:41:03.285Z",
+   "changes": [
+    {
+     "anchor": "celebrity and influencer partnerships",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/celebrity-marketing-partnerships",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f647d857a0164c3e37af7",
+   "slug": "porsches-marketing-2026",
+   "isDraft": false,
+   "updated": "2026-10-27T21:41:07.534Z",
+   "changes": [
+    {
+     "anchor": "Mercedes-Benz marketing strategy",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/mercedes-benzs-marketing-strategies",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f64b35bde243c679eb8cf",
+   "slug": "real-estate-branding-marketing",
+   "isDraft": false,
+   "updated": "2026-10-27T21:41:11.861Z",
+   "changes": [
+    {
+     "anchor": "real estate website that generates leads",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/real-estate-website-lead-generation",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f64ceacf5d57016bf940a",
+   "slug": "red-bull-lessons-sponsorships",
+   "isDraft": false,
+   "updated": "2026-10-27T21:41:16.299Z",
+   "changes": [
+    {
+     "anchor": "video marketing strategy",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f63565bde243c679d81f2",
+   "slug": "rednote-app-features-global-rise",
+   "isDraft": false,
+   "updated": "2026-10-27T21:41:20.598Z",
+   "changes": [
+    {
+     "anchor": "video marketing strategy",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f636851502a3ce380f4d5",
+   "slug": "rhode-hailey-bieber-marketing",
+   "isDraft": false,
+   "updated": "2026-10-27T21:41:24.904Z",
+   "changes": [
+    {
+     "anchor": "Mercedes-Benz",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/mercedes-benzs-marketing-strategies",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f636de0defe3cbf8fab39",
+   "slug": "rise-of-meta-2025-strategy",
+   "isDraft": false,
+   "updated": "2026-10-27T21:41:29.131Z",
+   "changes": [
+    {
+     "anchor": "video marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f63f3bb0bda043db456d3",
+   "slug": "social-media-marketing-2025",
+   "isDraft": false,
+   "updated": "2026-10-27T21:41:33.356Z",
+   "changes": [
+    {
+     "anchor": "video marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f63ff6ac42cd3d19c1a17",
+   "slug": "social-media-statistics-2025",
+   "isDraft": false,
+   "updated": "2026-10-27T21:41:41.760Z",
+   "changes": [
+    {
+     "anchor": "video marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f64543218ec332b93b79b",
+   "slug": "taylor-swift-life-of-a-showgirl-marketing",
+   "isDraft": false,
+   "updated": "2026-10-27T21:41:46.664Z",
+   "changes": [
+    {
+     "anchor": "video marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f645ebb716a854848f882",
+   "slug": "teslas-marketing-strategy",
+   "isDraft": false,
+   "updated": "2026-10-27T21:41:51.324Z",
+   "changes": [
+    {
+     "anchor": "Mercedes-Benz",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/mercedes-benzs-marketing-strategies",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f648f146fed1e3102d912",
+   "slug": "the-marketing-strategy-armani",
+   "isDraft": false,
+   "updated": "2026-10-27T21:41:56.133Z",
+   "changes": [
+    {
+     "anchor": "celebrity marketing partnerships",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/celebrity-marketing-partnerships",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f65986ac42cd3d19cf0a0",
+   "slug": "tomorrowland-festival-ultimate-marketing-guide",
+   "isDraft": false,
+   "updated": "2026-10-27T21:42:00.549Z",
+   "changes": [
+    {
+     "anchor": "video marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f65c93fe3f8f3d460725b",
+   "slug": "top-10-commercials-of-all-time",
+   "isDraft": false,
+   "updated": "2026-10-27T21:42:04.932Z",
+   "changes": [
+    {
+     "anchor": "video marketing formats",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f65ec8d62cc1797b23982",
+   "slug": "top-adidas-ads",
+   "isDraft": false,
+   "updated": "2026-10-27T21:42:09.067Z",
+   "changes": [
+    {
+     "anchor": "video marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f661d3fe3f8f3d4609c3d",
+   "slug": "top-guerrilla-marketing-tactics",
+   "isDraft": false,
+   "updated": "2026-10-27T21:42:13.593Z",
+   "changes": [
+    {
+     "anchor": "video marketing plan",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f6636819b2822f04b8610",
+   "slug": "top-microphones-for-vloggers-on-a-budget",
+   "isDraft": false,
+   "updated": "2026-10-27T21:42:17.861Z",
+   "changes": [
+    {
+     "anchor": "video marketing plan",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f669c43b7a1d224a66445",
+   "slug": "toyotas-marketing-strategy",
+   "isDraft": false,
+   "updated": "2026-10-27T21:42:22.067Z",
+   "changes": [
+    {
+     "anchor": "video marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f6701c25a340ef90a99db",
+   "slug": "video-marketing-statistics-2025",
+   "isDraft": false,
+   "updated": "2026-10-27T21:42:26.627Z",
+   "changes": [
+    {
+     "anchor": "video marketing strategy",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  },
+  {
+   "id": "6a7f6741d11ae7752df95064",
+   "slug": "website-design-essentials-business-website-2025",
+   "isDraft": false,
+   "updated": "2026-10-27T21:42:30.996Z",
+   "changes": [
+    {
+     "anchor": "video marketing",
+     "action": "unlink",
+     "old_href": "https://www.brandvm.com/post/video-marketing",
+     "new_href": null
+    }
+   ]
+  }
+ ]
+}
