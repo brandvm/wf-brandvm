@@ -12,6 +12,7 @@ Filled in by `pnpm new-project` on 2026-10-19.
 - GitHub: `brandvm/wf-brandvm`, default branch `master`
 - Webflow site ID: `68b9f0236581de795cba8ec2`
 - Staging site: `https://brandvm.webflow.io`
+- Webflow MCP server: `webflow-brandvm` (`.mcp.json`)
 - Staging bundles: `https://brandvm.github.io/wf-brandvm/`
 - Production domain: `https://www.brandvm.com` (also `brandvm.com`)
 - Production release: `1.4.7` (RELEASE in Webflow head code, 2026-10-27 ~20:15 UTC: the HubSpot contact form in the new design, custom dropdowns, common phone countries first. Before that, 1.4.6 on 2026-10-20 ~18:30 UTC, with the Home performance changes in Webflow: subset fonts, lazy badges and hero panels, hero preloads; see docs/perf/LOG.md. Earlier the same day: 1.4.1 Stage 4 with every IX2/IX3 interaction deleted and Webflow GSAP off, 1.4.2 cleanup, 1.4.3 nav images, 1.4.4–1.4.5 HubSpot form space)
@@ -160,6 +161,21 @@ touches `dist/`.
 Release as the README describes: tag a commit whose CI passed, then set
 `RELEASE` in the head snippet — the only version string. Never move a pushed
 tag; cut the next patch. Never use `@latest` or a branch URL in production.
+
+## Webflow MCP connection
+
+Each client repo has its own MCP server name, `webflow-<slug>` in
+`.mcp.json`, so each keeps its own Webflow sign-in on the machine. The
+sign-in (OAuth token) never goes in the repo: these repos are public.
+
+- Use only the server named in Project facts. Never write to Webflow
+  through another client's server or the account-wide claude.ai Webflow
+  connector, which may reach other clients' sites.
+- Before the first write in a session, list the sites the server reaches
+  and check the site ID matches Project facts. A mismatch or extra sites →
+  stop and ask the user to re-authorise with only this site ticked.
+- The cloud (claude.ai/code) can't run the OAuth sign-in; Webflow MCP work
+  happens in a local Claude Code session opened in the workspace.
 
 ## Webflow MCP limits
 
