@@ -8,7 +8,7 @@
 //                       (aria-hidden) so the tablet/phone marquee loops seamlessly.
 //   [data-seo-acc]      the services accordion: [data-seo-panel] children, each with
 //                       a [data-seo-tab]. Sets data-state="on"/"off", auto-advances
-//                       every 8s (paused on hover/focus), restarts the
+//                       every 8s (paused while keyboard focus is inside), restarts the
 //                       [data-seo-progress] bar. Styles for the states: styles.css
 //                       › "SEO hub".
 import { SEO_HUB_FRAG } from './seo-hub-frag';
@@ -178,9 +178,11 @@ function initAccordion(root: HTMLElement) {
     root.removeAttribute('data-paused');
     schedule();
   };
-  root.addEventListener('mouseenter', pause);
-  root.addEventListener('mouseleave', resume);
-  root.addEventListener('focusin', pause);
+  // Hover does not pause: the pointer usually rests on the accordion while
+  // reading, which made the rotation look broken. Keyboard focus does pause.
+  root.addEventListener('focusin', (e) => {
+    if ((e.target as HTMLElement).matches(':focus-visible')) pause();
+  });
   root.addEventListener('focusout', (e) => {
     if (!root.contains(e.relatedTarget as Node)) resume();
   });
@@ -193,7 +195,7 @@ function initAccordion(root: HTMLElement) {
         io.disconnect();
       }
     },
-    { threshold: 0.4 },
+    { threshold: 0.15 },
   ).observe(root);
 }
 
