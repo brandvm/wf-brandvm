@@ -25,6 +25,35 @@ collected from client repos into those files.
 
 ## This project
 
+### 2026-11-18 · S Wrapper's own gap doubles spacing inside new sections
+- Area: designer
+- Scope: project
+- Symptom: on the /seo-agency rebuild the space between the approach
+  cards and the card below was ~100 px while the cards themselves were
+  20 px apart; headings sat 160 px above the accordion.
+- Cause: `S Wrapper` is a flex column with row/column gap bound to the
+  content-gap variable (80 px at 1680). Any margin on its children adds to
+  that gap.
+- Fix: children of `S Wrapper` carry no vertical margins; elements that
+  need a tighter rhythm go in one inner wrapper with its own gap
+  (`seo-hub-approach-body`, 1.25rem).
+- Status: fixed (Webflow styles, 2026-11-18)
+- Found by: human
+
+### 2026-11-18 · Hero poster image was the mobile LCP and the load flicker
+- Area: perf
+- Scope: template-candidate
+- Symptom: the new /seo-agency hero painted flat navy, then jumped to its
+  gradient when a 242 KB poster JPEG arrived; Lighthouse mobile LCP 6.2 s
+  on that image.
+- Cause: a decorative background behind a WebGL canvas was an `<img>`
+  in an Embed, so it was both late and the largest paint.
+- Fix: ship a 48 px copy of the same frame inline in the stylesheet as
+  the background (1.5 KB data URI, scaled), drop the `<img>`; the canvas
+  fades in over it. Mobile LCP 6.2 → 4.1 s on staging, no colour jump.
+- Status: fixed 7884f97
+- Found by: human
+
 ### 2026-10-20 · Production loaded the repo stylesheet twice, the first from GitHub Pages
 - Area: loader, perf
 - Scope: template-candidate
