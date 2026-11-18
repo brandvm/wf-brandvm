@@ -502,3 +502,27 @@ the full history.
   fields are also unused and can be freed the same way.
 - Status: documented
 - Found by: claude
+
+### 2026-11-18 · Rich-text margin trim flattened designed embeds
+- Area: CSS / CMS
+- Scope: template-candidate
+- Symptom: inside CMS rich-text embeds (SEO hero cards, diagrams, related tiles) spacing vanished;
+  the cards row sat on the hero CTA.
+- Cause: styles.css §04 `.w-richtext :where(:first-child, div:first-child :first-child){margin-top:0!important}`
+  (and the last-child twin) matches every first/last child at any depth inside an embed.
+- Fix: the trim now skips `.seo-sub-cards`, `.seo-sub-vx`, `.seo-sub-rel` and their descendants. Any new
+  designed embed in rich text needs adding to that :not(:where(...)) list.
+- Status: fixed
+- Found by: claude (reported by the user)
+
+### 2026-11-18 · Embed class names collide with site classes
+- Area: CSS
+- Scope: template-candidate
+- Symptom: Local SEO map-pack rows overlapped and their text was squashed.
+- Cause: prototype class names `d1`–`d5` and `dot` are also Webflow site classes (display headings, a
+  vermillion dot); site CSS styled the embed elements.
+- Fix: renamed to `sx-*` in the generator (`avoid_site_classes`) and in the CMS HTML
+  (`seo-redesign/tools/fix-embed-classes.py`). Before adding prototype markup to a CMS embed, check its
+  class names against the published site CSS.
+- Status: fixed
+- Found by: claude (reported by the user)
