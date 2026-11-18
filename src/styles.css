@@ -1317,7 +1317,7 @@ select.form-input {
    Services • SEO template uses. */
 [data-seo-rt]>*{font:inherit;color:inherit;letter-spacing:inherit;line-height:inherit;margin:0;max-width:none}
 [data-seo-rt]>*+*{margin-top:1em}
-[data-seo-rt] em{font-family:var(--serif,"Instrument Serif",Georgia,serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+[data-seo-rt] em{font-family:"Instrument Serif (Opt)","Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
 [data-seo-rt] strong{font-weight:600}
 [data-seo-rt="h1"] em{display:block;color:#9cc3ff;font-size:1.02em}
 [data-seo-rt="h2"] em{color:#c4351c;font-size:1.04em}
@@ -1326,11 +1326,11 @@ select.form-input {
 .seo-sub-rel{margin-top:3.5rem;color:#000}
 .seo-sub-rel__head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.5rem}
 .seo-sub-rel__t{margin:0;font-size:1.75rem;line-height:1.1;letter-spacing:-.02em}
-.seo-sub-rel__t em{font-family:var(--serif,"Instrument Serif",Georgia,serif);font-style:italic;color:#c4351c}
+.seo-sub-rel__t em{font-family:"Instrument Serif (Opt)","Instrument Serif",Georgia,serif;font-style:italic;color:#c4351c}
 .seo-sub-rel__all{display:inline-flex;align-items:center;min-height:2.75rem;padding:0 1.25rem;border-radius:999px;background:#0b0c10;color:#fff;font-size:.875rem;font-weight:500;text-decoration:none;transition:background-color .2s}
 .seo-sub-rel__all:hover{background:#2a3f8f}
 .seo-sub-rel__list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem}
-.seo-sub-rel__a{position:relative;isolation:isolate;display:flex;align-items:flex-end;justify-content:space-between;gap:.75rem;aspect-ratio:16/10;padding:1.25rem;border-radius:1.25rem;overflow:hidden;background:#0b1a40;color:#fff;font-family:var(--serif,"Instrument Serif",Georgia,serif);font-style:italic;font-size:1.5rem;line-height:1.05;letter-spacing:-.01em;text-decoration:none}
+.seo-sub-rel__a{position:relative;isolation:isolate;display:flex;align-items:flex-end;justify-content:space-between;gap:.75rem;aspect-ratio:16/10;padding:1.25rem;border-radius:1.25rem;overflow:hidden;background:#0b1a40;color:#fff;font-family:"Instrument Serif (Opt)","Instrument Serif",Georgia,serif;font-style:italic;font-size:1.5rem;line-height:1.05;letter-spacing:-.01em;text-decoration:none}
 .seo-sub-rel__img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;max-width:none;object-fit:cover;object-position:100% 50%;transition:transform .6s cubic-bezier(.22,.8,.24,1)}
 .seo-sub-rel__a::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(5,10,22,.86) 0%,rgba(5,10,22,.42) 42%,rgba(5,10,22,0) 72%)}
 .seo-sub-rel__name{max-width:11em}
