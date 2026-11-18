@@ -2,8 +2,9 @@
 // markup is absent, so no other page is affected.
 //
 //   [data-seo-shader]   <canvas> in the hero background Embed: WebGL ribbed-glass
-//                       shader (seo-hub-frag.ts). The poster image under it is the
-//                       fallback when WebGL is off; reduced motion draws one frame.
+//                       shader (seo-hub-frag.ts), GPU only. The inline gradient under
+//                       it is the fallback (no WebGL, software WebGL, a slow GPU);
+//                       reduced motion draws one frame.
 //   [data-seo-track]    the hero cards row: its cards are cloned once
 //                       (aria-hidden) so the tablet/phone marquee loops seamlessly.
 //   [data-seo-acc]      the services accordion: [data-seo-panel] children, each with
@@ -22,8 +23,20 @@ function hexToRgb(hex: string) {
 }
 
 function initShader(canvas: HTMLCanvasElement) {
-  const gl = canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power' });
+  // Hardware only. Without a GPU (software WebGL: SwiftShader, llvmpipe, which is
+  // also what PageSpeed Insights runs) every frame is drawn on the CPU's main
+  // thread: 11 s of blocking time on PSI mobile. The inline gradient under the
+  // canvas (.sh-bg) is the hero then.
+  const gl = canvas.getContext('webgl', {
+    antialias: false,
+    alpha: false,
+    powerPreference: 'low-power',
+    failIfMajorPerformanceCaveat: true,
+  });
   if (!gl) return;
+  const info = gl.getExtension('WEBGL_debug_renderer_info');
+  const renderer = info ? String(gl.getParameter(info.UNMASKED_RENDERER_WEBGL)) : '';
+  if (/swiftshader|llvmpipe|softpipe|software|basic render/i.test(renderer)) return;
   const shader = (type: number, src: string) => {
     const s = gl.createShader(type)!;
     gl.shaderSource(s, src);
@@ -80,9 +93,15 @@ function initShader(canvas: HTMLCanvasElement) {
     new ResizeObserver(() => draw(t0)).observe(canvas);
     return;
   }
+  // A GPU too slow for the shader (frames averaging over 50 ms once warmed up)
+  // keeps the frame it has and stops animating.
+  let count = 0, since = 0, slow = false;
   const loop = (now: number) => {
     draw(now);
-    frame = visible && !document.hidden ? requestAnimationFrame(loop) : 0;
+    count++;
+    if (count === 10) since = now;
+    else if (count === 40 && (now - since) / 30 > 50) slow = true;
+    frame = visible && !document.hidden && !slow ? requestAnimationFrame(loop) : 0;
   };
   window.addEventListener(
     'pointermove',
@@ -100,10 +119,10 @@ function initShader(canvas: HTMLCanvasElement) {
   );
   new IntersectionObserver((entries) => {
     visible = entries[0].isIntersecting;
-    if (visible && !frame) frame = requestAnimationFrame(loop);
+    if (visible && !frame && !slow) frame = requestAnimationFrame(loop);
   }).observe(canvas);
   document.addEventListener('visibilitychange', () => {
-    if (!document.hidden && !frame && visible) frame = requestAnimationFrame(loop);
+    if (!document.hidden && !frame && visible && !slow) frame = requestAnimationFrame(loop);
   });
   frame = requestAnimationFrame(loop);
 }
