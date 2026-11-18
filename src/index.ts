@@ -21,6 +21,7 @@ import { initPlaceholders } from './modules/placeholders';
 import { initReadMore } from './modules/read-more';
 import { initSeoHub } from './modules/seo-hub';
 import { initCardLinkNames } from './modules/card-link-names';
+import { initSeoSub } from './modules/seo-sub';
 import { initTabRotation } from './modules/tab-rotation';
 // Self-starting on DOM ready, independently of Webflow (brandvm v1.1.2).
 import './modules/lazy-videos';
@@ -60,6 +61,7 @@ function boot() {
   // accordion. Inert without [data-seo-shader] / [data-seo-track] / [data-seo-acc].
   run('seo-hub', initSeoHub);
   run('card-link-names', initCardLinkNames);
+  run('seo-sub', initSeoSub);
 }
 
 // Site features, ported from brandvm/brandvm v1.1.2 in their original order.

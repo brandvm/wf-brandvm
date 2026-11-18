@@ -4,7 +4,7 @@ import { rm } from 'node:fs/promises';
 const dev = process.argv.includes('--dev');
 
 const config = {
-  entryPoints: ['src/index.ts', 'src/styles.css'],
+  entryPoints: ['src/index.ts', 'src/styles.css', 'src/seo-sub-viz.css', 'src/seo-sub-viz.js'],
   bundle: true,
   outdir: 'dist',
   // Icon fonts (src/phosphor/) are copied next to the stylesheet, with a
