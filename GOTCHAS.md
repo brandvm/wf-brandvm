@@ -465,3 +465,40 @@ the full history.
   `styles.css` §04 is the only one.
 - Status: fixed (verified 2026-10-19)
 - Found by: codex
+
+### 2026-11-18 · MCP cannot style CMS rich-text descendants
+- Area: designer / MCP
+- Scope: template-candidate
+- Symptom: a Rich Text bound to a CMS field renders `<h1>`/`<h2>`/`<p>`/`<em>`
+  with the site's default rich-text styles, not the wrapper's class.
+- Cause: the MCP style tool has no way to target tags inside a Rich Text
+  (the Designer's "All H2s inside" selectors).
+- Fix: put the type on the wrapper class and add `data-seo-rt` on it; repo CSS
+  (`styles.css` › "SEO sub-pages: CMS rich text") makes the inner tags inherit
+  and styles `em` per role (h1 / h2 / h3-dark / p).
+- Status: fixed (SEO sub-page template)
+- Found by: claude
+
+### 2026-11-18 · Collection List "current item" reference filter cannot be set by MCP
+- Area: designer / MCP / CMS
+- Scope: template-candidate
+- Symptom: `filters` on a Collection List with a Reference field and a bound
+  value fails: "itemRef ... does not support bound filter values"; a list's
+  `source` also cannot be set to a Multi-Reference field (the field id is dropped).
+- Cause: MCP limitation; plain-text fields accept bound filter values.
+- Fix: add a Plain Text "Service Slug" field to the child collection and
+  filter `service-slug equals <current item Slug>` (static_json filter with a
+  cms binding). Curated lists (related services) go in a CMS embed field.
+- Status: worked around (Services • Tabs on the SEO template)
+- Found by: claude
+
+### 2026-11-18 · Services • SEO is at the 60-field limit
+- Area: CMS
+- Scope: project
+- Symptom: creating a field fails with "Can not have more than 60 custom fields".
+- Fix: "Advantage Header Sub-Title" (unused since the template rebuild) was
+  renamed "Related Services (Embed)" and reused; old values are in
+  `seo-redesign/webflow/backup-advantage-fields.json`. The other Advantage
+  fields are also unused and can be freed the same way.
+- Status: documented
+- Found by: claude
