@@ -256,11 +256,13 @@ a {
 
 /* ---------- 04. Typography Utilities (Slater) ---------- */
 /* repo-css: override-webflow — rich-text margin trims on .w-richtext; pre-existing */
-.w-richtext :where(:first-child, div:first-child :first-child) {
+/* The SEO sub-page embeds (CMS rich text holding designed components) are left out: the trim
+   zeroed every first/last child's margin inside them. :where() keeps the specificity as it was. */
+.w-richtext :where(:first-child, div:first-child :first-child):not(:where(.seo-sub-cards, .seo-sub-cards *, .seo-sub-vx, .seo-sub-vx *, .seo-sub-rel, .seo-sub-rel *)) {
   margin-top: 0 !important;
 }
 
-.w-richtext :where(:last-child, div:first-child :last-child) {
+.w-richtext :where(:last-child, div:first-child :last-child):not(:where(.seo-sub-cards, .seo-sub-cards *, .seo-sub-vx, .seo-sub-vx *, .seo-sub-rel, .seo-sub-rel *)) {
   margin-bottom: 0 !important;
 }
 
