@@ -1319,7 +1319,7 @@ select.form-input {
    Services • SEO template uses. */
 /* embeds start from neutral text settings, not whatever the surrounding Webflow section sets */
 .seo-sub-cards,.seo-sub-rel{letter-spacing:normal;text-transform:none;font-weight:400}
-.seo-sub-vx{letter-spacing:-.028em;text-transform:none;font-weight:400} /* the prototype body's tracking */
+.seo-sub-vx{letter-spacing:-.024em;text-transform:none;font-weight:400} /* the prototype body's tracking */
 .seo-sub-cards em{font-family:inherit;letter-spacing:inherit} /* site em styles (serif accent) must not reach the mock UI */
 /* diagram section layout from CMS "Visual Layout": split = text column beside the diagram (prototype .vx--split) */
 [data-vx-layout="split"]>.s-wrapper{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:4rem;row-gap:3rem;align-items:center}
@@ -1327,8 +1327,8 @@ select.form-input {
 @media screen and (max-width:991px){[data-vx-layout="split"]>.s-wrapper{grid-template-columns:minmax(0,1fr)}}
 [data-seo-rt]>*{font:inherit;color:inherit;letter-spacing:inherit;line-height:inherit;margin:0;max-width:none}
 [data-seo-rt]>*+*{margin-top:1em}
-[data-seo-rt] em{font-family:"Instrument Serif (Opt)","Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
-[data-seo-rt] strong{font-weight:600}
+[data-seo-rt] em:not(:where(.seo-sub-cards *,.seo-sub-vx *)){font-family:"Instrument Serif (Opt)","Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+[data-seo-rt] strong:not(:where(.seo-sub-cards *,.seo-sub-vx *)){font-weight:600}
 [data-seo-rt="h1"] em{display:block;color:#9cc3ff;font-size:1.02em}
 [data-seo-rt="h2"] em{color:#c4351c;font-size:1.04em}
 [data-seo-rt="h2-dark"] em,[data-seo-rt="h3-dark"] em{color:#9cc3ff}
