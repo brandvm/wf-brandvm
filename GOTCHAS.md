@@ -25,6 +25,25 @@ collected from client repos into those files.
 
 ## This project
 
+### 2026-11-18 · WebGL scores fine locally, 59 on PageSpeed Insights
+- Area: perf
+- Scope: template-candidate
+- Symptom: /seo-agency staging scored 97 desktop in local Lighthouse with
+  4 ms TBT, but PageSpeed Insights gave 59 on both mobile (TBT 11,290 ms,
+  Speed Index 8.7 s) and desktop (TBT 1,340 ms); "Other" main-thread time
+  was 19.5 s, long tasks from index.js through the whole trace.
+- Cause: PSI's Chrome has no GPU. WebGL runs on SwiftShader, so every
+  frame of the hero shader is drawn on the CPU's main thread. A local
+  run uses the machine's GPU and hides it. `failIfMajorPerformanceCaveat`
+  does not catch it: SwiftShader still returns a context.
+- Fix: read `WEBGL_debug_renderer_info` and skip the shader when the
+  renderer matches swiftshader/llvmpipe/software (the CSS gradient under
+  the canvas is the hero then); also stop animating when frames average
+  over 50 ms. PSI after: mobile 97 (TBT 0), desktop 99. Always measure
+  WebGL/canvas pages on pagespeed.web.dev, not only local Lighthouse.
+- Status: fixed 1c10d77
+- Found by: claude
+
 ### 2026-11-18 · S Wrapper's own gap doubles spacing inside new sections
 - Area: designer
 - Scope: project
