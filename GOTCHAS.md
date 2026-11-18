@@ -25,6 +25,37 @@ collected from client repos into those files.
 
 ## This project
 
+### 2026-11-18 · MCP cannot bind a CMS field inside a component's Collection List
+- Area: mcp
+- Scope: template-candidate
+- Symptom: setting a CMS-bound `aria-label` on `.project-overlay-link`
+  inside S | Projects failed: "Element is not inside a CMS context";
+  `get_bindable_sources` listed only page fields and props.
+- Cause: the MCP resolves CMS context from the page, not from a
+  Collection List inside a component definition.
+- Fix: `src/modules/card-link-names.ts` copies the card title into the
+  link's aria-label at runtime and leaves a Designer-bound label alone.
+  Binding it in the Designer by hand (custom attribute → CMS field) is
+  still the better home.
+- Status: open (workaround d7d3689)
+- Found by: claude
+
+### 2026-11-18 · Fluid root shrinks text links under 24px between 992 and ~1100px
+- Area: designer
+- Scope: project
+- Symptom: axe 4.14 / Lighthouse 13 `target-size` failed for author
+  links, the insights category pill and contact phone links only at
+  ~1024 and 1350px, never at 1440 or on phones. Local axe 4.10 missed the
+  author link entirely.
+- Cause: §01 scales the root font (9.75px at 1024), so a 12px-class text
+  link is 15–19px tall there.
+- Fix: invisible tap area on the author link (6px padding, -6px margin),
+  `min-height: 24px` on the category pill and on `Contact CTA | Option
+  Link` (text bottom-aligned so the underline stays under it). Check
+  target-size at 1024 and 1350 as well as the usual widths.
+- Status: fixed (Webflow styles, 2026-11-18)
+- Found by: claude
+
 ### 2026-11-18 · WebGL scores fine locally, 59 on PageSpeed Insights
 - Area: perf
 - Scope: template-candidate
