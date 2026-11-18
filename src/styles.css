@@ -1320,6 +1320,7 @@ select.form-input {
 /* embeds start from neutral text settings, not whatever the surrounding Webflow section sets */
 .seo-sub-cards,.seo-sub-rel{letter-spacing:normal;text-transform:none;font-weight:400}
 .seo-sub-vx{letter-spacing:-.024em;text-transform:none;font-weight:400} /* the prototype body's tracking */
+.seo-sub-vx button{letter-spacing:inherit} /* form controls do not inherit tracking by default */
 .seo-sub-cards em{font-family:inherit;letter-spacing:inherit} /* site em styles (serif accent) must not reach the mock UI */
 /* diagram section layout from CMS "Visual Layout": split = text column beside the diagram (prototype .vx--split) */
 [data-vx-layout="split"]>.s-wrapper{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:4rem;row-gap:3rem;align-items:center}
