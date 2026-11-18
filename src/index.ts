@@ -19,6 +19,7 @@ import { initNewsletter } from './modules/newsletter';
 import { initOrbit } from './modules/orbit';
 import { initPlaceholders } from './modules/placeholders';
 import { initReadMore } from './modules/read-more';
+import { initSeoHub } from './modules/seo-hub';
 import { initTabRotation } from './modules/tab-rotation';
 // Self-starting on DOM ready, independently of Webflow (brandvm v1.1.2).
 import './modules/lazy-videos';
@@ -54,6 +55,9 @@ function boot() {
   // duplicate `id="radio"` filters on /insights (a later, measured batch).
   run('aria-roles', initAriaRoles);
   run('placeholders', initPlaceholders);
+  // SEO hub redesign (/seo-agency): hero shader, card marquee, services
+  // accordion. Inert without [data-seo-shader] / [data-seo-track] / [data-seo-acc].
+  run('seo-hub', initSeoHub);
 }
 
 // Site features, ported from brandvm/brandvm v1.1.2 in their original order.
