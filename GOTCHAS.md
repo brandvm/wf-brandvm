@@ -552,3 +552,19 @@ the full history.
   non-draft item ids, or re-run `unpublish_collection_items` on the drafts before publishing.
 - Status: fixed
 - Found by: claude
+
+### 2026-11-19 · Asset upload fields come back camelCase; CMS image updates fail in big batches
+- Area: Webflow API (MCP)
+- Scope: template-candidate
+- Symptom: (1) S3 answered 403 AccessDenied to every asset upload. (2) `update_collection_items`
+  setting an Image field failed with "Request is malformed: Missing fields" for batches of 10–43,
+  but the same items succeeded one or two at a time.
+- Cause: (1) `create_asset` returns `uploadDetails` with camelCase keys (`xAmzSignature`,
+  `contentType`, `successActionStatus`…); S3 needs the real form-field names. (2) Unclear;
+  Webflow re-hosts each image on update, and larger batches fail intermittently.
+- Fix: (1) map keys to `X-Amz-Algorithm`, `X-Amz-Credential`, `X-Amz-Date`, `X-Amz-Signature`,
+  `Policy`, `success_action_status`, `Content-Type`, `Cache-Control` (`key`, `acl`, `bucket`
+  unchanged) and send them with `--form-string`. (2) send image updates in small batches and
+  retry failures one item per action; pass `{fileId, url}` without `alt`.
+- Status: worked around
+- Found by: claude
