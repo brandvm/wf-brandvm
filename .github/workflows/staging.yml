@@ -43,6 +43,7 @@ jobs:
           echo "::warning::sitemap not rebuilt; keeping the published files"
           base=https://brandvm.github.io/wf-brandvm
           curl -sfL $base/sitemap.xml -o _site/sitemap.xml || { rm -f _site/sitemap.xml; exit 0; }
+          cp scripts/sitemap.xsl _site/
           for f in $(grep -o "$base/sitemap-[a-z-]*\.xml" _site/sitemap.xml); do curl -sfL "$f" -o "_site/${f##*/}"; done
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name != 'pull_request'
