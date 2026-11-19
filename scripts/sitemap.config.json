@@ -1,0 +1,28 @@
+{
+  "siteId": "68b9f0236581de795cba8ec2",
+  "baseUrl": "https://www.brandvm.com",
+  "collections": {
+    "post": "/post",
+    "author": "/brand-vision-insights/author",
+    "insights": "/insights",
+    "case-studies": "/case-studies",
+    "web-design": "/web-design",
+    "industry": "/industry",
+    "branding": "/branding",
+    "ui-ux-agency": "/ui-ux-agency",
+    "seo-agency": "/seo-agency"
+  },
+  "excludeCategory": {
+    "categoryCollection": "insights",
+    "categorySlugs": ["featured"],
+    "itemCollection": "post",
+    "referenceField": "category"
+  },
+  "excludePaths": [
+    "/404",
+    "/401",
+    "/post/top-music-festivals-to-attend-in-2025",
+    "/post/biggest-athlete-endorsement-deals"
+  ],
+  "excludePathPrefixes": ["/design/"]
+}

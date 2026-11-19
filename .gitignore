@@ -22,3 +22,4 @@ baselines/
 
 # Screaming Frog handoff: raw Lighthouse reports (23 MB) kept locally only
 docs/audit/2026-10-20-seo-crawl/lighthouse-reports/
+_site/
