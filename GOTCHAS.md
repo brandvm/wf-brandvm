@@ -538,3 +538,17 @@ the full history.
   class names against the published site CSS.
 - Status: fixed
 - Found by: claude (reported by the user)
+
+### 2026-11-19 · Sitemap toggle off adds noindex; the sitemap API publishes drafts
+- Area: CMS / SEO
+- Scope: template-candidate
+- Symptom: (1) Featured posts carried `<meta name="robots" content="noindex">` on staging. (2) After
+  turning their sitemap indexing back on, 277 draft posts went live on the staging domain.
+- Cause: (1) Webflow adds noindex to any page or CMS item whose Sitemap indexing is off, so the
+  toggle cannot hide a page from the sitemap only. (2) `bulk_update_items_sitemap_status` sets
+  `isDraft` to false on draft items, so the next site publish publishes them.
+- Fix: to keep indexed pages out of the sitemap, turn auto-generate off and paste a hand-written
+  sitemap (`seo-redesign/tools/build-sitemap.py`). Before any sitemap-status bulk update, send only
+  non-draft item ids, or re-run `unpublish_collection_items` on the drafts before publishing.
+- Status: fixed
+- Found by: claude
