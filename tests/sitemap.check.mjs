@@ -1,7 +1,7 @@
 // node --test tests/sitemap.check.mjs — rules of scripts/sitemap.mjs on fixture data.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildEntries, toXml } from '../scripts/sitemap.mjs';
+import { buildEntries, toXml, toFiles } from '../scripts/sitemap.mjs';
 
 const FEAT = 'cat-featured';
 const data = {
@@ -39,9 +39,9 @@ test('drops Featured, its posts, drafts, utility and excluded paths', () => {
   assert.deepEqual(locs, [
     'https://www.brandvm.com',
     'https://www.brandvm.com/contact',
-    'https://www.brandvm.com/insights/seo-agency',
     'https://www.brandvm.com/post/kept',
     'https://www.brandvm.com/post/no-category',
+    'https://www.brandvm.com/insights/seo-agency',
   ]);
 });
 
@@ -50,4 +50,13 @@ test('writes valid sitemap XML', () => {
   assert.match(xml, /^<\?xml version="1.0"/);
   assert.match(xml, /<loc>https:\/\/www\.brandvm\.com\/a&amp;b<\/loc>/);
   assert.match(xml, /<lastmod>2026-01-01T00:00:00Z<\/lastmod>/);
+});
+
+test('splits into group files with an index', () => {
+  const files = toFiles(buildEntries(data));
+  assert.deepEqual(Object.keys(files).sort(), ['sitemap-categories.xml', 'sitemap-pages.xml', 'sitemap-posts.xml', 'sitemap.xml']);
+  assert.match(files['sitemap.xml'], /<sitemapindex/);
+  assert.match(files['sitemap.xml'], /<loc>https:\/\/brandvm\.github\.io\/wf-brandvm\/sitemap-posts\.xml<\/loc>/);
+  assert.equal((files['sitemap-posts.xml'].match(/<url>/g) || []).length, 2);
+  assert.match(files['sitemap-pages.xml'], /<loc>https:\/\/www\.brandvm\.com<\/loc>/);
 });

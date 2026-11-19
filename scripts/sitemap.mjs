@@ -4,12 +4,16 @@
 // only left out of the sitemap. Webflow cannot do this itself: its per-item
 // "Sitemap Indexing" switch also adds <meta name="robots" content="noindex">.
 //
-//   WEBFLOW_TOKEN=… node scripts/sitemap.mjs <out.xml> [--compare <url>]
+//   WEBFLOW_TOKEN=… node scripts/sitemap.mjs <out-dir> [--compare <url>]
+//
+// Writes sitemap.xml (a sitemap index, like WordPress) and one
+// sitemap-<group>.xml per group: pages, posts, categories, authors,
+// case-studies, services, industries (groups set in sitemap.config.json).
 //
 // Token scopes: sites:read, pages:read, cms:read. Settings: sitemap.config.json
 // (collections with live template pages, the excluded category, extra paths).
 // Runs in .github/workflows/staging.yml on a schedule; the file is served at
-// https://brandvm.github.io/wf-brandvm/sitemap.xml, and brandvm.com points to it
+// https://brandvm.github.io/wf-brandvm/sitemap.xml (+ the group files), and brandvm.com points to it
 // from robots.txt and a 301 on /sitemap.xml (both set in Webflow).
 import fs from 'node:fs';
 import path from 'node:path';
@@ -52,7 +56,7 @@ export function buildEntries({ pages, collections, itemsBySlug }, conf = cfg) {
     if (page.draft || page.archived || page.collectionId) continue;
     const p = page.publishedPath || '/';
     if (excluded(p)) continue;
-    entries.push({ path: p, lastmod: page.lastUpdated, order: 0 });
+    entries.push({ path: p, lastmod: page.lastUpdated, group: 'pages' });
   }
 
   const ex = conf.excludeCategory;
@@ -63,8 +67,9 @@ export function buildEntries({ pages, collections, itemsBySlug }, conf = cfg) {
   );
 
   for (const col of collections) {
-    const prefix = conf.collections[col.slug];
-    if (!prefix) continue;
+    const def = conf.collections[col.slug];
+    if (!def) continue;
+    const { prefix, group } = def;
     for (const item of itemsBySlug[col.slug] || []) {
       if (item.isDraft || item.isArchived) continue;
       if (col.slug === ex.categoryCollection && catIds.has(item.id)) continue;
@@ -75,28 +80,47 @@ export function buildEntries({ pages, collections, itemsBySlug }, conf = cfg) {
       }
       const p = `${prefix}/${item.fieldData.slug}`;
       if (excluded(p)) continue;
-      entries.push({ path: p, lastmod: item.lastPublished || item.lastUpdated, order: 1 });
+      entries.push({ path: p, lastmod: item.lastPublished || item.lastUpdated, group });
     }
   }
-  entries.sort((a, b) => a.order - b.order || a.path.localeCompare(b.path));
-  return entries.map(({ path: p, lastmod }) => ({
+  const rank = (g) => (conf.groupOrder.indexOf(g) + 1 || 99);
+  entries.sort((a, b) => rank(a.group) - rank(b.group) || a.path.localeCompare(b.path));
+  return entries.map(({ path: p, lastmod, group }) => ({
     loc: p === '/' ? conf.baseUrl : conf.baseUrl + p,
     lastmod,
+    group,
   }));
 }
 
+const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
 export function toXml(entries) {
-  const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const urls = entries
     .map((e) => `  <url>\n    <loc>${esc(e.loc)}</loc>${e.lastmod ? `\n    <lastmod>${e.lastmod}</lastmod>` : ''}\n  </url>`)
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
 
+// Group files + an index pointing at them. Returns { 'sitemap.xml': …, 'sitemap-posts.xml': … }.
+export function toFiles(entries, conf = cfg) {
+  const groups = [...new Set(entries.map((e) => e.group))];
+  const files = {};
+  const index = [];
+  for (const g of groups) {
+    const list = entries.filter((e) => e.group === g);
+    const name = `sitemap-${g}.xml`;
+    files[name] = toXml(list);
+    const last = list.map((e) => e.lastmod).filter(Boolean).sort().pop();
+    index.push(`  <sitemap>\n    <loc>${esc(`${conf.publicUrl}/${name}`)}</loc>${last ? `\n    <lastmod>${last}</lastmod>` : ''}\n  </sitemap>`);
+  }
+  files['sitemap.xml'] = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${index.join('\n')}\n</sitemapindex>\n`;
+  return files;
+}
+
 async function main() {
   const [out, flag, compareUrl] = process.argv.slice(2);
   const token = process.env.WEBFLOW_TOKEN;
-  if (!out) throw new Error('usage: sitemap.mjs <out.xml> [--compare <url>]');
+  if (!out) throw new Error('usage: sitemap.mjs <out-dir> [--compare <url>]');
   if (!token) throw new Error('WEBFLOW_TOKEN is not set');
 
   const pages = await all(`/sites/${cfg.siteId}/pages`, 'pages', token);
@@ -107,12 +131,19 @@ async function main() {
 
   const entries = buildEntries({ pages, collections: wanted, itemsBySlug });
   if (entries.length < 100) throw new Error(`only ${entries.length} URLs; refusing to publish a near-empty sitemap`);
-  fs.mkdirSync(path.dirname(path.resolve(out)), { recursive: true });
-  fs.writeFileSync(out, toXml(entries));
-  console.log(`sitemap: ${entries.length} URLs -> ${out}`);
+  fs.mkdirSync(out, { recursive: true });
+  const files = toFiles(entries);
+  for (const [name, xml] of Object.entries(files)) fs.writeFileSync(path.join(out, name), xml);
+  const counts = Object.keys(files).filter((n) => n !== 'sitemap.xml')
+    .map((n) => `${n.slice(8, -4)} ${entries.filter((e) => e.group === n.slice(8, -4)).length}`);
+  console.log(`sitemap: ${entries.length} URLs in ${counts.length} files (${counts.join(', ')}) -> ${out}`);
 
   if (flag === '--compare' && compareUrl) {
-    const old = await (await fetch(compareUrl)).text();
+    let old = await (await fetch(compareUrl)).text();
+    if (old.includes('<sitemapindex')) {
+      const kids = [...old.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+      old = (await Promise.all(kids.map(async (u) => (await fetch(u)).text()))).join('');
+    }
     const oldSet = new Set([...old.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
     const newSet = new Set(entries.map((e) => e.loc));
     const gone = [...oldSet].filter((u) => !newSet.has(u));

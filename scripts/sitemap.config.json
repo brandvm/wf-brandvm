@@ -2,15 +2,42 @@
   "siteId": "68b9f0236581de795cba8ec2",
   "baseUrl": "https://www.brandvm.com",
   "collections": {
-    "post": "/post",
-    "author": "/brand-vision-insights/author",
-    "insights": "/insights",
-    "case-studies": "/case-studies",
-    "web-design": "/web-design",
-    "industry": "/industry",
-    "branding": "/branding",
-    "ui-ux-agency": "/ui-ux-agency",
-    "seo-agency": "/seo-agency"
+    "post": {
+      "prefix": "/post",
+      "group": "posts"
+    },
+    "author": {
+      "prefix": "/brand-vision-insights/author",
+      "group": "authors"
+    },
+    "insights": {
+      "prefix": "/insights",
+      "group": "categories"
+    },
+    "case-studies": {
+      "prefix": "/case-studies",
+      "group": "case-studies"
+    },
+    "web-design": {
+      "prefix": "/web-design",
+      "group": "services"
+    },
+    "industry": {
+      "prefix": "/industry",
+      "group": "industries"
+    },
+    "branding": {
+      "prefix": "/branding",
+      "group": "services"
+    },
+    "ui-ux-agency": {
+      "prefix": "/ui-ux-agency",
+      "group": "services"
+    },
+    "seo-agency": {
+      "prefix": "/seo-agency",
+      "group": "services"
+    }
   },
   "excludeCategory": {
     "categoryCollection": "insights",
@@ -31,5 +58,15 @@
   "excludePathPrefixes": [
     "/design/"
   ],
-  "_note": "excludePaths: items whose Sitemap Indexing switch is off in Webflow (the API cannot read it). Add any new one here."
+  "_note": "excludePaths: items whose Sitemap Indexing switch is off in Webflow (the API cannot read it). Add any new one here.",
+  "publicUrl": "https://brandvm.github.io/wf-brandvm",
+  "groupOrder": [
+    "pages",
+    "posts",
+    "categories",
+    "authors",
+    "case-studies",
+    "services",
+    "industries"
+  ]
 }
