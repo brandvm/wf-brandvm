@@ -133,7 +133,7 @@ export function toXml(entries) {
   const urls = entries
     .map((e) => `  <url>\n    <loc>${esc(e.loc)}</loc>${e.lastmod ? `\n    <lastmod>${e.lastmod}</lastmod>` : ''}\n  </url>`)
     .join('\n');
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
 
 // Group files + an index pointing at them. Returns { 'sitemap.xml': …, 'sitemap-posts.xml': … }.
@@ -148,7 +148,7 @@ export function toFiles(entries, conf = cfg) {
     const last = list.map((e) => e.lastmod).filter(Boolean).sort().pop();
     index.push(`  <sitemap>\n    <loc>${esc(`${conf.publicUrl}/${name}`)}</loc>${last ? `\n    <lastmod>${last}</lastmod>` : ''}\n  </sitemap>`);
   }
-  files['sitemap.xml'] = `<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${index.join('\n')}\n</sitemapindex>\n`;
+  files['sitemap.xml'] = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${index.join('\n')}\n</sitemapindex>\n`;
   return files;
 }
 
@@ -169,7 +169,6 @@ async function main() {
   fs.mkdirSync(out, { recursive: true });
   const files = toFiles(entries);
   for (const [name, xml] of Object.entries(files)) fs.writeFileSync(path.join(out, name), xml);
-  fs.copyFileSync(path.join(here, 'sitemap.xsl'), path.join(out, 'sitemap.xsl'));
   const counts = Object.keys(files).filter((n) => n !== 'sitemap.xml')
     .map((n) => `${n.slice(8, -4)} ${entries.filter((e) => e.group === n.slice(8, -4)).length}`);
   console.log(`sitemap: ${entries.length} URLs in ${counts.length} files (${counts.join(', ')}) -> ${out}`);
