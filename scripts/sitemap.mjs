@@ -12,7 +12,7 @@
 //
 // Token scopes: sites:read, pages:read, cms:read. Settings: sitemap.config.json
 // (collections with live template pages, the excluded category, extra paths).
-// Runs in .github/workflows/sitemap.yml (every 3 hours, or on demand) and on
+// Runs in .github/workflows/sitemap.yml (every 30 min, 6 am–9 pm Toronto, or on demand) and on
 // every staging deploy; the file is served at
 // https://brandvm.github.io/wf-brandvm/sitemap.xml (+ the group files), and brandvm.com points to it
 // from robots.txt and a 301 on /sitemap.xml (both set in Webflow).
