@@ -14,7 +14,9 @@
   },
   "excludeCategory": {
     "categoryCollection": "insights",
-    "categorySlugs": ["featured"],
+    "categorySlugs": [
+      "featured"
+    ],
     "itemCollection": "post",
     "referenceField": "category"
   },
@@ -22,7 +24,12 @@
     "/404",
     "/401",
     "/post/top-music-festivals-to-attend-in-2025",
-    "/post/biggest-athlete-endorsement-deals"
+    "/post/biggest-athlete-endorsement-deals",
+    "/insights/all",
+    "/industry/real-estate-marketing"
   ],
-  "excludePathPrefixes": ["/design/"]
+  "excludePathPrefixes": [
+    "/design/"
+  ],
+  "_note": "excludePaths: items whose Sitemap Indexing switch is off in Webflow (the API cannot read it). Add any new one here."
 }
