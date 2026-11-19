@@ -1,7 +1,7 @@
 // SEO hub (/seo-agency) redesign: three behaviours, each a no-op when its
 // markup is absent, so no other page is affected.
 //
-//   [data-seo-shader]   <canvas> in the hero background Embed: WebGL ribbed-glass
+//   [data-seo-shader]   <canvas> in the hero background Embed: WebGL satin-in-a-breeze
 //                       shader (seo-hub-frag.ts), GPU only. The inline gradient under
 //                       it is the fallback (no WebGL, software WebGL, a slow GPU);
 //                       reduced motion draws one frame.
