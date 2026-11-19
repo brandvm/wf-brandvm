@@ -4,7 +4,13 @@
   "collections": {
     "post": {
       "prefix": "/post",
-      "group": "posts"
+      "group": "posts",
+      "sort": [
+        {
+          "field": "date---published",
+          "dir": "desc"
+        }
+      ]
     },
     "author": {
       "prefix": "/brand-vision-insights/author",
@@ -16,11 +22,22 @@
     },
     "case-studies": {
       "prefix": "/case-studies",
-      "group": "case-studies"
+      "group": "case-studies",
+      "sort": [
+        {
+          "field": "sort-order",
+          "dir": "asc"
+        },
+        {
+          "field": "new-date-of-completion----shared",
+          "dir": "desc"
+        }
+      ]
     },
     "web-design": {
       "prefix": "/web-design",
-      "group": "services"
+      "group": "services",
+      "rank": 1
     },
     "industry": {
       "prefix": "/industry",
@@ -28,15 +45,18 @@
     },
     "branding": {
       "prefix": "/branding",
-      "group": "services"
+      "group": "services",
+      "rank": 0
     },
     "ui-ux-agency": {
       "prefix": "/ui-ux-agency",
-      "group": "services"
+      "group": "services",
+      "rank": 2
     },
     "seo-agency": {
       "prefix": "/seo-agency",
-      "group": "services"
+      "group": "services",
+      "rank": 3
     }
   },
   "excludeCategory": {
@@ -62,11 +82,47 @@
   "publicUrl": "https://brandvm.github.io/wf-brandvm",
   "groupOrder": [
     "pages",
+    "services",
+    "case-studies",
+    "industries",
     "posts",
     "categories",
-    "authors",
-    "case-studies",
-    "services",
-    "industries"
-  ]
+    "authors"
+  ],
+  "pageOrder": [
+    "/",
+    "/services",
+    "/branding",
+    "/web-design",
+    "/ui-ux-agency",
+    "/seo-agency",
+    "/web-development",
+    "/marketing-agency",
+    "/ppc-agency",
+    "/marketing-consultation",
+    "/real-estate-marketing",
+    "/our-work-portfolio",
+    "/industries",
+    "/about",
+    "/contact",
+    "/insights",
+    "/faq",
+    "/career",
+    "/us",
+    "/us-web-design",
+    "/locations/canada",
+    "/locations/montreal",
+    "/locations/los-angeles",
+    "/locations/dallas",
+    "/chicago",
+    "/miami",
+    "/san-francisco"
+  ],
+  "pageOrderLast": [
+    "/insights-contact",
+    "/brand-vision-insights-terms",
+    "/privacy-policy",
+    "/sitemap"
+  ],
+  "_sortNote": "Order: groups by groupOrder; pages by pageOrder (unlisted pages next, A-Z; pageOrderLast at the end); collections by rank, then each collection's sort fields (missing values last), else the CMS API order."
 }

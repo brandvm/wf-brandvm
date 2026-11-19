@@ -24,9 +24,9 @@ const data = {
       { id: 'cat-seo', fieldData: { slug: 'seo-agency' }, lastPublished: 'p' },
     ],
     post: [
-      { id: 'a', fieldData: { slug: 'kept', category: 'cat-seo' }, lastPublished: 'p1' },
+      { id: 'a', fieldData: { slug: 'kept', category: 'cat-seo', 'date---published': '2025-01-01' }, lastPublished: 'p1' },
       { id: 'b', fieldData: { slug: 'featured-one', category: FEAT } },
-      { id: 'c', fieldData: { slug: 'no-category', category: null }, lastPublished: 'p2' },
+      { id: 'c', fieldData: { slug: 'no-category', category: null, 'date---published': '2026-01-01' }, lastPublished: 'p2' },
       { id: 'd', fieldData: { slug: 'biggest-athlete-endorsement-deals' } },
       { id: 'e', fieldData: { slug: 'draft-one' }, isDraft: true },
     ],
@@ -39,8 +39,8 @@ test('drops Featured, its posts, drafts, utility and excluded paths', () => {
   assert.deepEqual(locs, [
     'https://www.brandvm.com',
     'https://www.brandvm.com/contact',
-    'https://www.brandvm.com/post/kept',
     'https://www.brandvm.com/post/no-category',
+    'https://www.brandvm.com/post/kept',
     'https://www.brandvm.com/insights/seo-agency',
   ]);
 });

@@ -46,6 +46,40 @@ async function all(url, key, token) {
   }
 }
 
+// Importance order for static pages: listed first, unlisted A-Z, the 'last' list at the end.
+function pageKey(p, conf) {
+  const i = (conf.pageOrder || []).indexOf(p);
+  if (i >= 0) return [0, i];
+  const j = (conf.pageOrderLast || []).indexOf(p);
+  return j >= 0 ? [2, j] : [1, p];
+}
+const cmpKey = (a, b) => {
+  for (let k = 0; k < Math.max(a.length, b.length); k++) {
+    if (a[k] === b[k]) continue;
+    if (typeof a[k] === 'number' && typeof b[k] === 'number') return a[k] - b[k];
+    return String(a[k]).localeCompare(String(b[k]));
+  }
+  return 0;
+};
+// CMS order: the collection's sort fields (missing values last), else the API's own order.
+function sortItems(items, sort) {
+  if (!sort?.length) return items;
+  return items
+    .map((item, i) => ({ item, i }))
+    .sort((x, y) => {
+      for (const { field, dir } of sort) {
+        const a = x.item.fieldData[field], b = y.item.fieldData[field];
+        const ma = a == null || a === '', mb = b == null || b === '';
+        if (ma !== mb) return ma ? 1 : -1;
+        if (ma) continue;
+        const c = typeof a === 'number' && typeof b === 'number' ? a - b : String(a).localeCompare(String(b));
+        if (c) return dir === 'desc' ? -c : c;
+      }
+      return x.i - y.i;
+    })
+    .map((x) => x.item);
+}
+
 // Pure: turns API data into sorted { loc, lastmod } entries. Exported for tests.
 export function buildEntries({ pages, collections, itemsBySlug }, conf = cfg) {
   const excluded = (p) =>
@@ -56,7 +90,7 @@ export function buildEntries({ pages, collections, itemsBySlug }, conf = cfg) {
     if (page.draft || page.archived || page.collectionId) continue;
     const p = page.publishedPath || '/';
     if (excluded(p)) continue;
-    entries.push({ path: p, lastmod: page.lastUpdated, group: 'pages' });
+    entries.push({ path: p, lastmod: page.lastUpdated, group: 'pages', key: pageKey(p, conf) });
   }
 
   const ex = conf.excludeCategory;
@@ -70,7 +104,8 @@ export function buildEntries({ pages, collections, itemsBySlug }, conf = cfg) {
     const def = conf.collections[col.slug];
     if (!def) continue;
     const { prefix, group } = def;
-    for (const item of itemsBySlug[col.slug] || []) {
+    const items = sortItems(itemsBySlug[col.slug] || [], def.sort);
+    for (const [i, item] of items.entries()) {
       if (item.isDraft || item.isArchived) continue;
       if (col.slug === ex.categoryCollection && catIds.has(item.id)) continue;
       if (col.slug === ex.itemCollection) {
@@ -80,11 +115,11 @@ export function buildEntries({ pages, collections, itemsBySlug }, conf = cfg) {
       }
       const p = `${prefix}/${item.fieldData.slug}`;
       if (excluded(p)) continue;
-      entries.push({ path: p, lastmod: item.lastPublished || item.lastUpdated, group });
+      entries.push({ path: p, lastmod: item.lastPublished || item.lastUpdated, group, key: [def.rank ?? 0, i] });
     }
   }
   const rank = (g) => (conf.groupOrder.indexOf(g) + 1 || 99);
-  entries.sort((a, b) => rank(a.group) - rank(b.group) || a.path.localeCompare(b.path));
+  entries.sort((a, b) => rank(a.group) - rank(b.group) || cmpKey(a.key, b.key));
   return entries.map(({ path: p, lastmod, group }) => ({
     loc: p === '/' ? conf.baseUrl : conf.baseUrl + p,
     lastmod,
