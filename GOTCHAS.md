@@ -25,6 +25,18 @@ collected from client repos into those files.
 
 ## This project
 
+### 2026-11-19 · Webflow's "Sitemap Indexing" switch also noindexes the page
+- Area: designer / CMS
+- Scope: template-candidate
+- Symptom: after turning Sitemap Indexing off for 770 Featured posts (to drop
+  them from sitemap.xml), each post rendered `<meta name="robots" content="noindex"/>`.
+- Cause: Webflow ties the two: off = out of the sitemap and out of search.
+- Fix: to keep pages indexable but out of the sitemap, leave the switch on and
+  generate the sitemap instead (`scripts/sitemap.mjs`, staging workflow,
+  served from GitHub Pages; robots.txt and a 301 on /sitemap.xml point to it).
+- Status: fixed 55d7913 (needs the WEBFLOW_TOKEN secret and the Webflow settings)
+- Found by: claude
+
 ### 2026-11-18 · MCP cannot bind a CMS field inside a component's Collection List
 - Area: mcp
 - Scope: template-candidate
