@@ -1330,7 +1330,7 @@ select.form-input {
 [data-seo-rt]>*+*{margin-top:1em}
 [data-seo-rt] em:not(:where(.seo-sub-cards *,.seo-sub-vx *)){font-family:"Instrument Serif (Opt)","Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
 [data-seo-rt] strong:not(:where(.seo-sub-cards *,.seo-sub-vx *)){font-weight:600}
-[data-seo-rt="h1"] em{display:block;color:#9cc3ff;font-size:1.02em}
+[data-seo-rt="h1"] em{display:inline;color:#9cc3ff;font-size:1.02em}
 [data-seo-rt="h2"] em{color:#c4351c;font-size:1.04em}
 [data-seo-rt="h2-dark"] em,[data-seo-rt="h3-dark"] em{color:#9cc3ff}
 /* related-services tiles: markup is a CMS embed (Services • SEO › Related Services (Embed)) */
