@@ -1669,3 +1669,8 @@ select.form-input {
     aspect-ratio: 398 / 278 !important;
   }
 }
+
+/* SEO heroes: no label row above the cards ("Where customers find you…  01 — 04"),
+   so the space it reserved at the top of the strip goes too (2026-11-20, client request). */
+.seo-hub-cards-slot .sh-sig-row,.seo-sub-cards .sig-row{display:none}
+.seo-hub-cards-slot .sh-signals,.seo-sub-cards .signals{padding-top:.5rem}
