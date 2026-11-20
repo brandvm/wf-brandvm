@@ -1674,3 +1674,12 @@ select.form-input {
    so the space it reserved at the top of the strip goes too (2026-11-20, client request). */
 .seo-hub-cards-slot .sh-sig-row,.seo-sub-cards .sig-row{display:none}
 .seo-hub-cards-slot .sh-signals,.seo-sub-cards .signals{padding-top:.5rem}
+
+/* SEO sub-pages (2026-11-20, review): long services titles ("Technical SEO & On-Page SEO
+   Services") wrap to two balanced lines instead of one very wide line; titles up to ~11em
+   (eCommerce SEO Services, AI Visibility and GEO Services) stay on one line. */
+.seo-hub-h2.is-sub{max-width:13em;margin-left:auto;margin-right:auto}
+/* SEO heroes on desktop: the headline starts level with the statement on the right instead of
+   sinking to the bottom of the column, so short one-line titles (eCommerce SEO) don't float low.
+   7.5rem = .seo-hub-hero-side padding-top; Webflow sets margin-top:0 below 992px. */
+@media (min-width:992px){.seo-hub-h1{margin-top:7.5rem}}
