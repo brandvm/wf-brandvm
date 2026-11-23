@@ -1,10 +1,9 @@
 # Session report: 2026-11-23
 
-The Claude Code sessions listed below were archived on 2026-11-23 to keep the Claude app responsive. This file records where each one left off, so a new session can pick up the work.
+The Claude Code sessions listed below were archived and then deleted on 2026-11-23 to keep the Claude app responsive. This file records where each one left off, so a new session can pick up the work.
 
 Read this with `HANDOFF.md` (the project brief and its Status section). If something here conflicts with `HANDOFF.md`, `HANDOFF.md` and the git history are more current.
 
-To reopen a session, go to the Claude app's sidebar → Archived, or use the session link while the app is installed.
 
 ## Open items
 
@@ -34,7 +33,7 @@ Open pull requests:
 ### SEO landing page design refinement
 
 - **Active:** 2026-11-17 → 2026-11-20 19:10
-- **Session:** [local_a4c3303f-6652-421e-9d4d-8ba04dfa8473](claude://claude.ai/epitaxy/local_a4c3303f-6652-421e-9d4d-8ba04dfa8473) (archived)
+- **Session:** `local_a4c3303f-6652-421e-9d4d-8ba04dfa8473` (deleted 2026-11-23)
 - **Started with:** "@"/Users/Work/Downloads/loom-video.mp4" <pasted_content id="3250"> 0:01 Hey Asim, so one of the things we need to do and need your help with, so as you know, in our services, so we have this landing page and we have these sub-pages basically to it. 0:12 This is our like the main SEO service landing …"
 - **Where it ended:** brandvm.com is live on release 1.4.12.
 - **Recent progress:**
@@ -45,7 +44,7 @@ Open pull requests:
 ### btw: can you give all seo page link you made in prototype?
 
 - **Active:** 2026-11-18 → 2026-11-19 13:48
-- **Session:** [local_56530cfa-36a1-41cb-9e7b-d36784b426b4](claude://claude.ai/epitaxy/local_56530cfa-36a1-41cb-9e7b-d36784b426b4) (archived)
+- **Session:** `local_56530cfa-36a1-41cb-9e7b-d36784b426b4` (deleted 2026-11-23)
 - **Started with:** "@"/Users/Work/Downloads/loom-video.mp4" <pasted_content id="3250"> 0:01 Hey Asim, so one of the things we need to do and need your help with, so as you know, in our services, so we have this landing page and we have these sub-pages basically to it. 0:12 This is our like the main SEO service landing …"
 - **Status:** explained Featured posts are excluded from sitemap.xml
 - **Recent progress:**
