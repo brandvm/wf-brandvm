@@ -50,6 +50,31 @@ const NOTES = {
   [C.inHubSpot]: 'Fills in every 6 hours once a HubSpot token is saved (SETUP.md step 4).\nyes = HubSpot kept it; no = HubSpot said success but has no such submission.',
   [C.tz]: "The visitor's device time zone: a rough location.",
 };
+// The Contact form's fields (HubSpot form 7a162eb3-…, read 2026-11-25), in
+// form order: [HubSpot field name, column title, width]. Their columns exist
+// from the start; a field not listed here gets a column named after it the
+// first time it's submitted.
+const FIELDS = [
+  ['firstname', 'First name', 130],
+  ['lastname', 'Last name', 130],
+  ['email', 'Email', 230],
+  ['phone', 'Phone', 140],
+  ['what_service_are_you_looking_for_', 'Service', 170],
+  ['where_did_you_hear_about_us_', 'Heard about us', 160],
+  ['request', 'Project details', 360],
+  ['hs_file_upload', 'File upload', 200],
+  ['lead_agency', 'Lead agency', 140],
+  ['TICKET.subject', 'Ticket name', 200],
+  ['TICKET.content', 'Ticket description', 260],
+];
+const LABEL = {};
+FIELDS.forEach(([key, title]) => (LABEL[key] = title));
+LABEL.subject = 'Ticket name';
+LABEL.content = 'Ticket description';
+function columnTitle(key) {
+  const k = String(key).slice(0, 80);
+  return LABEL[k] || k;
+}
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 /** Run once from the editor: builds the tabs and the daily jobs. */
@@ -82,6 +107,7 @@ function style() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const all = ss.getSheetByName(ALL);
   const last = columnLetter(WIDTH);
+  answerColumns(all);
   dress(all, LOOK.navy);
   Object.keys(NOTES).forEach((i) => all.getRange(1, Number(i) + 1).setNote(NOTES[i]));
   TABS.forEach(([name, query, colour]) => {
@@ -91,6 +117,26 @@ function style() {
     dress(tab, colour);
   });
   ss.setActiveSheet(all);
+}
+
+// Titles the form's columns: renames a raw field-name header to its title
+// (e.g. "firstname" -> "First name"), then adds any missing ones in form order.
+function answerColumns(sheet) {
+  const width = sheet.getMaxColumns();
+  const headers = sheet.getRange(1, 1, 1, width).getValues()[0].map(String);
+  headers.forEach((h, i) => {
+    if (i >= FIXED.length && LABEL[h] && headers.indexOf(LABEL[h]) < 0) {
+      headers[i] = LABEL[h];
+      sheet.getRange(1, i + 1).setValue(LABEL[h]);
+    }
+  });
+  FIELDS.forEach(([, title]) => {
+    if (headers.indexOf(title) >= 0) return;
+    const free = headers.indexOf('', FIXED.length);
+    if (free < 0) return;
+    headers[free] = title;
+    sheet.getRange(1, free + 1).setValue(title);
+  });
 }
 
 function dress(sheet, tabColour) {
@@ -116,6 +162,11 @@ function dress(sheet, tabColour) {
   // Widths: the fixed columns, then the answers.
   WIDTHS.forEach((w, i) => sheet.setColumnWidth(i + 1, w));
   sheet.setColumnWidths(FIXED.length + 1, WIDTH - FIXED.length, 200);
+  const titles = sheet.getRange(1, 1, 1, WIDTH).getDisplayValues()[0];
+  FIELDS.forEach(([, title, w]) => {
+    const i = titles.indexOf(title);
+    if (i >= 0) sheet.setColumnWidth(i + 1, w);
+  });
   sheet.getRange(2, C.status + 1, rows - 1, 2).setHorizontalAlignment('center').setFontWeight('bold');
 
   // Technical columns tucked into groups: click + above the columns to open.
@@ -184,7 +235,7 @@ function save(p) {
   // One column per form field, added the first time it appears.
   const answers = p.answers && typeof p.answers === 'object' ? p.answers : {};
   Object.keys(answers).slice(0, 40).forEach((key) => {
-    const name = String(key).slice(0, 80);
+    const name = columnTitle(key);
     if (headers.indexOf(name) >= 0) return;
     const free = headers.indexOf('', FIXED.length);
     if (free < 0) return; // full: the value is still in no column, rare
@@ -217,7 +268,7 @@ function save(p) {
   if (p.ua) row[C.ua] = p.ua;
   if (p.hutk) row[C.hutk] = p.hutk;
   Object.keys(answers).forEach((key) => {
-    const i = headers.indexOf(String(key).slice(0, 80));
+    const i = headers.indexOf(columnTitle(key));
     const value = answers[key];
     if (i >= FIXED.length && value !== '' && value != null) row[i] = value;
   });
