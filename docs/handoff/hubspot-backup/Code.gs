@@ -29,11 +29,27 @@ const FIXED = [
 const C = { first: 0, last: 1, attempt: 2, status: 3, inHubSpot: 4, error: 5, conversion: 6,
   form: 7, host: 8, page: 9, referrer: 10, tz: 11, lang: 12, ua: 13, hutk: 14 };
 const RANK = { attempt: 0, rejected: 1, accepted: 2 };
+// Filtered tabs, newest first. [name, query, tab colour]
 const TABS = [
-  ['Accepted', "select * where D = 'accepted'"],
-  ['Not accepted', "select * where D <> 'accepted' and D <> ''"],
-  ['Accepted, missing in HubSpot', "select * where D = 'accepted' and E = 'no'"],
+  ['Accepted', "select * where D = 'accepted' order by A desc", '#1E7B45'],
+  ['Not accepted', "select * where D <> 'accepted' and D <> '' order by A desc", '#B7791F'],
+  ['Accepted, missing in HubSpot', "select * where D = 'accepted' and E = 'no' order by A desc", '#B3261E'],
 ];
+// Look: Brand Vision navy header, cream bands, status colours.
+const LOOK = {
+  navy: '#14202E', cream: '#FBF8EA', white: '#FFFFFF', line: '#E4DFC8', font: 'Inter',
+  status: {
+    accepted: ['#DDF3E4', '#1E7B45'], rejected: ['#FBE1DE', '#B3261E'], attempt: ['#FFF1CC', '#8A5A00'],
+  },
+  inHubSpot: { yes: ['#DDF3E4', '#1E7B45'], no: ['#FBE1DE', '#B3261E'] },
+};
+// Column widths (px) for the fixed columns; answer columns get 200.
+const WIDTHS = [150, 150, 110, 100, 105, 200, 130, 110, 130, 260, 220, 150, 80, 160, 120];
+const NOTES = {
+  [C.status]: 'attempt = Submit pressed, no answer from HubSpot yet (or never)\nrejected = HubSpot returned an error\naccepted = HubSpot said success',
+  [C.inHubSpot]: 'Fills in every 6 hours once a HubSpot token is saved (SETUP.md step 4).\nyes = HubSpot kept it; no = HubSpot said success but has no such submission.',
+  [C.tz]: "The visitor's device time zone: a rough location.",
+};
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 /** Run once from the editor: builds the tabs and the daily jobs. */
@@ -45,12 +61,7 @@ function setup() {
   all.getRange(1, 1, all.getMaxRows(), WIDTH).setNumberFormat('@');
   all.getRange(1, 1, 1, FIXED.length).setValues([FIXED]).setFontWeight('bold');
   all.setFrozenRows(1);
-  const last = columnLetter(WIDTH);
-  TABS.forEach(([name, query]) => {
-    const tab = ss.getSheetByName(name) || ss.insertSheet(name);
-    tab.getRange('A1').setFormula(`=QUERY(${ALL}!A:${last}, "${query}", 1)`);
-    tab.setFrozenRows(1);
-  });
+  TABS.forEach(([name]) => ss.getSheetByName(name) || ss.insertSheet(name));
   const sheet1 = ss.getSheetByName('Sheet1');
   if (sheet1 && ss.getSheets().length > 1) ss.deleteSheet(sheet1);
 
@@ -59,6 +70,82 @@ function setup() {
     .forEach((t) => ScriptApp.deleteTrigger(t));
   ScriptApp.newTrigger('cleanup').timeBased().everyDays(1).atHour(3).create();
   ScriptApp.newTrigger('checkHubSpot').timeBased().everyHours(6).create();
+  style();
+}
+
+/**
+ * Run from the editor to (re)apply the look and the filtered tabs' formulas.
+ * Safe to run again: it never touches the data. Rows added later pick up the
+ * look automatically (it covers every row of every tab).
+ */
+function style() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const all = ss.getSheetByName(ALL);
+  const last = columnLetter(WIDTH);
+  dress(all, LOOK.navy);
+  Object.keys(NOTES).forEach((i) => all.getRange(1, Number(i) + 1).setNote(NOTES[i]));
+  TABS.forEach(([name, query, colour]) => {
+    const tab = ss.getSheetByName(name) || ss.insertSheet(name);
+    if (tab.getMaxColumns() < WIDTH) tab.insertColumnsAfter(tab.getMaxColumns(), WIDTH - tab.getMaxColumns());
+    tab.getRange('A1').setFormula(`=QUERY(${ALL}!A:${last}, "${query}", 1)`);
+    dress(tab, colour);
+  });
+  ss.setActiveSheet(all);
+}
+
+function dress(sheet, tabColour) {
+  const rows = sheet.getMaxRows();
+  const whole = sheet.getRange(1, 1, rows, WIDTH);
+  sheet.setTabColor(tabColour);
+
+  // Body: one quiet line per row, long text clipped (click a cell to read it).
+  whole.setFontFamily(LOOK.font).setFontSize(10).setVerticalAlignment('middle')
+    .setWrapStrategy(SpreadsheetApp.WrapStrategy.CLIP);
+  sheet.setRowHeightsForced(2, rows - 1, 28);
+  sheet.getBandings().forEach((b) => b.remove());
+  whole.applyRowBanding(SpreadsheetApp.BandingTheme.LIGHT_GREY, true, false)
+    .setHeaderRowColor(LOOK.navy).setFirstRowColor(LOOK.white).setSecondRowColor(LOOK.cream);
+
+  // Header.
+  const head = sheet.getRange(1, 1, 1, WIDTH);
+  head.setFontColor(LOOK.white).setFontWeight('bold').setFontSize(10);
+  sheet.setRowHeightsForced(1, 1, 36);
+  sheet.setFrozenRows(1);
+  sheet.setFrozenColumns(1);
+
+  // Widths: the fixed columns, then the answers.
+  WIDTHS.forEach((w, i) => sheet.setColumnWidth(i + 1, w));
+  sheet.setColumnWidths(FIXED.length + 1, WIDTH - FIXED.length, 200);
+  sheet.getRange(2, C.status + 1, rows - 1, 2).setHorizontalAlignment('center').setFontWeight('bold');
+
+  // Technical columns tucked into groups: click + above the columns to open.
+  // Attempt ID; Form ID + Host; Language + Browser + HubSpot cookie.
+  try {
+    [[C.attempt, 1], [C.form, 2], [C.lang, 3]].forEach(([c, n]) => {
+      if (sheet.getColumnGroupDepth(c + 1) === 0) sheet.getRange(1, c + 1, 1, n).shiftColumnGroupDepth(1);
+      sheet.getColumnGroup(c + 1, 1).collapse();
+    });
+  } catch (err) {
+    // Grouping is cosmetic; skip it if Sheets refuses.
+  }
+
+  // Status and In HubSpot colours, on every row now and later.
+  const statusCol = sheet.getRange(2, C.status + 1, rows - 1, 1);
+  const hubCol = sheet.getRange(2, C.inHubSpot + 1, rows - 1, 1);
+  const rules = [];
+  Object.keys(LOOK.status).forEach((v) => {
+    const [bg, fg] = LOOK.status[v];
+    rules.push(SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo(v)
+      .setBackground(bg).setFontColor(fg).setRanges([statusCol]).build());
+  });
+  Object.keys(LOOK.inHubSpot).forEach((v) => {
+    const [bg, fg] = LOOK.inHubSpot[v];
+    rules.push(SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo(v)
+      .setBackground(bg).setFontColor(fg).setRanges([hubCol]).build());
+  });
+  rules.push(SpreadsheetApp.newConditionalFormatRule().whenTextStartsWith('unknown')
+    .setFontColor('#6B6B6B').setRanges([hubCol]).build());
+  sheet.setConditionalFormatRules(rules);
 }
 
 /** The site posts here (sendBeacon, text/plain JSON). */

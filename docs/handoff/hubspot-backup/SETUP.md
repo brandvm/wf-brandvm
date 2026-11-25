@@ -40,6 +40,13 @@ no email alerts.
 Changing the script later: edit, Save, then **Deploy → Manage deployments
 → pencil → Version: New version → Deploy**. The URL stays the same.
 
+**Look:** `setup` also runs `style`: navy header, cream bands, coloured
+Status and In HubSpot, filtered tabs newest first, technical columns
+(attempt ID, form ID and host, language, browser and cookie) tucked into
+collapsed groups (click **+** above the columns to open). To reapply it
+after pasting a newer `Code.gs`, choose **style** → **Run**. It never
+touches the data, so no redeploy is needed for a style-only change.
+
 ## 4. Optional: mark what HubSpot kept
 
 With a HubSpot private app token (scope **forms**), the script checks every
