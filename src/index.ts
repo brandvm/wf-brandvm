@@ -11,6 +11,7 @@ import { initFinsweet } from './modules/finsweet';
 import { initFlareBorder } from './modules/flare-border';
 import { initHeroIntro } from './modules/hero-intro';
 import { initHubSpotForms } from './modules/hubspot-form';
+import { initHubSpotFormBackup } from './modules/hubspot-form-backup';
 import { initIndustryTilt } from './modules/industry-tilt';
 import { initIxPointer } from './modules/ix-pointer';
 import { initIxScroll } from './modules/ix-scroll';
@@ -39,6 +40,9 @@ function run(name: string, init: () => void) {
 function boot() {
   // No pre-paint scroll lock on this site (D1), so nothing to release.
   run('environment-switcher', initEnvironmentSwitcher);
+  // Copies every HubSpot form submission to the team's Google Sheet, before
+  // any form can load. Inert until its BACKUP_URL is set.
+  run('hubspot-form-backup', initHubSpotFormBackup);
   // Stage 4: the Home hero intro starts on DOM ready, not after webflow.js,
   // so it can begin as soon as its images decode. Inert without [data-hero].
   run('hero-intro', initHeroIntro);

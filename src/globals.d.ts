@@ -29,5 +29,7 @@ declare global {
     };
     __brandvmBooted?: boolean;
     __bvLazyVideosStarted?: boolean;
+    // Test-only endpoint for hubspot-form-backup.ts (ignored on brandvm.com).
+    __bvHsBackupUrl?: string;
   }
 }
