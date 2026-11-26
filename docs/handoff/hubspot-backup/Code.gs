@@ -71,6 +71,9 @@ const LABEL = {};
 FIELDS.forEach(([key, title]) => (LABEL[key] = title));
 LABEL.subject = 'Ticket name';
 LABEL.content = 'Ticket description';
+LABEL['TICKET.hs_file_upload'] = 'File upload';
+// HubSpot's own technical fields, not answers: not kept.
+const SKIP = { 'hs_context': true, 'g-recaptcha-response': true };
 function columnTitle(key) {
   const k = String(key).slice(0, 80);
   return LABEL[k] || k;
@@ -117,6 +120,43 @@ function style() {
     dress(tab, colour);
   });
   ss.setActiveSheet(all);
+}
+
+/**
+ * One-off clean-up for rows saved before the titled columns existed: moves
+ * answers from raw field-name columns (firstname, request…) into the titled
+ * ones (First name, Project details…), removes the raw and technical columns
+ * (hs_context, g-recaptcha-response), then reapplies the look.
+ * Safe to run again.
+ */
+function tidy() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(ALL);
+  answerColumns(sheet);
+  const width = sheet.getMaxColumns();
+  const lastRow = sheet.getLastRow();
+  const headers = sheet.getRange(1, 1, 1, width).getValues()[0].map(String);
+  const remove = [];
+  headers.forEach((h, i) => {
+    if (i < FIXED.length || !h) return;
+    if (SKIP[h]) return remove.push(i);
+    const title = LABEL[h];
+    if (!title || title === h) return;
+    const t = headers.indexOf(title);
+    if (t < 0) return;
+    if (lastRow > 1) {
+      const from = sheet.getRange(2, i + 1, lastRow - 1, 1).getValues();
+      const to = sheet.getRange(2, t + 1, lastRow - 1, 1);
+      const cur = to.getValues();
+      to.setValues(cur.map((r, j) => [r[0] !== '' ? r[0] : safe(from[j][0])]));
+    }
+    remove.push(i);
+  });
+  remove.sort((a, b) => b - a).forEach((i) => sheet.deleteColumn(i + 1));
+  if (sheet.getMaxColumns() < WIDTH) {
+    sheet.insertColumnsAfter(sheet.getMaxColumns(), WIDTH - sheet.getMaxColumns());
+  }
+  sheet.getRange(1, 1, sheet.getMaxRows(), WIDTH).setNumberFormat('@');
+  style();
 }
 
 // Titles the form's columns: renames a raw field-name header to its title
@@ -233,7 +273,11 @@ function save(p) {
   const headers = sheet.getRange(1, 1, 1, width).getValues()[0].map(String);
 
   // One column per form field, added the first time it appears.
-  const answers = p.answers && typeof p.answers === 'object' ? p.answers : {};
+  const answers = {};
+  const raw = p.answers && typeof p.answers === 'object' ? p.answers : {};
+  Object.keys(raw).forEach((k) => {
+    if (!SKIP[k]) answers[k] = raw[k];
+  });
   Object.keys(answers).slice(0, 40).forEach((key) => {
     const name = columnTitle(key);
     if (headers.indexOf(name) >= 0) return;
